@@ -61,7 +61,7 @@ export default function PrinciplesSection() {
     <section
       style={{
         background: 'var(--navy)',
-        padding: '120px 0',
+        padding: '96px 0',
         position: 'relative',
       }}
     >
@@ -130,11 +130,11 @@ export default function PrinciplesSection() {
               ref={(el) => { cardRefs.current[i] = el; }}
               data-idx={i}
               style={{
-                padding: '36px 32px',
+                padding: '28px 24px',
                 borderTop: '1px solid rgba(196,162,90,0.35)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '12px',
+                gap: '8px',
                 // Right column gets left border to separate columns
                 borderLeft: i % 2 === 1 ? '1px solid rgba(196,162,90,0.15)' : undefined,
               }}
@@ -152,7 +152,7 @@ export default function PrinciplesSection() {
               <p
                 style={{
                   fontFamily: 'Georgia, serif',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   color: 'var(--warm-foam)',
                   letterSpacing: '0.12em',
                   margin: 0,

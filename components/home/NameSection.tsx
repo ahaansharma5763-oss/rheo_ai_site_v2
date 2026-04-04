@@ -42,7 +42,7 @@ export default function NameSection() {
     <section
       style={{
         background: 'var(--navy)',
-        padding: '120px 0',
+        padding: '96px 0',
       }}
     >
       {/* Inner container */}
@@ -66,7 +66,7 @@ export default function NameSection() {
           {/* LEFT */}
           <div
             ref={leftRef}
-            style={{ paddingRight: '64px' }}
+            style={{ paddingRight: '48px' }}
             className="name-col-left"
           >
             <p
@@ -85,7 +85,7 @@ export default function NameSection() {
             <p
               style={{
                 fontFamily: 'Georgia, serif',
-                fontSize: '72px',
+                fontSize: '64px',
                 color: 'var(--gold)',
                 letterSpacing: '0.1em',
                 margin: 0,
@@ -114,7 +114,7 @@ export default function NameSection() {
                 fontSize: '14px',
                 color: 'var(--warm-foam)',
                 lineHeight: 1.8,
-                margin: '20px 0 0 0',
+                margin: '15px 0 0 0',
               }}
             >
               Movement without friction. Intelligence without noise.
@@ -134,13 +134,13 @@ export default function NameSection() {
           {/* RIGHT */}
           <div
             ref={rightRef}
-            style={{ paddingLeft: '64px' }}
+            style={{ paddingLeft: '48px' }}
             className="name-col-right"
           >
             <p
               style={{
                 fontFamily: 'Georgia, serif',
-                fontSize: '66px',
+                fontSize: '58px',
                 color: 'var(--gold)',
                 letterSpacing: '0.1em',
                 margin: 0,
@@ -169,7 +169,7 @@ export default function NameSection() {
                 fontSize: '14px',
                 color: 'var(--warm-foam)',
                 lineHeight: 1.8,
-                margin: '20px 0 0 0',
+                margin: '15px 0 0 0',
               }}
             >
               Two philosophies. One name. One purpose.
@@ -180,9 +180,9 @@ export default function NameSection() {
         {/* Decorative wave */}
         <div style={{ marginTop: '64px' }}>
           <svg
-            viewBox="0 0 1200 40"
+            viewBox="0 0 1200 28"
             width="100%"
-            height="40"
+            height="28"
             preserveAspectRatio="none"
             style={{ display: 'block' }}
           >

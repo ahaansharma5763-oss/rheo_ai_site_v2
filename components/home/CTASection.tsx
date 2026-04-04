@@ -66,7 +66,7 @@ export default function CTASection() {
           background: transparent;
           border: 1px solid var(--gold);
           color: var(--gold);
-          padding: 14px 36px;
+          padding: 13px 32px;
           font-family: 'DM Sans', sans-serif;
           font-size: 12px;
           letter-spacing: 0.12em;
@@ -112,9 +112,9 @@ export default function CTASection() {
         <h2
           style={{
             fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(32px, 5vw, 48px)',
+            fontSize: 'clamp(28px, 4.5vw, 42px)',
             color: 'var(--warm-foam)',
-            letterSpacing: '0.2em',
+            letterSpacing: '0.15em',
             maxWidth: '700px',
             lineHeight: 1.2,
             margin: 0,
@@ -161,7 +161,7 @@ export default function CTASection() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: '70%',
+          height: '75%',
           zIndex: 1,
           pointerEvents: 'none',
         }}
@@ -255,8 +255,8 @@ export default function CTASection() {
       <p
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          fontSize: '11px',
-          color: 'var(--prussian)',
+          fontSize: '10px',
+          color: 'rgba(26,53,102,0.6)',
           letterSpacing: '0.2em',
           textAlign: 'center',
           position: 'absolute',

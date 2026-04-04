@@ -113,7 +113,7 @@ function CapabilityBlock({ cap, delay }: { cap: Capability; delay: number }) {
           fontFamily: "'DM Sans', sans-serif",
           fontSize: '12px',
           color: 'var(--ocean)',
-          lineHeight: 1.6,
+          lineHeight: 1.55,
           margin: 0,
         }}
       >
@@ -125,7 +125,7 @@ function CapabilityBlock({ cap, delay }: { cap: Capability; delay: number }) {
 
 export default function WhatWeDoSection() {
   return (
-    <section style={{ background: 'var(--navy)', padding: '120px 0 80px' }}>
+    <section style={{ background: 'var(--navy)', padding: '96px 0 64px' }}>
       <style>{`
         .capability-bar {
           position: absolute;
@@ -143,7 +143,7 @@ export default function WhatWeDoSection() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 0;
-          margin-top: 64px;
+          margin-top: 48px;
         }
         @media (max-width: 767px) {
           .whatwedo-grid {
@@ -180,7 +180,7 @@ export default function WhatWeDoSection() {
           <h2
             style={{
               fontFamily: 'Georgia, serif',
-              fontSize: '32px',
+              fontSize: '28px',
               color: 'var(--warm-foam)',
               letterSpacing: '0.15em',
               marginTop: '16px',

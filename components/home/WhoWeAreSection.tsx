@@ -63,7 +63,7 @@ export default function WhoWeAreSection() {
       ref={sectionRef}
       style={{
         background: 'var(--ink)',
-        padding: '120px 0',
+        padding: '96px 0',
       }}
     >
       <div
@@ -101,7 +101,7 @@ export default function WhoWeAreSection() {
               color: 'var(--warm-foam)',
               lineHeight: 1.3,
               letterSpacing: '0.15em',
-              margin: '0 0 24px 0',
+              margin: '0 0 19px 0',
               maxWidth: '560px',
             }}
           >
@@ -113,7 +113,7 @@ export default function WhoWeAreSection() {
               fontFamily: "'DM Sans', sans-serif",
               fontSize: '14px',
               color: 'rgba(238,232,224,0.75)',
-              lineHeight: 1.9,
+              lineHeight: 1.85,
               margin: '0 0 20px 0',
               maxWidth: '520px',
             }}
@@ -128,7 +128,7 @@ export default function WhoWeAreSection() {
               fontFamily: "'DM Sans', sans-serif",
               fontSize: '14px',
               color: 'rgba(238,232,224,0.75)',
-              lineHeight: 1.9,
+              lineHeight: 1.85,
               margin: 0,
               maxWidth: '520px',
             }}
@@ -143,8 +143,8 @@ export default function WhoWeAreSection() {
           <div
             style={{
               display: 'flex',
-              gap: '48px',
-              marginTop: '48px',
+              gap: '40px',
+              marginTop: '40px',
               flexWrap: 'wrap',
             }}
           >
@@ -158,7 +158,7 @@ export default function WhoWeAreSection() {
                   data-count
                   style={{
                     fontFamily: 'Georgia, serif',
-                    fontSize: '48px',
+                    fontSize: '42px',
                     color: 'var(--gold)',
                     lineHeight: 1,
                     display: 'block',
@@ -193,7 +193,7 @@ export default function WhoWeAreSection() {
           <svg
             viewBox="0 0 400 300"
             width="100%"
-            style={{ maxWidth: '380px', display: 'block' }}
+            style={{ maxWidth: '320px', display: 'block' }}
             aria-hidden="true"
           >
             <defs>

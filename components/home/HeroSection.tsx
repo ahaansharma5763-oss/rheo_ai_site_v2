@@ -80,6 +80,7 @@ export default function HeroSection() {
           justifyContent: 'center',
           textAlign: 'center',
           padding: '0 24px',
+          paddingBottom: '20px',
         }}
       >
         <p
@@ -90,7 +91,7 @@ export default function HeroSection() {
             color: 'var(--ocean)',
             textTransform: 'uppercase',
             letterSpacing: '0.4em',
-            margin: '0 0 20px 0',
+            margin: '0 0 10px 0',
             opacity: 0,
           }}
         >
@@ -101,7 +102,7 @@ export default function HeroSection() {
           data-animate="hero-title"
           style={{
             fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(56px, 10vw, 96px)',
+            fontSize: 'clamp(48px, 9vw, 88px)',
             color: 'var(--gold)',
             letterSpacing: '0.3em',
             margin: '0 0 16px 0',
@@ -120,7 +121,7 @@ export default function HeroSection() {
             fontSize: '14px',
             color: 'var(--crest)',
             letterSpacing: '0.24em',
-            margin: 0,
+            margin: '8px 0 0 0',
             opacity: 0,
           }}
         >
@@ -135,7 +136,7 @@ export default function HeroSection() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: '55%',
+          height: '62%',
           zIndex: 1,
         }}
       >
@@ -247,8 +248,8 @@ export default function HeroSection() {
         <span
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: '9px',
-            color: 'var(--ocean)',
+            fontSize: '8px',
+            color: 'rgba(69,153,181,0.5)',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
           }}

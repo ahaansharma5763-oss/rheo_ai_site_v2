@@ -138,7 +138,7 @@ function PhoneMockup() {
         borderRadius: '32px',
         border: '2px solid #1F2C34',
         overflow: 'hidden',
-        boxShadow: '0 32px 80px rgba(0,0,0,0.7)',
+        boxShadow: '0 48px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(196,162,90,0.08)',
         display: 'flex',
         flexDirection: 'column',
         flexShrink: 0,
@@ -303,7 +303,7 @@ export default function AvaHero() {
         style={{
           position: 'relative',
           zIndex: 10,
-          paddingLeft: '64px',
+          paddingLeft: '56px',
           paddingTop: '180px',
           maxWidth: '50%',
         }}
@@ -332,6 +332,7 @@ export default function AvaHero() {
             lineHeight: 1,
             marginTop: '12px',
             marginBottom: 0,
+            textShadow: '0 0 80px rgba(196,162,90,0.15)',
           }}
         >
           AVA

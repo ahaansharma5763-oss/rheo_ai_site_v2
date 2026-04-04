@@ -1,177 +1,24 @@
-'use client';
-
-import React from 'react';
-
-type Intensity = 'hero' | 'medium' | 'subtle';
+'use client'
+import React from 'react'
 
 interface WaveSystemProps {
-  intensity?: Intensity;
-  className?: string;
+  intensity?: 'hero' | 'medium' | 'subtle'
+  className?: string
+  style?: React.CSSProperties
 }
 
-interface WaveLayer {
-  path: string;
-  fill: string;
-  stroke: string;
-  opacity: number;
-  dataSpeed: string;
-  isFront?: boolean;
-}
+export default function WaveSystem({ intensity = 'hero', className = '', style }: WaveSystemProps) {
+  const layerCount = intensity === 'hero' ? 5 : intensity === 'medium' ? 4 : 3
+  const containerHeight = intensity === 'hero' ? 280 : intensity === 'medium' ? 180 : 100
 
-// --- Wave path definitions (cubic bezier, 1440px wide) ---
-
-const WAVE_PATHS = [
-  // Back layer 1 — slow, low amplitude
-  'M0,100 C180,60 360,140 540,90 C720,40 900,120 1080,70 C1260,20 1380,80 1440,60 L1440,200 L0,200 Z',
-  // Back layer 2
-  'M0,90 C200,130 400,50 600,100 C800,150 1000,60 1200,95 C1320,115 1400,75 1440,80 L1440,200 L0,200 Z',
-  // Mid layer
-  'M0,80 C150,40 300,120 450,60 C600,0 750,100 900,50 C1050,0 1200,80 1440,40 L1440,200 L0,200 Z',
-  // Near layer
-  'M0,110 C100,70 250,130 400,80 C550,30 700,110 900,65 C1100,20 1300,90 1440,55 L1440,200 L0,200 Z',
-  // Front layer
-  'M0,120 C120,85 280,145 460,100 C640,55 800,125 1000,80 C1150,45 1320,105 1440,70 L1440,200 L0,200 Z',
-];
-
-// Layer configurations (back → front order)
-const ALL_LAYERS: WaveLayer[] = [
-  {
-    path: WAVE_PATHS[0],
-    fill: '#1A3566',       // --prussian
-    stroke: '#2E6B8E',     // one shade lighter → --ocean
-    opacity: 0.65,
-    dataSpeed: '0.1',
-  },
-  {
-    path: WAVE_PATHS[1],
-    fill: '#1A3566',
-    stroke: '#2E6B8E',
-    opacity: 0.5,
-    dataSpeed: '0.15',
-  },
-  {
-    path: WAVE_PATHS[2],
-    fill: '#2E6B8E',       // --ocean
-    stroke: '#4599B5',     // --crest
-    opacity: 0.35,
-    dataSpeed: '0.25',
-  },
-  {
-    path: WAVE_PATHS[3],
-    fill: '#0D1F3C',       // --navy
-    stroke: '#2E6B8E',
-    opacity: 0.25,
-    dataSpeed: '0.4',
-  },
-  {
-    path: WAVE_PATHS[4],
-    fill: '#0D1F3C',
-    stroke: '#4599B5',
-    opacity: 0.15,
-    dataSpeed: '0.6',
-    isFront: true,
-  },
-];
-
-const INTENSITY_CONFIG: Record<Intensity, { layerCount: number; height: number }> = {
-  hero:   { layerCount: 5, height: 200 },
-  medium: { layerCount: 4, height: 140 },
-  subtle: { layerCount: 3, height: 80  },
-};
-
-// Fuji silhouette — small, centred, behind all waves
-function FujiSilhouette({ height }: { height: number }) {
-  // Simple triangular mountain silhouette with a gentle snow cap
-  const base = height;
-  const peak = height * 0.15;
-  const cx = 720; // centre of 1440px viewport
-
-  const silhouettePath = `
-    M${cx - 180},${base}
-    C${cx - 140},${base * 0.9} ${cx - 100},${base * 0.7} ${cx - 60},${base * 0.55}
-    C${cx - 30},${base * 0.42} ${cx - 10},${peak * 1.4} ${cx},${peak}
-    C${cx + 10},${peak * 1.4} ${cx + 30},${base * 0.42} ${cx + 60},${base * 0.55}
-    C${cx + 100},${base * 0.7} ${cx + 140},${base * 0.9} ${cx + 180},${base}
-    Z
-  `;
-
-  return (
-    <path
-      d={silhouettePath}
-      fill="#1A3566"
-      opacity="0.08"
-    />
-  );
-}
-
-// Hatch lines for the front wave's fill area
-function FrontWaveHatch({ height }: { height: number }) {
-  const lines: React.ReactNode[] = [];
-  const interval = 16;
-  const count = Math.ceil(1440 / interval);
-
-  for (let i = 0; i <= count; i++) {
-    const x = i * interval;
-    lines.push(
-      <line
-        key={i}
-        x1={x}
-        y1="0"
-        x2={x}
-        y2={height}
-        stroke="#1A3566"
-        strokeWidth="0.5"
-        opacity="0.4"
-      />
-    );
-  }
-
-  return <>{lines}</>;
-}
-
-// Foam dots along the front crest
-function WaveFoam() {
-  const foamPositions = [80, 220, 380, 520, 660, 810, 960, 1100, 1250, 1400];
-
-  return (
-    <>
-      {foamPositions.map((x, i) => {
-        // Approximate y along the front wave path
-        const yOffset = 70 + Math.sin(x / 140) * 30;
-        return (
-          <g key={i}>
-            <circle cx={x} cy={yOffset} r="2.5" fill="#BDB5A5" opacity="0.5" />
-            <circle cx={x + 8} cy={yOffset - 3} r="1.5" fill="#BDB5A5" opacity="0.35" />
-            <circle cx={x - 6} cy={yOffset + 2} r="1" fill="#BDB5A5" opacity="0.25" />
-          </g>
-        );
-      })}
-    </>
-  );
-}
-
-// Gold hairline along the front crest tip
-function GoldCrestLine() {
-  // Mirrors the front wave path but offset slightly upward
-  const goldPath =
-    'M0,118 C120,83 280,143 460,98 C640,53 800,123 1000,78 C1150,43 1320,103 1440,68';
-
-  return (
-    <path
-      d={goldPath}
-      stroke="#C4A25A"
-      strokeWidth="0.6"
-      fill="none"
-      opacity="0.85"
-    />
-  );
-}
-
-export default function WaveSystem({ intensity = 'hero', className = '' }: WaveSystemProps) {
-  const { layerCount, height } = INTENSITY_CONFIG[intensity];
-
-  // Select layers from the back, limited to layerCount
-  const layers = ALL_LAYERS.slice(ALL_LAYERS.length - layerCount);
+  // Wave layer configs — back to front
+  const layers = [
+    { color: '#1A3566', opacity: 0.35, duration: 32, path: 'M0,80 C160,40 320,120 480,70 C640,20 800,100 960,55 C1120,10 1280,80 1440,45 L1440,200 L0,200 Z', height: 200 },
+    { color: '#1A3566', opacity: 0.55, duration: 26, path: 'M0,100 C180,55 360,140 540,85 C720,30 900,110 1080,65 C1260,20 1380,90 1440,60 L1440,200 L0,200 Z', height: 200 },
+    { color: '#2E6B8E', opacity: 0.4,  duration: 20, path: 'M0,120 C200,70 400,150 600,95 C800,40 1000,130 1200,75 C1360,35 1420,100 1440,80 L1440,200 L0,200 Z', height: 200 },
+    { color: '#0D1F3C', opacity: 0.75, duration: 15, path: 'M0,140 C220,90 440,165 660,110 C880,55 1100,145 1320,90 C1400,65 1430,110 1440,95 L1440,200 L0,200 Z', height: 200 },
+    { color: '#07101E', opacity: 1,    duration: 11, path: 'M0,155 C240,105 480,175 720,125 C960,75 1200,158 1440,115 L1440,200 L0,200 Z', height: 200 },
+  ].slice(0, layerCount)
 
   return (
     <div
@@ -181,66 +28,99 @@ export default function WaveSystem({ intensity = 'hero', className = '' }: WaveS
         bottom: 0,
         left: 0,
         right: 0,
-        height: `${height}px`,
+        height: containerHeight,
         overflow: 'hidden',
         pointerEvents: 'none',
+        ...style,
       }}
     >
-      {/* Base SVG containing Fuji + all wave layers */}
+      {/* Fuji silhouette — behind all waves */}
       <svg
-        viewBox={`0 0 1440 ${height}`}
-        preserveAspectRatio="none"
-        width="100%"
-        height="100%"
-        style={{ position: 'absolute', bottom: 0, left: 0 }}
-        aria-hidden="true"
+        viewBox="0 0 1440 280"
+        style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100%' }}
+        preserveAspectRatio="xMidYMax slice"
       >
-        {/* Fuji silhouette — behind everything */}
-        <FujiSilhouette height={height} />
-
-        {/* Hatch clip — applied only to front wave fill area */}
-        <defs>
-          <clipPath id={`front-wave-clip-${intensity}`}>
-            <path d={WAVE_PATHS[4]} />
-          </clipPath>
-        </defs>
-
-        {/* Wave layers */}
-        {layers.map((layer, i) => {
-          const isFront = layer.isFront && layerCount >= 2;
-
-          return (
-            <g key={i} data-speed={layer.dataSpeed} opacity={layer.opacity}>
-              {/* Wave fill */}
-              <path d={layer.path} fill={layer.fill} />
-
-              {/* Hairline stroke on wave top */}
-              <path
-                d={layer.path.split(' L')[0]} // top curve only (before the close)
-                stroke={layer.stroke}
-                strokeWidth="0.6"
-                fill="none"
-              />
-
-              {/* Front wave extras */}
-              {isFront && (
-                <>
-                  {/* Vertical hatch lines clipped to front wave */}
-                  <g clipPath={`url(#front-wave-clip-${intensity})`}>
-                    <FrontWaveHatch height={height} />
-                  </g>
-
-                  {/* Foam */}
-                  <WaveFoam />
-
-                  {/* Single gold hairline on the crest */}
-                  <GoldCrestLine />
-                </>
-              )}
-            </g>
-          );
-        })}
+        <polygon points="580,280 720,80 860,280" fill="#1A3566" opacity="0.06" />
+        <polygon points="560,280 720,60 880,280" fill="#1A3566" opacity="0.04" />
       </svg>
+
+      {/* Animated wave layers */}
+      {layers.map((layer, i) => {
+        const isFront = i === layers.length - 1
+        return (
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '200%',
+              height: '100%',
+              animation: `waveScroll${i} ${layer.duration}s linear infinite`,
+            }}
+          >
+            {/* Two SVG copies side by side for seamless loop */}
+            {[0, 1].map(copy => (
+              <svg
+                key={copy}
+                viewBox={`0 0 1440 ${layer.height}`}
+                style={{ width: '50%', height: '100%', display: 'inline-block', verticalAlign: 'bottom' }}
+                preserveAspectRatio="none"
+              >
+                <path d={layer.path} fill={layer.color} opacity={layer.opacity} />
+                {/* Hairline stroke on wave top */}
+                <path
+                  d={layer.path.split(' L')[0]}
+                  fill="none"
+                  stroke={layer.color}
+                  strokeWidth="0.6"
+                  opacity={layer.opacity + 0.15}
+                />
+                {/* Vertical hatch lines on front wave only */}
+                {isFront && copy === 0 && (
+                  <g opacity="0.12">
+                    {Array.from({ length: 90 }, (_, j) => (
+                      <line
+                        key={j}
+                        x1={j * 16}
+                        y1={0}
+                        x2={j * 16}
+                        y2={layer.height}
+                        stroke="#4599B5"
+                        strokeWidth="0.5"
+                      />
+                    ))}
+                  </g>
+                )}
+                {/* Gold hairline on front crest tip only */}
+                {isFront && copy === 0 && (
+                  <path
+                    d={layer.path.split(' L')[0]}
+                    fill="none"
+                    stroke="#C4A25A"
+                    strokeWidth="0.7"
+                    opacity="0.5"
+                  />
+                )}
+                {/* Foam dots on front wave */}
+                {isFront && copy === 0 && [200, 500, 800, 1100, 1350].map((x, fi) => (
+                  <circle key={fi} cx={x} cy={125 + Math.sin(x / 200) * 20} r="1.5" fill="#BDB5A5" opacity="0.35" />
+                ))}
+              </svg>
+            ))}
+          </div>
+        )
+      })}
+
+      {/* CSS keyframe animations injected via style tag */}
+      <style>{`
+        ${layers.map((layer, i) => `
+          @keyframes waveScroll${i} {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+          }
+        `).join('')}
+      `}</style>
     </div>
-  );
+  )
 }

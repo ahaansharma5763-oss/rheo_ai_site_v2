@@ -69,7 +69,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
       ref={ref}
       className="ava-does-item"
       style={{
-        padding: '32px 0',
+        padding: '24px 0',
         borderBottom:
           index < CAPABILITIES.length - 1
             ? '0.5px solid rgba(196,162,90,0.2)'
@@ -82,7 +82,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
       <span
         style={{
           fontFamily: 'Georgia, serif',
-          fontSize: '28px',
+          fontSize: '26px',
           color: 'var(--warm-foam)',
           letterSpacing: '0.1em',
           whiteSpace: 'nowrap',
@@ -108,7 +108,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
 
 export default function AvaDoesSection() {
   return (
-    <section style={{ background: 'var(--navy)', padding: '120px 0' }}>
+    <section style={{ background: 'var(--navy)', padding: '96px 0' }}>
       <style>{`
         @media (max-width: 767px) {
           .ava-does-inner { padding: 0 24px !important; }
