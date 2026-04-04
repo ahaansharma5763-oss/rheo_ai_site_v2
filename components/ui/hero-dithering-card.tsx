@@ -2,29 +2,30 @@
 
 import { useState, Suspense, lazy } from 'react';
 
+// Lazy-load the WebGL shader (browser-only)
 const Dithering = lazy(() =>
   import('@paper-design/shaders-react').then((mod) => ({ default: mod.Dithering }))
 );
 
 interface HeroDitheringProps {
-  /** Wave color — defaults to Rheo AI Ocean #2E6B8E */
+  /** Wave highlight color. Default: Crest #4599B5 */
   colorFront?: string;
-  /** Background color — defaults to Ink Night #07101E */
+  /** Background color. Default: Ink Night #07101E */
   colorBack?: string;
-  /** Animation speed when idle */
+  /** Idle animation speed */
   speed?: number;
-  /** Dither pattern */
+  /** Dither matrix. '4x4' gives finest grain. */
   type?: '2x2' | '4x4' | 'random' | '8x8';
-  /** Shape of distortion */
+  /** Distortion shape. 'wave' looks most like ocean waves. */
   shape?: 'warp' | 'ripple' | 'wave' | 'simplex' | 'dots' | 'swirl' | 'sphere';
 }
 
 export function HeroDithering({
-  colorFront = '#2E6B8E',   // --ocean
-  colorBack  = '#07101E',   // --ink
-  speed      = 0.35,
+  colorFront = '#4599B5',  // --crest
+  colorBack  = '#07101E',  // --ink
+  speed      = 0.25,
   type       = '4x4',
-  shape      = 'warp',
+  shape      = 'wave',
 }: HeroDitheringProps) {
   const [hovered, setHovered] = useState(false);
 
@@ -35,13 +36,22 @@ export function HeroDithering({
       onMouseLeave={() => setHovered(false)}
       aria-hidden="true"
     >
-      <Suspense fallback={<div className="absolute inset-0" style={{ background: '#07101E' }} />}>
+      <Suspense
+        fallback={
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 55%, #1A3566 100%)',
+            }}
+          />
+        }
+      >
         <Dithering
           colorBack={colorBack}
           colorFront={colorFront}
           shape={shape}
           type={type}
-          speed={hovered ? speed * 2.5 : speed}
+          speed={hovered ? speed * 3 : speed}
           className="size-full"
           minPixelRatio={1}
         />

@@ -68,10 +68,10 @@ export default function HeroSection() {
       {/* Dithering wave effect — blue, fills full hero */}
       <HeroDithering
         colorBack="#07101E"
-        colorFront="#2E6B8E"
-        shape="warp"
+        colorFront="#4599B5"
+        shape="wave"
         type="4x4"
-        speed={0.3}
+        speed={0.25}
       />
 
       {/* Dark gradient overlay — keeps text legible, darkens bottom */}
