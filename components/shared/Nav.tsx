@@ -41,10 +41,11 @@ export default function Nav() {
     fontSize: '11px',
     textTransform: 'uppercase',
     letterSpacing: '0.44em',
-    color: 'var(--ocean)',
+    color: 'var(--gold)',
     textDecoration: 'none',
-    transition: 'color 0.2s ease',
+    transition: 'color 0.2s ease, opacity 0.2s ease',
     fontFamily: 'DM Sans, sans-serif',
+    opacity: 0.85,
   };
 
   return (
@@ -122,8 +123,8 @@ export default function Nav() {
               href={href}
               className="text-highlight"
               style={linkStyle}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--ocean)')}
+              onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '1'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '0.85'; }}
             >
               {label}
             </a>
@@ -200,8 +201,8 @@ export default function Nav() {
               fontSize: '13px',
               letterSpacing: '0.3em',
             }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'var(--ocean)')}
+            onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '1'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '0.85'; }}
           >
             {label}
           </a>
