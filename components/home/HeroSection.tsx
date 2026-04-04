@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { SmokeBackground } from '@/components/ui/spooky-smoke-animation';
+import { HeroDithering } from '@/components/ui/hero-dithering-card';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,7 +52,7 @@ export default function HeroSection() {
         height: '100vh',
         minHeight: '600px',
         overflow: 'hidden',
-        background: 'var(--ink)', // fallback while WebGL loads
+        background: 'var(--ink)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -65,25 +65,29 @@ export default function HeroSection() {
         }
       `}</style>
 
-      {/* WebGL smoke IS the wave — fills the full hero */}
-      <div
-        aria-hidden="true"
-        style={{ position: 'absolute', inset: 0, zIndex: 0 }}
-      >
-        <SmokeBackground smokeColor="#C4A25A" />
-      </div>
+      {/* Dithering wave effect — blue, fills full hero */}
+      <HeroDithering
+        colorBack="#07101E"
+        colorFront="#2E6B8E"
+        shape="warp"
+        type="4x4"
+        speed={0.3}
+      />
 
-      {/* Subtle dark vignette so text stays legible */}
+      {/* Dark gradient overlay — keeps text legible, darkens bottom */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute', inset: 0, zIndex: 1,
-          background: 'radial-gradient(ellipse 70% 60% at 50% 40%, transparent 30%, rgba(7,16,30,0.55) 100%)',
+          background: [
+            'radial-gradient(ellipse 80% 50% at 50% 35%, transparent 20%, rgba(7,16,30,0.6) 100%)',
+            'linear-gradient(to bottom, rgba(7,16,30,0.3) 0%, transparent 40%, rgba(7,16,30,0.7) 100%)',
+          ].join(', '),
           pointerEvents: 'none',
         }}
       />
 
-      {/* Centered content */}
+      {/* Content */}
       <div
         style={{
           position: 'relative',
@@ -93,7 +97,7 @@ export default function HeroSection() {
           alignItems: 'center',
           textAlign: 'center',
           padding: '0 24px',
-          marginTop: '-60px', // nudge above true center toward upper-third
+          marginTop: '-40px',
         }}
       >
         <p
@@ -121,7 +125,7 @@ export default function HeroSection() {
             margin: '0 0 20px 0',
             lineHeight: 1,
             opacity: 0,
-            textShadow: '0 0 80px rgba(196,162,90,0.35), 0 0 160px rgba(196,162,90,0.12)',
+            textShadow: '0 0 80px rgba(196,162,90,0.4), 0 0 160px rgba(196,162,90,0.15)',
           }}
         >
           RHEO
