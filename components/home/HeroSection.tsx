@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import WaveSystem from '@/components/shared/WaveSystem';
+import { SmokeBackground } from '@/components/ui/spooky-smoke-animation';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -80,6 +81,17 @@ export default function HeroSection() {
           100% { transform: translateY(0px) scale(1); }
         }
       `}</style>
+
+      {/* WebGL smoke — base atmospheric layer */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute', inset: 0, zIndex: 0, opacity: 0.55,
+          mixBlendMode: 'screen',
+        }}
+      >
+        <SmokeBackground smokeColor="#C4A25A" />
+      </div>
 
       {/* Animated background orbs */}
       {orbs.map(([size, left, top, dur, delay, color], i) => (
