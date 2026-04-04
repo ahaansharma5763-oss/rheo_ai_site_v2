@@ -35,7 +35,7 @@ void main(){
   // Tint bright noise wisps with the brand color
   col=mix(col, u_color, dot(col,vec3(.21,.71,.07)));
 
-  col=mix(vec3(.05),col,min(time*.08,1.));
+  col=mix(vec3(.05),col,min(time*.5,1.));
   col=clamp(col,.05,1.);
   O=vec4(col,1);
 }`;
