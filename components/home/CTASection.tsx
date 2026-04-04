@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import { GreekMeander } from '@/components/shared/GreekElements';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 export default function CTASection() {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -98,9 +97,6 @@ export default function CTASection() {
           text-decoration: underline;
         }
       `}</style>
-
-      {/* Subtle wave background */}
-      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
 
       {/* Centered content — vertically centered in top 40% */}
       <div
@@ -239,28 +235,6 @@ export default function CTASection() {
           />
         </svg>
 
-        {/* Layer 5 — front (navy) with gold hairline */}
-        <svg
-          viewBox="0 0 1440 240"
-          width="100%"
-          height="240"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          {/* Gold crest hairline */}
-          <path
-            d="M0,200 C240,140 480,220 720,170 C960,120 1200,210 1440,160"
-            fill="none"
-            stroke="#C4A25A"
-            strokeWidth="0.7"
-          />
-          {/* Navy fill body */}
-          <path
-            d="M0,200 C240,140 480,220 720,170 C960,120 1200,210 1440,160 L1440,240 L0,240 Z"
-            fill="#0D1F3C"
-            fillOpacity="0.95"
-          />
-        </svg>
       </div>
 
       {/* Bottom tagline */}

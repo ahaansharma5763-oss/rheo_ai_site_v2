@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 export default function ProblemSection() {
   const leftRef = useRef<HTMLDivElement>(null);
@@ -65,7 +64,6 @@ export default function ProblemSection() {
         overflow: 'hidden',
       }}
     >
-      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       <style>{`
         @keyframes dashDraw {
           from { stroke-dashoffset: 80; }

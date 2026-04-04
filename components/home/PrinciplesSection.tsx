@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 const principles = [
   {
@@ -67,7 +66,6 @@ export default function PrinciplesSection() {
         overflow: 'hidden',
       }}
     >
-      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       {/* Top-left corner bracket */}
       <svg
         width="32"
@@ -139,7 +137,6 @@ export default function PrinciplesSection() {
               className="principle-card"
               style={{
                 padding: '32px 28px',
-                borderTop: '1px solid rgba(196,162,90,0.35)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '10px',

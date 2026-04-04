@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 interface Metric {
   value: string;
@@ -98,7 +97,6 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
       className="case-card"
       style={{
         background: 'var(--ink)',
-        borderTop: '2px solid var(--gold)',
         borderRadius: '16px',
         padding: '40px 36px',
         position: 'relative',
@@ -107,9 +105,6 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
         minWidth: 0,
       }}
     >
-      {/* Subtle wave inside card */}
-      <WaveSystem intensity="subtle" style={{ zIndex: 0, opacity: 0.5 }} />
-
       <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Client header */}
         <div style={{ marginBottom: '28px' }}>
@@ -330,8 +325,6 @@ export default function CaseStudiesSection() {
         overflow: 'hidden',
       }}
     >
-      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
-
       <div
         className="casestudies-inner"
         style={{

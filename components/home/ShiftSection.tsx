@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 const yourFocusItems = [
   'Client acquisition',
@@ -80,7 +79,6 @@ export default function ShiftSection() {
         overflow: 'hidden',
       }}
     >
-      <WaveSystem intensity="subtle" style={{ zIndex: 0, opacity: 0.06 }} />
       <style>{`
         @media (max-width: 767px) {
           .shift-cols {
@@ -92,41 +90,6 @@ export default function ShiftSection() {
           }
         }
       `}</style>
-
-      {/* Left gold vertical bar */}
-      <div
-        style={{
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          bottom: 0,
-          width: '3px',
-          background: 'var(--gold)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Top flipped dark wave */}
-      <svg
-        viewBox="0 0 1440 80"
-        width="100%"
-        height="80"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          display: 'block',
-          pointerEvents: 'none',
-        }}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M0,40 C240,0 480,80 720,40 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"
-          fill="#0D1F3C"
-          transform="scale(1,-1) translate(0,-80)"
-        />
-      </svg>
 
       {/* Main content */}
       <div

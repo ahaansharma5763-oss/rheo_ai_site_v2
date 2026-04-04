@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { GoldDiamond, GreekColumns } from '@/components/shared/GreekElements';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 const nodes: { cx: number; cy: number; label: string }[] = [
   { cx: 60, cy: 60, label: 'n8n' },
@@ -113,9 +112,6 @@ export default function WhoWeAreSection() {
         overflow: 'hidden',
       }}
     >
-      {/* Wave background */}
-      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
-
       {/* Greek columns — far right decorative */}
       <div style={{
         position: 'absolute',

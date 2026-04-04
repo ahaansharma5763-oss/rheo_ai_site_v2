@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import WaveSystem from '@/components/shared/WaveSystem';
 
 interface Capability {
   num: string;
@@ -127,7 +126,6 @@ function CapabilityBlock({ cap, delay }: { cap: Capability; delay: number }) {
 export default function WhatWeDoSection() {
   return (
     <section style={{ background: 'var(--navy)', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
-      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       <style>{`
         .capability-bar {
           position: absolute;
