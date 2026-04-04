@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import { GreekMeander } from '@/components/shared/GreekElements';
 
 export default function CTASection() {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -35,7 +36,9 @@ export default function CTASection() {
     }
 
     // Navigate
-    window.location.href = 'mailto:ahaan@rheoai.co.in';
+    // @ts-ignore
+    if (window.Calendly) window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' })
+    else window.location.href = 'mailto:ahaan@rheoai.co.in'
   }
 
   return (
@@ -95,18 +98,18 @@ export default function CTASection() {
         }
       `}</style>
 
-      {/* Centered content */}
+      {/* Centered content — vertically centered in top 40% */}
       <div
         style={{
           position: 'relative',
           zIndex: 10,
-          paddingTop: '100px',
-          paddingBottom: '120px',
+          width: '100%',
+          minHeight: '200px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          padding: '100px 24px 120px',
+          padding: '80px 24px 40px',
         }}
       >
         <h2
@@ -123,6 +126,11 @@ export default function CTASection() {
           Let&apos;s make your business flow.
         </h2>
 
+        {/* Greek meander centered below headline */}
+        <div style={{ marginTop: '20px' }}>
+          <GreekMeander width={200} opacity={0.15} color="#C4A25A"/>
+        </div>
+
         {/* Gold diamond divider */}
         <span
           style={{
@@ -130,7 +138,7 @@ export default function CTASection() {
             textAlign: 'center',
             color: 'var(--gold)',
             fontSize: '16px',
-            margin: '24px auto',
+            margin: '16px auto',
           }}
           aria-hidden="true"
         >
@@ -154,14 +162,14 @@ export default function CTASection() {
         </button>
       </div>
 
-      {/* Wave layers — bottom 70% of section */}
+      {/* Wave layers — bottom 80% of section */}
       <div
         style={{
           position: 'absolute',
           bottom: 0,
           left: 0,
           right: 0,
-          height: '75%',
+          height: '80%',
           zIndex: 1,
           pointerEvents: 'none',
         }}

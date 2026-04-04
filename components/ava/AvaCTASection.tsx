@@ -101,12 +101,17 @@ export default function AvaCTASection() {
           ◆
         </div>
 
-        <a
-          href="mailto:ahaan@rheoai.co.in"
+        <button
           className="ava-cta-btn"
+          onClick={() => {
+            // @ts-ignore
+            if (window.Calendly) window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' })
+            else window.location.href = 'mailto:ahaan@rheoai.co.in'
+          }}
+          type="button"
         >
           Get in touch →
-        </a>
+        </button>
       </div>
 
       {/* Wave system — bottom 65% */}

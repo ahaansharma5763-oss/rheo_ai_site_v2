@@ -73,7 +73,7 @@ function CapabilityBlock({ cap, delay }: { cap: Capability; delay: number }) {
   return (
     <div
       ref={ref}
-      className="capability-block"
+      className="capability-block card-hover"
       style={{
         background: 'var(--prussian)',
         padding: '28px 24px',

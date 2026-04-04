@@ -82,3 +82,102 @@ html { scroll-behavior: smooth; }
 
 /* ── Link defaults ── */
 a { text-decoration: none; }
+
+/* ── Premium interaction animations ── */
+
+/* Button ripple */
+@keyframes btnRipple {
+  0%   { transform: scale(0);  opacity: 1; }
+  100% { transform: scale(20); opacity: 0; }
+}
+
+/* Text highlight sweep — gold underline that grows from left */
+.text-highlight {
+  position: relative;
+  display: inline-block;
+}
+.text-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.text-highlight:hover::after { width: 100%; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Letter-by-letter headline reveal */
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.char.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gold selection */
+::selection {
+  background: rgba(196,162,90,0.25);
+  color: #EEE8E0;
+}
+
+/* Nav link hover underline */
+nav a {
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+nav a:hover::after { width: 100%; }
+
+/* Smooth hover for all anchors */
+a {
+  transition: color 0.25s ease;
+}
+
+/* Stat number shimmer on hover */
+.stat-number {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #C4A25A 0%, #D4B478 50%, #C4A25A 100%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: background-position 0.6s ease;
+}
+.stat-number:hover {
+  background-position: -100% 0;
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}

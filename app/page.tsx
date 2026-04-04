@@ -8,18 +8,26 @@ import ShiftSection from '@/components/home/ShiftSection'
 import CTASection from '@/components/home/CTASection'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
+import { WaveHairline } from '@/components/shared/GreekElements'
 
 export default function Home() {
   return (
     <main>
       <Nav />
       <HeroSection />
+      <WaveHairline />
       <NameSection />
+      <WaveHairline />
       <WhoWeAreSection />
+      <WaveHairline />
       <PrinciplesSection />
+      <WaveHairline />
       <ProblemSection />
+      <WaveHairline />
       <WhatWeDoSection />
+      <WaveHairline />
       <ShiftSection />
+      <WaveHairline />
       <CTASection />
       <Footer />
     </main>

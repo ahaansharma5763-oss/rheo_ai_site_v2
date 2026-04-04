@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { GoldDiamond, GreekColumns } from '@/components/shared/GreekElements';
 
 const nodes: { cx: number; cy: number; label: string }[] = [
   { cx: 60, cy: 60, label: 'n8n' },
@@ -64,8 +65,22 @@ export default function WhoWeAreSection() {
       style={{
         background: 'var(--ink)',
         padding: '96px 0',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Greek columns — far right decorative */}
+      <div style={{
+        position: 'absolute',
+        right: '24px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }}>
+        <GreekColumns height={180} opacity={0.06}/>
+      </div>
+
       <div
         style={{
           maxWidth: '1200px',
@@ -75,6 +90,8 @@ export default function WhoWeAreSection() {
           gridTemplateColumns: '55% 45%',
           gap: 0,
           alignItems: 'center',
+          position: 'relative',
+          zIndex: 1,
         }}
         className="who-inner"
       >
@@ -139,12 +156,17 @@ export default function WhoWeAreSection() {
             runs on.
           </p>
 
+          {/* Gold diamond divider above stat blocks */}
+          <div style={{ maxWidth: '520px', marginTop: '32px', marginBottom: '8px' }}>
+            <GoldDiamond/>
+          </div>
+
           {/* Stat blocks */}
           <div
             style={{
               display: 'flex',
               gap: '40px',
-              marginTop: '40px',
+              marginTop: '8px',
               flexWrap: 'wrap',
             }}
           >
@@ -156,10 +178,10 @@ export default function WhoWeAreSection() {
               <div key={stat.label}>
                 <span
                   data-count
+                  className="stat-number"
                   style={{
                     fontFamily: 'Georgia, serif',
                     fontSize: '42px',
-                    color: 'var(--gold)',
                     lineHeight: 1,
                     display: 'block',
                   }}

@@ -27,6 +27,16 @@ export default function Nav() {
     { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
   ];
 
+  const openCalendly = () => {
+    // @ts-ignore
+    if (typeof window !== 'undefined' && window.Calendly) {
+      // @ts-ignore
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' })
+    } else {
+      window.open('https://calendly.com/ahaan-rheoai/30min', '_blank')
+    }
+  };
+
   const linkStyle: React.CSSProperties = {
     fontSize: '11px',
     textTransform: 'uppercase',
@@ -110,6 +120,7 @@ export default function Nav() {
             <a
               key={label}
               href={href}
+              className="text-highlight"
               style={linkStyle}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--ocean)')}

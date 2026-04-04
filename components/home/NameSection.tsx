@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { GreekMeander, RhoWatermark } from '@/components/shared/GreekElements';
 
 export default function NameSection() {
   const leftRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,8 @@ export default function NameSection() {
       style={{
         background: 'var(--navy)',
         padding: '96px 0',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
       {/* Inner container */}
@@ -51,6 +54,7 @@ export default function NameSection() {
           maxWidth: '1100px',
           margin: '0 auto',
           padding: '0 64px',
+          position: 'relative',
         }}
         className="name-inner"
       >
@@ -60,6 +64,7 @@ export default function NameSection() {
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr',
             gap: 0,
+            position: 'relative',
           }}
           className="name-grid"
         >
@@ -69,6 +74,9 @@ export default function NameSection() {
             style={{ paddingRight: '48px' }}
             className="name-col-left"
           >
+            {/* Greek meander above gold label */}
+            <GreekMeander width={120} opacity={0.18} style={{ marginBottom: '8px' }}/>
+
             <p
               style={{
                 fontFamily: "'DM Sans', sans-serif",
@@ -134,9 +142,12 @@ export default function NameSection() {
           {/* RIGHT */}
           <div
             ref={rightRef}
-            style={{ paddingLeft: '48px' }}
+            style={{ paddingLeft: '48px', position: 'relative' }}
             className="name-col-right"
           >
+            {/* Rho watermark behind right column */}
+            <RhoWatermark style={{ right: '-80px', top: '50%', transform: 'translateY(-50%)', opacity: 0.04 }}/>
+
             <p
               style={{
                 fontFamily: 'Georgia, serif',
@@ -145,6 +156,8 @@ export default function NameSection() {
                 letterSpacing: '0.1em',
                 margin: 0,
                 lineHeight: 1,
+                position: 'relative',
+                zIndex: 1,
               }}
             >
               流れ
@@ -157,6 +170,8 @@ export default function NameSection() {
                 color: 'var(--ocean)',
                 letterSpacing: '0.12em',
                 margin: '8px 0 0 0',
+                position: 'relative',
+                zIndex: 1,
               }}
             >
               Japanese · Nagare · The natural state, unobstructed
@@ -170,6 +185,8 @@ export default function NameSection() {
                 color: 'var(--warm-foam)',
                 lineHeight: 1.8,
                 margin: '15px 0 0 0',
+                position: 'relative',
+                zIndex: 1,
               }}
             >
               Two philosophies. One name. One purpose.
