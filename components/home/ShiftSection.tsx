@@ -144,7 +144,7 @@ export default function ShiftSection() {
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: '11px',
-            color: 'var(--navy)',
+            color: 'var(--gold)',
             textTransform: 'uppercase',
             letterSpacing: '0.44em',
             margin: 0,
@@ -158,7 +158,7 @@ export default function ShiftSection() {
           style={{
             fontFamily: 'Georgia, serif',
             fontSize: '46px',
-            color: 'var(--navy)',
+            color: 'var(--gold)',
             lineHeight: 1.2,
             letterSpacing: '0.12em',
             marginTop: '16px',
@@ -184,7 +184,7 @@ export default function ShiftSection() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '11px',
-                color: 'var(--navy)',
+                color: 'var(--crest)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.24em',
                 margin: '0 0 20px 0',
@@ -204,7 +204,7 @@ export default function ShiftSection() {
                     gap: '12px',
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize: '15px',
-                    color: 'var(--navy)',
+                    color: 'var(--warm-foam)',
                     lineHeight: 1.8,
                   }}
                 >
@@ -230,7 +230,7 @@ export default function ShiftSection() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '11px',
-                color: 'var(--navy)',
+                color: 'var(--crest)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.24em',
                 margin: '0 0 20px 0',
@@ -242,7 +242,7 @@ export default function ShiftSection() {
               style={{
                 fontFamily: 'Georgia, serif',
                 fontSize: '13px',
-                color: 'var(--prussian)',
+                color: 'rgba(238,232,224,0.7)',
                 lineHeight: 1.9,
                 fontStyle: 'italic',
                 margin: 0,
