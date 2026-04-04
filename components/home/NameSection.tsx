@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { GreekMeander, RhoWatermark } from '@/components/shared/GreekElements';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 export default function NameSection() {
   const leftRef = useRef<HTMLDivElement>(null);
@@ -43,11 +44,12 @@ export default function NameSection() {
     <section
       style={{
         background: 'var(--navy)',
-        padding: '96px 0',
+        padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
+      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       {/* Inner container */}
       <div
         style={{
@@ -55,6 +57,7 @@ export default function NameSection() {
           margin: '0 auto',
           padding: '0 64px',
           position: 'relative',
+          zIndex: 1,
         }}
         className="name-inner"
       >

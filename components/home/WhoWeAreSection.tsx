@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { GoldDiamond, GreekColumns } from '@/components/shared/GreekElements';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 const nodes: { cx: number; cy: number; label: string }[] = [
   { cx: 60, cy: 60, label: 'n8n' },
@@ -28,10 +29,18 @@ function linePath(a: { cx: number; cy: number }, b: { cx: number; cy: number }) 
   return `M${a.cx},${a.cy} Q${mx},${my} ${b.cx},${b.cy}`;
 }
 
+const statData = [
+  { num: 38, suffix: '+', label: 'ACTIVE WORKFLOWS DEPLOYED' },
+  { num: 2,  prefix: '< ', suffix: 's', label: 'AVERAGE AGENT RESPONSE TIME' },
+  { num: 100, suffix: '%', label: 'CUSTOM-BUILT. NEVER TEMPLATED.' },
+];
+
 export default function WhoWeAreSection() {
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const statRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const hasCountedRef = useRef(false);
 
   useEffect(() => {
     const targets = [leftRef.current, rightRef.current].filter(Boolean) as HTMLElement[];
@@ -56,7 +65,42 @@ export default function WhoWeAreSection() {
     );
 
     targets.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    // Stat counter animation
+    const statObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasCountedRef.current) {
+            hasCountedRef.current = true;
+            statData.forEach((stat, idx) => {
+              const el = statRefs.current[idx];
+              if (!el) return;
+              const duration = 1400;
+              const start = performance.now();
+              const elRef = el;
+              function tick(now: number) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * stat.num);
+                elRef.textContent = (stat.prefix ?? '') + current + stat.suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+              }
+              requestAnimationFrame(tick);
+            });
+            statObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (leftRef.current) statObserver.observe(leftRef.current);
+
+    return () => {
+      observer.disconnect();
+      statObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -64,11 +108,14 @@ export default function WhoWeAreSection() {
       ref={sectionRef}
       style={{
         background: 'var(--ink)',
-        padding: '96px 0',
+        padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
+      {/* Wave background */}
+      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
+
       {/* Greek columns — far right decorative */}
       <div style={{
         position: 'absolute',
@@ -114,11 +161,11 @@ export default function WhoWeAreSection() {
           <h2
             style={{
               fontFamily: 'Georgia, serif',
-              fontSize: '36px',
+              fontSize: '44px',
               color: 'var(--warm-foam)',
-              lineHeight: 1.3,
-              letterSpacing: '0.15em',
-              margin: '0 0 19px 0',
+              lineHeight: 1.25,
+              letterSpacing: '0.12em',
+              margin: '0 0 24px 0',
               maxWidth: '560px',
             }}
           >
@@ -128,7 +175,7 @@ export default function WhoWeAreSection() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '14px',
+              fontSize: '15px',
               color: 'rgba(238,232,224,0.75)',
               lineHeight: 1.85,
               margin: '0 0 20px 0',
@@ -143,7 +190,7 @@ export default function WhoWeAreSection() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '14px',
+              fontSize: '15px',
               color: 'rgba(238,232,224,0.75)',
               lineHeight: 1.85,
               margin: 0,
@@ -170,23 +217,20 @@ export default function WhoWeAreSection() {
               flexWrap: 'wrap',
             }}
           >
-            {[
-              { num: '38+', label: 'ACTIVE WORKFLOWS DEPLOYED' },
-              { num: '< 2s', label: 'AVERAGE AGENT RESPONSE TIME' },
-              { num: '100%', label: 'CUSTOM-BUILT. NEVER TEMPLATED.' },
-            ].map((stat) => (
+            {statData.map((stat, idx) => (
               <div key={stat.label}>
                 <span
-                  data-count
+                  ref={(el) => { statRefs.current[idx] = el; }}
                   className="stat-number"
                   style={{
                     fontFamily: 'Georgia, serif',
-                    fontSize: '42px',
+                    fontSize: '56px',
+                    color: 'var(--gold)',
                     lineHeight: 1,
                     display: 'block',
                   }}
                 >
-                  {stat.num}
+                  {(stat.prefix ?? '') + stat.num + stat.suffix}
                 </span>
                 <span
                   style={{

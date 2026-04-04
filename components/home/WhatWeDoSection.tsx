@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 interface Capability {
   num: string;
@@ -111,9 +112,9 @@ function CapabilityBlock({ cap, delay }: { cap: Capability; delay: number }) {
       <p
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          fontSize: '12px',
+          fontSize: '15px',
           color: 'var(--ocean)',
-          lineHeight: 1.55,
+          lineHeight: 1.6,
           margin: 0,
         }}
       >
@@ -125,7 +126,8 @@ function CapabilityBlock({ cap, delay }: { cap: Capability; delay: number }) {
 
 export default function WhatWeDoSection() {
   return (
-    <section style={{ background: 'var(--navy)', padding: '96px 0 64px' }}>
+    <section style={{ background: 'var(--navy)', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       <style>{`
         .capability-bar {
           position: absolute;
@@ -158,9 +160,11 @@ export default function WhatWeDoSection() {
       <div
         className="whatwedo-inner"
         style={{
-          maxWidth: '1200px',
+          maxWidth: '1100px',
           margin: '0 auto',
           padding: '0 64px',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {/* Header */}
@@ -180,9 +184,9 @@ export default function WhatWeDoSection() {
           <h2
             style={{
               fontFamily: 'Georgia, serif',
-              fontSize: '28px',
+              fontSize: '42px',
               color: 'var(--warm-foam)',
-              letterSpacing: '0.15em',
+              letterSpacing: '0.12em',
               marginTop: '16px',
               marginBottom: 0,
               textAlign: 'center',

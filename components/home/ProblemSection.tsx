@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 export default function ProblemSection() {
   const leftRef = useRef<HTMLDivElement>(null);
@@ -60,8 +61,11 @@ export default function ProblemSection() {
       style={{
         background: 'var(--ink)',
         padding: '120px 0',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       <style>{`
         @keyframes dashDraw {
           from { stroke-dashoffset: 80; }
@@ -74,10 +78,15 @@ export default function ProblemSection() {
         .problem-svg-visible .problem-dash-line {
           animation-play-state: running;
         }
+        .problem-gap-item:hover {
+          color: var(--warm-foam) !important;
+          border-left-color: var(--gold) !important;
+        }
         @media (max-width: 767px) {
           .problem-right { display: none !important; }
           .problem-inner {
             flex-direction: column !important;
+            padding: 0 24px !important;
           }
           .problem-left {
             width: 100% !important;
@@ -88,12 +97,14 @@ export default function ProblemSection() {
       <div
         className="problem-inner"
         style={{
-          maxWidth: '1200px',
+          maxWidth: '1100px',
           margin: '0 auto',
           padding: '0 64px',
           display: 'flex',
           alignItems: 'flex-start',
           gap: '40px',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {/* LEFT — 55% */}
@@ -120,10 +131,10 @@ export default function ProblemSection() {
           <h2
             style={{
               fontFamily: 'Georgia, serif',
-              fontSize: '32px',
+              fontSize: '42px',
               color: 'var(--warm-foam)',
-              lineHeight: 1.3,
-              letterSpacing: '0.15em',
+              lineHeight: 1.25,
+              letterSpacing: '0.12em',
               marginTop: '16px',
               marginBottom: 0,
             }}
@@ -137,7 +148,7 @@ export default function ProblemSection() {
               marginTop: '24px',
               maxWidth: '480px',
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '14px',
+              fontSize: '15px',
               color: 'var(--ocean)',
               lineHeight: 1.85,
             }}
@@ -165,13 +176,16 @@ export default function ProblemSection() {
             {gapItems.map((item) => (
               <span
                 key={item}
+                className="problem-gap-item"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '13px',
+                  fontSize: '15px',
                   color: 'var(--ocean)',
-                  paddingLeft: '12px',
+                  paddingLeft: '14px',
                   borderLeft: '2px solid rgba(196,162,90,0.5)',
                   lineHeight: 1.4,
+                  transition: 'color 0.2s ease, border-left-color 0.2s ease',
+                  cursor: 'default',
                 }}
               >
                 {item}

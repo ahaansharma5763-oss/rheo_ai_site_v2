@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 const yourFocusItems = [
   'Client acquisition',
@@ -11,6 +12,7 @@ const yourFocusItems = [
 
 export default function ShiftSection() {
   const contentRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
     const el = contentRef.current;
@@ -33,7 +35,40 @@ export default function ShiftSection() {
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Stagger reveal on focus items
+    itemRefs.current.forEach((item) => {
+      if (!item) return;
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-16px)';
+    });
+
+    const itemObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = parseInt((entry.target as HTMLElement).dataset.shiftIdx ?? '0', 10);
+            setTimeout(() => {
+              const item = entry.target as HTMLElement;
+              item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'translateX(0)';
+            }, idx * 120);
+            itemObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    itemRefs.current.forEach((item) => {
+      if (item) itemObserver.observe(item);
+    });
+
+    return () => {
+      observer.disconnect();
+      itemObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -42,8 +77,10 @@ export default function ShiftSection() {
         background: 'var(--warm-foam)',
         padding: '120px 0',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      <WaveSystem intensity="subtle" style={{ zIndex: 0, opacity: 0.06 }} />
       <style>{`
         @media (max-width: 767px) {
           .shift-cols {
@@ -120,10 +157,10 @@ export default function ShiftSection() {
         <h2
           style={{
             fontFamily: 'Georgia, serif',
-            fontSize: '40px',
+            fontSize: '46px',
             color: 'var(--navy)',
             lineHeight: 1.2,
-            letterSpacing: '0.15em',
+            letterSpacing: '0.12em',
             marginTop: '16px',
             marginBottom: 0,
             maxWidth: '700px',
@@ -156,15 +193,17 @@ export default function ShiftSection() {
               YOUR FOCUS
             </p>
             <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-              {yourFocusItems.map((item) => (
+              {yourFocusItems.map((item, idx) => (
                 <li
                   key={item}
+                  ref={(el) => { itemRefs.current[idx] = el; }}
+                  data-shift-idx={idx}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '12px',
                     fontFamily: "'DM Sans', sans-serif",
-                    fontSize: '14px',
+                    fontSize: '15px',
                     color: 'var(--navy)',
                     lineHeight: 1.8,
                   }}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 const principles = [
   {
@@ -61,10 +62,12 @@ export default function PrinciplesSection() {
     <section
       style={{
         background: 'var(--navy)',
-        padding: '96px 0',
+        padding: '120px 0',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
       {/* Top-left corner bracket */}
       <svg
         width="32"
@@ -97,6 +100,8 @@ export default function PrinciplesSection() {
           margin: '0 auto',
           padding: '0 64px',
           textAlign: 'center',
+          position: 'relative',
+          zIndex: 1,
         }}
         className="principles-inner"
       >
@@ -109,6 +114,8 @@ export default function PrinciplesSection() {
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
             margin: '0 0 48px 0',
+            position: 'relative',
+            zIndex: 1,
           }}
         >
           WHAT WE STAND FOR
@@ -129,14 +136,17 @@ export default function PrinciplesSection() {
               key={p.name}
               ref={(el) => { cardRefs.current[i] = el; }}
               data-idx={i}
+              className="principle-card"
               style={{
-                padding: '28px 24px',
+                padding: '32px 28px',
                 borderTop: '1px solid rgba(196,162,90,0.35)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '8px',
+                gap: '10px',
                 // Right column gets left border to separate columns
                 borderLeft: i % 2 === 1 ? '1px solid rgba(196,162,90,0.15)' : undefined,
+                transition: 'transform 0.25s ease, background 0.25s ease',
+                cursor: 'default',
               }}
             >
               {/* Gold square bullet */}
@@ -152,9 +162,9 @@ export default function PrinciplesSection() {
               <p
                 style={{
                   fontFamily: 'Georgia, serif',
-                  fontSize: '18px',
+                  fontSize: '22px',
                   color: 'var(--warm-foam)',
-                  letterSpacing: '0.12em',
+                  letterSpacing: '0.1em',
                   margin: 0,
                   lineHeight: 1.3,
                 }}
@@ -165,7 +175,7 @@ export default function PrinciplesSection() {
               <p
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '13px',
+                  fontSize: '15px',
                   color: 'var(--ocean)',
                   lineHeight: 1.7,
                   margin: 0,
@@ -179,6 +189,10 @@ export default function PrinciplesSection() {
       </div>
 
       <style>{`
+        .principle-card:hover {
+          transform: scale(1.02);
+          background: rgba(26,53,102,0.3);
+        }
         @media (max-width: 768px) {
           .principles-inner {
             padding: 0 24px !important;

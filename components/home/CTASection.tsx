@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { GreekMeander } from '@/components/shared/GreekElements';
+import WaveSystem from '@/components/shared/WaveSystem';
 
 export default function CTASection() {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -97,6 +98,9 @@ export default function CTASection() {
           text-decoration: underline;
         }
       `}</style>
+
+      {/* Subtle wave background */}
+      <WaveSystem intensity="subtle" style={{ zIndex: 0 }} />
 
       {/* Centered content — vertically centered in top 40% */}
       <div
