@@ -1,6 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Suspense, lazy } from 'react';
+
+const DotOrbit = lazy(() =>
+  import('@paper-design/shaders-react').then((m) => ({ default: m.DotOrbit }))
+);
 
 interface Message {
   id: number;
@@ -90,13 +94,13 @@ function PhoneMockup() {
 
   return (
     <div style={{
-      width: '360px',
-      height: '680px',
+      width: '420px',
+      height: '800px',
       background: '#0B141A',
-      borderRadius: '40px',
+      borderRadius: '48px',
       border: '2.5px solid #1F2C34',
       overflow: 'hidden',
-      boxShadow: '0 60px 140px rgba(0,0,0,0.85), 0 0 0 1px rgba(196,162,90,0.12), 0 0 80px rgba(196,162,90,0.04)',
+      boxShadow: '0 80px 160px rgba(0,0,0,0.9), 0 0 0 1px rgba(196,162,90,0.15), 0 0 120px rgba(196,162,90,0.06)',
       display: 'flex',
       flexDirection: 'column',
       flexShrink: 0,
@@ -104,34 +108,33 @@ function PhoneMockup() {
     }}>
       {/* Notch */}
       <div style={{
-        position: 'absolute', top: '14px', left: '50%',
+        position: 'absolute', top: '16px', left: '50%',
         transform: 'translateX(-50%)',
-        width: '96px', height: '28px',
+        width: '110px', height: '32px',
         background: '#0D1118',
-        borderRadius: '20px',
+        borderRadius: '24px',
         zIndex: 10,
       }} />
 
       {/* WhatsApp header */}
       <div style={{
         background: '#1F2C34',
-        padding: '14px 16px 14px 16px',
-        display: 'flex', alignItems: 'center', gap: '10px',
-        flexShrink: 0, paddingTop: '52px',
+        padding: '14px 18px 14px 18px',
+        display: 'flex', alignItems: 'center', gap: '12px',
+        flexShrink: 0, paddingTop: '60px',
       }}>
-        {/* Back arrow */}
-        <span style={{ color: '#00A884', fontSize: '16px', marginRight: '2px' }}>‹</span>
+        <span style={{ color: '#00A884', fontSize: '18px', marginRight: '2px' }}>‹</span>
         <div style={{
-          width: '40px', height: '40px', borderRadius: '50%',
+          width: '46px', height: '46px', borderRadius: '50%',
           background: 'linear-gradient(135deg, #C4A25A, #2E6B8E)',
           flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: '0 0 12px rgba(196,162,90,0.3)',
+          boxShadow: '0 0 16px rgba(196,162,90,0.35)',
         }}>
-          <span style={{ fontSize: '16px', color: 'white', fontFamily: 'Georgia, serif' }}>A</span>
+          <span style={{ fontSize: '18px', color: 'white', fontFamily: 'Georgia, serif' }}>A</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
           <span style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: '15px',
+            fontFamily: "'DM Sans', sans-serif", fontSize: '16px',
             color: '#E9EDEF', fontWeight: 600, lineHeight: 1.2,
           }}>AVA</span>
           <span style={{
@@ -139,25 +142,23 @@ function PhoneMockup() {
             color: '#00A884', lineHeight: 1.2,
           }}>● online</span>
         </div>
-        {/* Video / call icons */}
-        <span style={{ color: '#8696A0', fontSize: '18px', marginLeft: 'auto' }}>📹</span>
-        <span style={{ color: '#8696A0', fontSize: '18px' }}>📞</span>
+        <span style={{ color: '#8696A0', fontSize: '20px', marginLeft: 'auto' }}>📹</span>
+        <span style={{ color: '#8696A0', fontSize: '20px' }}>📞</span>
       </div>
 
       {/* Chat area */}
       <div style={{
         flex: 1, background: '#0B141A',
         display: 'flex', flexDirection: 'column',
-        padding: '14px', gap: '8px',
+        padding: '16px', gap: '10px',
         overflowY: 'hidden', justifyContent: 'flex-end',
         backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(196,162,90,0.02) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(46,107,142,0.03) 0%, transparent 60%)',
       }}>
-        {/* Date stamp */}
         <div style={{
-          alignSelf: 'center', fontSize: '11px',
+          alignSelf: 'center', fontSize: '12px',
           fontFamily: "'DM Sans', sans-serif",
           color: '#8696A0', background: 'rgba(11,20,26,0.8)',
-          padding: '3px 10px', borderRadius: '8px',
+          padding: '4px 12px', borderRadius: '8px',
           marginBottom: '4px',
         }}>Today</div>
 
@@ -165,7 +166,7 @@ function PhoneMockup() {
         {typingActive && <TypingIndicator />}
         {confirmed && (
           <div style={{
-            alignSelf: 'center', fontSize: '11px',
+            alignSelf: 'center', fontSize: '12px',
             fontFamily: "'DM Sans', sans-serif",
             color: '#25D366', letterSpacing: '0.05em',
             marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px',
@@ -177,93 +178,80 @@ function PhoneMockup() {
 
       {/* Input bar */}
       <div style={{
-        background: '#1F2C34', padding: '10px 14px',
+        background: '#1F2C34', padding: '12px 16px',
         flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px',
       }}>
-        <span style={{ fontSize: '18px' }}>😊</span>
+        <span style={{ fontSize: '20px' }}>😊</span>
         <div style={{
-          flex: 1, height: '38px', background: '#2A3942',
-          borderRadius: '20px', display: 'flex', alignItems: 'center',
-          paddingLeft: '14px',
+          flex: 1, height: '42px', background: '#2A3942',
+          borderRadius: '24px', display: 'flex', alignItems: 'center',
+          paddingLeft: '16px',
         }}>
           <span style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: '12px', color: '#8696A0',
+            fontFamily: "'DM Sans', sans-serif", fontSize: '13px', color: '#8696A0',
           }}>Message</span>
         </div>
         <div style={{
-          width: '38px', height: '38px', borderRadius: '50%',
+          width: '42px', height: '42px', borderRadius: '50%',
           background: 'linear-gradient(135deg, #C4A25A, #2E6B8E)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: '0 2px 12px rgba(196,162,90,0.3)',
+          boxShadow: '0 2px 14px rgba(196,162,90,0.3)',
         }}>
-          <span style={{ fontSize: '16px' }}>🎤</span>
+          <span style={{ fontSize: '18px' }}>🎤</span>
         </div>
       </div>
     </div>
   );
 }
 
-// Neural network pulsing in the background
-function NeuralBackground() {
-  // nodes: [x%, y%]
+// Subtle neural network — left edge only, away from phone
+function NeuralEdge() {
   const nodes: [number, number][] = [
-    [4, 18], [10, 55], [6, 82], [16, 35], [14, 70],
-    [88, 14], [94, 42], [90, 68], [84, 88], [96, 78],
-    [50, 8], [50, 92],
+    [4, 12], [9, 32], [5, 54], [11, 72], [7, 88],
+    [18, 22], [15, 48], [20, 68],
   ];
-
   const conns: [number, number][] = [
-    [0,3],[3,1],[1,4],[4,2],[0,1],[3,4],
-    [5,6],[6,7],[7,8],[6,9],[5,9],[8,9],
-    [10,5],[10,0],[11,2],[11,8],
+    [0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[1,5],[2,6],[3,7],
   ];
-
   return (
     <svg
       aria-hidden="true"
       style={{
-        position: 'absolute', inset: 0, width: '100%', height: '100%',
-        pointerEvents: 'none', zIndex: 0,
+        position: 'absolute', left: 0, top: 0,
+        width: '28%', height: '100%',
+        pointerEvents: 'none', zIndex: 0, opacity: 0.55,
       }}
-      viewBox="0 0 100 100"
-      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 28 100"
+      preserveAspectRatio="xMinYMid meet"
     >
       <defs>
         <style>{`
-          @keyframes nLinePulse { 0%,100%{opacity:0.06} 50%{opacity:0.22} }
-          @keyframes nNodeGlow  { 0%,100%{opacity:0.25} 50%{opacity:0.65} }
+          @keyframes nLine2 { 0%,100%{opacity:0.04} 50%{opacity:0.18} }
+          @keyframes nNode2 { 0%,100%{opacity:0.15} 50%{opacity:0.5} }
         `}</style>
       </defs>
-
-      {/* Connection lines */}
       {conns.map(([f, t], i) => (
         <line key={i}
           x1={nodes[f][0]} y1={nodes[f][1]}
           x2={nodes[t][0]} y2={nodes[t][1]}
-          stroke="#C4A25A" strokeWidth="0.15"
-          style={{ animation: `nLinePulse ${2.4 + i * 0.35}s ease-in-out ${i * 0.22}s infinite` }}
+          stroke="#4599B5" strokeWidth="0.2"
+          style={{ animation: `nLine2 ${2.8 + i * 0.4}s ease-in-out ${i * 0.3}s infinite` }}
         />
       ))}
-
-      {/* Moving data pulses along connections */}
       {conns.map(([f, t], i) => (
-        <circle key={`dot-${i}`} r="0.55" fill={i % 3 === 0 ? '#C4A25A' : '#4599B5'} opacity="0.7">
+        <circle key={`dp-${i}`} r="0.5" fill={i % 2 === 0 ? '#C4A25A' : '#4599B5'} opacity="0.6">
           <animateMotion
-            dur={`${3.5 + i * 0.55}s`}
+            dur={`${4 + i * 0.6}s`}
             repeatCount="indefinite"
-            calcMode="linear"
             path={`M ${nodes[f][0]} ${nodes[f][1]} L ${nodes[t][0]} ${nodes[t][1]}`}
           />
         </circle>
       ))}
-
-      {/* Node circles */}
       {nodes.map(([x, y], i) => (
-        <circle key={`node-${i}`} cx={x} cy={y} fill="#C4A25A"
-          style={{ animation: `nNodeGlow ${1.8 + i * 0.18}s ease-in-out ${i * 0.12}s infinite` }}
+        <circle key={`n-${i}`} cx={x} cy={y} fill="#4599B5"
+          style={{ animation: `nNode2 ${2.2 + i * 0.22}s ease-in-out ${i * 0.15}s infinite` }}
         >
-          <animate attributeName="r" values="0.5;1.1;0.5" dur={`${2 + i * 0.2}s`} repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.2;0.6;0.2" dur={`${2 + i * 0.2}s`} repeatCount="indefinite"/>
+          <animate attributeName="r" values="0.4;0.9;0.4" dur={`${2.2 + i * 0.2}s`} repeatCount="indefinite"/>
         </circle>
       ))}
     </svg>
@@ -275,8 +263,8 @@ export default function AvaHero() {
     <section style={{
       position: 'relative',
       height: '100vh',
-      minHeight: '640px',
-      background: 'var(--ink)',
+      minHeight: '700px',
+      background: 'transparent',
       overflow: 'hidden',
     }}>
       <style>{`
@@ -288,26 +276,53 @@ export default function AvaHero() {
           from { opacity: 0; transform: scale(0.92) translateY(6px); }
           to   { opacity: 1; transform: scale(1) translateY(0); }
         }
-        @keyframes phoneTilt {
-          0%,100% { transform: translateY(-50%) rotate(-1.5deg); }
-          50%      { transform: translateY(-50%) rotate(1deg); }
+        @keyframes phoneFloat {
+          0%, 100% { transform: translateY(-50%) rotate(-0.8deg); }
+          50%       { transform: translateY(-51.5%) rotate(0.5deg); }
         }
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .ava-hero-phone { display: none !important; }
           .ava-hero-left  { padding-left: 24px !important; padding-right: 24px !important; max-width: 100% !important; }
         }
       `}</style>
 
-      {/* Neural network background */}
-      <NeuralBackground />
+      {/* DotOrbit shader — full section background */}
+      <Suspense fallback={null}>
+        <div aria-hidden="true" style={{
+          position: 'absolute', inset: 0, zIndex: 0,
+          width: '100%', height: '100%',
+        }}>
+          <DotOrbit
+            style={{ width: '100%', height: '100%', display: 'block' }}
+            colorBack="#07101E"
+            colors={['#0D1F3C', '#1A3566', '#2E6B8E', '#4599B5', '#7EC8E3', '#C4A25A']}
+            size={0.22}
+            sizeRange={0.3}
+            spreading={0.65}
+            stepsPerColor={2}
+            speed={0.45}
+          />
+        </div>
+      </Suspense>
+
+      {/* Neural network — left edge only */}
+      <NeuralEdge />
+
+      {/* Dark vignette to keep text readable */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 70% 80% at 30% 50%, rgba(7,16,30,0.5) 0%, transparent 100%)',
+      }} />
 
       {/* LEFT content */}
       <div
         className="ava-hero-left"
         style={{
           position: 'relative', zIndex: 10,
-          paddingLeft: '72px', paddingTop: '160px',
+          paddingLeft: '80px', paddingTop: '0',
           maxWidth: '48%',
+          height: '100%',
+          display: 'flex', flexDirection: 'column', justifyContent: 'center',
         }}
       >
         <p style={{
@@ -322,8 +337,8 @@ export default function AvaHero() {
           color: 'var(--gold)',
           letterSpacing: '0.12em',
           lineHeight: 1,
-          marginTop: '0', marginBottom: '0',
-          textShadow: '0 0 100px rgba(196,162,90,0.2), 0 0 40px rgba(196,162,90,0.1)',
+          margin: '0 0 0 0',
+          textShadow: '0 0 100px rgba(196,162,90,0.25), 0 0 40px rgba(196,162,90,0.12)',
         }}>AVA</h1>
 
         <div style={{
@@ -353,53 +368,26 @@ export default function AvaHero() {
               textTransform: 'uppercase',
               border: '1px solid rgba(69,153,181,0.25)',
               borderRadius: '20px', padding: '5px 14px',
-              background: 'rgba(69,153,181,0.05)',
+              background: 'rgba(69,153,181,0.06)',
             }}>{f}</span>
           ))}
         </div>
       </div>
 
-      {/* RIGHT — phone mockup */}
+      {/* RIGHT — phone mockup, bigger, less movement */}
       <div
         className="ava-hero-phone"
         style={{
           position: 'absolute',
-          right: '72px',
+          right: '60px',
           top: '50%',
-          transform: 'translateY(-50%) rotate(-1.5deg)',
+          transform: 'translateY(-50%) rotate(-0.8deg)',
           zIndex: 10,
-          animation: 'phoneTilt 6s ease-in-out infinite',
-          filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.6))',
+          animation: 'phoneFloat 8s ease-in-out infinite',
+          filter: 'drop-shadow(0 60px 120px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(196,162,90,0.06))',
         }}
       >
         <PhoneMockup />
-      </div>
-
-      {/* Wave system — bottom 35% */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0,
-        height: '35%', zIndex: 1, pointerEvents: 'none',
-      }} aria-hidden="true">
-        <svg viewBox="0 0 1440 160" width="100%" height="160"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}>
-          <path d="M0,100 C240,50 480,130 720,70 C960,10 1200,100 1440,55 L1440,160 L0,160 Z"
-            fill="#1A3566" fillOpacity="0.25"/>
-        </svg>
-        <svg viewBox="0 0 1440 160" width="100%" height="160"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}>
-          <path d="M0,110 C200,60 440,130 720,80 C1000,30 1240,110 1440,65 L1440,160 L0,160 Z"
-            fill="#1A3566" fillOpacity="0.4"/>
-        </svg>
-        <svg viewBox="0 0 1440 160" width="100%" height="160"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}>
-          <path d="M0,130 C200,90 440,150 720,110 C1000,70 1240,130 1440,95"
-            fill="none" stroke="#C4A25A" strokeWidth="0.6" strokeOpacity="0.45"/>
-          <path d="M0,130 C200,90 440,150 720,110 C1000,70 1240,130 1440,95 L1440,160 L0,160 Z"
-            fill="#0D1F3C" fillOpacity="0.75"/>
-        </svg>
       </div>
     </section>
   );
