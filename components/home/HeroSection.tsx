@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import WaveSystem from '@/components/shared/WaveSystem';
 import { SmokeBackground } from '@/components/ui/spooky-smoke-animation';
 
 export default function HeroSection() {
@@ -19,9 +18,9 @@ export default function HeroSection() {
     });
 
     const delays: Record<string, number> = {
-      'hero-label': 200,
-      'hero-title': 400,
-      'hero-sub': 600,
+      'hero-label': 300,
+      'hero-title': 600,
+      'hero-sub': 900,
     };
 
     animateEls.forEach((el) => {
@@ -29,9 +28,9 @@ export default function HeroSection() {
       const key = htmlEl.dataset.animate ?? '';
       const delay = delays[key] ?? 0;
       const hasTranslate = key === 'hero-title';
-      if (hasTranslate) htmlEl.style.transform = 'translateY(20px)';
+      if (hasTranslate) htmlEl.style.transform = 'translateY(24px)';
       setTimeout(() => {
-        htmlEl.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        htmlEl.style.transition = 'opacity 1s ease, transform 1s ease';
         htmlEl.style.opacity = '1';
         if (hasTranslate) htmlEl.style.transform = 'translateY(0)';
       }, delay);
@@ -45,17 +44,6 @@ export default function HeroSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // [size, leftPct, topPct, duration, delay, color]
-  const orbs: [number, number, number, number, number, string][] = [
-    [400, 8,  8,  22, 0, 'rgba(196,162,90,0.04)'],
-    [280, 70, 12, 28, 3, 'rgba(69,153,181,0.05)'],
-    [320, 48, 30, 19, 6, 'rgba(196,162,90,0.03)'],
-    [200, 20, 52, 25, 2, 'rgba(69,153,181,0.04)'],
-    [360, 82, 48, 21, 8, 'rgba(196,162,90,0.035)'],
-    [180, 3,  68, 17, 4, 'rgba(126,200,227,0.03)'],
-    [240, 60, 62, 23, 5, 'rgba(196,162,90,0.025)'],
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -64,9 +52,10 @@ export default function HeroSection() {
         height: '100vh',
         minHeight: '600px',
         overflow: 'hidden',
-        background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 60%, #1A3566 100%)',
+        background: 'var(--ink)', // fallback while WebGL loads
         display: 'flex',
-        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <style>{`
@@ -74,60 +63,37 @@ export default function HeroSection() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.3; }
         }
-        @keyframes heroOrbFloat {
-          0%   { transform: translateY(0px) scale(1); }
-          33%  { transform: translateY(-28px) scale(1.05); }
-          66%  { transform: translateY(18px) scale(0.96); }
-          100% { transform: translateY(0px) scale(1); }
-        }
       `}</style>
 
-      {/* WebGL smoke — base atmospheric layer */}
+      {/* WebGL smoke IS the wave — fills the full hero */}
       <div
         aria-hidden="true"
-        style={{
-          position: 'absolute', inset: 0, zIndex: 0, opacity: 0.55,
-          mixBlendMode: 'screen',
-        }}
+        style={{ position: 'absolute', inset: 0, zIndex: 0 }}
       >
         <SmokeBackground smokeColor="#C4A25A" />
       </div>
 
-      {/* Animated background orbs */}
-      {orbs.map(([size, left, top, dur, delay, color], i) => (
-        <div
-          key={i}
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            width: `${size}px`,
-            height: `${size}px`,
-            left: `${left}%`,
-            top: `${top}%`,
-            borderRadius: '50%',
-            background: color,
-            filter: 'blur(72px)',
-            animation: `heroOrbFloat ${dur}s ease-in-out ${delay}s infinite`,
-            willChange: 'transform',
-            pointerEvents: 'none',
-            zIndex: 0,
-          }}
-        />
-      ))}
+      {/* Subtle dark vignette so text stays legible */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute', inset: 0, zIndex: 1,
+          background: 'radial-gradient(ellipse 70% 60% at 50% 40%, transparent 30%, rgba(7,16,30,0.55) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
 
-      {/* Center content — top 28% */}
+      {/* Centered content */}
       <div
         style={{
           position: 'relative',
           zIndex: 2,
-          flex: '0 0 28%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
           textAlign: 'center',
           padding: '0 24px',
-          paddingTop: '72px',
+          marginTop: '-60px', // nudge above true center toward upper-third
         }}
       >
         <p
@@ -138,7 +104,7 @@ export default function HeroSection() {
             color: 'var(--crest)',
             textTransform: 'uppercase',
             letterSpacing: '0.5em',
-            margin: '0 0 16px 0',
+            margin: '0 0 20px 0',
             opacity: 0,
           }}
         >
@@ -149,13 +115,13 @@ export default function HeroSection() {
           data-animate="hero-title"
           style={{
             fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(52px, 9vw, 96px)',
+            fontSize: 'clamp(64px, 11vw, 112px)',
             color: 'var(--gold)',
             letterSpacing: '0.35em',
-            margin: '0 0 16px 0',
+            margin: '0 0 20px 0',
             lineHeight: 1,
             opacity: 0,
-            textShadow: '0 0 120px rgba(196,162,90,0.2)',
+            textShadow: '0 0 80px rgba(196,162,90,0.35), 0 0 160px rgba(196,162,90,0.12)',
           }}
         >
           RHEO
@@ -166,10 +132,10 @@ export default function HeroSection() {
           style={{
             fontFamily: 'Georgia, serif',
             fontStyle: 'italic',
-            fontSize: '14px',
-            color: 'var(--crest)',
-            letterSpacing: '0.24em',
-            margin: '4px 0 0 0',
+            fontSize: '15px',
+            color: 'var(--foam)',
+            letterSpacing: '0.26em',
+            margin: 0,
             opacity: 0,
           }}
         >
@@ -177,15 +143,12 @@ export default function HeroSection() {
         </p>
       </div>
 
-      {/* Animated waves — bottom 72% */}
-      <WaveSystem intensity="hero" style={{ height: '72%' }} />
-
       {/* Scroll indicator */}
       <div
         ref={scrollIndicatorRef}
         style={{
           position: 'absolute',
-          bottom: '28px',
+          bottom: '32px',
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 3,
