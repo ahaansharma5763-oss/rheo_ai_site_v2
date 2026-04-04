@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState, Suspense, lazy } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 
 const DotOrbit = lazy(() =>
   import('@paper-design/shaders-react').then((m) => ({ default: m.DotOrbit }))
 );
 
+/* ─── Types ─── */
 interface Message {
   id: number;
   from: 'user' | 'ava';
@@ -15,15 +16,16 @@ interface Message {
 
 const MESSAGES: Message[] = [
   { id: 1, from: 'user', text: 'I want to book a 5v5 slot for Saturday evening', time: '9:41 AM' },
-  { id: 2, from: 'ava',  text: 'Saturday 6pm is available! That\'s ₹1,400/hr for 5v5. Want me to send you a payment link to confirm? 🌊', time: '9:41 AM' },
+  { id: 2, from: 'ava',  text: 'Saturday 6pm is available! That\'s ₹1,400/hr for 5v5. Want me to send a payment link to confirm? 🌊', time: '9:41 AM' },
   { id: 3, from: 'user', text: 'Yes please', time: '9:42 AM' },
-  { id: 4, from: 'ava',  text: 'Done! Payment link sent to your WhatsApp. Your slot is held for 15 minutes. See you Saturday! ⚡', time: '9:42 AM' },
+  { id: 4, from: 'ava',  text: 'Done! Payment link sent to your WhatsApp. Slot held for 15 mins. See you Saturday! ⚡', time: '9:42 AM' },
 ];
 
 const MSG_SCHEDULE = [800, 2000, 3200, 4500];
 const TYPING_SHOW  = [null, 1200, null, 3600] as (number | null)[];
 const TYPING_HIDE  = [null, 2000, null, 4500] as (number | null)[];
 
+/* ─── Chat sub-components ─── */
 function TypingIndicator() {
   return (
     <div style={{
@@ -49,8 +51,7 @@ function ChatBubble({ msg }: { msg: Message }) {
     <div style={{
       display: 'flex', flexDirection: 'column',
       alignSelf: isUser ? 'flex-end' : 'flex-start',
-      maxWidth: isUser ? '82%' : '88%',
-      gap: '3px',
+      maxWidth: isUser ? '82%' : '88%', gap: '3px',
       animation: 'bubbleIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both',
     }}>
       <div style={{
@@ -59,8 +60,7 @@ function ChatBubble({ msg }: { msg: Message }) {
         borderRadius: isUser ? '14px 14px 0 14px' : '0 14px 14px 14px',
         padding: '9px 13px',
         fontFamily: "'DM Sans', sans-serif",
-        fontSize: '13px',
-        lineHeight: 1.55,
+        fontSize: '13px', lineHeight: 1.55,
         boxShadow: isUser ? '0 2px 8px rgba(0,92,75,0.3)' : '0 2px 8px rgba(0,0,0,0.3)',
       }}>{msg.text}</div>
       <span style={{
@@ -69,7 +69,7 @@ function ChatBubble({ msg }: { msg: Message }) {
         fontFamily: "'DM Sans', sans-serif",
         paddingRight: isUser ? '3px' : 0,
         paddingLeft: isUser ? 0 : '3px',
-      }}>{msg.time} {isUser ? '' : '·  AVA'}</span>
+      }}>{msg.time}{isUser ? '' : ' · AVA'}</span>
     </div>
   );
 }
@@ -94,32 +94,26 @@ function PhoneMockup() {
 
   return (
     <div style={{
-      width: '420px',
-      height: '800px',
+      width: '420px', height: '800px',
       background: '#0B141A',
       borderRadius: '48px',
       border: '2.5px solid #1F2C34',
       overflow: 'hidden',
       boxShadow: '0 80px 160px rgba(0,0,0,0.9), 0 0 0 1px rgba(196,162,90,0.15), 0 0 120px rgba(196,162,90,0.06)',
-      display: 'flex',
-      flexDirection: 'column',
-      flexShrink: 0,
-      position: 'relative',
+      display: 'flex', flexDirection: 'column',
+      flexShrink: 0, position: 'relative',
     }}>
       {/* Notch */}
       <div style={{
         position: 'absolute', top: '16px', left: '50%',
         transform: 'translateX(-50%)',
         width: '110px', height: '32px',
-        background: '#0D1118',
-        borderRadius: '24px',
-        zIndex: 10,
+        background: '#0D1118', borderRadius: '24px', zIndex: 10,
       }} />
 
-      {/* WhatsApp header */}
+      {/* Header */}
       <div style={{
-        background: '#1F2C34',
-        padding: '14px 18px 14px 18px',
+        background: '#1F2C34', padding: '14px 18px',
         display: 'flex', alignItems: 'center', gap: '12px',
         flexShrink: 0, paddingTop: '60px',
       }}>
@@ -133,14 +127,8 @@ function PhoneMockup() {
           <span style={{ fontSize: '18px', color: 'white', fontFamily: 'Georgia, serif' }}>A</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
-          <span style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: '16px',
-            color: '#E9EDEF', fontWeight: 600, lineHeight: 1.2,
-          }}>AVA</span>
-          <span style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: '12px',
-            color: '#00A884', lineHeight: 1.2,
-          }}>● online</span>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '16px', color: '#E9EDEF', fontWeight: 600, lineHeight: 1.2 }}>AVA</span>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '12px', color: '#00A884', lineHeight: 1.2 }}>● online</span>
         </div>
         <span style={{ color: '#8696A0', fontSize: '20px', marginLeft: 'auto' }}>📹</span>
         <span style={{ color: '#8696A0', fontSize: '20px' }}>📞</span>
@@ -152,16 +140,14 @@ function PhoneMockup() {
         display: 'flex', flexDirection: 'column',
         padding: '16px', gap: '10px',
         overflowY: 'hidden', justifyContent: 'flex-end',
-        backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(196,162,90,0.02) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(46,107,142,0.03) 0%, transparent 60%)',
+        backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(196,162,90,0.02) 0%, transparent 60%)',
       }}>
         <div style={{
           alignSelf: 'center', fontSize: '12px',
           fontFamily: "'DM Sans', sans-serif",
           color: '#8696A0', background: 'rgba(11,20,26,0.8)',
-          padding: '4px 12px', borderRadius: '8px',
-          marginBottom: '4px',
+          padding: '4px 12px', borderRadius: '8px', marginBottom: '4px',
         }}>Today</div>
-
         {visibleMsgs.map((i) => <ChatBubble key={MESSAGES[i].id} msg={MESSAGES[i]} />)}
         {typingActive && <TypingIndicator />}
         {confirmed && (
@@ -184,12 +170,9 @@ function PhoneMockup() {
         <span style={{ fontSize: '20px' }}>😊</span>
         <div style={{
           flex: 1, height: '42px', background: '#2A3942',
-          borderRadius: '24px', display: 'flex', alignItems: 'center',
-          paddingLeft: '16px',
+          borderRadius: '24px', display: 'flex', alignItems: 'center', paddingLeft: '16px',
         }}>
-          <span style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: '13px', color: '#8696A0',
-          }}>Message</span>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '13px', color: '#8696A0' }}>Message</span>
         </div>
         <div style={{
           width: '42px', height: '42px', borderRadius: '50%',
@@ -204,66 +187,176 @@ function PhoneMockup() {
   );
 }
 
-// Subtle neural network — left edge only, away from phone
-function NeuralEdge() {
-  const nodes: [number, number][] = [
-    [4, 12], [9, 32], [5, 54], [11, 72], [7, 88],
-    [18, 22], [15, 48], [20, 68],
-  ];
-  const conns: [number, number][] = [
-    [0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[1,5],[2,6],[3,7],
-  ];
+/* ─── Floral motifs: Japanese kiku (chrysanthemum) + Greek meander accents ─── */
+function Kiku({
+  cx, cy, r, delayBase = 0, gold = '#C4A25A', blue = '#4599B5',
+}: {
+  cx: number; cy: number; r: number; delayBase?: number;
+  gold?: string; blue?: string;
+}) {
+  const outerCount = 16;
+  const innerCount = 16;
+
+  // Petal Bézier path centred on origin pointing upward
+  const op = (len: number, w: number) => {
+    const base = len * 0.18;
+    const mid  = len * 0.54;
+    return `M 0 ${-base} C ${w} ${-mid}, ${w} ${-len * 0.9}, 0 ${-len} C ${-w} ${-len * 0.9}, ${-w} ${-mid}, 0 ${-base} Z`;
+  };
+
+  const outerPath = op(r, r * 0.085);
+  const innerPath = op(r * 0.65, r * 0.09);
+
+  // Greek-key tick marks around outer ring
+  const tickCount = 48;
+  const tickR = r * 1.18;
+  const tickInner = r * 1.08;
+
+  return (
+    <g transform={`translate(${cx},${cy})`}>
+      {/* Outer meander ring */}
+      <circle r={r * 1.22} fill="none" stroke={blue} strokeWidth="0.12" opacity="0.18" />
+
+      {/* Greek-key tick marks */}
+      {Array.from({ length: tickCount }, (_, i) => {
+        const a = (i * Math.PI * 2) / tickCount;
+        const long = i % 4 === 0;
+        return (
+          <line key={`tk-${i}`}
+            x1={Math.cos(a) * tickR} y1={Math.sin(a) * tickR}
+            x2={Math.cos(a) * (long ? tickInner - r * 0.06 : tickInner)}
+            y2={Math.sin(a) * (long ? tickInner - r * 0.06 : tickInner)}
+            stroke={long ? gold : blue}
+            strokeWidth={long ? '0.22' : '0.12'}
+            opacity={long ? '0.35' : '0.15'}
+          />
+        );
+      })}
+
+      {/* Greek cardinal squares (meander accent at N/E/S/W) */}
+      {[0, 90, 180, 270].map((deg) => {
+        const rad = (deg * Math.PI) / 180;
+        const qx = Math.cos(rad - Math.PI / 2) * r * 1.38;
+        const qy = Math.sin(rad - Math.PI / 2) * r * 1.38;
+        const s = r * 0.08;
+        return (
+          <g key={`gk-${deg}`}>
+            <rect x={qx - s} y={qy - s} width={s * 2} height={s * 2}
+              fill="none" stroke={gold} strokeWidth="0.18" opacity="0.28"
+            />
+            <rect x={qx - s * 0.5} y={qy - s * 0.5} width={s} height={s}
+              fill={gold} fillOpacity="0.06"
+            />
+          </g>
+        );
+      })}
+
+      {/* Outer petals — gold, 16 */}
+      {Array.from({ length: outerCount }, (_, i) => (
+        <path key={`op-${i}`}
+          d={outerPath}
+          fill={gold} fillOpacity="0.05"
+          stroke={gold} strokeWidth="0.28"
+          transform={`rotate(${(i * 360) / outerCount})`}
+          style={{
+            animation: `kikuGold ${3.0 + (i % 5) * 0.22}s ease-in-out ${delayBase + i * 0.14}s infinite`,
+          }}
+        />
+      ))}
+
+      {/* Inner petals — blue, 16, offset 11.25° */}
+      {Array.from({ length: innerCount }, (_, i) => (
+        <path key={`ip-${i}`}
+          d={innerPath}
+          fill={blue} fillOpacity="0.04"
+          stroke={blue} strokeWidth="0.22"
+          transform={`rotate(${(i * 360) / innerCount + 11.25})`}
+          style={{
+            animation: `kikuBlue ${2.7 + (i % 4) * 0.18}s ease-in-out ${delayBase + i * 0.12 + 0.4}s infinite`,
+          }}
+        />
+      ))}
+
+      {/* Light-sweep overlay on 4 evenly spaced outer petals */}
+      {[0, 4, 8, 12].map((i) => (
+        <path key={`ls-${i}`}
+          d={outerPath}
+          fill="none"
+          stroke={gold} strokeWidth="0.55"
+          strokeDasharray={`${r * 3.8}`}
+          transform={`rotate(${(i * 360) / outerCount})`}
+          style={{
+            animation: `lightSweep ${5 + i * 0.7}s ease-in-out ${delayBase + i * 0.9}s infinite`,
+          }}
+        />
+      ))}
+
+      {/* Centre rings */}
+      <circle r={r * 0.22} fill="none" stroke={gold} strokeWidth="0.28"
+        style={{ animation: `kikuCenter 3s ease-in-out ${delayBase}s infinite` }}
+      />
+      <circle r={r * 0.12} fill={gold} fillOpacity="0.1"
+        style={{ animation: `kikuCenter 3s ease-in-out ${delayBase + 0.6}s infinite` }}
+      />
+      {/* Tiny centre dot */}
+      <circle r={r * 0.04} fill={gold} opacity="0.4" />
+    </g>
+  );
+}
+
+function FloralDeco() {
   return (
     <svg
       aria-hidden="true"
       style={{
-        position: 'absolute', left: 0, top: 0,
-        width: '28%', height: '100%',
-        pointerEvents: 'none', zIndex: 0, opacity: 0.55,
+        position: 'absolute', inset: 0,
+        width: '100%', height: '100%',
+        pointerEvents: 'none', zIndex: 1,
       }}
-      viewBox="0 0 28 100"
-      preserveAspectRatio="xMinYMid meet"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid slice"
     >
       <defs>
         <style>{`
-          @keyframes nLine2 { 0%,100%{opacity:0.04} 50%{opacity:0.18} }
-          @keyframes nNode2 { 0%,100%{opacity:0.15} 50%{opacity:0.5} }
+          @keyframes kikuGold {
+            0%,100% { opacity: 0.08; }
+            50%      { opacity: 0.30; }
+          }
+          @keyframes kikuBlue {
+            0%,100% { opacity: 0.05; }
+            50%      { opacity: 0.20; }
+          }
+          @keyframes kikuCenter {
+            0%,100% { opacity: 0.15; }
+            50%      { opacity: 0.50; }
+          }
+          @keyframes lightSweep {
+            0%   { stroke-dashoffset: 999; opacity: 0; }
+            15%  { opacity: 0.55; }
+            85%  { opacity: 0.20; }
+            100% { stroke-dashoffset: 0;   opacity: 0; }
+          }
         `}</style>
       </defs>
-      {conns.map(([f, t], i) => (
-        <line key={i}
-          x1={nodes[f][0]} y1={nodes[f][1]}
-          x2={nodes[t][0]} y2={nodes[t][1]}
-          stroke="#4599B5" strokeWidth="0.2"
-          style={{ animation: `nLine2 ${2.8 + i * 0.4}s ease-in-out ${i * 0.3}s infinite` }}
-        />
-      ))}
-      {conns.map(([f, t], i) => (
-        <circle key={`dp-${i}`} r="0.5" fill={i % 2 === 0 ? '#C4A25A' : '#4599B5'} opacity="0.6">
-          <animateMotion
-            dur={`${4 + i * 0.6}s`}
-            repeatCount="indefinite"
-            path={`M ${nodes[f][0]} ${nodes[f][1]} L ${nodes[t][0]} ${nodes[t][1]}`}
-          />
-        </circle>
-      ))}
-      {nodes.map(([x, y], i) => (
-        <circle key={`n-${i}`} cx={x} cy={y} fill="#4599B5"
-          style={{ animation: `nNode2 ${2.2 + i * 0.22}s ease-in-out ${i * 0.15}s infinite` }}
-        >
-          <animate attributeName="r" values="0.4;0.9;0.4" dur={`${2.2 + i * 0.2}s`} repeatCount="indefinite"/>
-        </circle>
-      ))}
+
+      {/* Large kiku — left side, vertically centred */}
+      <Kiku cx={10} cy={50} r={14} delayBase={0} />
+
+      {/* Medium kiku — top right, partially cropped */}
+      <Kiku cx={93} cy={14} r={10} delayBase={1.2} />
+
+      {/* Small accent kiku — bottom right */}
+      <Kiku cx={88} cy={88} r={6.5} delayBase={2.1} />
     </svg>
   );
 }
 
+/* ─── Hero ─── */
 export default function AvaHero() {
   return (
     <section style={{
       position: 'relative',
-      height: '100vh',
-      minHeight: '700px',
+      minHeight: '100vh',
       background: 'transparent',
       overflow: 'hidden',
     }}>
@@ -274,24 +367,51 @@ export default function AvaHero() {
         }
         @keyframes bubbleIn {
           from { opacity: 0; transform: scale(0.92) translateY(6px); }
-          to   { opacity: 1; transform: scale(1) translateY(0); }
+          to   { opacity: 1; transform: scale(1)    translateY(0);   }
         }
-        @keyframes phoneFloat {
-          0%, 100% { transform: translateY(-50%) rotate(-0.8deg); }
-          50%       { transform: translateY(-51.5%) rotate(0.5deg); }
+
+        /* ── Layout ── */
+        .ava-inner {
+          position: relative; z-index: 10;
+          display: flex; align-items: center;
+          min-height: 100vh;
+          padding: 80px 72px 80px 80px;
+          gap: 64px;
         }
+        .ava-left  { flex: 1; max-width: 480px; }
+        .ava-phone { flex-shrink: 0; }
+
+        /* ── Mobile ── */
         @media (max-width: 960px) {
-          .ava-hero-phone { display: none !important; }
-          .ava-hero-left  { padding-left: 24px !important; padding-right: 24px !important; max-width: 100% !important; }
+          .ava-inner {
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 120px 24px 64px !important;
+            gap: 48px !important;
+            min-height: 100svh !important;
+          }
+          .ava-left {
+            max-width: 100% !important;
+            text-align: center !important;
+          }
+          .ava-left .ava-pills { justify-content: center !important; }
+          .ava-phone {
+            transform: scale(0.70) !important;
+            transform-origin: top center !important;
+            margin-bottom: -160px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .ava-phone {
+            transform: scale(0.58) !important;
+            margin-bottom: -220px !important;
+          }
         }
       `}</style>
 
-      {/* DotOrbit shader — full section background */}
+      {/* DotOrbit — full background */}
       <Suspense fallback={null}>
-        <div aria-hidden="true" style={{
-          position: 'absolute', inset: 0, zIndex: 0,
-          width: '100%', height: '100%',
-        }}>
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <DotOrbit
             style={{ width: '100%', height: '100%', display: 'block' }}
             colorBack="#07101E"
@@ -305,89 +425,72 @@ export default function AvaHero() {
         </div>
       </Suspense>
 
-      {/* Neural network — left edge only */}
-      <NeuralEdge />
+      {/* Floral motifs */}
+      <FloralDeco />
 
-      {/* Dark vignette to keep text readable */}
+      {/* Vignette */}
       <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 70% 80% at 30% 50%, rgba(7,16,30,0.5) 0%, transparent 100%)',
+        position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 60% 80% at 40% 50%, rgba(7,16,30,0.55) 0%, transparent 100%)',
       }} />
 
-      {/* LEFT content */}
-      <div
-        className="ava-hero-left"
-        style={{
-          position: 'relative', zIndex: 10,
-          paddingLeft: '80px', paddingTop: '0',
-          maxWidth: '48%',
-          height: '100%',
-          display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        }}
-      >
-        <p style={{
-          fontFamily: "'DM Sans', sans-serif", fontSize: '11px',
-          color: 'var(--gold)', textTransform: 'uppercase',
-          letterSpacing: '0.44em', margin: '0 0 16px 0',
-        }}>INTRODUCING</p>
+      {/* Content row */}
+      <div className="ava-inner">
 
-        <h1 style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: 'clamp(80px, 11vw, 128px)',
-          color: 'var(--gold)',
-          letterSpacing: '0.12em',
-          lineHeight: 1,
-          margin: '0 0 0 0',
-          textShadow: '0 0 100px rgba(196,162,90,0.25), 0 0 40px rgba(196,162,90,0.12)',
-        }}>AVA</h1>
+        {/* LEFT */}
+        <div className="ava-left">
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif", fontSize: '11px',
+            color: 'var(--gold)', textTransform: 'uppercase',
+            letterSpacing: '0.44em', margin: '0 0 16px 0',
+          }}>INTRODUCING</p>
 
-        <div style={{
-          width: '48px', height: '1px',
-          background: 'linear-gradient(to right, var(--gold), transparent)',
-          margin: '24px 0',
-        }} />
+          <h1 style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: 'clamp(80px, 11vw, 128px)',
+            color: 'var(--gold)',
+            letterSpacing: '0.12em', lineHeight: 1,
+            margin: '0 0 0 0',
+            textShadow: '0 0 100px rgba(196,162,90,0.25), 0 0 40px rgba(196,162,90,0.12)',
+          }}>AVA</h1>
 
-        <p style={{
-          fontFamily: "'DM Sans', sans-serif", fontSize: '18px',
-          color: 'var(--warm-foam)', letterSpacing: '0.08em',
-          margin: '0 0 8px 0', fontWeight: 300,
-        }}>Your AI operations agent.</p>
+          <div style={{
+            width: '48px', height: '1px',
+            background: 'linear-gradient(to right, var(--gold), transparent)',
+            margin: '24px 0',
+          }} />
 
-        <p style={{
-          fontFamily: "'DM Sans', sans-serif", fontSize: '12px',
-          color: 'var(--ocean)', fontStyle: 'italic',
-          letterSpacing: '0.06em', margin: '0 0 40px 0',
-        }}>A Rheo AI Product.</p>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif", fontSize: '18px',
+            color: 'var(--warm-foam)', letterSpacing: '0.08em',
+            margin: '0 0 8px 0', fontWeight: 300,
+          }}>Your AI operations agent.</p>
 
-        {/* Feature pills */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-          {['WhatsApp Native', 'Instant Booking', 'Payment Links', 'CRM Sync'].map((f) => (
-            <span key={f} style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: '10px',
-              color: 'var(--crest)', letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              border: '1px solid rgba(69,153,181,0.25)',
-              borderRadius: '20px', padding: '5px 14px',
-              background: 'rgba(69,153,181,0.06)',
-            }}>{f}</span>
-          ))}
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif", fontSize: '12px',
+            color: 'var(--ocean)', fontStyle: 'italic',
+            letterSpacing: '0.06em', margin: '0 0 40px 0',
+          }}>A Rheo AI Product.</p>
+
+          <div className="ava-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+            {['WhatsApp Native', 'Instant Booking', 'Payment Links', 'CRM Sync'].map((f) => (
+              <span key={f} style={{
+                fontFamily: "'DM Sans', sans-serif", fontSize: '10px',
+                color: 'var(--crest)', letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                border: '1px solid rgba(69,153,181,0.25)',
+                borderRadius: '20px', padding: '5px 14px',
+                background: 'rgba(69,153,181,0.06)',
+              }}>{f}</span>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* RIGHT — phone mockup, bigger, less movement */}
-      <div
-        className="ava-hero-phone"
-        style={{
-          position: 'absolute',
-          right: '60px',
-          top: '50%',
-          transform: 'translateY(-50%) rotate(-0.8deg)',
-          zIndex: 10,
-          animation: 'phoneFloat 8s ease-in-out infinite',
-          filter: 'drop-shadow(0 60px 120px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(196,162,90,0.06))',
-        }}
-      >
-        <PhoneMockup />
+        {/* RIGHT — phone, no tilt, no animation */}
+        <div className="ava-phone">
+          <PhoneMockup />
+        </div>
+
       </div>
     </section>
   );
