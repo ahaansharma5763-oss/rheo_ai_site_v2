@@ -4,6 +4,7 @@ import WhoWeAreSection from '@/components/home/WhoWeAreSection'
 import PrinciplesSection from '@/components/home/PrinciplesSection'
 import ProblemSection from '@/components/home/ProblemSection'
 import WhatWeDoSection from '@/components/home/WhatWeDoSection'
+import CaseStudiesSection from '@/components/home/CaseStudiesSection'
 import ShiftSection from '@/components/home/ShiftSection'
 import CTASection from '@/components/home/CTASection'
 import Nav from '@/components/shared/Nav'
@@ -25,6 +26,8 @@ export default function Home() {
       <ProblemSection />
       <WaveHairline />
       <WhatWeDoSection />
+      <WaveHairline />
+      <CaseStudiesSection />
       <WaveHairline />
       <ShiftSection />
       <WaveHairline />
