@@ -11,6 +11,12 @@ const STATS: Stat[] = [
   { number: '< 2s',  label: 'AVERAGE RESPONSE TIME' },
   { number: '24/7',  label: 'OPERATIONAL UPTIME' },
   { number: '0',     label: 'MANUAL FOLLOW-UPS REQUIRED' },
+  { number: '₹38K+', label: 'AVG. REVENUE RECOVERED / MONTH' },
+  { number: '94%',   label: 'REDUCTION IN MISSED BOOKINGS' },
+  { number: '3×',    label: 'MARKETING REACH VIA WHATSAPP' },
+  { number: '18 hrs', label: 'STAFF TIME SAVED PER WEEK' },
+  { number: '15 min', label: 'INQUIRY TO CONFIRMED BOOKING' },
+  { number: '100%',  label: 'CUSTOM-BUILT. NEVER TEMPLATED.' },
 ];
 
 function StatItem({ stat, index }: { stat: Stat; index: number }) {
@@ -47,11 +53,10 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
     <div
       ref={ref}
       style={{
-        flex: 1,
         textAlign: 'center',
-        padding: '40px',
-        borderRight:
-          index < STATS.length - 1 ? '1px solid var(--prussian)' : 'none',
+        padding: '40px 24px',
+        borderRight: (index % 3 !== 2) ? '1px solid var(--prussian)' : 'none',
+        borderBottom: (index < STATS.length - 3) ? '1px solid var(--prussian)' : 'none',
       }}
     >
       <p
@@ -102,15 +107,29 @@ export default function AvaNumbersSection() {
       <div
         className="ava-numbers-inner"
         style={{
-          maxWidth: '900px',
+          maxWidth: '1100px',
           margin: '0 auto',
           padding: '0 64px',
         }}
       >
+        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif", fontSize: '11px',
+            color: 'var(--gold)', textTransform: 'uppercase',
+            letterSpacing: '0.44em', margin: '0 0 16px 0',
+          }}>BY THE NUMBERS</p>
+          <h2 style={{
+            fontFamily: 'Georgia, serif', fontSize: '44px',
+            color: 'var(--warm-foam)', letterSpacing: '0.12em',
+            margin: 0, lineHeight: 1.15,
+          }}>AVA delivers.</h2>
+        </div>
+
         <div
           className="ava-numbers-row"
           style={{
-            display: 'flex',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             border: '1px solid var(--prussian)',
           }}
         >

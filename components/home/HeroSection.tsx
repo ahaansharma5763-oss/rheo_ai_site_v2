@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { SmokeBackground } from '@/components/ui/spooky-smoke-animation';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -18,17 +17,16 @@ export default function HeroSection() {
     });
 
     const delays: Record<string, number> = {
-      'hero-logo':  100,
-      'hero-label': 500,
-      'hero-title': 750,
-      'hero-sub':   1000,
+      'hero-label': 400,
+      'hero-title': 650,
+      'hero-sub':   900,
     };
 
     animateEls.forEach((el) => {
       const htmlEl = el as HTMLElement;
       const key = htmlEl.dataset.animate ?? '';
       const delay = delays[key] ?? 0;
-      const hasTranslate = key === 'hero-logo' || key === 'hero-title';
+      const hasTranslate = key === 'hero-title';
       if (hasTranslate) htmlEl.style.transform = 'translateY(28px)';
       setTimeout(() => {
         htmlEl.style.transition = 'opacity 1.1s ease, transform 1.1s cubic-bezier(0.16,1,0.3,1)';
@@ -48,12 +46,13 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
+      className="hero-section"
       style={{
         position: 'relative',
         height: '100vh',
         minHeight: '640px',
         overflow: 'hidden',
-        background: 'var(--ink)',
+        background: 'transparent',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -64,18 +63,9 @@ export default function HeroSection() {
           0%, 100% { opacity: 1; transform: translateY(0); }
           50%       { opacity: 0.3; transform: translateY(4px); }
         }
-        @keyframes logoPulse {
-          0%, 100% { filter: drop-shadow(0 0 20px rgba(69,153,181,0.3)); }
-          50%       { filter: drop-shadow(0 0 44px rgba(69,153,181,0.55)); }
-        }
       `}</style>
 
-      {/* Blue smoke — matches the ocean wave palette of sections below */}
-      <div aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <SmokeBackground smokeColor="#4599B5" />
-      </div>
-
-      {/* Subtle vignette — just enough to keep text readable, not enough to hide smoke */}
+      {/* Subtle vignette — keeps text readable over global smoke */}
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
         background: 'radial-gradient(ellipse 80% 60% at 50% 42%, rgba(7,16,30,0.52) 0%, transparent 100%)',
@@ -89,25 +79,6 @@ export default function HeroSection() {
         padding: '0 32px',
         marginTop: '-40px',
       }}>
-        {/* Logo */}
-        <div
-          data-animate="hero-logo"
-          style={{
-            opacity: 0, marginBottom: '24px',
-            animation: 'logoPulse 4s ease-in-out 1.5s infinite',
-          }}
-        >
-          <img
-            src="/rheo-logo.png"
-            alt="Rheo AI"
-            style={{
-              width: '160px', height: '160px',
-              objectFit: 'contain', display: 'block',
-              borderRadius: '12px',
-            }}
-          />
-        </div>
-
         {/* Label */}
         <p data-animate="hero-label" style={{
           fontFamily: "'DM Sans', sans-serif",

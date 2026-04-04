@@ -59,7 +59,18 @@ body::before {
 }
 
 /* ── Section transitions — tighter ── */
-section { padding: 96px 0; }
+section {
+  padding: 96px 0;
+  position: relative;
+  z-index: 1;
+  background: rgba(7, 16, 30, 0.80) !important;
+}
+
+/* Hero is fully transparent — smoke shows directly through */
+section.hero-section {
+  background: transparent !important;
+  padding: 0 !important;
+}
 
 /* ── Refined heading styles ── */
 h1, h2, h3, h4 {

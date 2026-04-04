@@ -43,9 +43,13 @@ export default function Nav() {
     letterSpacing: '0.44em',
     color: 'var(--gold)',
     textDecoration: 'none',
-    transition: 'color 0.2s ease, opacity 0.2s ease',
+    transition: 'color 0.2s ease, opacity 0.2s ease, background 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease',
     fontFamily: 'DM Sans, sans-serif',
     opacity: 0.85,
+    padding: '7px 18px',
+    borderRadius: '20px',
+    border: '1px solid transparent',
+    background: 'transparent',
   };
 
   return (
@@ -57,48 +61,59 @@ export default function Nav() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          background: 'rgba(13, 31, 60, 0.88)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(69, 153, 181, 0.08)',
+          background: 'linear-gradient(105deg, rgba(7,16,30,0.95) 0%, rgba(13,31,60,0.93) 35%, rgba(26,53,102,0.90) 70%, rgba(46,107,142,0.88) 100%)',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          borderBottom: '1px solid rgba(69,153,181,0.15)',
+          boxShadow: '0 1px 0 rgba(196,162,90,0.08), 0 8px 32px rgba(7,16,30,0.4)',
           transition: 'padding 0.3s ease',
           padding: scrolled ? '12px 48px' : '20px 48px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           boxSizing: 'border-box',
+          overflow: 'hidden',
         }}
       >
+        {/* Neural network nodes — desktop nav decoration */}
+        <svg aria-hidden="true" style={{
+          position: 'absolute', inset: 0, width: '100%', height: '100%',
+          pointerEvents: 'none', opacity: 0.18,
+        }} preserveAspectRatio="xMidYMid slice" viewBox="0 0 1280 80">
+          <defs>
+            <style>{`
+              @keyframes navNodePulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+              .nn { animation: navNodePulse 3s ease-in-out infinite; }
+              .nn:nth-child(2){animation-delay:.5s} .nn:nth-child(3){animation-delay:1s}
+              .nn:nth-child(4){animation-delay:1.5s} .nn:nth-child(5){animation-delay:2s}
+              .nn:nth-child(6){animation-delay:2.5s}
+            `}</style>
+          </defs>
+          {/* Edges */}
+          {[
+            [80,40,200,20],[200,20,360,55],[360,55,520,18],[520,18,700,45],[700,45,900,22],[900,22,1100,50],[1100,50,1200,30]
+          ].map(([x1,y1,x2,y2],i)=>(
+            <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#4599B5" strokeWidth="0.6" opacity="0.5"/>
+          ))}
+          {/* Nodes */}
+          {[[80,40],[200,20],[360,55],[520,18],[700,45],[900,22],[1100,50],[1200,30]].map(([cx,cy],i)=>(
+            <circle key={i} className="nn" cx={cx} cy={cy} r="3" fill="none" stroke="#4599B5" strokeWidth="1"/>
+          ))}
+          {[[80,40],[200,20],[360,55],[520,18],[700,45],[900,22],[1100,50],[1200,30]].map(([cx,cy],i)=>(
+            <circle key={`c${i}`} cx={cx} cy={cy} r="1.2" fill="#C4A25A" opacity="0.6"/>
+          ))}
+        </svg>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Stem of R */}
-            <rect x="6" y="6" width="5" height="24" fill="#1A3566"/>
-            {/* Hatch lines in stem */}
-            <line x1="6" y1="10" x2="11" y2="10" stroke="#4599B5" strokeWidth="0.5" opacity="0.6"/>
-            <line x1="6" y1="14" x2="11" y2="14" stroke="#4599B5" strokeWidth="0.5" opacity="0.6"/>
-            <line x1="6" y1="18" x2="11" y2="18" stroke="#4599B5" strokeWidth="0.5" opacity="0.6"/>
-            <line x1="6" y1="22" x2="11" y2="22" stroke="#4599B5" strokeWidth="0.5" opacity="0.6"/>
-            <line x1="6" y1="26" x2="11" y2="26" stroke="#4599B5" strokeWidth="0.5" opacity="0.6"/>
-            {/* Bowl of R - wave-shaped arc */}
-            <path d="M11 6 Q26 6 26 15 Q26 22 11 22" stroke="#1A3566" strokeWidth="5" fill="none"/>
-            {/* Wave crest on bowl top */}
-            <path d="M11 6 Q18 4 24 8 Q28 11 26 15" stroke="#C4A25A" strokeWidth="1" fill="none"/>
-            {/* Foam dots */}
-            <circle cx="24" cy="8" r="1" fill="#BDB5A5" opacity="0.6"/>
-            <circle cx="27" cy="11" r="0.8" fill="#BDB5A5" opacity="0.5"/>
-            <circle cx="28" cy="14" r="0.6" fill="#BDB5A5" opacity="0.4"/>
-            {/* Leg of R */}
-            <path d="M11 22 L26 30" stroke="#1A3566" strokeWidth="5" strokeLinecap="round"/>
-            {/* Hatch lines in leg */}
-            <line x1="14" y1="23" x2="17" y2="25" stroke="#4599B5" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="18" y1="25" x2="21" y2="27" stroke="#4599B5" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="22" y1="27" x2="25" y2="29" stroke="#4599B5" strokeWidth="0.5" opacity="0.5"/>
-          </svg>
+          <img
+            src="/rheo-logo.png"
+            alt="Rheo AI"
+            style={{ width: '36px', height: '36px', objectFit: 'contain', borderRadius: '8px', display: 'block' }}
+          />
           <span
             style={{
               fontFamily: 'Georgia, serif',
-              color: 'var(--warm-foam)',
+              color: 'var(--gold)',
               letterSpacing: '0.3em',
               fontSize: '18px',
               fontWeight: 400,
@@ -112,8 +127,10 @@ export default function Nav() {
         <div
           style={{
             display: 'flex',
-            gap: '36px',
+            gap: '8px',
             alignItems: 'center',
+            position: 'relative',
+            zIndex: 1,
           }}
           className="nav-desktop-links"
         >
@@ -121,10 +138,24 @@ export default function Nav() {
             <a
               key={label}
               href={href}
-              className="text-highlight"
+              className="nav-guard"
               style={linkStyle}
-              onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '1'; }}
-              onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '0.85'; }}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = 'var(--gold)';
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.background = 'rgba(196,162,90,0.1)';
+                e.currentTarget.style.borderColor = 'rgba(196,162,90,0.3)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 0 18px rgba(196,162,90,0.18), 0 4px 12px rgba(0,0,0,0.25)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = 'var(--gold)';
+                e.currentTarget.style.opacity = '0.85';
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.borderColor = 'transparent';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               {label}
             </a>
@@ -179,7 +210,7 @@ export default function Nav() {
           right: 0,
           height: '100vh',
           width: '260px',
-          background: 'var(--navy)',
+          background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 25%, #1A3566 55%, #2E6B8E 80%, #4599B5 100%)',
           zIndex: 999,
           transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
           transition: 'transform 0.32s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -188,9 +219,59 @@ export default function Nav() {
           paddingTop: '96px',
           paddingLeft: '36px',
           gap: '32px',
-          boxShadow: menuOpen ? '-8px 0 32px rgba(0,0,0,0.4)' : 'none',
+          boxShadow: menuOpen ? '-8px 0 48px rgba(26,53,102,0.6)' : 'none',
+          overflow: 'hidden',
         }}
       >
+        {/* Neural network background SVG */}
+        <svg
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12, pointerEvents: 'none' }}
+          viewBox="0 0 260 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <style>{`
+              @keyframes navPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+              @keyframes navDot { 0%{offset-distance:0%} 100%{offset-distance:100%} }
+              .nav-node { animation: navPulse 3s ease-in-out infinite; }
+              .nav-node:nth-child(2) { animation-delay: 0.6s; }
+              .nav-node:nth-child(3) { animation-delay: 1.2s; }
+              .nav-node:nth-child(4) { animation-delay: 1.8s; }
+              .nav-node:nth-child(5) { animation-delay: 2.4s; }
+              .nav-node:nth-child(6) { animation-delay: 0.9s; }
+              .nav-node:nth-child(7) { animation-delay: 1.5s; }
+            `}</style>
+          </defs>
+          {/* Edges */}
+          {[
+            'M40,80 Q130,140 200,100','M200,100 Q240,200 180,280','M40,80 Q60,200 80,280',
+            'M80,280 Q140,320 180,280','M80,280 Q50,400 100,480','M180,280 Q220,380 200,480',
+            'M100,480 Q150,520 200,480','M100,480 Q70,600 120,680','M200,480 Q230,580 220,680',
+            'M120,680 Q170,720 220,680',
+          ].map((d, i) => (
+            <path key={i} d={d} stroke="#7EC8E3" strokeWidth="0.8" fill="none" opacity="0.6" />
+          ))}
+          {/* Nodes */}
+          {[
+            [40,80],[200,100],[80,280],[180,280],[100,480],[200,480],[120,680],[220,680],
+          ].map(([cx, cy], i) => (
+            <circle key={i} className="nav-node" cx={cx} cy={cy} r="5" fill="none" stroke="#4599B5" strokeWidth="1.2" />
+          ))}
+          {/* Small center dots */}
+          {[
+            [40,80],[200,100],[80,280],[180,280],[100,480],[200,480],[120,680],[220,680],
+          ].map(([cx, cy], i) => (
+            <circle key={`d${i}`} cx={cx} cy={cy} r="2" fill="#C4A25A" opacity="0.7" />
+          ))}
+        </svg>
+
+        {/* Left border gradient line */}
+        <div style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: '1px',
+          background: 'linear-gradient(to bottom, transparent, #4599B5 30%, #7EC8E3 60%, #C4A25A 85%, transparent)',
+        }} />
+
         {navLinks.map(({ label, href }) => (
           <a
             key={label}
@@ -200,6 +281,8 @@ export default function Nav() {
               ...linkStyle,
               fontSize: '13px',
               letterSpacing: '0.3em',
+              position: 'relative',
+              zIndex: 1,
             }}
             onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '0.85'; }}

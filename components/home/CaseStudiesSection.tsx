@@ -237,7 +237,7 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
           >
             WHAT WE BUILT
           </p>
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+          <ul style={{ listStyle: 'none', margin: '0 0 28px 0', padding: 0 }}>
             {study.built.map((item) => (
               <li
                 key={item}
@@ -267,6 +267,27 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
               </li>
             ))}
           </ul>
+
+          <a
+            href="/case-studies"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              fontFamily: "'DM Sans', sans-serif", fontSize: '10px',
+              color: 'var(--crest)', textTransform: 'uppercase',
+              letterSpacing: '0.25em', textDecoration: 'none',
+              transition: 'color 0.2s ease, gap 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.color = 'var(--gold)';
+              (e.currentTarget as HTMLElement).style.gap = '12px';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.color = 'var(--crest)';
+              (e.currentTarget as HTMLElement).style.gap = '8px';
+            }}
+          >
+            View Full Case Study <span>→</span>
+          </a>
         </div>
       </div>
     </div>

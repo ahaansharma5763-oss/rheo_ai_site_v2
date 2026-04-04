@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import FloatingCTAs from '@/components/shared/FloatingCTAs'
 import PremiumCursor from '@/components/shared/PremiumCursor'
+import { SmokeBackground } from '@/components/ui/spooky-smoke-animation'
 
 export const metadata: Metadata = {
   title: 'Rheo AI — Operations that flow',
@@ -26,7 +27,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body><PremiumCursor />{children}<FloatingCTAs /></body>
+      <body>
+        {/* Global smoke — fixed full-page, behind all content */}
+        <div aria-hidden="true" style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <SmokeBackground smokeColor="#2E6B8E" />
+        </div>
+        <PremiumCursor />
+        {children}
+        <FloatingCTAs />
+      </body>
     </html>
   )
 }
