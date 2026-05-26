@@ -1,30 +1,26 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const els = sectionRef.current?.querySelectorAll('[data-animate]');
+    const els = ref.current?.querySelectorAll('[data-a]');
     if (!els) return;
     const delays: Record<string, number> = {
-      'hero-label': 200,
-      'hero-title': 420,
-      'hero-sub':   680,
-      'hero-body':  880,
-      'hero-cta':   1040,
+      '0': 100, '1': 280, '2': 460, '3': 620, '4': 800,
     };
     els.forEach(el => {
-      const htmlEl = el as HTMLElement;
-      htmlEl.style.opacity = '0';
-      htmlEl.style.transform = 'translateY(20px)';
-      const delay = delays[htmlEl.dataset.animate ?? ''] ?? 0;
+      const h = el as HTMLElement;
+      h.style.opacity = '0';
+      h.style.transform = 'translateY(18px)';
       setTimeout(() => {
-        htmlEl.style.transition = 'opacity 1s ease, transform 1s cubic-bezier(0.16,1,0.3,1)';
-        htmlEl.style.opacity = '1';
-        htmlEl.style.transform = 'translateY(0)';
-      }, delay);
+        h.style.transition = 'opacity 1s ease, transform 1s cubic-bezier(0.16,1,0.3,1)';
+        h.style.opacity = '1';
+        h.style.transform = 'translateY(0)';
+      }, delays[h.dataset.a ?? '0'] ?? 0);
     });
   }, []);
 
@@ -39,160 +35,213 @@ export default function HeroSection() {
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="hero-section"
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        background: 'var(--ink)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        padding: '0 48px',
-      }}
-    >
-      {/* Subtle radial gradient — depth without motion */}
+    <section ref={ref} className="hero-section" style={{
+      position: 'relative',
+      minHeight: '100vh',
+      background: 'var(--ink)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      padding: '120px 48px 80px',
+    }}>
+      {/* Grain texture */}
       <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(13,31,60,0.6) 0%, transparent 70%)',
+        position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+        opacity: 0.028, mixBlendMode: 'overlay',
       }} />
 
-      {/* Single static gold hairline — top accent */}
+      {/* Glow orb behind R */}
       <div aria-hidden="true" style={{
-        position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
-        width: '1px', height: '80px',
-        background: 'linear-gradient(to bottom, transparent, rgba(196,162,90,0.4))',
-        pointerEvents: 'none',
+        position: 'absolute', top: '50%', left: '50%',
+        transform: 'translate(-50%, -58%)',
+        width: '700px', height: '700px',
+        background: 'radial-gradient(circle, rgba(46,107,142,0.22) 0%, transparent 65%)',
+        filter: 'blur(60px)',
+        pointerEvents: 'none', zIndex: 1,
       }} />
 
-      {/* Content */}
-      <div style={{
+      {/* Content — two column on desktop, stacked on mobile */}
+      <div className="hero-inner" style={{
         position: 'relative', zIndex: 2,
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center', textAlign: 'center',
-        maxWidth: '900px',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '80px',
+        alignItems: 'center',
+        maxWidth: '1100px',
+        width: '100%',
       }}>
-        {/* Eyebrow label */}
-        <p data-animate="hero-label" style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: '10px',
-          color: 'var(--crest)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.55em',
-          margin: '0 0 28px 0',
-        }}>
-          AI Consultancy & Automation · Pune
-        </p>
+        {/* Left — text */}
+        <div>
+          <p data-a="0" style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: '10px', color: 'var(--crest)',
+            textTransform: 'uppercase', letterSpacing: '0.5em',
+            margin: '0 0 24px 0',
+          }}>
+            AI Consultancy & Automation · Pune
+          </p>
 
-        {/* Main wordmark */}
-        <h1 data-animate="hero-title" style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: 'clamp(80px, 14vw, 160px)',
-          color: 'var(--gold)',
-          letterSpacing: '0.35em',
-          margin: '0 0 20px 0',
-          lineHeight: 1,
-          textShadow: '0 0 80px rgba(196,162,90,0.2)',
-        }}>
-          RHEO
-        </h1>
+          <h1 data-a="1" style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: 'clamp(48px, 6vw, 80px)',
+            color: 'var(--warm-foam)',
+            letterSpacing: '0.12em',
+            lineHeight: 1.05,
+            margin: '0 0 12px 0',
+          }}>
+            Your operations
+          </h1>
+          <h1 data-a="1" style={{
+            fontFamily: 'Georgia, serif',
+            fontStyle: 'italic',
+            fontSize: 'clamp(48px, 6vw, 80px)',
+            color: 'var(--gold)',
+            letterSpacing: '0.1em',
+            lineHeight: 1.05,
+            margin: '0 0 36px 0',
+          }}>
+            are leaking revenue.
+          </h1>
 
-        {/* Cultural subtitle */}
-        <p data-animate="hero-sub" style={{
-          fontFamily: 'Georgia, serif',
-          fontStyle: 'italic',
-          fontSize: '16px',
-          color: 'rgba(238,232,224,0.45)',
-          letterSpacing: '0.3em',
-          margin: '0 0 48px 0',
-        }}>
-          ρέω · 流れ · Flow
-        </p>
+          <div data-a="2" style={{
+            width: '36px', height: '1px',
+            background: 'rgba(196,162,90,0.5)',
+            marginBottom: '28px',
+          }} />
 
-        {/* Divider */}
-        <div data-animate="hero-body" style={{
-          width: '40px', height: '1px',
-          background: 'rgba(196,162,90,0.5)',
-          margin: '0 auto 32px',
-        }} />
+          <p data-a="2" style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: '16px',
+            color: 'rgba(238,232,224,0.55)',
+            lineHeight: 1.8,
+            maxWidth: '440px',
+            margin: '0 0 40px 0',
+          }}>
+            We build custom AI automation systems that fix fragmented operations — faster responses, zero missed bookings, payments that collect themselves.
+          </p>
 
-        {/* Value statement */}
-        <p data-animate="hero-body" style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: 'clamp(15px, 1.8vw, 18px)',
-          color: 'rgba(238,232,224,0.55)',
-          lineHeight: 1.75,
-          maxWidth: '520px',
-          margin: '0 0 48px 0',
-          letterSpacing: '0.02em',
-        }}>
-          We automate the space between data and decision.<br />
-          Custom-built systems. Zero templates.
-        </p>
-
-        {/* CTAs */}
-        <div data-animate="hero-cta" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <button
-            onClick={openCalendly}
-            style={{
+          <div data-a="3" style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <button onClick={openCalendly} style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '11px',
-              textTransform: 'uppercase',
+              fontSize: '11px', textTransform: 'uppercase',
               letterSpacing: '0.3em',
-              color: 'var(--ink)',
-              background: 'var(--gold)',
-              border: 'none',
-              padding: '14px 32px',
-              cursor: 'pointer',
-              transition: 'opacity 0.2s ease',
+              color: 'var(--ink)', background: 'var(--gold)',
+              border: 'none', padding: '14px 32px',
+              cursor: 'pointer', transition: 'opacity 0.2s ease',
             }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
-          >
-            Book a Call
-          </button>
-          <a
-            href="#services"
-            style={{
+            >
+              Book a Free Audit
+            </button>
+            <a href="#services" style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '11px',
-              textTransform: 'uppercase',
+              fontSize: '11px', textTransform: 'uppercase',
               letterSpacing: '0.3em',
-              color: 'rgba(238,232,224,0.5)',
+              color: 'rgba(238,232,224,0.45)',
               textDecoration: 'none',
               padding: '14px 20px',
-              border: '1px solid rgba(238,232,224,0.15)',
-              transition: 'color 0.2s ease, border-color 0.2s ease',
+              border: '1px solid rgba(238,232,224,0.12)',
+              transition: 'color 0.2s, border-color 0.2s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.color = 'var(--warm-foam)'; e.currentTarget.style.borderColor = 'rgba(238,232,224,0.35)'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(238,232,224,0.5)'; e.currentTarget.style.borderColor = 'rgba(238,232,224,0.15)'; }}
-          >
-            See Our Work ↓
-          </a>
+            onMouseEnter={e => { e.currentTarget.style.color = 'var(--warm-foam)'; e.currentTarget.style.borderColor = 'rgba(238,232,224,0.3)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(238,232,224,0.45)'; e.currentTarget.style.borderColor = 'rgba(238,232,224,0.12)'; }}
+            >
+              See Services ↓
+            </a>
+          </div>
+
+          {/* Proof strip */}
+          <div data-a="4" style={{
+            display: 'flex', gap: '28px', marginTop: '48px',
+            paddingTop: '28px',
+            borderTop: '1px solid rgba(196,162,90,0.12)',
+            flexWrap: 'wrap',
+          }}>
+            {[
+              { num: '38+', label: 'Workflows Deployed' },
+              { num: '<2s', label: 'Response Time' },
+              { num: '200+', label: 'Bookings Automated' },
+            ].map(s => (
+              <div key={s.label}>
+                <p style={{
+                  fontFamily: 'Georgia, serif',
+                  fontSize: '22px', color: 'var(--gold)',
+                  margin: '0 0 2px 0', letterSpacing: '0.05em',
+                }}>
+                  {s.num}
+                </p>
+                <p style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: '10px', color: 'rgba(126,200,227,0.5)',
+                  textTransform: 'uppercase', letterSpacing: '0.2em',
+                  margin: 0,
+                }}>
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Proof line */}
-        <p data-animate="hero-cta" style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: '10px',
-          color: 'rgba(126,200,227,0.3)',
-          letterSpacing: '0.25em',
-          textTransform: 'uppercase',
-          marginTop: '40px',
+        {/* Right — Hokusai Wave R */}
+        <div data-a="1" style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          position: 'relative',
         }}>
-          38+ workflows deployed · 200+ bookings automated · &lt;2s response time
-        </p>
+          {/* Gold ring accent behind the R */}
+          <div aria-hidden="true" style={{
+            position: 'absolute',
+            width: '420px', height: '420px',
+            border: '1px solid rgba(196,162,90,0.08)',
+            borderRadius: '50%',
+            top: '50%', left: '50%',
+            transform: 'translate(-50%,-50%)',
+            pointerEvents: 'none',
+          }} />
+
+          <Image
+            src="/wave-r-hero.png"
+            alt="Rheo AI — Flow"
+            width={480}
+            height={480}
+            priority
+            style={{
+              width: 'min(480px, 100%)',
+              height: 'auto',
+              display: 'block',
+              filter: 'drop-shadow(0 0 60px rgba(46,107,142,0.35))',
+            }}
+          />
+        </div>
       </div>
 
-      {/* Bottom hairline */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)',
-        width: '1px', height: '60px',
-        background: 'linear-gradient(to bottom, rgba(196,162,90,0.3), transparent)',
-        pointerEvents: 'none',
-      }} />
+      {/* Bottom cultural tag */}
+      <p style={{
+        position: 'absolute', bottom: '28px', left: '50%',
+        transform: 'translateX(-50%)',
+        fontFamily: 'Georgia, serif', fontStyle: 'italic',
+        fontSize: '12px', color: 'rgba(238,232,224,0.2)',
+        letterSpacing: '0.3em', whiteSpace: 'nowrap',
+        zIndex: 2, margin: 0,
+      }}>
+        ρέω · 流れ · Flow
+      </p>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-inner {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            text-align: center;
+          }
+          .hero-inner > div:first-child { order: 2; }
+          .hero-inner > div:last-child { order: 1; }
+          .hero-inner > div:first-child > div[style*='justify-content'] { justify-content: center; }
+        }
+      `}</style>
     </section>
   );
 }

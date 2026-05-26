@@ -55,7 +55,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
           <img
-            src="/rheo-logo.png"
+            src="/wave-r-nav.png"
             alt="Rheo AI"
             style={{ width: '32px', height: '32px', objectFit: 'contain', borderRadius: '0px', display: 'block' }}
           />
