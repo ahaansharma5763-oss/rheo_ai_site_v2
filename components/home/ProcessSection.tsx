@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import ProcessFlowChart from '@/components/shared/ProcessFlowChart';
 
 const steps = [
   {
@@ -136,6 +137,11 @@ export default function ProcessSection() {
       </svg>
 
       <div className="process-inner" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 64px', position: 'relative', zIndex: 1 }}>
+
+        {/* Process flowchart — full width above the grid */}
+        <div style={{ marginBottom: '64px' }}>
+          <ProcessFlowChart />
+        </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }} className="process-grid">
 
