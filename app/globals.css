@@ -58,12 +58,11 @@ body::before {
   mix-blend-mode: overlay;
 }
 
-/* ── Section transitions — tighter ── */
+/* ── Section base ── */
 section {
   padding: 96px 0;
   position: relative;
   z-index: 1;
-  background: rgba(7, 16, 30, 0.80) !important;
 }
 
 /* Hero is fully transparent — smoke shows directly through */

@@ -22,7 +22,7 @@ export default function Nav() {
   }, [menuOpen]);
 
   const navLinks = [
-    { label: 'Home', href: '/' },
+    { label: 'Work', href: '#case-studies' },
     { label: 'AVA', href: '/ava' },
     { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
   ];
@@ -47,7 +47,7 @@ export default function Nav() {
     fontFamily: 'DM Sans, sans-serif',
     opacity: 0.85,
     padding: '7px 18px',
-    borderRadius: '20px',
+    borderRadius: '0px',
     border: '1px solid transparent',
     background: 'transparent',
   };
@@ -61,7 +61,7 @@ export default function Nav() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          background: 'linear-gradient(105deg, rgba(7,16,30,0.95) 0%, rgba(13,31,60,0.93) 35%, rgba(26,53,102,0.90) 70%, rgba(46,107,142,0.88) 100%)',
+          background: 'rgba(7,16,30,0.96)',
           backdropFilter: 'blur(14px)',
           WebkitBackdropFilter: 'blur(14px)',
           borderBottom: '1px solid rgba(69,153,181,0.15)',
@@ -108,7 +108,7 @@ export default function Nav() {
           <img
             src="/rheo-logo.png"
             alt="Rheo AI"
-            style={{ width: '36px', height: '36px', objectFit: 'contain', borderRadius: '8px', display: 'block' }}
+            style={{ width: '36px', height: '36px', objectFit: 'contain', borderRadius: '0px', display: 'block' }}
           />
           <span
             style={{
@@ -143,10 +143,10 @@ export default function Nav() {
               onMouseEnter={e => {
                 e.currentTarget.style.color = 'var(--gold)';
                 e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.background = 'rgba(196,162,90,0.1)';
-                e.currentTarget.style.borderColor = 'rgba(196,162,90,0.3)';
+                e.currentTarget.style.background = 'rgba(196,162,90,0.08)';
+                e.currentTarget.style.borderColor = 'rgba(196,162,90,0.25)';
                 e.currentTarget.style.transform = 'translateY(-1px)';
-                e.currentTarget.style.boxShadow = '0 0 18px rgba(196,162,90,0.18), 0 4px 12px rgba(0,0,0,0.25)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.color = 'var(--gold)';
@@ -160,6 +160,34 @@ export default function Nav() {
               {label}
             </a>
           ))}
+          {/* Book a call CTA */}
+          <button
+            onClick={openCalendly}
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.35em',
+              color: 'var(--ink)',
+              background: 'var(--gold)',
+              border: '1px solid var(--gold)',
+              padding: '7px 20px',
+              borderRadius: '0px',
+              cursor: 'pointer',
+              transition: 'background 0.2s ease, color 0.2s ease',
+              fontWeight: 500,
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--gold)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'var(--gold)';
+              e.currentTarget.style.color = 'var(--ink)';
+            }}
+          >
+            Book a Call
+          </button>
         </div>
 
         {/* Hamburger */}

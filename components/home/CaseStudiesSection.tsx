@@ -97,7 +97,7 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
       className="case-card"
       style={{
         background: 'var(--ink)',
-        borderRadius: '16px',
+        borderRadius: '0px',
         padding: '40px 36px',
         position: 'relative',
         overflow: 'hidden',
@@ -149,7 +149,7 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
               style={{
                 background: 'rgba(26,53,102,0.5)',
                 border: '1px solid rgba(196,162,90,0.2)',
-                borderRadius: '8px',
+                borderRadius: '0px',
                 padding: '14px 16px',
               }}
             >
@@ -189,7 +189,7 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
             padding: '20px 20px 20px 24px',
             borderLeft: '2px solid rgba(196,162,90,0.5)',
             background: 'rgba(14,31,60,0.4)',
-            borderRadius: '0 8px 8px 0',
+            borderRadius: '0',
           }}
         >
           <p
@@ -318,6 +318,7 @@ export default function CaseStudiesSection() {
 
   return (
     <section
+      id="case-studies"
       style={{
         background: 'var(--navy)',
         padding: '120px 0',

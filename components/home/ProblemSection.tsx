@@ -277,8 +277,8 @@ export default function ProblemSection() {
                   y={b.y}
                   width={b.w}
                   height={b.h}
-                  rx="4"
-                  ry="4"
+                  rx="0"
+                  ry="0"
                   fill="#1A3566"
                 />
                 <text
