@@ -125,7 +125,7 @@ export default function FloatingCTAs() {
               <span style={{
                 position:'absolute', inset:'-4px', borderRadius:'50%',
                 border:'1px solid rgba(196,162,90,0.3)',
-                animation:'calPulse 2.5s ease-out infinite',
+                
                 pointerEvents:'none',
               }}/>
             )}
@@ -188,7 +188,7 @@ export default function FloatingCTAs() {
               <span style={{
                 position:'absolute', inset:'-4px', borderRadius:'50%',
                 border:'1px solid rgba(37,211,102,0.35)',
-                animation:'waPulse 2.2s ease-out infinite',
+                
                 pointerEvents:'none',
               }}/>
             )}

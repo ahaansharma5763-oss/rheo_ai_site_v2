@@ -4,44 +4,39 @@ import { useEffect, useRef } from 'react';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const animateEls = sectionRef.current?.querySelectorAll('[data-animate]');
-    if (!animateEls) return;
-
-    animateEls.forEach((el) => {
-      const htmlEl = el as HTMLElement;
-      htmlEl.style.transition = 'none';
-      htmlEl.style.opacity = '0';
-    });
-
+    const els = sectionRef.current?.querySelectorAll('[data-animate]');
+    if (!els) return;
     const delays: Record<string, number> = {
-      'hero-label': 400,
-      'hero-title': 650,
-      'hero-sub':   900,
+      'hero-label': 200,
+      'hero-title': 420,
+      'hero-sub':   680,
+      'hero-body':  880,
+      'hero-cta':   1040,
     };
-
-    animateEls.forEach((el) => {
+    els.forEach(el => {
       const htmlEl = el as HTMLElement;
-      const key = htmlEl.dataset.animate ?? '';
-      const delay = delays[key] ?? 0;
-      const hasTranslate = key === 'hero-title';
-      if (hasTranslate) htmlEl.style.transform = 'translateY(28px)';
+      htmlEl.style.opacity = '0';
+      htmlEl.style.transform = 'translateY(20px)';
+      const delay = delays[htmlEl.dataset.animate ?? ''] ?? 0;
       setTimeout(() => {
-        htmlEl.style.transition = 'opacity 1.1s ease, transform 1.1s cubic-bezier(0.16,1,0.3,1)';
+        htmlEl.style.transition = 'opacity 1s ease, transform 1s cubic-bezier(0.16,1,0.3,1)';
         htmlEl.style.opacity = '1';
-        if (hasTranslate) htmlEl.style.transform = 'translateY(0)';
+        htmlEl.style.transform = 'translateY(0)';
       }, delay);
     });
-
-    const handleScroll = () => {
-      if (!scrollIndicatorRef.current) return;
-      scrollIndicatorRef.current.style.opacity = window.scrollY > 100 ? '0' : '1';
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const openCalendly = () => {
+    // @ts-ignore
+    if (typeof window !== 'undefined' && window.Calendly) {
+      // @ts-ignore
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' });
+    } else {
+      window.open('https://calendly.com/ahaan-rheoai/30min', '_blank');
+    }
+  };
 
   return (
     <section
@@ -49,26 +44,27 @@ export default function HeroSection() {
       className="hero-section"
       style={{
         position: 'relative',
-        height: '100vh',
-        minHeight: '640px',
-        overflow: 'hidden',
-        background: 'transparent',
+        minHeight: '100vh',
+        background: 'var(--ink)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        overflow: 'hidden',
+        padding: '0 48px',
       }}
     >
-      <style>{`
-        @keyframes chevronPulse {
-          0%, 100% { opacity: 1; transform: translateY(0); }
-          50%       { opacity: 0.3; transform: translateY(4px); }
-        }
-      `}</style>
-
-      {/* Subtle vignette — keeps text readable over global smoke */}
+      {/* Subtle radial gradient — depth without motion */}
       <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 80% 60% at 50% 42%, rgba(7,16,30,0.52) 0%, transparent 100%)',
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(13,31,60,0.6) 0%, transparent 70%)',
+      }} />
+
+      {/* Single static gold hairline — top accent */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
+        width: '1px', height: '80px',
+        background: 'linear-gradient(to bottom, transparent, rgba(196,162,90,0.4))',
+        pointerEvents: 'none',
       }} />
 
       {/* Content */}
@@ -76,57 +72,127 @@ export default function HeroSection() {
         position: 'relative', zIndex: 2,
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', textAlign: 'center',
-        padding: '0 32px',
-        marginTop: '-40px',
+        maxWidth: '900px',
       }}>
-        {/* Label */}
+        {/* Eyebrow label */}
         <p data-animate="hero-label" style={{
           fontFamily: "'DM Sans', sans-serif",
-          fontSize: '11px', color: 'var(--foam)',
-          textTransform: 'uppercase', letterSpacing: '0.55em',
-          margin: '0 0 16px 0', opacity: 0,
+          fontSize: '10px',
+          color: 'var(--crest)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.55em',
+          margin: '0 0 28px 0',
         }}>
-          AI CONSULTANCY &amp; AUTOMATION
+          AI Consultancy & Automation · Pune
         </p>
 
-        {/* RHEO */}
+        {/* Main wordmark */}
         <h1 data-animate="hero-title" style={{
           fontFamily: 'Georgia, serif',
-          fontSize: 'clamp(68px, 11vw, 112px)',
-          color: 'var(--gold)', letterSpacing: '0.38em',
-          margin: '0 0 16px 0', lineHeight: 1, opacity: 0,
-          textShadow: '0 0 60px rgba(196,162,90,0.4), 0 0 120px rgba(196,162,90,0.12)',
+          fontSize: 'clamp(80px, 14vw, 160px)',
+          color: 'var(--gold)',
+          letterSpacing: '0.35em',
+          margin: '0 0 20px 0',
+          lineHeight: 1,
+          textShadow: '0 0 80px rgba(196,162,90,0.2)',
         }}>
           RHEO
         </h1>
 
-        {/* Sub */}
+        {/* Cultural subtitle */}
         <p data-animate="hero-sub" style={{
-          fontFamily: 'Georgia, serif', fontStyle: 'italic',
-          fontSize: '15px', color: 'var(--foam)',
-          letterSpacing: '0.26em', margin: 0, opacity: 0,
+          fontFamily: 'Georgia, serif',
+          fontStyle: 'italic',
+          fontSize: '16px',
+          color: 'rgba(238,232,224,0.45)',
+          letterSpacing: '0.3em',
+          margin: '0 0 48px 0',
         }}>
           ρέω · 流れ · Flow
         </p>
+
+        {/* Divider */}
+        <div data-animate="hero-body" style={{
+          width: '40px', height: '1px',
+          background: 'rgba(196,162,90,0.5)',
+          margin: '0 auto 32px',
+        }} />
+
+        {/* Value statement */}
+        <p data-animate="hero-body" style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: 'clamp(15px, 1.8vw, 18px)',
+          color: 'rgba(238,232,224,0.55)',
+          lineHeight: 1.75,
+          maxWidth: '520px',
+          margin: '0 0 48px 0',
+          letterSpacing: '0.02em',
+        }}>
+          We automate the space between data and decision.<br />
+          Custom-built systems. Zero templates.
+        </p>
+
+        {/* CTAs */}
+        <div data-animate="hero-cta" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <button
+            onClick={openCalendly}
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.3em',
+              color: 'var(--ink)',
+              background: 'var(--gold)',
+              border: 'none',
+              padding: '14px 32px',
+              cursor: 'pointer',
+              transition: 'opacity 0.2s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+          >
+            Book a Call
+          </button>
+          <a
+            href="#services"
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.3em',
+              color: 'rgba(238,232,224,0.5)',
+              textDecoration: 'none',
+              padding: '14px 20px',
+              border: '1px solid rgba(238,232,224,0.15)',
+              transition: 'color 0.2s ease, border-color 0.2s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = 'var(--warm-foam)'; e.currentTarget.style.borderColor = 'rgba(238,232,224,0.35)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(238,232,224,0.5)'; e.currentTarget.style.borderColor = 'rgba(238,232,224,0.15)'; }}
+          >
+            See Our Work ↓
+          </a>
+        </div>
+
+        {/* Proof line */}
+        <p data-animate="hero-cta" style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '10px',
+          color: 'rgba(126,200,227,0.3)',
+          letterSpacing: '0.25em',
+          textTransform: 'uppercase',
+          marginTop: '40px',
+        }}>
+          38+ workflows deployed · 200+ bookings automated · &lt;2s response time
+        </p>
       </div>
 
-      {/* Scroll indicator */}
-      <div ref={scrollIndicatorRef} style={{
-        position: 'absolute', bottom: '32px', left: '50%',
-        transform: 'translateX(-50%)', zIndex: 3,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
-        transition: 'opacity 0.4s ease',
-      }}>
-        <span style={{
-          fontFamily: "'DM Sans', sans-serif", fontSize: '8px',
-          color: 'rgba(126,200,227,0.5)', letterSpacing: '0.3em', textTransform: 'uppercase',
-        }}>SCROLL</span>
-        <span style={{
-          color: 'var(--gold)', fontSize: '16px',
-          animation: 'chevronPulse 1.8s ease-in-out infinite',
-          display: 'block', lineHeight: 1,
-        }}>∨</span>
-      </div>
+      {/* Bottom hairline */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)',
+        width: '1px', height: '60px',
+        background: 'linear-gradient(to bottom, rgba(196,162,90,0.3), transparent)',
+        pointerEvents: 'none',
+      }} />
     </section>
   );
 }

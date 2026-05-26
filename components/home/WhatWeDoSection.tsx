@@ -6,8 +6,6 @@ interface Service {
   num: string;
   name: string;
   desc: string;
-  setup: string;
-  monthly: string;
 }
 
 interface Category {
@@ -23,22 +21,16 @@ const categories: Category[] = [
         num: '01',
         name: 'Speed-to-Lead Engine',
         desc: 'AI agent that replies to every WhatsApp and Instagram enquiry in under 60 seconds — day or night.',
-        setup: '₹6K–10K',
-        monthly: '₹4K–6K/mo',
       },
       {
         num: '02',
         name: 'Enquiry Pipeline & CRM',
         desc: 'Every lead captured, scored, and tracked from first message to closed deal — automatically.',
-        setup: '₹5K–8K',
-        monthly: '₹3K–4K/mo',
       },
       {
         num: '03',
         name: 'Quote Estimator Agent',
-        desc: 'AI-powered WhatsApp bot that collects variables and delivers an accurate quote in under 2 minutes.',
-        setup: '₹7K–12K',
-        monthly: '₹3.5K–5K/mo',
+        desc: 'Guided WhatsApp conversation that collects variables and delivers an accurate quote in under 2 minutes.',
       },
     ],
   },
@@ -48,23 +40,17 @@ const categories: Category[] = [
       {
         num: '04',
         name: 'Booking & Scheduling',
-        desc: 'Full slot-booking on WhatsApp — calendar sync, confirmations, reminders, rescheduling, and Razorpay advances.',
-        setup: '₹7K–12K',
-        monthly: '₹4K–6K/mo',
+        desc: 'Full slot-booking on WhatsApp — calendar sync, confirmations, reminders, rescheduling, and advance collection.',
       },
       {
         num: '05',
         name: 'Waitlist & Slot Recovery',
         desc: 'When a customer cancels, the system instantly offers the slot to your waitlist — and fills it before you notice.',
-        setup: '₹3K–4.5K',
-        monthly: '₹2K/mo',
       },
       {
         num: '06',
         name: 'Payment Follow-Up',
-        desc: 'Polite, escalating payment reminders on WhatsApp — stops automatically the moment payment is confirmed.',
-        setup: '₹3K–4.5K',
-        monthly: '₹2K/mo',
+        desc: 'Polite, escalating payment reminders that stop automatically the moment payment is confirmed.',
       },
     ],
   },
@@ -74,23 +60,17 @@ const categories: Category[] = [
       {
         num: '07',
         name: 'Customer Re-Engagement',
-        desc: 'Identifies lapsed customers (30/60/90 days) and sends personalised re-engagement messages in your brand voice.',
-        setup: '₹5K–7K',
-        monthly: '₹3K/mo',
+        desc: 'Identifies lapsed customers at 30, 60, and 90 days — sends personalised messages in your brand voice.',
       },
       {
         num: '08',
         name: 'Post-Service Follow-Up',
         desc: 'Aftercare messages, rebooking nudges, and upsell prompts — timed precisely to your service cycle.',
-        setup: '₹3.5K–5K',
-        monthly: '₹2.5K/mo',
       },
       {
         num: '09',
         name: 'Review & Reputation',
-        desc: 'Auto-requests reviews post-visit. Unhappy customers are routed privately — your Google rating is protected.',
-        setup: '₹3K–4K',
-        monthly: '₹2K/mo',
+        desc: 'Auto-requests reviews post-visit. Unhappy customers are routed privately — your public rating is protected.',
       },
     ],
   },
@@ -101,22 +81,16 @@ const categories: Category[] = [
         num: '10',
         name: 'Daily Ops Dashboard',
         desc: 'Morning brief and evening close delivered to your WhatsApp — bookings, revenue, no-shows, tomorrow\'s schedule.',
-        setup: '₹3.5K–5K',
-        monthly: '₹2.5K/mo',
       },
       {
         num: '11',
         name: 'Staff Comms & Ops Bot',
         desc: 'Shift reminders, attendance tracking, daily task briefings, and internal broadcasts — all on WhatsApp.',
-        setup: '₹4K–6K',
-        monthly: '₹2.5K/mo',
       },
       {
         num: '12',
         name: 'Staff Onboarding Bot',
-        desc: 'SOPs, training modules, and on-demand FAQs delivered to new hires on WhatsApp over their first two weeks.',
-        setup: '₹5K–8K',
-        monthly: '₹1.5K/mo',
+        desc: 'SOPs and training modules delivered to new hires on WhatsApp over their first two weeks.',
       },
     ],
   },
@@ -134,14 +108,14 @@ function ServiceCard({ svc, delay }: { svc: Service; delay: number }) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
           }, delay);
           observer.disconnect();
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     observer.observe(el);
     return () => observer.disconnect();
   }, [delay]);
@@ -151,75 +125,54 @@ function ServiceCard({ svc, delay }: { svc: Service; delay: number }) {
       ref={ref}
       className="svc-card"
       style={{
-        background: 'rgba(13,31,60,0.6)',
-        borderTop: '1px solid rgba(196,162,90,0.15)',
-        padding: '24px 20px',
+        padding: '28px 24px 32px',
         position: 'relative',
         overflow: 'hidden',
+        borderTop: '1px solid rgba(69,153,181,0.1)',
+        borderRight: '1px solid rgba(69,153,181,0.06)',
         cursor: 'default',
       }}
     >
       <div className="svc-bar" />
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '10px', color: 'var(--gold)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
-          {svc.num}
-        </span>
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '9px', color: 'rgba(69,153,181,0.6)', letterSpacing: '0.15em', textTransform: 'uppercase', textAlign: 'right', lineHeight: 1.5 }}>
-          {svc.setup}<br />{svc.monthly}
-        </span>
-      </div>
-      <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '15px', color: 'var(--warm-foam)', letterSpacing: '0.08em', margin: '0 0 10px 0', lineHeight: 1.25 }}>
+      <p style={{
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: '10px',
+        color: 'var(--gold)',
+        letterSpacing: '0.35em',
+        textTransform: 'uppercase',
+        margin: '0 0 16px 0',
+      }}>
+        {svc.num}
+      </p>
+      <h3 style={{
+        fontFamily: 'Georgia, serif',
+        fontSize: '17px',
+        color: 'var(--warm-foam)',
+        letterSpacing: '0.06em',
+        margin: '0 0 12px 0',
+        lineHeight: 1.3,
+      }}>
         {svc.name}
       </h3>
-      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '13px', color: 'var(--ocean)', lineHeight: 1.65, margin: 0 }}>
+      <p style={{
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: '13px',
+        color: 'rgba(126,200,227,0.55)',
+        lineHeight: 1.7,
+        margin: 0,
+      }}>
         {svc.desc}
       </p>
     </div>
   );
 }
 
-function CategoryGroup({ cat, baseDelay }: { cat: Category; baseDelay: number }) {
-  const labelRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = labelRef.current;
-    if (!el) return;
-    el.style.opacity = '0';
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          el.style.transition = 'opacity 0.5s ease';
-          el.style.opacity = '1';
-          obs.disconnect();
-        }
-      });
-    }, { threshold: 0.1 });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <div style={{ marginBottom: '4px' }}>
-      <div ref={labelRef} style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '0', padding: '0 0 12px 0', borderBottom: '1px solid rgba(69,153,181,0.12)' }}>
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '10px', color: 'var(--crest)', letterSpacing: '0.4em', textTransform: 'uppercase', opacity: 0.7 }}>
-          {cat.label}
-        </span>
-        <div style={{ flex: 1, height: '1px', background: 'rgba(69,153,181,0.08)' }} />
-      </div>
-      <div className="svc-grid">
-        {cat.services.map((svc, i) => (
-          <ServiceCard key={svc.num} svc={svc} delay={baseDelay + i * 80} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function WhatWeDoSection() {
   const headerRef = useRef<HTMLDivElement>(null);
-  const stackRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    [headerRef.current, stackRef.current].forEach((el, idx) => {
+    [headerRef.current, footerRef.current].forEach((el, i) => {
       if (!el) return;
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
@@ -230,7 +183,7 @@ export default function WhatWeDoSection() {
               el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
               el.style.opacity = '1';
               el.style.transform = 'translateY(0)';
-            }, idx * 100);
+            }, i * 80);
             obs.disconnect();
           }
         });
@@ -241,128 +194,188 @@ export default function WhatWeDoSection() {
   }, []);
 
   return (
-    <section id="services" style={{ background: 'var(--navy)', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+    <section id="services" style={{ background: 'var(--navy)', padding: '120px 0', position: 'relative' }}>
       <style>{`
         .svc-bar {
           position: absolute;
           bottom: 0; left: 0;
           height: 1px; width: 0%;
           background: var(--gold);
-          transition: width 280ms ease;
+          transition: width 300ms ease;
         }
         .svc-card:hover .svc-bar { width: 100%; }
-        .svc-card:hover { background: rgba(26,53,102,0.5) !important; }
-        .svc-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0;
-          border-left: 1px solid rgba(69,153,181,0.1);
-          border-right: 1px solid rgba(69,153,181,0.1);
-          margin-bottom: 0;
-        }
-        .svc-card { border-right: 1px solid rgba(69,153,181,0.08); }
         .svc-card:last-child { border-right: none; }
-        .svc-note-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 0;
-          margin-top: 4px;
-          border: 1px solid rgba(196,162,90,0.2);
-        }
         @media (max-width: 767px) {
           .svc-grid { grid-template-columns: 1fr !important; }
-          .svc-card { border-right: none !important; border-bottom: 1px solid rgba(69,153,181,0.08); }
-          .svc-note-grid { grid-template-columns: 1fr !important; }
+          .svc-card { border-right: none !important; }
           .whatwedo-inner { padding: 0 24px !important; }
+          .svc-callout-grid { grid-template-columns: 1fr !important; }
         }
         @media (min-width: 768px) and (max-width: 1024px) {
           .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
       `}</style>
 
-      <div className="whatwedo-inner" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 64px', position: 'relative', zIndex: 1 }}>
+      <div className="whatwedo-inner" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 64px' }}>
 
         {/* Header */}
-        <div ref={headerRef} style={{ marginBottom: '56px' }}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '11px', color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.44em', margin: '0 0 16px 0' }}>
-            WHAT WE DO
+        <div ref={headerRef} style={{ marginBottom: '64px' }}>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: '11px', color: 'var(--gold)',
+            textTransform: 'uppercase', letterSpacing: '0.44em',
+            margin: '0 0 20px 0',
+          }}>
+            What We Do
           </p>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 3.5vw, 42px)', color: 'var(--warm-foam)', letterSpacing: '0.12em', margin: '0 0 20px 0', lineHeight: 1.2, maxWidth: '700px' }}>
+          <h2 style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: 'clamp(26px, 3.5vw, 44px)',
+            color: 'var(--warm-foam)',
+            letterSpacing: '0.1em',
+            margin: '0 0 20px 0',
+            lineHeight: 1.15,
+            maxWidth: '680px',
+          }}>
             We automate the space between data and decision.
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: 'var(--ocean)', lineHeight: 1.85, maxWidth: '560px', margin: 0 }}>
-            Twelve production-ready automation systems — each one custom-built to your business after a structured Ops Audit. No templates. No guesswork. Every system is scoped to how you actually operate.
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: '15px',
+            color: 'rgba(126,200,227,0.55)',
+            lineHeight: 1.85,
+            maxWidth: '520px',
+            margin: 0,
+          }}>
+            Twelve production-ready automation systems — each one custom-built to your business after a structured Ops Audit. No templates. Every system is scoped to how you actually operate.
           </p>
         </div>
 
         {/* Category groups */}
-        {categories.map((cat, i) => (
-          <CategoryGroup key={cat.label} cat={cat} baseDelay={i * 40} />
+        {categories.map((cat, ci) => (
+          <div key={cat.label} style={{ marginBottom: '2px' }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '16px',
+              padding: '10px 0 14px',
+            }}>
+              <span style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: '9px', color: 'rgba(69,153,181,0.5)',
+                letterSpacing: '0.45em', textTransform: 'uppercase',
+              }}>
+                {cat.label}
+              </span>
+              <div style={{ flex: 1, height: '1px', background: 'rgba(69,153,181,0.1)' }} />
+            </div>
+            <div className="svc-grid" style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '0',
+            }}>
+              {cat.services.map((svc, si) => (
+                <ServiceCard key={svc.num} svc={svc} delay={ci * 30 + si * 60} />
+              ))}
+            </div>
+          </div>
         ))}
 
-        {/* Stack + Audit callout */}
-        <div ref={stackRef} className="svc-note-grid" style={{ marginTop: '32px' }}>
+        {/* Full Ops Stack + Ops Audit */}
+        <div ref={footerRef} className="svc-callout-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '0',
+          marginTop: '40px',
+          borderTop: '1px solid rgba(196,162,90,0.2)',
+        }}>
           {/* Full Ops Stack */}
-          <div style={{ padding: '32px 28px', borderRight: '1px solid rgba(196,162,90,0.2)', background: 'rgba(196,162,90,0.04)', position: 'relative', overflow: 'hidden' }}>
+          <div style={{
+            padding: '40px 36px',
+            borderRight: '1px solid rgba(196,162,90,0.1)',
+            position: 'relative',
+          }}>
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'var(--gold)' }} />
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '10px', color: 'var(--gold)', letterSpacing: '0.35em', textTransform: 'uppercase', margin: '0 0 12px 0' }}>
-              13. Full Ops Stack
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '10px', color: 'var(--gold)',
+              letterSpacing: '0.4em', textTransform: 'uppercase',
+              margin: '0 0 14px 0',
+            }}>
+              13 · Full Ops Stack
             </p>
-            <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '20px', color: 'var(--warm-foam)', letterSpacing: '0.08em', margin: '0 0 12px 0' }}>
+            <h3 style={{
+              fontFamily: 'Georgia, serif',
+              fontSize: '22px', color: 'var(--warm-foam)',
+              letterSpacing: '0.08em', margin: '0 0 14px 0',
+            }}>
               Everything, integrated.
             </h3>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '13px', color: 'var(--ocean)', lineHeight: 1.7, margin: '0 0 20px 0' }}>
-              All twelve systems connected into a single unified infrastructure — customer data flows from booking to CRM to re-engagement to reviews. Nothing siloed. Nothing manually entered. Built over 4–6 weeks with a 30-day hypercare period.
-            </p>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '11px', color: 'rgba(196,162,90,0.6)', letterSpacing: '0.2em' }}>
-              ₹20K–40K setup · ₹10K–18K/month
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '14px', color: 'rgba(126,200,227,0.55)',
+              lineHeight: 1.75, margin: 0,
+            }}>
+              All twelve systems connected into a unified infrastructure. Customer data flows from booking to CRM to re-engagement to reviews. Nothing siloed. Nothing manually entered. Built over 4–6 weeks with a 30-day hypercare period included.
             </p>
           </div>
 
           {/* Ops Audit */}
-          <div style={{ padding: '32px 28px', background: 'rgba(7,16,30,0.4)', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'rgba(196,162,90,0.3)' }} />
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '10px', color: 'var(--crest)', letterSpacing: '0.35em', textTransform: 'uppercase', margin: '0 0 12px 0' }}>
-              14. Ops Audit — Start here
+          <div style={{ padding: '40px 36px', position: 'relative' }}>
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '10px', color: 'var(--crest)',
+              letterSpacing: '0.4em', textTransform: 'uppercase',
+              margin: '0 0 14px 0',
+            }}>
+              14 · Ops Audit — Start here
             </p>
-            <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '20px', color: 'var(--warm-foam)', letterSpacing: '0.08em', margin: '0 0 12px 0' }}>
+            <h3 style={{
+              fontFamily: 'Georgia, serif',
+              fontSize: '22px', color: 'var(--warm-foam)',
+              letterSpacing: '0.08em', margin: '0 0 14px 0',
+            }}>
               We understand your business before we touch it.
             </h3>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '13px', color: 'var(--ocean)', lineHeight: 1.7, margin: '0 0 20px 0' }}>
-              A 45-minute structured discovery call, a walkthrough of your current tools and workflows, and a written report identifying your top 3–5 highest-ROI automation opportunities with estimated monthly impact. Every custom engagement starts here.
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '14px', color: 'rgba(126,200,227,0.55)',
+              lineHeight: 1.75, margin: '0 0 24px 0',
+            }}>
+              A structured 45-minute discovery call. A written report identifying your top automation opportunities with estimated monthly impact. Every custom engagement starts here.
             </p>
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '11px', color: 'rgba(196,162,90,0.6)', letterSpacing: '0.2em', margin: 0 }}>
-                ₹1,500 standalone · Free for retainer clients
-              </p>
-              <a
-                href="https://calendly.com/ahaan-rheoai/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '10px',
-                  color: 'var(--ink)',
-                  background: 'var(--gold)',
-                  padding: '7px 18px',
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  display: 'inline-block',
-                  transition: 'background 0.2s, color 0.2s',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--gold)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = 'var(--ink)'; }}
-              >
-                Book the Audit →
-              </a>
-            </div>
+            <a
+              href="https://calendly.com/ahaan-rheoai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: '11px', letterSpacing: '0.28em',
+                textTransform: 'uppercase',
+                color: 'var(--ink)',
+                background: 'var(--gold)',
+                padding: '10px 22px',
+                textDecoration: 'none',
+                display: 'inline-block',
+                transition: 'opacity 0.2s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+            >
+              Book the Audit →
+            </a>
           </div>
         </div>
 
         {/* Custom work note */}
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '12px', color: 'rgba(126,200,227,0.35)', letterSpacing: '0.2em', textAlign: 'center', marginTop: '28px', textTransform: 'uppercase' }}>
-          Don't see your use case? Every system we build is custom. Tell us the problem — we'll design the solution.
+        <p style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '11px',
+          color: 'rgba(126,200,227,0.25)',
+          letterSpacing: '0.25em',
+          textAlign: 'center',
+          marginTop: '32px',
+          textTransform: 'uppercase',
+        }}>
+          Don't see your use case? Every system we build is custom.
         </p>
       </div>
     </section>

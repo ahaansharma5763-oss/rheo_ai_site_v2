@@ -260,12 +260,12 @@ export default function WhoWeAreSection() {
           >
             <defs>
               <style>{`
-                @keyframes flow {
+                /* @keyframes flow {
                   to { stroke-dashoffset: -16; }
                 }
                 .flow-path {
                   stroke-dasharray: 4 4;
-                  animation: flow 1.5s linear infinite;
+                  
                 }
               `}</style>
             </defs>
@@ -274,7 +274,7 @@ export default function WhoWeAreSection() {
             {edges.map(([a, b], i) => (
               <path
                 key={i}
-                className="flow-path"
+                style={{ strokeDasharray: "4 4", opacity: 0.4 }}
                 d={linePath(nodes[a], nodes[b])}
                 stroke="var(--crest)"
                 strokeWidth="1"

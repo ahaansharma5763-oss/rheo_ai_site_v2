@@ -162,80 +162,15 @@ export default function CTASection() {
         </button>
       </div>
 
-      {/* Wave layers — bottom 80% of section */}
+      {/* Static depth gradient */}
       <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '80%',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
         aria-hidden="true"
-      >
-        {/* Layer 1 — deepest (prussian) */}
-        <svg
-          viewBox="0 0 1440 240"
-          width="100%"
-          height="240"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,100 C200,20 500,180 800,80 C1100,-20 1300,140 1440,60 L1440,240 L0,240 Z"
-            fill="#1A3566"
-            fillOpacity="0.35"
-          />
-        </svg>
-
-        {/* Layer 2 — prussian */}
-        <svg
-          viewBox="0 0 1440 240"
-          width="100%"
-          height="240"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,140 C300,40 600,200 900,100 C1200,0 1350,160 1440,90 L1440,240 L0,240 Z"
-            fill="#1A3566"
-            fillOpacity="0.5"
-          />
-        </svg>
-
-        {/* Layer 3 — ocean */}
-        <svg
-          viewBox="0 0 1440 240"
-          width="100%"
-          height="240"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,160 C250,80 550,210 850,120 C1150,30 1320,180 1440,110 L1440,240 L0,240 Z"
-            fill="#2E6B8E"
-            fillOpacity="0.45"
-          />
-        </svg>
-
-        {/* Layer 4 — ocean */}
-        <svg
-          viewBox="0 0 1440 240"
-          width="100%"
-          height="240"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,180 C280,100 560,220 840,150 C1120,80 1300,200 1440,140 L1440,240 L0,240 Z"
-            fill="#2E6B8E"
-            fillOpacity="0.55"
-          />
-        </svg>
-
-      </div>
+        style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          height: '60%', zIndex: 1, pointerEvents: 'none',
+          background: 'linear-gradient(to top, rgba(13,31,60,0.6) 0%, transparent 100%)',
+        }}
+      />
 
       {/* Bottom tagline */}
       <p
