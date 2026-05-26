@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
@@ -76,47 +75,6 @@ export default function HeroSection() {
         }}>
           AI Consultancy & Automation · Pune
         </p>
-
-        {/* Wave-R — centered, large */}
-        <div data-a="1" style={{
-          position: 'relative',
-          display: 'inline-block',
-          marginBottom: '32px',
-        }}>
-          {/* Subtle gold ring */}
-          <div aria-hidden="true" style={{
-            position: 'absolute',
-            width: '520px', height: '520px',
-            border: '1px solid rgba(196,162,90,0.07)',
-            borderRadius: '50%',
-            top: '50%', left: '50%',
-            transform: 'translate(-50%,-50%)',
-            pointerEvents: 'none',
-          }} />
-          <div aria-hidden="true" style={{
-            position: 'absolute',
-            width: '420px', height: '420px',
-            border: '1px solid rgba(196,162,90,0.05)',
-            borderRadius: '50%',
-            top: '50%', left: '50%',
-            transform: 'translate(-50%,-50%)',
-            pointerEvents: 'none',
-          }} />
-
-          <Image
-            src="/wave-r-hero.png"
-            alt="Rheo AI — Flow"
-            width={500}
-            height={500}
-            priority
-            style={{
-              width: 'min(500px, 80vw)',
-              height: 'auto',
-              display: 'block',
-              filter: 'drop-shadow(0 0 80px rgba(196,162,90,0.25)) drop-shadow(0 0 30px rgba(196,162,90,0.12))',
-            }}
-          />
-        </div>
 
         {/* RHEO wordmark */}
         <div data-a="1" style={{ marginBottom: '20px' }}>
