@@ -26,7 +26,7 @@ export function RhoWatermark({ className = '', style = {} }: { className?: strin
     <div className={className} style={{
       position:'absolute', pointerEvents:'none', userSelect:'none',
       fontFamily:'Georgia,serif', fontSize:'320px', fontWeight:400,
-      color:'#1A3566', opacity:0.06, lineHeight:1,
+      color:'#1A1A1A', opacity:0.06, lineHeight:1,
       letterSpacing:'-0.05em', zIndex:0, ...style
     }}>
       ρ
@@ -35,7 +35,7 @@ export function RhoWatermark({ className = '', style = {} }: { className?: strin
 }
 
 /** Greek column pair — decorative vertical elements */
-export function GreekColumns({ height = 200, color = '#1A3566', opacity = 0.12, className = '' }: {
+export function GreekColumns({ height = 200, color = '#1A1A1A', opacity = 0.12, className = '' }: {
   height?: number; color?: string; opacity?: number; className?: string
 }) {
   return (
@@ -49,7 +49,7 @@ export function GreekColumns({ height = 200, color = '#1A3566', opacity = 0.12, 
       <rect x="0"  y={height-14} width="24" height="14" fill={color}/>
       {/* Fluting lines */}
       {[8,12].map(x=>(
-        <line key={x} x1={x} y1="22" x2={x} y2={height-24} stroke="#4599B5" strokeWidth="0.5" opacity="0.4"/>
+        <line key={x} x1={x} y1="22" x2={x} y2={height-24} stroke="#C4A25A" strokeWidth="0.5" opacity="0.4"/>
       ))}
       {/* Right column */}
       <rect x="60" y="20" width="16" height={height-40} fill={color}/>
@@ -58,7 +58,7 @@ export function GreekColumns({ height = 200, color = '#1A3566', opacity = 0.12, 
       <rect x="58" y={height-22} width="20" height="8"  fill={color}/>
       <rect x="56" y={height-14} width="24" height="14" fill={color}/>
       {[68,72].map(x=>(
-        <line key={x} x1={x} y1="22" x2={x} y2={height-24} stroke="#4599B5" strokeWidth="0.5" opacity="0.4"/>
+        <line key={x} x1={x} y1="22" x2={x} y2={height-24} stroke="#C4A25A" strokeWidth="0.5" opacity="0.4"/>
       ))}
     </svg>
   )

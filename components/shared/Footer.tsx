@@ -19,7 +19,7 @@ function WaveHairline() {
     >
       <path
         d={wavePath}
-        stroke="#1A3566"
+        stroke="#1A1A1A"
         strokeWidth="0.5"
         fill="none"
         vectorEffect="non-scaling-stroke"
@@ -63,7 +63,7 @@ export default function Footer() {
           style={{
             fontFamily: 'Georgia, serif',
             fontSize: '14px',
-            color: 'var(--prussian)',
+            color: 'rgba(245,240,232,0.2)',
             letterSpacing: '0.2em',
             margin: '6px 0 0',
             fontWeight: 400,
@@ -76,7 +76,7 @@ export default function Footer() {
         <p
           style={{
             fontSize: '11px',
-            color: 'var(--ocean)',
+            color: 'rgba(245,240,232,0.48)',
             letterSpacing: '0.12em',
             margin: '12px 0 0',
             fontFamily: 'DM Sans, sans-serif',

@@ -147,7 +147,7 @@ export default function ProblemSection() {
               maxWidth: '480px',
               fontFamily: "'DM Sans', sans-serif",
               fontSize: '15px',
-              color: 'var(--ocean)',
+              color: 'rgba(245,240,232,0.48)',
               lineHeight: 1.85,
             }}
           >
@@ -178,7 +178,7 @@ export default function ProblemSection() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '15px',
-                  color: 'var(--ocean)',
+                  color: 'rgba(245,240,232,0.48)',
                   paddingLeft: '14px',
                   borderLeft: '2px solid rgba(196,162,90,0.5)',
                   lineHeight: 1.4,
@@ -279,7 +279,7 @@ export default function ProblemSection() {
                   height={b.h}
                   rx="0"
                   ry="0"
-                  fill="#1A3566"
+                  fill="#1A1A1A"
                 />
                 <text
                   x={b.x + b.w / 2}
@@ -300,7 +300,7 @@ export default function ProblemSection() {
               y="310"
               textAnchor="middle"
               fontSize="10"
-              fill="#2E6B8E"
+              fill="rgba(245,240,232,0.3)"
               fontFamily="'DM Sans', sans-serif"
             >
               Isolated systems. No shared state.

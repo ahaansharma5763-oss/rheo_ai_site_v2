@@ -3,13 +3,13 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --ink:       #07101E;
-  --navy:      #0D1F3C;
-  --prussian:  #1A3566;
-  --ocean:     #2E6B8E;
-  --crest:     #4599B5;
-  --foam:      #7EC8E3;
-  --warm-foam: #EEE8E0;
+  --ink:       #0A0A0A;
+  --navy:      #111111;
+  --prussian:  #1A1A1A;
+  --ocean:     rgba(245,240,232,0.45);
+  --crest:     #C4A25A;
+  --foam:      rgba(196,162,90,0.35);
+  --warm-foam: #F5F0E8;
   --gold:      #C4A25A;
 }
 
@@ -44,7 +44,7 @@ h1, h2, h3, h4 {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--prussian); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: rgba(196,162,90,0.3); border-radius: 2px; }
 
 /* ── Grain overlay ── */
 body::before {
@@ -52,7 +52,7 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.025;
+  opacity: 0.03;
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: overlay;
@@ -65,7 +65,7 @@ section {
   z-index: 1;
 }
 
-/* Hero is fully transparent — smoke shows directly through */
+/* Hero is fully transparent */
 section.hero-section {
   background: transparent !important;
   padding: 0 !important;
@@ -101,7 +101,7 @@ a { text-decoration: none; }
   100% { transform: scale(20); opacity: 0; }
 }
 
-/* Text highlight sweep — gold underline that grows from left */
+/* Text highlight sweep */
 .text-highlight {
   position: relative;
   display: inline-block;
@@ -144,7 +144,7 @@ a { text-decoration: none; }
 /* Gold selection */
 ::selection {
   background: rgba(196,162,90,0.25);
-  color: #EEE8E0;
+  color: #F5F0E8;
 }
 
 /* Nav link hover underline */
@@ -189,5 +189,5 @@ a {
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }

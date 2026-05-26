@@ -177,7 +177,7 @@ export default function CTASection() {
         style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: '10px',
-          color: 'rgba(126,200,227,0.35)',
+          color: 'rgba(245,240,232,0.28)',
           letterSpacing: '0.2em',
           textAlign: 'center',
           position: 'absolute',

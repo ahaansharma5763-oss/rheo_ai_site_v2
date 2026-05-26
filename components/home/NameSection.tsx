@@ -108,7 +108,7 @@ export default function NameSection() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '12px',
-                color: 'var(--ocean)',
+                color: 'rgba(245,240,232,0.48)',
                 letterSpacing: '0.12em',
                 margin: '8px 0 0 0',
               }}
@@ -168,7 +168,7 @@ export default function NameSection() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '12px',
-                color: 'var(--ocean)',
+                color: 'rgba(245,240,232,0.48)',
                 letterSpacing: '0.12em',
                 margin: '8px 0 0 0',
                 position: 'relative',

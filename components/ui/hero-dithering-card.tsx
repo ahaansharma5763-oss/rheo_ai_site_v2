@@ -34,7 +34,7 @@ export function HeroDithering({
         fallback={
           // CSS wave animation fallback — always visible, no WebGL needed
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 40%, #1A3566 70%, #2E6B8E 100%)',
+            background: 'linear-gradient(160deg, #07101E 0%, #111111 40%, #1A1A1A 70%, #2E6B8E 100%)',
           }}>
             <style>{`
               @keyframes cssWave1 { 0%,100%{transform:translateX(0) scaleY(1)} 50%{transform:translateX(-5%) scaleY(1.05)} }
@@ -44,7 +44,7 @@ export function HeroDithering({
             <svg style={{position:'absolute',bottom:0,left:0,width:'100%',height:'45%',animation:'cssWave1 8s ease-in-out infinite'}}
               viewBox="0 0 1440 260" preserveAspectRatio="none">
               <path d="M0,160 C180,80 360,220 540,140 C720,60 900,200 1080,120 C1260,40 1380,160 1440,100 L1440,260 L0,260 Z"
-                fill="#1A3566" opacity="0.7"/>
+                fill="#1A1A1A" opacity="0.7"/>
             </svg>
             {/* Wave layer 2 */}
             <svg style={{position:'absolute',bottom:0,left:0,width:'100%',height:'35%',animation:'cssWave2 6s ease-in-out infinite'}}

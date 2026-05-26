@@ -59,7 +59,7 @@ export default function HeroSection() {
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -52%)',
         width: '800px', height: '800px',
-        background: 'radial-gradient(circle, rgba(46,107,142,0.18) 0%, transparent 60%)',
+        background: 'radial-gradient(circle, rgba(196,162,90,0.07) 0%, transparent 60%)',
         filter: 'blur(80px)',
         pointerEvents: 'none', zIndex: 1,
       }} />
@@ -113,7 +113,7 @@ export default function HeroSection() {
               width: 'min(500px, 80vw)',
               height: 'auto',
               display: 'block',
-              filter: 'drop-shadow(0 0 80px rgba(46,107,142,0.4)) drop-shadow(0 0 30px rgba(196,162,90,0.12))',
+              filter: 'drop-shadow(0 0 80px rgba(196,162,90,0.25)) drop-shadow(0 0 30px rgba(196,162,90,0.12))',
             }}
           />
         </div>
@@ -235,7 +235,7 @@ export default function HeroSection() {
               </p>
               <p style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: '9px', color: 'rgba(126,200,227,0.45)',
+                fontSize: '9px', color: 'rgba(245,240,232,0.38)',
                 textTransform: 'uppercase', letterSpacing: '0.22em',
                 margin: 0,
               }}>

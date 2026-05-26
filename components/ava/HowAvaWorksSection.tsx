@@ -109,7 +109,7 @@ export default function HowAvaWorksSection() {
                   y={30}
                   width={130}
                   height={60}
-                  fill="#1A3566"
+                  fill="#1A1A1A"
                   rx={2}
                   stroke="#2E6B8E"
                   strokeWidth={0.5}
@@ -205,7 +205,7 @@ export default function HowAvaWorksSection() {
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: '14px',
-            color: 'var(--ocean)',
+            color: 'rgba(245,240,232,0.48)',
             lineHeight: 1.9,
             maxWidth: '700px',
             margin: '48px auto 0',

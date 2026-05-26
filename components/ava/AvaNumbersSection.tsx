@@ -75,7 +75,7 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
         style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: '12px',
-          color: 'var(--ocean)',
+          color: 'rgba(245,240,232,0.48)',
           textTransform: 'uppercase',
           letterSpacing: '0.2em',
           marginTop: '12px',

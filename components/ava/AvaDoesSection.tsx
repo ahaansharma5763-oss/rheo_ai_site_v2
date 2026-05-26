@@ -96,7 +96,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
         style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: '13px',
-          color: 'var(--ocean)',
+          color: 'rgba(245,240,232,0.48)',
           lineHeight: 1.7,
         }}
       >

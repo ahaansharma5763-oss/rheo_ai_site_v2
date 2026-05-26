@@ -137,7 +137,7 @@ export default function AvaCTASection() {
         >
           <path
             d="M0,120 C240,60 480,160 720,80 C960,0 1200,120 1440,60 L1440,200 L0,200 Z"
-            fill="#1A3566"
+            fill="#1A1A1A"
             fillOpacity="0.4"
           />
         </svg>
@@ -152,7 +152,7 @@ export default function AvaCTASection() {
         >
           <path
             d="M0,100 C200,40 440,140 720,70 C1000,0 1240,110 1440,50 L1440,200 L0,200 Z"
-            fill="#1A3566"
+            fill="#1A1A1A"
             fillOpacity="0.6"
           />
         </svg>
@@ -188,7 +188,7 @@ export default function AvaCTASection() {
           />
           <path
             d="M0,160 C200,100 440,180 720,120 C1000,60 1240,160 1440,100 L1440,200 L0,200 Z"
-            fill="#0D1F3C"
+            fill="#111111"
             fillOpacity="0.9"
           />
         </svg>

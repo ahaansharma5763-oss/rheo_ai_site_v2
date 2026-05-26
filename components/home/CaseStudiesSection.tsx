@@ -124,7 +124,7 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: '12px',
-              color: 'var(--ocean)',
+              color: 'rgba(245,240,232,0.48)',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               margin: 0,
@@ -169,7 +169,7 @@ function CaseStudyCard({ study, delay }: { study: CaseStudy; delay: number }) {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '11px',
-                  color: 'var(--ocean)',
+                  color: 'rgba(245,240,232,0.48)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.15em',
                   display: 'block',

@@ -72,7 +72,7 @@ function StepCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
           </span>
         </div>
         {idx < steps.length - 1 && (
-          <div style={{ width: '1px', flex: 1, minHeight: '60px', background: 'linear-gradient(to bottom, rgba(196,162,90,0.3), rgba(69,153,181,0.1))', marginTop: '8px' }} />
+          <div style={{ width: '1px', flex: 1, minHeight: '60px', background: 'linear-gradient(to bottom, rgba(196,162,90,0.3), rgba(196,162,90,0.08))', marginTop: '8px' }} />
         )}
       </div>
 
@@ -84,7 +84,7 @@ function StepCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
         <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(16px, 2vw, 22px)', color: 'var(--warm-foam)', letterSpacing: '0.08em', margin: '0 0 14px 0', lineHeight: 1.25 }}>
           {step.headline}
         </h3>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '14px', color: 'var(--ocean)', lineHeight: 1.8, margin: '0 0 16px 0', maxWidth: '560px' }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '14px', color: 'rgba(245,240,232,0.48)', lineHeight: 1.8, margin: '0 0 16px 0', maxWidth: '560px' }}>
           {step.body}
         </p>
         <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
@@ -153,7 +153,7 @@ export default function ProcessSection() {
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(26px, 3vw, 38px)', color: 'var(--warm-foam)', letterSpacing: '0.12em', margin: '0 0 24px 0', lineHeight: 1.2 }}>
               Every system we build is custom. No templates. No assumptions.
             </h2>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: 'var(--ocean)', lineHeight: 1.85, margin: '0 0 32px 0' }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '15px', color: 'rgba(245,240,232,0.48)', lineHeight: 1.85, margin: '0 0 32px 0' }}>
               We start by understanding how your business actually operates — not how you think it operates. Most business owners are surprised by what the audit surfaces. Revenue leakage is rarely where you expect it.
             </p>
 

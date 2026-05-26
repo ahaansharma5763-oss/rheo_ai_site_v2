@@ -173,7 +173,7 @@ export default function PrinciplesSection() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '15px',
-                  color: 'var(--ocean)',
+                  color: 'rgba(245,240,232,0.48)',
                   lineHeight: 1.7,
                   margin: 0,
                 }}

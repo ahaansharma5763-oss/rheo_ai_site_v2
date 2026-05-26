@@ -254,7 +254,7 @@ function CaseStudyDetail({
                   }}>{m.value}</span>
                   <span style={{
                     fontFamily: "'DM Sans', sans-serif", fontSize: '10px',
-                    color: 'var(--ocean)', textTransform: 'uppercase',
+                    color: 'rgba(245,240,232,0.48)', textTransform: 'uppercase',
                     letterSpacing: '0.15em', display: 'block', lineHeight: 1.4,
                   }}>{m.label}</span>
                 </div>
@@ -304,7 +304,7 @@ function CaseStudyDetail({
                 <div style={{
                   width: '10px', height: '10px', borderRadius: '50%',
                   background: color, marginBottom: '12px',
-                  boxShadow: `0 0 12px ${color === 'var(--gold)' ? 'rgba(196,162,90,0.5)' : 'rgba(69,153,181,0.5)'}`,
+                  boxShadow: `0 0 12px ${color === 'var(--gold)' ? 'rgba(196,162,90,0.5)' : 'rgba(196,162,90,0.40)'}`,
                 }} />
                 {i < timeline.length - 1 && (
                   <div style={{
@@ -350,7 +350,7 @@ function CaseStudyDetail({
                 }}>{m.value}</span>
                 <span style={{
                   fontFamily: "'DM Sans', sans-serif", fontSize: '11px',
-                  color: 'var(--ocean)', textTransform: 'uppercase',
+                  color: 'rgba(245,240,232,0.48)', textTransform: 'uppercase',
                   letterSpacing: '0.15em', display: 'block', marginBottom: '8px',
                 }}>{m.label}</span>
                 <span style={{

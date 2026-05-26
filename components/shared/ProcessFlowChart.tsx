@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 
 const flowNodes = [
   { id: 'audit',   label: 'Ops Audit',       sub: '45 min discovery', color: '#C4A25A' },
-  { id: 'design',  label: 'Custom Design',    sub: 'Blueprint approval', color: '#4599B5' },
-  { id: 'build',   label: 'Build & Test',     sub: '1-week live test', color: '#4599B5' },
-  { id: 'maintain',label: 'Maintain',         sub: 'Monthly retainer', color: '#4599B5' },
+  { id: 'design',  label: 'Custom Design',    sub: 'Blueprint approval', color: 'rgba(196,162,90,0.55)' },
+  { id: 'build',   label: 'Build & Test',     sub: '1-week live test', color: 'rgba(196,162,90,0.55)' },
+  { id: 'maintain',label: 'Maintain',         sub: 'Monthly retainer', color: 'rgba(196,162,90,0.55)' },
 ];
 
 export default function ProcessFlowChart() {
@@ -51,7 +51,7 @@ export default function ProcessFlowChart() {
           <path d="M1,1 L7,4 L1,7 L3,4 Z" fill="rgba(196,162,90,0.5)" />
         </marker>
         <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-          <path d="M1,1 L7,4 L1,7 L3,4 Z" fill="rgba(69,153,181,0.4)" />
+          <path d="M1,1 L7,4 L1,7 L3,4 Z" fill="rgba(196,162,90,0.35)" />
         </marker>
       </defs>
 
@@ -68,9 +68,9 @@ export default function ProcessFlowChart() {
                 y1={svgH / 2}
                 x2={x - 4}
                 y2={svgH / 2}
-                stroke={isFirst ? 'rgba(196,162,90,0.4)' : 'rgba(69,153,181,0.3)'}
+                stroke={isFirst ? 'rgba(196,162,90,0.4)' : 'rgba(196,162,90,0.25)'}
                 strokeWidth="1"
-                markerEnd={i === 1 ? 'url(#arrow)' : 'url(#arrowBlue)'}
+                markerEnd='url(#arrow)'
                 strokeDasharray={i === 1 ? 'none' : 'none'}
               />
             )}
@@ -124,7 +124,7 @@ export default function ProcessFlowChart() {
               y={nodeY + nodeH - 12}
               fontFamily="'DM Sans', sans-serif"
               fontSize="9"
-              fill="rgba(126,200,227,0.5)"
+              fill="rgba(245,240,232,0.40)"
               textAnchor="middle"
               letterSpacing="1"
             >

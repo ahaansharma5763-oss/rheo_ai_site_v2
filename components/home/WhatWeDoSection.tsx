@@ -128,8 +128,8 @@ function ServiceCard({ svc, delay }: { svc: Service; delay: number }) {
         padding: '28px 24px 32px',
         position: 'relative',
         overflow: 'hidden',
-        borderTop: '1px solid rgba(69,153,181,0.1)',
-        borderRight: '1px solid rgba(69,153,181,0.06)',
+        borderTop: '1px solid rgba(196,162,90,0.08)',
+        borderRight: '1px solid rgba(196,162,90,0.06)',
         cursor: 'default',
       }}
     >
@@ -157,7 +157,7 @@ function ServiceCard({ svc, delay }: { svc: Service; delay: number }) {
       <p style={{
         fontFamily: "'DM Sans', sans-serif",
         fontSize: '13px',
-        color: 'rgba(126,200,227,0.55)',
+        color: 'rgba(245,240,232,0.45)',
         lineHeight: 1.7,
         margin: 0,
       }}>
@@ -242,7 +242,7 @@ export default function WhatWeDoSection() {
           <p style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: '15px',
-            color: 'rgba(126,200,227,0.55)',
+            color: 'rgba(245,240,232,0.45)',
             lineHeight: 1.85,
             maxWidth: '520px',
             margin: 0,
@@ -260,12 +260,12 @@ export default function WhatWeDoSection() {
             }}>
               <span style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: '9px', color: 'rgba(69,153,181,0.5)',
+                fontSize: '9px', color: 'rgba(196,162,90,0.40)',
                 letterSpacing: '0.45em', textTransform: 'uppercase',
               }}>
                 {cat.label}
               </span>
-              <div style={{ flex: 1, height: '1px', background: 'rgba(69,153,181,0.1)' }} />
+              <div style={{ flex: 1, height: '1px', background: 'rgba(196,162,90,0.08)' }} />
             </div>
             <div className="svc-grid" style={{
               display: 'grid',
@@ -311,7 +311,7 @@ export default function WhatWeDoSection() {
             </h3>
             <p style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '14px', color: 'rgba(126,200,227,0.55)',
+              fontSize: '14px', color: 'rgba(245,240,232,0.45)',
               lineHeight: 1.75, margin: 0,
             }}>
               All twelve systems connected into a unified infrastructure. Customer data flows from booking to CRM to re-engagement to reviews. Nothing siloed. Nothing manually entered. Built over 4–6 weeks with a 30-day hypercare period included.
@@ -337,7 +337,7 @@ export default function WhatWeDoSection() {
             </h3>
             <p style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: '14px', color: 'rgba(126,200,227,0.55)',
+              fontSize: '14px', color: 'rgba(245,240,232,0.45)',
               lineHeight: 1.75, margin: '0 0 24px 0',
             }}>
               A structured 45-minute discovery call. A written report identifying your top automation opportunities with estimated monthly impact. Every custom engagement starts here.
@@ -369,7 +369,7 @@ export default function WhatWeDoSection() {
         <p style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: '11px',
-          color: 'rgba(126,200,227,0.25)',
+          color: 'rgba(245,240,232,0.20)',
           letterSpacing: '0.25em',
           textAlign: 'center',
           marginTop: '32px',

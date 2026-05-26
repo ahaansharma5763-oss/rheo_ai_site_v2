@@ -41,7 +41,7 @@ export default function Nav() {
         position: 'fixed',
         top: 0, left: 0, right: 0,
         zIndex: 1000,
-        background: scrolled ? 'rgba(7,16,30,0.97)' : 'transparent',
+        background: scrolled ? 'rgba(10,10,10,0.97)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(196,162,90,0.1)' : 'none',
@@ -186,7 +186,7 @@ export default function Nav() {
       {menuOpen && (
         <div onClick={() => setMenuOpen(false)} style={{
           position: 'fixed', inset: 0,
-          background: 'rgba(7,16,30,0.7)',
+          background: 'rgba(10,10,10,0.75)',
           zIndex: 998,
           backdropFilter: 'blur(2px)',
         }} />

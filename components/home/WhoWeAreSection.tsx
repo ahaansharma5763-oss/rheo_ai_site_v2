@@ -232,7 +232,7 @@ export default function WhoWeAreSection() {
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize: '11px',
-                    color: 'var(--ocean)',
+                    color: 'rgba(245,240,232,0.48)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.2em',
                     display: 'block',
