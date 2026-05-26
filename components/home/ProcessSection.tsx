@@ -162,7 +162,7 @@ export default function ProcessSection() {
               'We scope before we build. You know exactly what gets built and why, before any work begins.',
               'We build to your stack — Google Sheets, WhatsApp, Razorpay, Notion, Google Calendar. No new software to learn.',
               'We stay on after go-live. Monthly retainer means the system evolves as your business does.',
-              'We work with SMBs across Pune and India. We understand the operational reality of running a business here.',
+              'We work with SMBs across India. We understand the operational reality of running a business here.',
             ].map((point, i) => (
               <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <div style={{ width: '1px', height: '100%', minHeight: '36px', background: 'rgba(196,162,90,0.4)', flexShrink: 0, marginTop: '3px' }} />

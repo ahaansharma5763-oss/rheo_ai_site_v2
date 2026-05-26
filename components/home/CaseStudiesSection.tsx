@@ -22,7 +22,7 @@ const caseStudies: CaseStudy[] = [
   {
     client: 'Ascend Arena',
     type: 'Gaming Arena',
-    location: 'Baner, Pune',
+    location: 'India',
     owner: 'Ishaan Dey',
     metrics: [
       { value: '0', label: 'Manual Bookings Since Launch' },
@@ -43,7 +43,7 @@ const caseStudies: CaseStudy[] = [
   {
     client: 'iMens Gaming',
     type: 'Gaming Centre',
-    location: 'Hadapsar, Pune',
+    location: 'India',
     owner: 'Gauransh Kumar',
     metrics: [
       { value: '100%', label: 'Automated Client Journey' },

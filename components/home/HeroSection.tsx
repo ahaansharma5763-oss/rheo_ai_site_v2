@@ -73,7 +73,7 @@ export default function HeroSection() {
           textTransform: 'uppercase', letterSpacing: '0.5em',
           margin: '0 0 40px 0',
         }}>
-          AI Consultancy & Automation · Pune
+          AI Consultancy & Automation
         </p>
 
         {/* RHEO wordmark */}
