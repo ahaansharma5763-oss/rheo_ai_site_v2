@@ -22,6 +22,7 @@ export default function Nav() {
   }, [menuOpen]);
 
   const navLinks = [
+    { label: 'Services', href: '#services' },
     { label: 'Work', href: '#case-studies' },
     { label: 'AVA', href: '/ava' },
     { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
