@@ -1,6 +1,6 @@
 import React from 'react'
 
-/** Greek meander (key) border — horizontal strip */
+/** Greek meander (key) border, horizontal strip */
 export function GreekMeander({ width = 200, color = '#C4A25A', opacity = 0.25, className = '', style = {} }: {
   width?: number; color?: string; opacity?: number; className?: string; style?: React.CSSProperties
 }) {
@@ -34,7 +34,7 @@ export function RhoWatermark({ className = '', style = {} }: { className?: strin
   )
 }
 
-/** Greek column pair — decorative vertical elements */
+/** Greek column pair, decorative vertical elements */
 export function GreekColumns({ height = 200, color = '#1A3566', opacity = 0.12, className = '' }: {
   height?: number; color?: string; opacity?: number; className?: string
 }) {
@@ -64,7 +64,7 @@ export function GreekColumns({ height = 200, color = '#1A3566', opacity = 0.12, 
   )
 }
 
-/** Thin wave hairline divider — Greek-inspired undulating line */
+/** Thin wave hairline divider, Greek-inspired undulating line */
 export function WaveHairline({ color = '#C4A25A', opacity = 0.2, className = '' }: {
   color?: string; opacity?: number; className?: string
 }) {

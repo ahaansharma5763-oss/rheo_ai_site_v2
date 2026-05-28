@@ -61,7 +61,7 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
     >
       <p
         style={{
-          fontFamily: 'Georgia, serif',
+          fontFamily: 'var(--serif)',
           fontSize: '64px',
           color: 'var(--gold)',
           lineHeight: 1,
@@ -73,7 +73,7 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
       </p>
       <p
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: 'var(--sans)',
           fontSize: '12px',
           color: 'var(--ocean)',
           textTransform: 'uppercase',
@@ -90,7 +90,7 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
 
 export default function AvaNumbersSection() {
   return (
-    <section style={{ background: 'var(--navy)', padding: '120px 0' }}>
+    <section style={{ padding: '120px 0' }}>
       <style>{`
         @media (max-width: 767px) {
           .ava-numbers-inner { padding: 0 24px !important; }
@@ -114,12 +114,12 @@ export default function AvaNumbersSection() {
       >
         <div style={{ textAlign: 'center', marginBottom: '56px' }}>
           <p style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: '11px',
+            fontFamily: 'var(--sans)', fontSize: '11px',
             color: 'var(--gold)', textTransform: 'uppercase',
             letterSpacing: '0.44em', margin: '0 0 16px 0',
           }}>BY THE NUMBERS</p>
           <h2 style={{
-            fontFamily: 'Georgia, serif', fontSize: '44px',
+            fontFamily: 'var(--serif)', fontSize: '44px',
             color: 'var(--warm-foam)', letterSpacing: '0.12em',
             margin: 0, lineHeight: 1.15,
           }}>AVA delivers.</h2>

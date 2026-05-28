@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef } from 'react';
 
-// Fragment shader — brand-tinted fractal smoke
-// u_color drives the bright-parts tint (defaults to Rheo AI Wave Gold #C4A25A)
+// Fragment shader, brand-tinted fractal smoke.
+// u_color drives the bright-parts tint (defaults to Rheo AI Wave Gold #C4A25A).
 const fragmentShaderSource = `#version 300 es
 precision highp float;
 out vec4 O;
@@ -17,7 +17,8 @@ uniform vec3 u_color;
 
 float rnd(vec2 p){p=fract(p*vec2(12.9898,78.233));p+=dot(p,p+34.56);return fract(p.x*p.y);}
 float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(rnd(i),rnd(i+vec2(1,0)),u.x),mix(rnd(i+vec2(0,1)),rnd(i+1.),u.x),u.y);}
-float fbm(vec2 p){float t=.0,a=1.;for(int i=0;i<5;i++){t+=a*noise(p);p*=mat2(1,-1.2,.2,1.2)*2.;a*=.5;}return t;}
+// fbm with 4 octaves (was 5). Visually identical for slow smoke, ~20% cheaper.
+float fbm(vec2 p){float t=.0,a=1.;for(int i=0;i<4;i++){t+=a*noise(p);p*=mat2(1,-1.2,.2,1.2)*2.;a*=.5;}return t;}
 
 void main(){
   vec2 uv=(FC-.5*R)/R.y;
@@ -32,7 +33,6 @@ void main(){
   col.g-=fbm(uv*1.003+vec2(0,T*.015)+n+.003);
   col.b-=fbm(uv*1.006+vec2(0,T*.015)+n+.006);
 
-  // Tint bright noise wisps with the brand color
   col=mix(col, u_color, dot(col,vec3(.21,.71,.07)));
 
   col=mix(vec3(.05),col,min(time*.5,1.));
@@ -40,14 +40,11 @@ void main(){
   O=vec4(col,1);
 }`;
 
-// Vertex shader (extracted as a const so the class property stays a simple string reference)
 const vertexShaderSource = `#version 300 es
 precision highp float;
 in vec4 position;
 void main(){gl_Position=position;}`;
 
-// Rheo AI brand palette defaults
-// Wave Gold: #C4A25A → [0.769, 0.635, 0.353]
 const BRAND_GOLD: [number, number, number] = [0.769, 0.635, 0.353];
 
 class Renderer {
@@ -62,6 +59,11 @@ class Renderer {
   private buffer: WebGLBuffer | null = null;
   private color: [number, number, number] = [...BRAND_GOLD];
 
+  // Internal render scale. 0.5 means we GPU-shade 25% of the native pixel
+  // count and CSS upscales the canvas with a tiny blur to smooth the result.
+  // The slow brand smoke does not benefit from sharp retina sampling.
+  private renderScale = 0.5;
+
   constructor(canvas: HTMLCanvasElement, fragmentSource: string) {
     this.canvas = canvas;
     this.gl = canvas.getContext('webgl2') as WebGL2RenderingContext;
@@ -74,10 +76,11 @@ class Renderer {
   }
 
   updateScale() {
-    const dpr = Math.max(1, window.devicePixelRatio);
-    this.canvas.width = window.innerWidth * dpr;
-    this.canvas.height = window.innerHeight * dpr;
-    this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+    const targetW = Math.max(2, Math.round(window.innerWidth * this.renderScale));
+    const targetH = Math.max(2, Math.round(window.innerHeight * this.renderScale));
+    this.canvas.width = targetW;
+    this.canvas.height = targetH;
+    this.gl.viewport(0, 0, targetW, targetH);
   }
 
   private compile(shader: WebGLShader, source: string) {
@@ -134,7 +137,7 @@ class Renderer {
   render(now = 0) {
     const { gl, program, buffer, canvas } = this;
     if (!program || !gl.isProgram(program)) return;
-    gl.clearColor(0.027, 0.063, 0.118, 1); // --ink #07101E
+    gl.clearColor(0.027, 0.063, 0.118, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
@@ -153,43 +156,102 @@ const hexToRgb = (hex: string): [number, number, number] | null => {
 };
 
 interface SmokeBackgroundProps {
-  /** Hex color for smoke wisps. Defaults to Rheo AI Wave Gold #C4A25A */
   smokeColor?: string;
-  /** Tailwind / inline class override for the canvas wrapper */
   className?: string;
+  /** Cap framerate. Default 20fps. The smoke is so slow this is invisible. */
+  targetFps?: number;
 }
 
 export const SmokeBackground: React.FC<SmokeBackgroundProps> = ({
   smokeColor = '#C4A25A',
   className = '',
+  targetFps = 20,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<Renderer | null>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
-    const renderer = new Renderer(canvasRef.current, fragmentShaderSource);
+    // Skip entirely on coarse-pointer (touch) devices and on very narrow
+    // viewports. WebGL fbm at any res is too expensive for phone GPUs and
+    // burns battery for an effect you cannot appreciate at that size.
+    const touchOnly = window.matchMedia('(pointer: coarse)').matches;
+    const narrow = window.innerWidth < 768;
+    if (touchOnly || narrow) return;
+
+    const canvas = canvasRef.current;
+    const renderer = new Renderer(canvas, fragmentShaderSource);
     rendererRef.current = renderer;
 
     const onResize = () => renderer.updateScale();
     onResize();
     window.addEventListener('resize', onResize);
 
-    let raf: number;
-    const loop = (now: number) => { renderer.render(now); raf = requestAnimationFrame(loop); };
-    loop(0);
+    // Pause when the hero canvas is out of viewport
+    let visible = true;
+    const io = new IntersectionObserver(
+      ([entry]) => { visible = entry.isIntersecting; },
+      { threshold: 0.01 }
+    );
+    io.observe(canvas);
+
+    // Pause when the browser tab is hidden
+    let tabVisible = !document.hidden;
+    const onVis = () => { tabVisible = !document.hidden; };
+    document.addEventListener('visibilitychange', onVis);
+
+    // Honour reduced motion: render one frame, then stop the loop
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const frameMs = 1000 / Math.max(1, targetFps);
+    let raf = 0;
+    let lastDraw = 0;
+
+    if (reduce) {
+      renderer.render(performance.now());
+      return () => {
+        window.removeEventListener('resize', onResize);
+        document.removeEventListener('visibilitychange', onVis);
+        io.disconnect();
+        renderer.reset();
+      };
+    }
+
+    const loop = (now: number) => {
+      raf = requestAnimationFrame(loop);
+      if (!visible || !tabVisible) return;
+      if (now - lastDraw < frameMs) return;
+      lastDraw = now;
+      renderer.render(now);
+    };
+    raf = requestAnimationFrame(loop);
 
     return () => {
-      window.removeEventListener('resize', onResize);
       cancelAnimationFrame(raf);
+      window.removeEventListener('resize', onResize);
+      document.removeEventListener('visibilitychange', onVis);
+      io.disconnect();
       renderer.reset();
     };
-  }, []);
+  }, [targetFps]);
 
   useEffect(() => {
     const rgb = hexToRgb(smokeColor);
     if (rgb && rendererRef.current) rendererRef.current.updateColor(rgb);
   }, [smokeColor]);
 
-  return <canvas ref={canvasRef} className={`w-full h-full block ${className}`} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className={`w-full h-full block ${className}`}
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'block',
+        // Tiny blur smooths the upscale from the reduced render resolution
+        filter: 'blur(0.5px)',
+        willChange: 'transform',
+      }}
+    />
+  );
 };

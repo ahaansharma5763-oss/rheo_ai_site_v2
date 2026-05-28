@@ -3,169 +3,152 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+const LINKS = [
+  { label: 'Work',  href: '/#work' },
+  { label: 'About', href: '/about' },
+  { label: 'Ava',   href: '/ava' },
+];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const h = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', h, { passive: true });
+    return () => window.removeEventListener('scroll', h);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
-
-  const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'AVA', href: '/ava' },
-    { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
-  ];
-
-  const openCalendly = () => {
-    // @ts-ignore
-    if (typeof window !== 'undefined' && window.Calendly) {
-      // @ts-ignore
-      window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' })
-    } else {
-      window.open('https://calendly.com/ahaan-rheoai/30min', '_blank')
-    }
-  };
-
-  const linkStyle: React.CSSProperties = {
-    fontSize: '11px',
-    textTransform: 'uppercase',
-    letterSpacing: '0.44em',
-    color: 'var(--gold)',
-    textDecoration: 'none',
-    transition: 'color 0.2s ease, opacity 0.2s ease, background 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease',
-    fontFamily: 'DM Sans, sans-serif',
-    opacity: 0.85,
-    padding: '7px 18px',
-    borderRadius: '20px',
-    border: '1px solid transparent',
-    background: 'transparent',
-  };
+  }, [open]);
 
   return (
     <>
       <nav
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-          background: 'linear-gradient(105deg, rgba(7,16,30,0.95) 0%, rgba(13,31,60,0.93) 35%, rgba(26,53,102,0.90) 70%, rgba(46,107,142,0.88) 100%)',
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)',
-          borderBottom: '1px solid rgba(69,153,181,0.15)',
-          boxShadow: '0 1px 0 rgba(196,162,90,0.08), 0 8px 32px rgba(7,16,30,0.4)',
-          transition: 'padding 0.3s ease',
-          padding: scrolled ? '12px 48px' : '20px 48px',
+          top: 0, left: 0, right: 0,
+          zIndex: 100,
+          padding: scrolled ? '12px var(--rail-pad)' : '20px var(--rail-pad)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          boxSizing: 'border-box',
-          overflow: 'hidden',
+          background: scrolled ? 'rgba(7,16,30,0.75)' : 'transparent',
+          backdropFilter: scrolled ? 'saturate(180%) blur(20px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'saturate(180%) blur(20px)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(69,153,181,0.12)' : '1px solid transparent',
+          boxShadow: scrolled ? '0 8px 32px rgba(5,12,24,0.4)' : 'none',
+          transition: 'all 0.4s ease',
         }}
       >
-        {/* Neural network nodes — desktop nav decoration */}
-        <svg aria-hidden="true" style={{
-          position: 'absolute', inset: 0, width: '100%', height: '100%',
-          pointerEvents: 'none', opacity: 0.18,
-        }} preserveAspectRatio="xMidYMid slice" viewBox="0 0 1280 80">
-          <defs>
-            <style>{`
-              @keyframes navNodePulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
-              .nn { animation: navNodePulse 3s ease-in-out infinite; }
-              .nn:nth-child(2){animation-delay:.5s} .nn:nth-child(3){animation-delay:1s}
-              .nn:nth-child(4){animation-delay:1.5s} .nn:nth-child(5){animation-delay:2s}
-              .nn:nth-child(6){animation-delay:2.5s}
-            `}</style>
-          </defs>
-          {/* Edges */}
-          {[
-            [80,40,200,20],[200,20,360,55],[360,55,520,18],[520,18,700,45],[700,45,900,22],[900,22,1100,50],[1100,50,1200,30]
-          ].map(([x1,y1,x2,y2],i)=>(
-            <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#4599B5" strokeWidth="0.6" opacity="0.5"/>
-          ))}
-          {/* Nodes */}
-          {[[80,40],[200,20],[360,55],[520,18],[700,45],[900,22],[1100,50],[1200,30]].map(([cx,cy],i)=>(
-            <circle key={i} className="nn" cx={cx} cy={cy} r="3" fill="none" stroke="#4599B5" strokeWidth="1"/>
-          ))}
-          {[[80,40],[200,20],[360,55],[520,18],[700,45],[900,22],[1100,50],[1200,30]].map(([cx,cy],i)=>(
-            <circle key={`c${i}`} cx={cx} cy={cy} r="1.2" fill="#C4A25A" opacity="0.6"/>
-          ))}
-        </svg>
-        {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+        {/* Logo + wordmark, top-left only */}
+        <Link
+          href="/"
+          aria-label="Rheo AI home"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '12px',
+            textDecoration: 'none',
+            position: 'relative',
+            zIndex: 2,
+          }}
+          data-cursor="link"
+        >
           <img
-            src="/rheo-logo.png"
-            alt="Rheo AI"
-            style={{ width: '36px', height: '36px', objectFit: 'contain', borderRadius: '8px', display: 'block' }}
-          />
-          <span
+            src="/logo.png"
+            alt=""
+            width={36}
+            height={36}
             style={{
-              fontFamily: 'Georgia, serif',
-              color: 'var(--gold)',
-              letterSpacing: '0.3em',
-              fontSize: '18px',
-              fontWeight: 400,
+              display: 'block',
+              width: '36px',
+              height: '36px',
+              objectFit: 'contain',
+              borderRadius: '6px',
             }}
-          >
-            RHEO
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+          <span style={{
+            fontFamily: 'var(--serif)',
+            color: 'var(--fg)',
+            fontSize: '20px',
+            letterSpacing: '0.04em',
+            fontWeight: 600,
+            textTransform: 'uppercase',
+          }}>
+            Rheo AI
           </span>
         </Link>
 
-        {/* Desktop links */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '8px',
-            alignItems: 'center',
-            position: 'relative',
-            zIndex: 1,
-          }}
-          className="nav-desktop-links"
-        >
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="nav-guard"
-              style={linkStyle}
-              onMouseEnter={e => {
-                e.currentTarget.style.color = 'var(--gold)';
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.background = 'rgba(196,162,90,0.1)';
-                e.currentTarget.style.borderColor = 'rgba(196,162,90,0.3)';
-                e.currentTarget.style.transform = 'translateY(-1px)';
-                e.currentTarget.style.boxShadow = '0 0 18px rgba(196,162,90,0.18), 0 4px 12px rgba(0,0,0,0.25)';
+        {/* Center nav */}
+        <div className="nav-desktop" style={{
+          display: 'flex',
+          gap: '40px',
+          alignItems: 'center',
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }}>
+          {LINKS.map(l => (
+            <Link
+              key={l.label}
+              href={l.href}
+              data-cursor="link"
+              style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.28em',
+                textTransform: 'uppercase',
+                fontWeight: 500,
+                color: 'var(--muted-cream)',
+                textDecoration: 'none',
               }}
-              onMouseLeave={e => {
-                e.currentTarget.style.color = 'var(--gold)';
-                e.currentTarget.style.opacity = '0.85';
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.borderColor = 'transparent';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}
             >
-              {label}
-            </a>
+              {l.label}
+            </Link>
           ))}
         </div>
 
+        {/* Right CTA pill */}
+        <a
+          href="https://calendly.com/ahaan-rheoai/30min"
+          target="_blank"
+          rel="noreferrer"
+          className="nav-cta"
+          style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '11px',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            fontWeight: 600,
+            color: 'var(--warm-foam)',
+            border: '1px solid rgba(46,107,142,0.6)',
+            padding: '10px 22px',
+            borderRadius: '999px',
+            transition: 'border-color 0.3s ease, color 0.3s ease, transform 0.2s ease',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.borderColor = 'var(--gold-end)';
+            e.currentTarget.style.color = 'var(--gold-end)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.borderColor = 'rgba(46,107,142,0.6)';
+            e.currentTarget.style.color = 'var(--warm-foam)';
+          }}
+        >
+          Advisory
+        </a>
+
         {/* Hamburger */}
         <button
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setMenuOpen(prev => !prev)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen(p => !p)}
+          className="nav-hamburger"
           style={{
             display: 'none',
             flexDirection: 'column',
@@ -173,142 +156,70 @@ export default function Nav() {
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            padding: '4px',
+            padding: '6px',
           }}
-          className="nav-hamburger"
         >
           {[0, 1, 2].map(i => (
-            <span
-              key={i}
-              style={{
-                display: 'block',
-                width: '22px',
-                height: '1.5px',
-                background: 'var(--gold)',
-                transition: 'transform 0.25s ease, opacity 0.25s ease',
-                transformOrigin: 'center',
-                transform:
-                  menuOpen
-                    ? i === 0
-                      ? 'translateY(6.5px) rotate(45deg)'
-                      : i === 1
-                      ? 'scaleX(0)'
-                      : 'translateY(-6.5px) rotate(-45deg)'
-                    : 'none',
-                opacity: menuOpen && i === 1 ? 0 : 1,
-              }}
-            />
+            <span key={i} style={{
+              display: 'block',
+              width: '22px',
+              height: '1px',
+              background: 'var(--fg)',
+              transition: 'transform 0.3s ease, opacity 0.3s ease',
+              transform: open
+                ? i === 0 ? 'translateY(6px) rotate(45deg)'
+                : i === 1 ? 'scaleX(0)'
+                : 'translateY(-6px) rotate(-45deg)'
+                : 'none',
+              opacity: open && i === 1 ? 0 : 1,
+            }} />
           ))}
         </button>
       </nav>
 
-      {/* Mobile slide-in menu */}
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          height: '100vh',
-          width: '260px',
-          background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 25%, #1A3566 55%, #2E6B8E 80%, #4599B5 100%)',
-          zIndex: 999,
-          transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.32s cubic-bezier(0.4, 0, 0.2, 1)',
-          display: 'flex',
-          flexDirection: 'column',
-          paddingTop: '96px',
-          paddingLeft: '36px',
-          gap: '32px',
-          boxShadow: menuOpen ? '-8px 0 48px rgba(26,53,102,0.6)' : 'none',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Neural network background SVG */}
-        <svg
-          aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12, pointerEvents: 'none' }}
-          viewBox="0 0 260 800"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <defs>
-            <style>{`
-              @keyframes navPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
-              @keyframes navDot { 0%{offset-distance:0%} 100%{offset-distance:100%} }
-              .nav-node { animation: navPulse 3s ease-in-out infinite; }
-              .nav-node:nth-child(2) { animation-delay: 0.6s; }
-              .nav-node:nth-child(3) { animation-delay: 1.2s; }
-              .nav-node:nth-child(4) { animation-delay: 1.8s; }
-              .nav-node:nth-child(5) { animation-delay: 2.4s; }
-              .nav-node:nth-child(6) { animation-delay: 0.9s; }
-              .nav-node:nth-child(7) { animation-delay: 1.5s; }
-            `}</style>
-          </defs>
-          {/* Edges */}
-          {[
-            'M40,80 Q130,140 200,100','M200,100 Q240,200 180,280','M40,80 Q60,200 80,280',
-            'M80,280 Q140,320 180,280','M80,280 Q50,400 100,480','M180,280 Q220,380 200,480',
-            'M100,480 Q150,520 200,480','M100,480 Q70,600 120,680','M200,480 Q230,580 220,680',
-            'M120,680 Q170,720 220,680',
-          ].map((d, i) => (
-            <path key={i} d={d} stroke="#7EC8E3" strokeWidth="0.8" fill="none" opacity="0.6" />
-          ))}
-          {/* Nodes */}
-          {[
-            [40,80],[200,100],[80,280],[180,280],[100,480],[200,480],[120,680],[220,680],
-          ].map(([cx, cy], i) => (
-            <circle key={i} className="nav-node" cx={cx} cy={cy} r="5" fill="none" stroke="#4599B5" strokeWidth="1.2" />
-          ))}
-          {/* Small center dots */}
-          {[
-            [40,80],[200,100],[80,280],[180,280],[100,480],[200,480],[120,680],[220,680],
-          ].map(([cx, cy], i) => (
-            <circle key={`d${i}`} cx={cx} cy={cy} r="2" fill="#C4A25A" opacity="0.7" />
-          ))}
-        </svg>
-
-        {/* Left border gradient line */}
-        <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: '1px',
-          background: 'linear-gradient(to bottom, transparent, #4599B5 30%, #7EC8E3 60%, #C4A25A 85%, transparent)',
-        }} />
-
-        {navLinks.map(({ label, href }) => (
-          <a
-            key={label}
-            href={href}
-            onClick={() => setMenuOpen(false)}
-            style={{
-              ...linkStyle,
-              fontSize: '13px',
-              letterSpacing: '0.3em',
-              position: 'relative',
-              zIndex: 1,
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '1'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.opacity = '0.85'; }}
-          >
-            {label}
-          </a>
+      {/* Mobile sheet */}
+      <div style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(7,16,30,0.97)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
+        zIndex: 99,
+        transform: open ? 'translateY(0)' : 'translateY(-100%)',
+        transition: 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '36px',
+      }}>
+        {LINKS.map(l => (
+          <Link key={l.label} href={l.href} onClick={() => setOpen(false)} data-cursor="link"
+            style={{ fontFamily: 'var(--serif)', fontSize: '32px', color: 'var(--fg)', textDecoration: 'none' }}>
+            {l.label}
+          </Link>
         ))}
+        <a href="https://calendly.com/ahaan-rheoai/30min" target="_blank" rel="noreferrer"
+          className="gold-bg"
+          style={{
+            marginTop: '12px',
+            color: 'var(--bg)',
+            padding: '14px 30px',
+            borderRadius: '999px',
+            fontFamily: 'var(--sans)',
+            fontSize: '12px',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            fontWeight: 600,
+          }}>
+          Advisory
+        </a>
       </div>
 
-      {/* Overlay */}
-      {menuOpen && (
-        <div
-          onClick={() => setMenuOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(7, 16, 30, 0.6)',
-            zIndex: 998,
-            backdropFilter: 'blur(2px)',
-          }}
-        />
-      )}
-
       <style>{`
-        @media (max-width: 768px) {
-          .nav-desktop-links { display: none !important; }
+        @media (max-width: 900px) {
+          .nav-desktop { display: none !important; }
+          .nav-cta    { display: none !important; }
           .nav-hamburger { display: flex !important; }
         }
       `}</style>

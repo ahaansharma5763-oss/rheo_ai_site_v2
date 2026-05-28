@@ -34,7 +34,7 @@ export default function AvaCTASection() {
     <section
       style={{
         position: 'relative',
-        background: 'var(--ink)',
+        background: 'rgba(7,16,30,0.35)',
         padding: '140px 24px 0',
         overflow: 'hidden',
         minHeight: '420px',
@@ -50,7 +50,7 @@ export default function AvaCTASection() {
           border: 1px solid var(--gold);
           background: transparent;
           color: var(--gold);
-          font-family: 'DM Sans', sans-serif;
+          font-family: var(--sans);
           font-size: 13px;
           letter-spacing: 0.2em;
           text-transform: uppercase;
@@ -77,7 +77,7 @@ export default function AvaCTASection() {
       >
         <h2
           style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: 'var(--serif)',
             fontSize: '48px',
             color: 'var(--warm-foam)',
             letterSpacing: '0.1em',
@@ -114,7 +114,7 @@ export default function AvaCTASection() {
         </button>
       </div>
 
-      {/* Wave system — bottom 65% */}
+      {/* Wave system, bottom 65% */}
       <div
         style={{
           position: 'absolute',
@@ -127,7 +127,7 @@ export default function AvaCTASection() {
         }}
         aria-hidden="true"
       >
-        {/* Layer 1 — deepest back */}
+        {/* Layer 1, deepest back */}
         <svg
           viewBox="0 0 1440 200"
           width="100%"
@@ -172,7 +172,7 @@ export default function AvaCTASection() {
           />
         </svg>
 
-        {/* Layer 4 — front with gold hairline */}
+        {/* Layer 4, front with gold hairline */}
         <svg
           viewBox="0 0 1440 200"
           width="100%"

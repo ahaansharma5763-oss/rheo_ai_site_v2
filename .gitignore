@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Dead background-loop videos (kept off repo)
+/public/bg-*.mp4
+/public/bg-*-poster.jpg

@@ -26,7 +26,7 @@ const CAPABILITIES: Capability[] = [
   },
   {
     verb: 'Follows up.',
-    description: 'Executes multi-step drip sequences — Hinglish-native, human-sounding.',
+    description: 'Executes multi-step drip sequences, Hinglish-native, human-sounding.',
   },
   {
     verb: 'Reports.',
@@ -81,7 +81,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
     >
       <span
         style={{
-          fontFamily: 'Georgia, serif',
+          fontFamily: 'var(--serif)',
           fontSize: '26px',
           color: 'var(--warm-foam)',
           letterSpacing: '0.1em',
@@ -94,7 +94,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
       </span>
       <span
         style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: 'var(--sans)',
           fontSize: '13px',
           color: 'var(--ocean)',
           lineHeight: 1.7,
@@ -108,7 +108,7 @@ function CapabilityItem({ cap, index }: { cap: Capability; index: number }) {
 
 export default function AvaDoesSection() {
   return (
-    <section style={{ background: 'var(--navy)', padding: '96px 0' }}>
+    <section style={{ padding: '96px 0' }}>
       <style>{`
         @media (max-width: 767px) {
           .ava-does-inner { padding: 0 24px !important; }
@@ -128,7 +128,7 @@ export default function AvaDoesSection() {
         {/* Label */}
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: 'var(--sans)',
             fontSize: '11px',
             color: 'var(--gold)',
             textTransform: 'uppercase',
@@ -142,7 +142,7 @@ export default function AvaDoesSection() {
         {/* Headline */}
         <h2
           style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: 'var(--serif)',
             fontSize: '32px',
             color: 'var(--warm-foam)',
             letterSpacing: '0.15em',

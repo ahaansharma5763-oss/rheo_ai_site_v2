@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 interface Message { id: number; from: 'user' | 'ava'; text: string; time: string; }
 const MESSAGES: Message[] = [
   { id: 1, from: 'user', text: 'I want to book a 5v5 slot for Saturday evening', time: '9:41 AM' },
-  { id: 2, from: 'ava',  text: 'Saturday 6pm is available — ₹1,400/hr for 5v5. Sending payment link now? 🌊', time: '9:41 AM' },
+  { id: 2, from: 'ava',  text: 'Saturday 6pm is available, ₹1,400/hr for 5v5. Sending payment link now? 🌊', time: '9:41 AM' },
   { id: 3, from: 'user', text: 'Yes please', time: '9:42 AM' },
   { id: 4, from: 'ava',  text: 'Done! Payment link sent to WhatsApp. Slot held 15 mins. See you Saturday! ⚡', time: '9:42 AM' },
 ];
@@ -26,8 +26,8 @@ function ChatBubble({ msg }: { msg: Message }) {
   const u = msg.from === 'user';
   return (
     <div style={{ display:'flex', flexDirection:'column', alignSelf:u?'flex-end':'flex-start', maxWidth:u?'82%':'88%', gap:'3px', animation:'bubbleIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both' }}>
-      <div style={{ background:u?'#005C4B':'#202C33', color:'#E9EDEF', borderRadius:u?'14px 14px 0 14px':'0 14px 14px 14px', padding:'9px 13px', fontFamily:"'DM Sans',sans-serif", fontSize:'13px', lineHeight:1.55 }}>{msg.text}</div>
-      <span style={{ fontSize:'10px', color:'#8696A0', alignSelf:u?'flex-end':'flex-start', fontFamily:"'DM Sans',sans-serif" }}>{msg.time}{u?'':' · AVA'}</span>
+      <div style={{ background:u?'#005C4B':'#202C33', color:'#E9EDEF', borderRadius:u?'14px 14px 0 14px':'0 14px 14px 14px', padding:'9px 13px', fontFamily:'var(--sans)', fontSize:'13px', lineHeight:1.55 }}>{msg.text}</div>
+      <span style={{ fontSize:'10px', color:'#8696A0', alignSelf:u?'flex-end':'flex-start', fontFamily:'var(--sans)' }}>{msg.time}{u?'':' · AVA'}</span>
     </div>
   );
 }
@@ -53,25 +53,25 @@ function PhoneMockup() {
       <div style={{ background:'#1F2C34', padding:'12px 16px', paddingTop:'52px', display:'flex', alignItems:'center', gap:'10px', flexShrink:0 }}>
         <span style={{ color:'#00A884', fontSize:'16px' }}>‹</span>
         <div style={{ width:'42px', height:'42px', borderRadius:'50%', background:'linear-gradient(135deg,#C4A25A,#2E6B8E)', display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 0 14px rgba(196,162,90,.35)' }}>
-          <span style={{ fontSize:'16px', color:'white', fontFamily:'Georgia,serif' }}>A</span>
+          <span style={{ fontSize:'16px', color:'white', fontFamily:'var(--serif)' }}>A</span>
         </div>
         <div style={{ flex:1 }}>
-          <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'15px', color:'#E9EDEF', fontWeight:600 }}>AVA</div>
-          <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'11px', color:'#00A884' }}>● online</div>
+          <div style={{ fontFamily:'var(--sans)', fontSize:'15px', color:'#E9EDEF', fontWeight:600 }}>AVA</div>
+          <div style={{ fontFamily:'var(--sans)', fontSize:'11px', color:'#00A884' }}>● online</div>
         </div>
         <span style={{ color:'#8696A0', fontSize:'18px', marginLeft:'auto' }}>📹</span>
         <span style={{ color:'#8696A0', fontSize:'18px' }}>📞</span>
       </div>
       <div style={{ flex:1, background:'#0B141A', display:'flex', flexDirection:'column', padding:'14px', gap:'8px', overflowY:'hidden', justifyContent:'flex-end' }}>
-        <div style={{ alignSelf:'center', fontSize:'11px', fontFamily:"'DM Sans',sans-serif", color:'#8696A0', background:'rgba(11,20,26,.8)', padding:'3px 10px', borderRadius:'8px', marginBottom:'4px' }}>Today</div>
+        <div style={{ alignSelf:'center', fontSize:'11px', fontFamily:'var(--sans)', color:'#8696A0', background:'rgba(11,20,26,.8)', padding:'3px 10px', borderRadius:'8px', marginBottom:'4px' }}>Today</div>
         {visibleMsgs.map(i => <ChatBubble key={MESSAGES[i].id} msg={MESSAGES[i]} />)}
         {typingActive && <TypingIndicator />}
-        {confirmed && <div style={{ alignSelf:'center', fontSize:'11px', fontFamily:"'DM Sans',sans-serif", color:'#25D366', display:'flex', alignItems:'center', gap:'4px' }}><span>✓✓</span> Booking confirmed — Sat 6pm</div>}
+        {confirmed && <div style={{ alignSelf:'center', fontSize:'11px', fontFamily:'var(--sans)', color:'#25D366', display:'flex', alignItems:'center', gap:'4px' }}><span>✓✓</span> Booking confirmed, Sat 6pm</div>}
       </div>
       <div style={{ background:'#1F2C34', padding:'10px 14px', display:'flex', alignItems:'center', gap:'8px' }}>
         <span style={{ fontSize:'18px' }}>😊</span>
         <div style={{ flex:1, height:'38px', background:'#2A3942', borderRadius:'20px', display:'flex', alignItems:'center', paddingLeft:'14px' }}>
-          <span style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'12px', color:'#8696A0' }}>Message</span>
+          <span style={{ fontFamily:'var(--sans)', fontSize:'12px', color:'#8696A0' }}>Message</span>
         </div>
         <div style={{ width:'38px', height:'38px', borderRadius:'50%', background:'linear-gradient(135deg,#C4A25A,#2E6B8E)', display:'flex', alignItems:'center', justifyContent:'center' }}>
           <span style={{ fontSize:'16px' }}>🎤</span>
@@ -81,7 +81,7 @@ function PhoneMockup() {
   );
 }
 
-/* ─── Botanical motif — very faint left-edge decoration ─── */
+/* ─── Botanical motif, very faint left-edge decoration ─── */
 function BotanicalMotif() {
   const G = '#C4A25A'; const B = '#4599B5';
   const stemPaths = [
@@ -108,11 +108,13 @@ function BotanicalMotif() {
         @keyframes stemL { 0%{stroke-dashoffset:300;opacity:0} 8%{opacity:.9} 90%{opacity:.4} 100%{stroke-dashoffset:-300;opacity:0} }
         @keyframes flrL  { 0%,100%{opacity:.1} 50%{opacity:.5} }
       `}</style></defs>
-      {stemPaths.map((s,i) => <>
-        <path key={`sk${i}`} d={s.d} fill="none" stroke={s.gold?G:B} strokeWidth="0.6" strokeLinecap="round" opacity="0.9" />
-        <path key={`lt${i}`} d={s.d} fill="none" stroke={s.gold?'#E0C87A':'#7EC8E3'} strokeWidth="1.3" strokeLinecap="round" strokeDasharray="24 300"
-          style={{ animation:`stemL ${5.5+s.delay*0.7}s ease-in-out ${s.delay}s infinite` }} />
-      </>)}
+      {stemPaths.map((s,i) => (
+        <g key={`stem-${i}`}>
+          <path d={s.d} fill="none" stroke={s.gold?G:B} strokeWidth="0.6" strokeLinecap="round" opacity="0.9" />
+          <path d={s.d} fill="none" stroke={s.gold?'#E0C87A':'#7EC8E3'} strokeWidth="1.3" strokeLinecap="round" strokeDasharray="24 300"
+            style={{ animation:`stemL ${5.5+s.delay*0.7}s ease-in-out ${s.delay}s infinite` }} />
+        </g>
+      ))}
       {flowers.map((f,i) => {
         const c = f.gold ? G : B; const n = 12;
         return (
@@ -128,7 +130,7 @@ function BotanicalMotif() {
   );
 }
 
-/* ─── Workflow diagram — right side, tall, fills page ─── */
+/* ─── Workflow diagram, right side, tall, fills page ─── */
 function WorkflowDiagram() {
   const G = '#C4A25A'; const B = '#4599B5'; const F = '#7EC8E3'; const O = '#2E6B8E';
 
@@ -137,7 +139,7 @@ function WorkflowDiagram() {
       <div style={{ background:'rgba(7,16,30,0.78)', border:`1px solid ${accent}22`, borderLeft:`2.5px solid ${accent}`, borderRadius:'8px', padding:'13px 16px', flexShrink:0 }}>
         <div style={{ display:'flex', alignItems:'center', gap:'8px', marginBottom:'8px' }}>
           <span style={{ fontSize:'13px', opacity:0.7 }}>{icon}</span>
-          <span style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'9px', letterSpacing:'0.36em', textTransform:'uppercase', color:accent, fontWeight:500 }}>{title}</span>
+          <span style={{ fontFamily:'var(--sans)', fontSize:'9px', letterSpacing:'0.36em', textTransform:'uppercase', color:accent, fontWeight:500 }}>{title}</span>
         </div>
         {children}
       </div>
@@ -145,7 +147,7 @@ function WorkflowDiagram() {
   }
 
   function Chip({ label, color }: { label:string; color:string }) {
-    return <span style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8px', letterSpacing:'0.18em', textTransform:'uppercase', color:`${color}90`, border:`1px solid ${color}20`, borderRadius:'4px', padding:'3px 7px', whiteSpace:'nowrap' }}>{label}</span>;
+    return <span style={{ fontFamily:'var(--sans)', fontSize:'8px', letterSpacing:'0.18em', textTransform:'uppercase', color:`${color}90`, border:`1px solid ${color}20`, borderRadius:'4px', padding:'3px 7px', whiteSpace:'nowrap' }}>{label}</span>;
   }
 
   function Line({ color = G }: { color?: string }) {
@@ -159,7 +161,7 @@ function WorkflowDiagram() {
   }
 
   function SubTag({ text, color }: { text:string; color:string }) {
-    return <span style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'9.5px', color:`rgba(238,232,224,0.42)`, lineHeight:1.5 }}>{text}</span>;
+    return <span style={{ fontFamily:'var(--sans)', fontSize:'9.5px', color:`rgba(238,232,224,0.42)`, lineHeight:1.5 }}>{text}</span>;
   }
 
   return (
@@ -173,7 +175,7 @@ function WorkflowDiagram() {
         }
       `}</style>
 
-      {/* 1 — Input */}
+      {/* 1, Input */}
       <Node accent={B} icon="◎" title="Input Channel">
         <SubTag text="Incoming intent received & authenticated" color={B} />
         <div style={{ display:'flex', gap:'6px', marginTop:'8px', flexWrap:'wrap' }}>
@@ -183,20 +185,20 @@ function WorkflowDiagram() {
 
       <Line color={B} />
 
-      {/* 2 — NLP */}
+      {/* 2, NLP */}
       <Node accent={G} icon="⬡" title="NLP Pipeline">
         <SubTag text="Parsing, classification and context resolution" color={G} />
         <div style={{ display:'flex', gap:'5px', marginTop:'8px' }}>
           {['Intent','Entities','Sentiment','Slot Fill'].map(t => (
-            <div key={t} style={{ flex:1, background:`rgba(196,162,90,0.07)`, border:`1px solid ${G}20`, borderRadius:'5px', padding:'6px 4px', textAlign:'center', fontFamily:"'DM Sans',sans-serif", fontSize:'8px', color:`${G}80`, letterSpacing:'0.1em', textTransform:'uppercase' }}>{t}</div>
+            <div key={t} style={{ flex:1, background:`rgba(196,162,90,0.07)`, border:`1px solid ${G}20`, borderRadius:'5px', padding:'6px 4px', textAlign:'center', fontFamily:'var(--sans)', fontSize:'8px', color:`${G}80`, letterSpacing:'0.1em', textTransform:'uppercase' }}>{t}</div>
           ))}
         </div>
-        <div style={{ marginTop:'7px', fontFamily:"'DM Sans',sans-serif", fontSize:'9px', color:`rgba(238,232,224,0.3)`, letterSpacing:'0.1em' }}>Context window · Long-term memory retrieval</div>
+        <div style={{ marginTop:'7px', fontFamily:'var(--sans)', fontSize:'9px', color:`rgba(238,232,224,0.3)`, letterSpacing:'0.1em' }}>Context window · Long-term memory retrieval</div>
       </Node>
 
       <Line color={G} />
 
-      {/* 3 — Core */}
+      {/* 3, Core */}
       <Node accent={O} icon="◈" title="AVA Intelligence Core">
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'5px', marginTop:'2px' }}>
           {[
@@ -206,8 +208,8 @@ function WorkflowDiagram() {
             { label:'Fallback AI',    sub:'LLM escalation\n& clarification'},
           ].map(n => (
             <div key={n.label} style={{ background:`rgba(46,107,142,0.1)`, border:`1px solid ${O}25`, borderRadius:'5px', padding:'7px 8px' }}>
-              <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8px', color:`${F}90`, letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:'3px' }}>{n.label}</div>
-              <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8px', color:'rgba(238,232,224,0.35)', lineHeight:1.4, whiteSpace:'pre-line' }}>{n.sub}</div>
+              <div style={{ fontFamily:'var(--sans)', fontSize:'8px', color:`${F}90`, letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:'3px' }}>{n.label}</div>
+              <div style={{ fontFamily:'var(--sans)', fontSize:'8px', color:'rgba(238,232,224,0.35)', lineHeight:1.4, whiteSpace:'pre-line' }}>{n.sub}</div>
             </div>
           ))}
         </div>
@@ -215,7 +217,7 @@ function WorkflowDiagram() {
 
       <Line color={O} />
 
-      {/* 4 — Action layer — 3-way */}
+      {/* 4, Action layer, 3-way */}
       <div style={{ display:'flex', gap:'6px', position:'relative' }}>
         <div style={{ position:'absolute', top:0, left:'16%', right:'16%', height:'1px', background:`linear-gradient(to right,${B}30,${G}40,${B}30)` }} />
         {[
@@ -224,26 +226,26 @@ function WorkflowDiagram() {
           { label:'CRM Sync', subs:['Lead tracking','Follow-up queue','Churn alerts'],   color:B },
         ].map(n => (
           <div key={n.label} style={{ flex:1, background:'rgba(7,16,30,0.78)', border:`1px solid ${n.color}25`, borderTop:`2px solid ${n.color}`, borderRadius:'0 0 8px 8px', padding:'9px 8px' }}>
-            <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8.5px', color:n.color, letterSpacing:'0.28em', textTransform:'uppercase', fontWeight:500, marginBottom:'6px', textAlign:'center' }}>{n.label}</div>
-            {n.subs.map(s => <div key={s} style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8px', color:'rgba(238,232,224,0.38)', lineHeight:1.6 }}>· {s}</div>)}
+            <div style={{ fontFamily:'var(--sans)', fontSize:'8.5px', color:n.color, letterSpacing:'0.28em', textTransform:'uppercase', fontWeight:500, marginBottom:'6px', textAlign:'center' }}>{n.label}</div>
+            {n.subs.map(s => <div key={s} style={{ fontFamily:'var(--sans)', fontSize:'8px', color:'rgba(238,232,224,0.38)', lineHeight:1.6 }}>· {s}</div>)}
           </div>
         ))}
       </div>
 
       <Line color={G} />
 
-      {/* 5 — Confirmation */}
+      {/* 5, Confirmation */}
       <Node accent={F} icon="✓" title="Confirmation Engine">
         <SubTag text="Multi-channel dispatch with guaranteed delivery" color={F} />
         <div style={{ display:'flex', gap:'5px', marginTop:'8px', flexWrap:'wrap' }}>
           {['WhatsApp','SMS','Email','Push','Webhook'].map(c => <Chip key={c} label={c} color={F} />)}
         </div>
-        <div style={{ marginTop:'7px', fontFamily:"'DM Sans',sans-serif", fontSize:'9px', color:`rgba(238,232,224,0.3)`, letterSpacing:'0.1em' }}>Audit log · Retry queue · Delivery receipts</div>
+        <div style={{ marginTop:'7px', fontFamily:'var(--sans)', fontSize:'9px', color:`rgba(238,232,224,0.3)`, letterSpacing:'0.1em' }}>Audit log · Retry queue · Delivery receipts</div>
       </Node>
 
       <Line color={F} />
 
-      {/* 6 — Dashboard */}
+      {/* 6, Dashboard */}
       <Node accent={G} icon="▣" title="Owner Dashboard">
         <SubTag text="Live operations intelligence & revenue analytics" color={G} />
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'5px', marginTop:'8px' }}>
@@ -254,8 +256,8 @@ function WorkflowDiagram() {
             { label:'Export API',    val:'CSV · Sheets'    },
           ].map(m => (
             <div key={m.label} style={{ background:`rgba(196,162,90,0.06)`, border:`1px solid ${G}15`, borderRadius:'5px', padding:'6px 8px' }}>
-              <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8px', color:`${G}80`, letterSpacing:'0.16em', textTransform:'uppercase' }}>{m.label}</div>
-              <div style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'8.5px', color:'rgba(238,232,224,0.42)', marginTop:'2px' }}>{m.val}</div>
+              <div style={{ fontFamily:'var(--sans)', fontSize:'8px', color:`${G}80`, letterSpacing:'0.16em', textTransform:'uppercase' }}>{m.label}</div>
+              <div style={{ fontFamily:'var(--sans)', fontSize:'8.5px', color:'rgba(238,232,224,0.42)', marginTop:'2px' }}>{m.val}</div>
             </div>
           ))}
         </div>
@@ -267,7 +269,7 @@ function WorkflowDiagram() {
 /* ─── Hero ─── */
 export default function AvaHero() {
   return (
-    <section style={{ position:'relative', height:'100vh', minHeight:'700px', background:'transparent', overflow:'hidden' }}>
+    <section style={{ position:'relative', height:'100svh', minHeight:'700px', background:'transparent', overflow:'hidden' }}>
       <style>{`
         @keyframes typingBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
         @keyframes bubbleIn { from{opacity:0;transform:scale(.92) translateY(6px)} to{opacity:1;transform:scale(1) translateY(0)} }
@@ -276,13 +278,13 @@ export default function AvaHero() {
         .ava-inner {
           position:relative; z-index:10;
           display:flex; align-items:center;
-          height:100vh;
+          height:100svh;
           padding:0 52px;
           gap:40px;
         }
         .ava-left     { flex:0 0 260px; }
         .ava-center   { flex:1; display:flex; align-items:center; justify-content:center; }
-        .ava-workflow { flex:0 0 400px; height:calc(100vh - 100px); overflow-y:auto; display:flex; align-items:center; }
+        .ava-workflow { flex:0 0 400px; height:calc(100svh - 100px); overflow-y:auto; display:flex; align-items:center; }
         .ava-workflow::-webkit-scrollbar { display:none; }
 
         @media(max-width:1280px) { .ava-workflow { flex:0 0 340px; } }
@@ -304,7 +306,7 @@ export default function AvaHero() {
         @media(max-width:480px) { .ava-center { transform:scale(.64) !important; margin-bottom:-160px !important; } }
       `}</style>
 
-      {/* Botanical motif — faint left edge */}
+      {/* Botanical motif, faint left edge */}
       <BotanicalMotif />
 
       {/* Strong radial glow behind AVA text */}
@@ -312,31 +314,31 @@ export default function AvaHero() {
 
       <div className="ava-inner">
 
-        {/* LEFT — AVA title */}
+        {/* LEFT, AVA title */}
         <div className="ava-left" style={{ position:'relative', zIndex:3 }}>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'10px', color:'var(--gold)', textTransform:'uppercase', letterSpacing:'.44em', margin:'0 0 14px 0', opacity:0.8 }}>INTRODUCING</p>
+          <p style={{ fontFamily:'var(--sans)', fontSize:'10px', color:'var(--gold)', textTransform:'uppercase', letterSpacing:'.44em', margin:'0 0 14px 0', opacity:0.8 }}>INTRODUCING</p>
 
-          <h1 style={{ fontFamily:'Georgia,serif', fontSize:'clamp(88px,8.5vw,124px)', color:'var(--gold)', letterSpacing:'.1em', lineHeight:0.95, margin:'0 0 4px 0', animation:'avaGlow 4s ease-in-out infinite' }}>AVA</h1>
+          <h1 style={{ fontFamily:'var(--serif)', fontSize:'clamp(88px,8.5vw,124px)', color:'var(--gold)', letterSpacing:'.1em', lineHeight:0.95, margin:'0 0 4px 0', animation:'avaGlow 4s ease-in-out infinite' }}>AVA</h1>
 
           <div style={{ width:'44px', height:'1px', background:'linear-gradient(to right,var(--gold),transparent)', margin:'20px 0' }} />
 
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'16px', color:'var(--warm-foam)', letterSpacing:'.07em', margin:'0 0 6px 0', fontWeight:300, lineHeight:1.5 }}>Your AI operations agent.</p>
+          <p style={{ fontFamily:'var(--sans)', fontSize:'16px', color:'var(--warm-foam)', letterSpacing:'.07em', margin:'0 0 6px 0', fontWeight:300, lineHeight:1.5 }}>Your AI operations agent.</p>
 
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'11px', color:'var(--ocean)', fontStyle:'italic', letterSpacing:'.06em', margin:'0 0 32px 0' }}>A Rheo AI Product.</p>
+          <p style={{ fontFamily:'var(--sans)', fontSize:'11px', color:'var(--ocean)', fontStyle:'italic', letterSpacing:'.06em', margin:'0 0 32px 0' }}>A Rheo AI Product.</p>
 
           <div className="ava-pills" style={{ display:'flex', flexWrap:'wrap', gap:'7px' }}>
             {['WhatsApp','Booking','Payments','CRM'].map(f => (
-              <span key={f} style={{ fontFamily:"'DM Sans',sans-serif", fontSize:'9px', color:'var(--crest)', letterSpacing:'.16em', textTransform:'uppercase', border:'1px solid rgba(69,153,181,.22)', borderRadius:'20px', padding:'4px 11px', background:'rgba(69,153,181,.05)' }}>{f}</span>
+              <span key={f} style={{ fontFamily:'var(--sans)', fontSize:'9px', color:'var(--crest)', letterSpacing:'.16em', textTransform:'uppercase', border:'1px solid rgba(69,153,181,.22)', borderRadius:'20px', padding:'4px 11px', background:'rgba(69,153,181,.05)' }}>{f}</span>
             ))}
           </div>
         </div>
 
-        {/* CENTER — phone */}
+        {/* CENTER, phone */}
         <div className="ava-center">
           <PhoneMockup />
         </div>
 
-        {/* RIGHT — workflow */}
+        {/* RIGHT, workflow */}
         <div className="ava-workflow">
           <WorkflowDiagram />
         </div>

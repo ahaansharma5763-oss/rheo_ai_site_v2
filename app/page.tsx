@@ -1,38 +1,29 @@
-import HeroSection from '@/components/home/HeroSection'
-import NameSection from '@/components/home/NameSection'
-import WhoWeAreSection from '@/components/home/WhoWeAreSection'
-import PrinciplesSection from '@/components/home/PrinciplesSection'
-import ProblemSection from '@/components/home/ProblemSection'
-import WhatWeDoSection from '@/components/home/WhatWeDoSection'
-import CaseStudiesSection from '@/components/home/CaseStudiesSection'
-import ShiftSection from '@/components/home/ShiftSection'
-import CTASection from '@/components/home/CTASection'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
-import { WaveHairline } from '@/components/shared/GreekElements'
+import PageGradient from '@/components/shared/PageGradient'
+import Hero from '@/components/home/Hero'
+import Metrics from '@/components/home/Metrics'
+import Methodology from '@/components/home/Methodology'
+import CaseStudy from '@/components/home/CaseStudy'
+import Capabilities from '@/components/home/Capabilities'
+import Philosophy from '@/components/home/Philosophy'
+import ClosingCTA from '@/components/home/ClosingCTA'
 
 export default function Home() {
   return (
-    <main>
-      <Nav />
-      <HeroSection />
-      <WaveHairline />
-      <NameSection />
-      <WaveHairline />
-      <WhoWeAreSection />
-      <WaveHairline />
-      <PrinciplesSection />
-      <WaveHairline />
-      <ProblemSection />
-      <WaveHairline />
-      <WhatWeDoSection />
-      <WaveHairline />
-      <CaseStudiesSection />
-      <WaveHairline />
-      <ShiftSection />
-      <WaveHairline />
-      <CTASection />
-      <Footer />
+    <main style={{ position: 'relative' }}>
+      <PageGradient />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <Nav />
+        <Hero />
+        <Metrics />
+        <Methodology />
+        <CaseStudy />
+        <Capabilities />
+        <Philosophy />
+        <ClosingCTA />
+        <Footer />
+      </div>
     </main>
   )
 }

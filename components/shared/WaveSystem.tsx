@@ -11,7 +11,7 @@ export default function WaveSystem({ intensity = 'hero', className = '', style }
   const containerHeight = intensity === 'hero' ? 420 : intensity === 'medium' ? 260 : 140
 
   const layers = intensity === 'hero' ? [
-    // Back layers — deep, slow
+    // Back layers, deep, slow
     { color: '#1A3566', opacity: 0.5,  duration: 38, path: 'M0,180 C120,100 240,260 360,150 C480,40 600,220 720,130 C840,40 960,200 1080,110 C1200,20 1320,160 1440,90 L1440,420 L0,420 Z' },
     { color: '#1A3566', opacity: 0.65, duration: 30, path: 'M0,200 C150,110 300,280 450,160 C600,40 750,240 900,140 C1050,40 1200,210 1440,120 L1440,420 L0,420 Z' },
     { color: '#2E6B8E', opacity: 0.45, duration: 24, path: 'M0,230 C180,130 360,300 540,180 C720,60 900,260 1080,160 C1260,60 1380,230 1440,150 L1440,420 L0,420 Z' },
@@ -74,10 +74,10 @@ export default function WaveSystem({ intensity = 'hero', className = '', style }
                 {/* Wave body */}
                 <path d={layer.path} fill={layer.color} opacity={layer.opacity}/>
 
-                {/* Wave hairline — slightly lighter */}
+                {/* Wave hairline, slightly lighter */}
                 <path d={pathOnly} fill="none" stroke="#4599B5" strokeWidth="0.6" opacity={isFront ? 0.3 : 0.15}/>
 
-                {/* Crest highlight — white foam on second-from-front */}
+                {/* Crest highlight, white foam on second-from-front */}
                 {isSecond && (
                   <path d={pathOnly} fill="none" stroke="#BDB5A5" strokeWidth="1.2" opacity="0.18"/>
                 )}

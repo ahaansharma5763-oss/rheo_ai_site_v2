@@ -32,7 +32,7 @@ export function HeroDithering({
     >
       <Suspense
         fallback={
-          // CSS wave animation fallback — always visible, no WebGL needed
+          // CSS wave animation fallback, always visible, no WebGL needed
           <div className="absolute inset-0" style={{
             background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 40%, #1A3566 70%, #2E6B8E 100%)',
           }}>
@@ -55,7 +55,7 @@ export function HeroDithering({
               <path d="M0,130 C200,70 400,170 600,100 C800,30 1000,150 1200,80 C1320,40 1400,120 1440,80"
                 fill="none" stroke="#C4A25A" strokeWidth="1" opacity="0.5"/>
             </svg>
-            {/* Wave layer 3 — front */}
+            {/* Wave layer 3, front */}
             <svg style={{position:'absolute',bottom:0,left:0,width:'100%',height:'28%'}}
               viewBox="0 0 1440 160" preserveAspectRatio="none">
               <path d="M0,100 C240,50 480,130 720,70 C960,10 1200,100 1440,55 L1440,160 L0,160 Z"

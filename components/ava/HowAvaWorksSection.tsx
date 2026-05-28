@@ -26,7 +26,7 @@ const ARROWS = NODES.slice(0, -1).map((node, i) => ({
 
 export default function HowAvaWorksSection() {
   return (
-    <section style={{ background: 'var(--ink)', padding: '120px 0' }}>
+    <section style={{ padding: '120px 0' }}>
       <style>{`
         @keyframes flowDash {
           to { stroke-dashoffset: -16; }
@@ -59,7 +59,7 @@ export default function HowAvaWorksSection() {
         {/* Label */}
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: 'var(--sans)',
             fontSize: '11px',
             color: 'var(--gold)',
             textTransform: 'uppercase',
@@ -73,7 +73,7 @@ export default function HowAvaWorksSection() {
         {/* Headline */}
         <h2
           style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: 'var(--serif)',
             fontSize: '32px',
             color: 'var(--warm-foam)',
             letterSpacing: '0.15em',
@@ -115,7 +115,7 @@ export default function HowAvaWorksSection() {
                   strokeWidth={0.5}
                   strokeOpacity={0.4}
                 />
-                {/* Gold top-border highlight on hover — always rendered, toggled by CSS */}
+                {/* Gold top-border highlight on hover, always rendered, toggled by CSS */}
                 <rect
                   className="flow-box-top"
                   x={node.x}
@@ -132,7 +132,7 @@ export default function HowAvaWorksSection() {
                   x={node.x + 65}
                   y={22}
                   textAnchor="middle"
-                  fontFamily="'DM Sans', sans-serif"
+                  fontFamily="var(--sans)"
                   fontSize={10}
                   fill="#C4A25A"
                   letterSpacing="0.1em"
@@ -145,7 +145,7 @@ export default function HowAvaWorksSection() {
                     x={node.x + 65}
                     y={64}
                     textAnchor="middle"
-                    fontFamily="Georgia, serif"
+                    fontFamily="var(--serif)"
                     fontSize={11}
                     fill="#EEE8E0"
                   >
@@ -157,7 +157,7 @@ export default function HowAvaWorksSection() {
                       x={node.x + 65}
                       y={56}
                       textAnchor="middle"
-                      fontFamily="Georgia, serif"
+                      fontFamily="var(--serif)"
                       fontSize={11}
                       fill="#EEE8E0"
                     >
@@ -167,7 +167,7 @@ export default function HowAvaWorksSection() {
                       x={node.x + 65}
                       y={72}
                       textAnchor="middle"
-                      fontFamily="Georgia, serif"
+                      fontFamily="var(--serif)"
                       fontSize={11}
                       fill="#EEE8E0"
                     >
@@ -203,7 +203,7 @@ export default function HowAvaWorksSection() {
         {/* Body text */}
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: 'var(--sans)',
             fontSize: '14px',
             color: 'var(--ocean)',
             lineHeight: 1.9,
@@ -215,8 +215,8 @@ export default function HowAvaWorksSection() {
           Ava operates as a stateful multi-agent system. Inbound events from WhatsApp Cloud API
           trigger conditional workflow trees in n8n. Each branch routes to the appropriate LLM
           prompt chain via the Anthropic API, with context injected from Google Sheets (customer
-          history, booking records, lead scores). Confirmed actions — bookings, payments,
-          escalations — are committed back to the data layer and surfaced in your daily report.
+          history, booking records, lead scores). Confirmed actions, bookings, payments,
+          escalations, are committed back to the data layer and surfaced in your daily report.
         </p>
       </div>
     </section>
