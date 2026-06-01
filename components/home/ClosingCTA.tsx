@@ -66,33 +66,76 @@ export default function ClosingCTA() {
         </Reveal>
 
         <Reveal delay={400}>
-          <a
-            href="https://calendly.com/ahaan-rheoai/30min"
-            target="_blank"
-            rel="noreferrer"
-            className="gold-bg"
-            style={{
-              color: 'var(--bg)',
-              padding: '20px 48px',
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
+              <a
+                href="https://calendly.com/ahaan-rheoai/30min"
+                target="_blank"
+                rel="noreferrer"
+                className="gold-bg"
+                style={{
+                  color: 'var(--bg)',
+                  padding: '20px 48px',
+                  fontFamily: 'var(--sans)',
+                  fontSize: '14px',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  fontWeight: 700,
+                  display: 'inline-block',
+                  transition: 'box-shadow 0.5s ease, transform 0.2s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow = '0 0 80px rgba(240,208,128,0.4)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Request Advisory
+              </a>
+              <a
+                href="https://audit.rheoai.co.in"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  color: 'var(--warm-foam)',
+                  padding: '20px 48px',
+                  fontFamily: 'var(--sans)',
+                  fontSize: '14px',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  fontWeight: 700,
+                  display: 'inline-block',
+                  border: '1px solid rgba(46,107,142,0.6)',
+                  transition: 'border-color 0.3s ease, color 0.3s ease, transform 0.2s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'var(--gold-end)';
+                  e.currentTarget.style.color = 'var(--gold-end)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'rgba(46,107,142,0.6)';
+                  e.currentTarget.style.color = 'var(--warm-foam)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Free Ops Audit →
+              </a>
+            </div>
+            <p style={{
               fontFamily: 'var(--sans)',
-              fontSize: '14px',
-              letterSpacing: '0.22em',
+              fontSize: '11px',
+              letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              fontWeight: 700,
-              display: 'inline-block',
-              transition: 'box-shadow 0.5s ease, transform 0.2s ease',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.boxShadow = '0 0 80px rgba(240,208,128,0.4)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.boxShadow = 'none';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            Request Advisory
-          </a>
+              color: 'var(--muted-cream)',
+              opacity: 0.6,
+            }}>
+              3-minute diagnostic · instant results
+            </p>
+          </div>
         </Reveal>
       </div>
     </section>

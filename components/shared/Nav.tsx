@@ -7,6 +7,7 @@ const LINKS = [
   { label: 'Work',  href: '/#work' },
   { label: 'About', href: '/about' },
   { label: 'Ava',   href: '/ava' },
+  { label: 'Audit', href: 'https://audit.rheoai.co.in' },
 ];
 
 export default function Nav() {
@@ -92,26 +93,28 @@ export default function Nav() {
           left: '50%',
           transform: 'translateX(-50%)',
         }}>
-          {LINKS.map(l => (
-            <Link
-              key={l.label}
-              href={l.href}
-              data-cursor="link"
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.28em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
-                color: 'var(--muted-cream)',
-                textDecoration: 'none',
-              }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {LINKS.map(l => {
+            const linkStyle = {
+              fontFamily: 'var(--sans)',
+              fontSize: '11px',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase' as const,
+              fontWeight: 500,
+              color: 'var(--muted-cream)',
+              textDecoration: 'none',
+            };
+            return l.href.startsWith('http')
+              ? <a key={l.label} href={l.href} target="_blank" rel="noreferrer" style={linkStyle}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}>
+                  {l.label}
+                </a>
+              : <Link key={l.label} href={l.href} data-cursor="link" style={linkStyle}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}>
+                  {l.label}
+                </Link>;
+          })}
         </div>
 
         {/* Right CTA pill */}
@@ -194,10 +197,15 @@ export default function Nav() {
         gap: '36px',
       }}>
         {LINKS.map(l => (
-          <Link key={l.label} href={l.href} onClick={() => setOpen(false)} data-cursor="link"
-            style={{ fontFamily: 'var(--serif)', fontSize: '32px', color: 'var(--fg)', textDecoration: 'none' }}>
-            {l.label}
-          </Link>
+          l.href.startsWith('http')
+            ? <a key={l.label} href={l.href} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}
+                style={{ fontFamily: 'var(--serif)', fontSize: '32px', color: 'var(--fg)', textDecoration: 'none' }}>
+                {l.label}
+              </a>
+            : <Link key={l.label} href={l.href} onClick={() => setOpen(false)} data-cursor="link"
+                style={{ fontFamily: 'var(--serif)', fontSize: '32px', color: 'var(--fg)', textDecoration: 'none' }}>
+                {l.label}
+              </Link>
         ))}
         <a href="https://calendly.com/ahaan-rheoai/30min" target="_blank" rel="noreferrer"
           className="gold-bg"
