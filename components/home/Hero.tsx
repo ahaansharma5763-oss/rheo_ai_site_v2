@@ -88,7 +88,9 @@ export default function Hero() {
         <Reveal delay={650}>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
             <a
-              href="#methodology"
+              href="https://audit.rheoai.co.in"
+              target="_blank"
+              rel="noreferrer"
               className="gold-bg"
               style={{
                 color: 'var(--bg)',

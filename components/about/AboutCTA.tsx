@@ -38,7 +38,7 @@ export default function AboutCTA() {
         </Reveal>
 
         <Reveal delay={400}>
-          <div style={{ marginTop: '56px', display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+          <div style={{ marginTop: '56px', display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               href="https://calendly.com/ahaan-rheoai-xnxc/30min"
               target="_blank"
@@ -56,6 +56,22 @@ export default function AboutCTA() {
               onMouseLeave={e => e.currentTarget.style.background = 'var(--fg)'}
             >
               Book the audit
+            </a>
+            <a
+              href="https://audit.rheoai.co.in"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '14px',
+                color: 'var(--gold)',
+                padding: '16px 0',
+                letterSpacing: '0.04em',
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--gold-end)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--gold)'}
+            >
+              Take the self-serve audit →
             </a>
             <a
               href="mailto:ahaan@rheoai.co.in"

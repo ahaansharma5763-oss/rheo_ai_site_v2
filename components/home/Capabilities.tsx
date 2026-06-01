@@ -423,6 +423,72 @@ export default function Capabilities() {
         ))}
       </div>
 
+        <Reveal>
+          <div style={{
+            marginTop: 'clamp(64px, 10vh, 96px)',
+            padding: '40px 48px',
+            background: 'rgba(15,30,54,0.45)',
+            border: '1px solid rgba(196,162,90,0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '24px',
+          }}>
+            <div>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+                fontWeight: 600,
+                marginBottom: '12px',
+              }}>
+                Not sure which layer to start with?
+              </p>
+              <p style={{
+                fontFamily: 'var(--serif)',
+                fontSize: 'clamp(20px, 2vw, 26px)',
+                color: 'var(--warm-foam)',
+                fontWeight: 400,
+                lineHeight: 1.3,
+                maxWidth: '44ch',
+              }}>
+                Take the free 3-minute audit. It scores your business across all four layers and tells you exactly where the leverage is.
+              </p>
+            </div>
+            <a
+              href="https://audit.rheoai.co.in"
+              target="_blank"
+              rel="noreferrer"
+              className="gold-bg"
+              style={{
+                color: 'var(--bg)',
+                padding: '16px 36px',
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.26em',
+                textTransform: 'uppercase',
+                fontWeight: 700,
+                whiteSpace: 'nowrap',
+                display: 'inline-block',
+                transition: 'box-shadow 0.4s ease, transform 0.2s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.boxShadow = '0 0 40px rgba(240,208,128,0.3)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              Get my free audit →
+            </a>
+          </div>
+        </Reveal>
+
       <style>{`
         @media (max-width: 900px) {
           .cap-head { grid-template-columns: 1fr !important; gap: 24px !important; }

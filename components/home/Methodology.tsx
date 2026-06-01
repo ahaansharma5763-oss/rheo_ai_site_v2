@@ -2,11 +2,14 @@
 
 import Reveal from './Reveal';
 
-const CARDS = [
+type MethodCard = { icon: string; title: string; body: string; cta?: { label: string; href: string } };
+
+const CARDS: MethodCard[] = [
   {
     icon: 'architecture',
     title: 'Audit',
     body: 'A forensic walkthrough across the four intelligent layers: customer, operations, network, decision. We map where data is moving, where it is not, and where the leverage is. A written scorecard delivered in five business days.',
+    cta: { label: 'Take the self-serve audit →', href: 'https://audit.rheoai.co.in' },
   },
   {
     icon: 'account_tree',
@@ -135,10 +138,34 @@ export default function Methodology() {
                   lineHeight: 1.7,
                   color: 'var(--muted-cream)',
                   fontWeight: 300,
-                  marginBottom: '24px',
+                  marginBottom: c.cta ? '28px' : '24px',
                 }}>
                   {c.body}
                 </p>
+                {c.cta && (
+                  <a
+                    href={c.cta.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      fontFamily: 'var(--sans)',
+                      fontSize: '11px',
+                      letterSpacing: '0.26em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold)',
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                      display: 'inline-block',
+                      borderBottom: '1px solid rgba(196,162,90,0.35)',
+                      paddingBottom: '3px',
+                      transition: 'border-color 0.3s ease',
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--gold)'}
+                    onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(196,162,90,0.35)'}
+                  >
+                    {c.cta.label}
+                  </a>
+                )}
               </article>
             </Reveal>
           ))}

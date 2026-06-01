@@ -112,6 +112,27 @@ export default function AvaCTASection() {
         >
           Get in touch →
         </button>
+        <a
+          href="https://audit.rheoai.co.in"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            display: 'block',
+            marginTop: '20px',
+            fontFamily: 'var(--sans)',
+            fontSize: '12px',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--muted-cream)',
+            textDecoration: 'none',
+            opacity: 0.65,
+            transition: 'opacity 0.3s ease',
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+          onMouseLeave={e => e.currentTarget.style.opacity = '0.65'}
+        >
+          Or take the free ops audit first →
+        </a>
       </div>
 
       {/* Wave system, bottom 65% */}
