@@ -119,7 +119,7 @@ export default function Nav() {
 
         {/* Right CTA pill */}
         <a
-          href="https://calendly.com/ahaan-rheoai/30min"
+          href="https://calendly.com/ahaan-rheoai-xnxc/30min"
           target="_blank"
           rel="noreferrer"
           className="nav-cta"
@@ -207,7 +207,7 @@ export default function Nav() {
                 {l.label}
               </Link>
         ))}
-        <a href="https://calendly.com/ahaan-rheoai/30min" target="_blank" rel="noreferrer"
+        <a href="https://calendly.com/ahaan-rheoai-xnxc/30min" target="_blank" rel="noreferrer"
           className="gold-bg"
           style={{
             marginTop: '12px',

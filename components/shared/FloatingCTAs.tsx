@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 const WHATSAPP_NUMBER = '919503995633'
-const CALENDLY_URL    = 'https://calendly.com/ahaan-rheoai/30min'
+const CALENDLY_URL    = 'https://calendly.com/ahaan-rheoai-xnxc/30min'
 
 export default function FloatingCTAs() {
   const [visible, setVisible] = useState(false)

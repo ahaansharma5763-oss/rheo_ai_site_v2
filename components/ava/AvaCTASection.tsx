@@ -105,7 +105,7 @@ export default function AvaCTASection() {
           className="ava-cta-btn"
           onClick={() => {
             // @ts-ignore
-            if (window.Calendly) window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' })
+            if (window.Calendly) window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai-xnxc/30min' })
             else window.location.href = 'mailto:ahaan@rheoai.co.in'
           }}
           type="button"

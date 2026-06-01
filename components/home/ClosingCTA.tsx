@@ -69,7 +69,7 @@ export default function ClosingCTA() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
               <a
-                href="https://calendly.com/ahaan-rheoai/30min"
+                href="https://calendly.com/ahaan-rheoai-xnxc/30min"
                 target="_blank"
                 rel="noreferrer"
                 className="gold-bg"

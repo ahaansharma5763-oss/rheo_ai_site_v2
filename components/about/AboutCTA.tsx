@@ -40,7 +40,7 @@ export default function AboutCTA() {
         <Reveal delay={400}>
           <div style={{ marginTop: '56px', display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
             <a
-              href="https://calendly.com/ahaan-rheoai/30min"
+              href="https://calendly.com/ahaan-rheoai-xnxc/30min"
               target="_blank"
               rel="noreferrer"
               style={{
