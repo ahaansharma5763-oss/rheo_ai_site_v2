@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from './Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 type CapabilityArea = {
   num: string;
@@ -77,8 +78,10 @@ export default function Capabilities() {
     <section id="work" style={{
       padding: 'var(--section-gap) var(--rail-pad)',
       position: 'relative',
+      overflow: 'hidden',
     }}>
-      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
+      <WaveField variant="corner-left" shape="ripple" colorFront="#4599B5" opacity={0.34} speed={0.26} />
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px', color: 'var(--gold-end)' }}>
             What We Solve
@@ -217,7 +220,7 @@ export default function Capabilities() {
         ))}
       </div>
 
-      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <div style={{
             marginTop: 'clamp(64px, 10vh, 96px)',

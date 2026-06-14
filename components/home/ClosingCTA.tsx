@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from './Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 export default function ClosingCTA() {
   return (
@@ -13,26 +14,15 @@ export default function ClosingCTA() {
         overflow: 'hidden',
       }}
     >
-      {/* Floating blur orbs for depth */}
+      {/* Wave motif — the single gold-tinted wave on the page (gold appears once) */}
+      <WaveField variant="full" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.32} speed={0.26} />
+      {/* Soft vignette so the centered headline holds against the wave */}
       <div aria-hidden style={{
         position: 'absolute',
-        top: '50%', left: 0,
-        width: '320px', height: '320px',
-        transform: 'translate(-30%, -50%)',
-        background: 'rgba(46,107,142,0.18)',
-        filter: 'blur(120px)',
-        borderRadius: '50%',
+        inset: 0,
+        zIndex: 0,
         pointerEvents: 'none',
-      }} />
-      <div aria-hidden style={{
-        position: 'absolute',
-        bottom: 0, right: 0,
-        width: '480px', height: '480px',
-        transform: 'translate(25%, 25%)',
-        background: 'rgba(240,208,128,0.08)',
-        filter: 'blur(150px)',
-        borderRadius: '50%',
-        pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(7,16,30,0.55) 0%, transparent 75%)',
       }} />
 
       <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative', zIndex: 1 }}>

@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from './Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const STAGES: { num: string; title: string; body: string }[] = [
   { num: '01', title: 'First touch', body: 'Every enquiry answered in under sixty seconds. Day or night. The same quality of reply, whether it lands at 11am or 11pm.' },
@@ -17,8 +18,10 @@ export default function CustomerJourney() {
       padding: 'var(--section-gap) var(--rail-pad)',
       position: 'relative',
       borderTop: '1px solid rgba(46,107,142,0.12)',
+      overflow: 'hidden',
     }}>
-      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
+      <WaveField variant="corner-right" shape="simplex" colorFront="#2E6B8E" opacity={0.42} speed={0.28} />
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '24px', color: 'var(--gold-end)' }}>
             Customer Journey Orchestration
