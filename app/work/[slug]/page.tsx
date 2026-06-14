@@ -268,9 +268,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           color: 'var(--fg)',
           fontWeight: 400,
           marginBottom: '32px',
-          maxWidth: '14ch',
+          maxWidth: '18ch',
         }}>
-          Ready to build this<span style={{ color: accent }}>?</span>
+          See how this would work for your business<span style={{ color: accent }}>.</span>
         </h2>
         <p style={{
           fontFamily: 'var(--sans)',
@@ -282,10 +282,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           fontWeight: 300,
         }}>
           Every Rheo engagement begins with an Ops Audit. Forty-five minutes on a call, a written scorecard
-          in five business days, and a clear list of what to fix first.
+          in five business days, and a clear list of what to fix first. No commitment beyond that.
         </p>
         <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-          <a href="https://calendly.com/ahaan-rheoai/30min" target="_blank" rel="noreferrer"
+          <a href="https://audit.rheoai.co.in" target="_blank" rel="noreferrer"
             style={{
               fontFamily: 'var(--sans)',
               fontSize: '14px',
@@ -295,7 +295,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               padding: '16px 32px',
               borderRadius: '999px',
             }}>
-            Book the audit
+            Start with an Ops Audit
           </a>
           <a href="mailto:ahaan@rheoai.co.in"
             style={{

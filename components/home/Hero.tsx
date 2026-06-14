@@ -1,7 +1,7 @@
 'use client';
 
 import Reveal from './Reveal';
-import { SmokeBackground } from '@/components/ui/spooky-smoke-animation';
+import { HeroDithering } from '@/components/ui/hero-dithering-card';
 
 export default function Hero() {
   return (
@@ -13,18 +13,17 @@ export default function Hero() {
       alignItems: 'center',
       overflow: 'hidden',
     }}>
-      {/* Brand smoke shader, scoped to hero only, fades out at the bottom */}
+      {/* Brand wave shader, scoped to hero only, fades out at the bottom */}
       <div aria-hidden style={{
         position: 'absolute',
         inset: 0,
         zIndex: 0,
         pointerEvents: 'none',
-        // Soft vertical fade so the smoke dissolves into the gradient below
+        opacity: 0.72,
+        // Soft vertical fade so the wave dissolves into the gradient below
         // instead of cutting off at the section edge
         maskImage: 'linear-gradient(to bottom, black 0%, black 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.25) 85%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.25) 85%, transparent 100%)',
-        // Side fades too, so the smoke does not cut sharply against the page
-        // gradient at the left and right edges either
       }}>
         <div style={{
           position: 'absolute',
@@ -32,10 +31,10 @@ export default function Hero() {
           maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
         }}>
-          <SmokeBackground smokeColor="#4599B5" />
+          <HeroDithering colorBack="#07101E" colorFront="#2E6B8E" shape="simplex" type="4x4" speed={0.3} />
         </div>
       </div>
-      {/* Soft radial vignette so the headline holds against the smoke */}
+      {/* Soft radial vignette so the headline holds against the wave */}
       <div aria-hidden style={{
         position: 'absolute',
         inset: 0,
@@ -80,8 +79,8 @@ export default function Hero() {
             marginBottom: '56px',
           }}>
             We design intelligent workflows that let your data, tools, and people talk to each other.
-            Across customers, operations, partners, and supply. The connective tissue that turns a
-            stack of disconnected tools into a single operating fabric.
+            The connective tissue that turns a stack of disconnected tools into one operating fabric —
+            so founders spend their time on strategy, not operations.
           </p>
         </Reveal>
 
@@ -115,7 +114,7 @@ export default function Hero() {
               Start with an Ops Audit
             </a>
             <a
-              href="#work"
+              href="/ava"
               style={{
                 border: '1px solid var(--ocean)',
                 color: 'var(--warm-foam)',
@@ -137,7 +136,7 @@ export default function Hero() {
                 e.currentTarget.style.color = 'var(--warm-foam)';
               }}
             >
-              Explore the stack
+              Meet Ava
             </a>
           </div>
         </Reveal>

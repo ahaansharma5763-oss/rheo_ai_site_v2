@@ -101,19 +101,16 @@ export default function AvaCTASection() {
           ◆
         </div>
 
-        <button
-          className="ava-cta-btn"
-          onClick={() => {
-            // @ts-ignore
-            if (window.Calendly) window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai-xnxc/30min' })
-            else window.location.href = 'mailto:ahaan@rheoai.co.in'
-          }}
-          type="button"
-        >
-          Get in touch →
-        </button>
         <a
           href="https://audit.rheoai.co.in"
+          target="_blank"
+          rel="noreferrer"
+          className="ava-cta-btn"
+        >
+          Start with an Ops Audit →
+        </a>
+        <a
+          href="https://calendly.com/ahaan-rheoai-xnxc/30min"
           target="_blank"
           rel="noreferrer"
           style={{
@@ -131,7 +128,7 @@ export default function AvaCTASection() {
           onMouseEnter={e => e.currentTarget.style.opacity = '1'}
           onMouseLeave={e => e.currentTarget.style.opacity = '0.65'}
         >
-          Or take the free ops audit first →
+          Or book a call directly →
         </a>
       </div>
 

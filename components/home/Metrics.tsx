@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 const STATS = [
   { value: '200+',  label: 'Live bookings processed' },
   { value: '<60s',  label: 'Average lead response' },
-  { value: '14',    label: 'Productised systems' },
+  { value: '18 hrs', label: 'Staff time recovered / week' },
   { value: '100%',  label: 'Indian data residency' },
 ];
 

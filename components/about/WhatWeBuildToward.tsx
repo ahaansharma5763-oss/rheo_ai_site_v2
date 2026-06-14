@@ -69,10 +69,26 @@ export default function WhatWeBuildToward() {
             color: 'var(--fg-mute)',
             fontWeight: 300,
             maxWidth: '62ch',
+            marginBottom: '32px',
           }}>
             That is what we are building, one business at a time. A quiet operating fabric for
             companies that intend to compound for decades. We are at the start of that work. There is
             a long way to go.
+          </p>
+        </Reveal>
+
+        <Reveal delay={750}>
+          <p style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(18px, 1.6vw, 22px)',
+            lineHeight: 1.6,
+            color: 'var(--warm-foam)',
+            fontWeight: 400,
+            maxWidth: '56ch',
+            fontStyle: 'italic',
+          }}>
+            Every engagement begins the same way — with an honest look at where the business is and
+            what it&apos;s missing. That&apos;s the audit.
           </p>
         </Reveal>
       </div>

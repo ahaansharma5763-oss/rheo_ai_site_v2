@@ -137,6 +137,17 @@ export default function AvaNumbersSection() {
             <StatItem key={stat.label} stat={stat} index={i} />
           ))}
         </div>
+        <p style={{
+          fontFamily: 'var(--sans)',
+          fontSize: '11px',
+          color: 'var(--fg-dim)',
+          letterSpacing: '0.04em',
+          marginTop: '20px',
+          textAlign: 'center',
+          opacity: 0.55,
+        }}>
+          Benchmarks across active deployments. Individual results vary by business type and volume.
+        </p>
       </div>
     </section>
   );

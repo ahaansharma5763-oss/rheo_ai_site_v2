@@ -19,7 +19,7 @@ const CARDS: MethodCard[] = [
   {
     icon: 'speed',
     title: 'Maintain',
-    body: 'Monthly retainer covers monitoring, iteration, and the infrastructure layer. Thirty-day hypercare on full builds. Third-party costs passed at actuals. Zero markup.',
+    body: 'The retainer is not a maintenance fee. It is weekly monitoring, a monthly performance review, and the search for your next highest-ROI improvement. Someone permanently accountable for the system. Thirty-day hypercare on full builds, third-party costs at actuals, zero markup.',
   },
 ];
 

@@ -46,7 +46,7 @@ export default function ClosingCTA() {
             fontWeight: 600,
             marginBottom: '40px',
           }}>
-            Ready to flow<span style={{ color: 'var(--gold)' }}>?</span>
+            Every engagement begins the same way<span style={{ color: 'var(--gold)' }}>.</span>
           </h2>
         </Reveal>
 
@@ -93,7 +93,7 @@ export default function ClosingCTA() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                Request Advisory
+                Book a Call
               </a>
               <a
                 href="https://audit.rheoai.co.in"

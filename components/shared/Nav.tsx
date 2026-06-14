@@ -144,7 +144,7 @@ export default function Nav() {
             e.currentTarget.style.color = 'var(--warm-foam)';
           }}
         >
-          Advisory
+          Book a Call
         </a>
 
         {/* Hamburger */}
@@ -220,7 +220,7 @@ export default function Nav() {
             textTransform: 'uppercase',
             fontWeight: 600,
           }}>
-          Advisory
+          Book a Call
         </a>
       </div>
 
