@@ -19,19 +19,19 @@ export default function Hero() {
         inset: 0,
         zIndex: 0,
         pointerEvents: 'none',
-        opacity: 0.72,
+        opacity: 0.95,
         // Soft vertical fade so the wave dissolves into the gradient below
         // instead of cutting off at the section edge
-        maskImage: 'linear-gradient(to bottom, black 0%, black 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.25) 85%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.25) 85%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.6) 78%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.6) 78%, transparent 100%)',
       }}>
         <div style={{
           position: 'absolute',
           inset: 0,
-          maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
         }}>
-          <HeroDithering colorBack="#07101E" colorFront="#2E6B8E" shape="simplex" type="4x4" speed={0.3} />
+          <HeroDithering colorBack="#0D1F3C" colorFront="#4599B5" shape="wave" type="4x4" speed={0.32} />
         </div>
       </div>
       {/* Soft radial vignette so the headline holds against the wave */}

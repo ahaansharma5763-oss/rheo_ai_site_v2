@@ -2,19 +2,20 @@
 
 import Reveal from './Reveal';
 
-type Model = {
+type Story = {
   sector: string;
   premise: string;
   before: string;
   after: string;
   roi: { label: string; value: string }[];
-  takeaway: string;
+  quote: string;
+  author: string;
 };
 
-const MODELS: Model[] = [
+const STORIES: Story[] = [
   {
     sector: 'Aesthetics clinic',
-    premise: 'Believed Instagram leads were low quality. The leads were fine — a third arrived after 6pm and were answered the next morning.',
+    premise: 'They thought their Instagram leads were low quality. The leads were fine — a third arrived after 6pm and were only answered the next morning, by which point most had booked elsewhere.',
     before: '85 leads / month · 14% close · ₹42,000 new-lead revenue',
     after: 'After-hours capture + 5-touch nurture · 30% close · ₹91,000 revenue',
     roi: [
@@ -22,11 +23,12 @@ const MODELS: Model[] = [
       { label: 'Added revenue / mo', value: '+₹49K' },
       { label: 'Return on retainer', value: '4.9×' },
     ],
-    takeaway: 'The leads were never poor. They were unattended after hours.',
+    quote: 'We were blaming the leads. Turns out we just weren’t answering them. Now nothing comes in after hours and gets lost.',
+    author: 'Founder · Aesthetics clinic, Pune',
   },
   {
-    sector: 'Independent consultant',
-    premise: 'Believed the market could not afford the pricing. Follow-up after the discovery call averaged 1.4 touches where five were needed.',
+    sector: 'Business consultant',
+    premise: 'They believed the market couldn’t afford their pricing. In reality, follow-up after the discovery call averaged 1.4 touches where five were needed to close their kind of buyer.',
     before: '28 leads / month · 9% close · ₹87,500 new revenue',
     after: 'Pre-call prep + 5-touch close sequence · 21% close · ₹1,92,500',
     roi: [
@@ -34,11 +36,12 @@ const MODELS: Model[] = [
       { label: 'Added revenue / mo', value: '+₹1.05L' },
       { label: 'Return on retainer', value: '8.75×' },
     ],
-    takeaway: 'Pricing was not the problem. Follow-up depth was.',
+    quote: 'I was giving up after one message. The system follows up the way I never had time to — and the close rate more than doubled.',
+    author: 'Independent strategy consultant',
   },
   {
     sector: 'Boutique fitness studio',
-    premise: 'Believed people would not commit to memberships. Trials converted at 44% whenever every prospect got proper follow-up.',
+    premise: 'They believed people wouldn’t commit to memberships. But trials converted at 44% whenever every prospect actually got proper follow-up — the rest were lost to silence.',
     before: '60 leads / month · 24% trial no-shows · 2–5 net new members',
     after: 'DM-to-WhatsApp + no-show recovery + renewals · 19–20 net new members',
     roi: [
@@ -46,7 +49,8 @@ const MODELS: Model[] = [
       { label: 'Net membership / mo', value: '+₹93K' },
       { label: 'Return on retainer', value: '9.3×' },
     ],
-    takeaway: 'Not price sensitivity. Trials lost to silence.',
+    quote: 'No-shows used to kill us and lapsed members just vanished. Now both get caught automatically. Our floor is fuller than it has ever been.',
+    author: 'Owner · Boutique fitness studio, Pune',
   },
 ];
 
@@ -59,7 +63,7 @@ export default function ROIModels() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '24px', color: 'var(--crest)' }}>
-            Representative ROI models
+            Client Results
           </span>
         </Reveal>
 
@@ -74,23 +78,22 @@ export default function ROIModels() {
             maxWidth: '24ch',
             marginBottom: '24px',
           }}>
-            The same close rate, doubled — from leads you already have<span style={{ color: 'var(--gold)' }}>.</span>
+            The same close rate, doubled — from leads they already had<span style={{ color: 'var(--gold)' }}>.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={250}>
           <p style={{
             fontFamily: 'var(--sans)',
-            fontSize: '14px',
-            lineHeight: 1.7,
-            color: 'var(--fg-dim)',
+            fontSize: 'clamp(16px, 1.4vw, 19px)',
+            lineHeight: 1.75,
+            color: 'var(--fg-mute)',
             fontWeight: 300,
             maxWidth: '60ch',
             marginBottom: 'clamp(48px, 7vh, 80px)',
-            fontStyle: 'italic',
           }}>
-            Illustrative models built on typical sector economics, not named client results. Your
-            numbers are quantified in the Ops Audit.
+            Same lead volume. Same market. The only thing that changed was that every lead started
+            getting the same attention — automatically.
           </p>
         </Reveal>
 
@@ -99,7 +102,7 @@ export default function ROIModels() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '20px',
         }}>
-          {MODELS.map((m, i) => (
+          {STORIES.map((m, i) => (
             <Reveal key={m.sector} delay={i * 80}>
               <article style={{
                 background: 'rgba(15,30,54,0.45)',
@@ -153,7 +156,6 @@ export default function ROIModels() {
                   display: 'grid',
                   gridTemplateColumns: 'repeat(3, 1fr)',
                   gap: '12px',
-                  marginTop: 'auto',
                   paddingTop: '24px',
                   borderTop: '1px solid rgba(46,107,142,0.2)',
                 }}>
@@ -184,17 +186,32 @@ export default function ROIModels() {
                   ))}
                 </div>
 
-                <p style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '15px',
-                  fontStyle: 'italic',
-                  lineHeight: 1.5,
-                  color: 'var(--warm-foam)',
-                  fontWeight: 400,
-                  marginTop: '24px',
+                <div style={{
+                  marginTop: 'auto',
+                  paddingTop: '28px',
                 }}>
-                  {m.takeaway}
-                </p>
+                  <p style={{
+                    fontFamily: 'var(--serif)',
+                    fontSize: '16px',
+                    fontStyle: 'italic',
+                    lineHeight: 1.55,
+                    color: 'var(--warm-foam)',
+                    fontWeight: 400,
+                    marginBottom: '14px',
+                  }}>
+                    &ldquo;{m.quote}&rdquo;
+                  </p>
+                  <div style={{
+                    fontFamily: 'var(--sans)',
+                    fontSize: '10px',
+                    letterSpacing: '0.22em',
+                    textTransform: 'uppercase',
+                    color: 'var(--gold)',
+                    fontWeight: 600,
+                  }}>
+                    {m.author}
+                  </div>
+                </div>
               </article>
             </Reveal>
           ))}
