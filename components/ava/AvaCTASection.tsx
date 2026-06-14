@@ -1,215 +1,74 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 export default function AvaCTASection() {
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
-
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            el.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.15 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       style={{
         position: 'relative',
-        background: 'rgba(7,16,30,0.35)',
-        padding: '140px 24px 0',
+        padding: 'clamp(120px, 22vh, 220px) var(--rail-pad)',
         overflow: 'hidden',
-        minHeight: '420px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        textAlign: 'center',
+        borderTop: '1px solid rgba(46,107,142,0.12)',
       }}
     >
+      {/* Wave finale — gold swirl */}
+      <WaveField variant="bottom" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.3} speed={0.24} />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 55% at 50% 40%, rgba(7,16,30,0.5) 0%, transparent 75%)' }} />
+
       <style>{`
-        .ava-cta-btn {
-          display: inline-block;
-          padding: 14px 36px;
-          border: 1px solid var(--gold);
-          background: transparent;
-          color: var(--gold);
-          font-family: var(--sans);
-          font-size: 13px;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          text-decoration: none;
-          cursor: pointer;
-          transition: background 0.25s ease, color 0.25s ease;
-          margin-top: 40px;
-        }
-        .ava-cta-btn:hover {
-          background: var(--gold);
-          color: var(--ink);
-        }
+        .ava-cta-btn { display:inline-block; padding:18px 44px; background:linear-gradient(135deg,#F0D080 0%,#C4A25A 60%,#BDB5A5 100%); color:var(--bg); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
+        .ava-cta-btn:hover { box-shadow:0 0 50px rgba(240,208,128,0.35); transform:translateY(-2px); }
       `}</style>
 
-      {/* Main content */}
-      <div
-        ref={contentRef}
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          textAlign: 'center',
-          maxWidth: '700px',
-        }}
-      >
-        <h2
-          style={{
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: '720px', margin: '0 auto' }}>
+        <Reveal>
+          <h2 style={{
             fontFamily: 'var(--serif)',
-            fontSize: '48px',
-            color: 'var(--warm-foam)',
-            letterSpacing: '0.1em',
-            lineHeight: 1.15,
+            fontSize: 'clamp(40px, 6vw, 72px)',
+            color: 'var(--fg)',
+            letterSpacing: '-0.025em',
+            lineHeight: 1.08,
             margin: 0,
-          }}
-        >
-          Deploy Ava for your business.
-        </h2>
+            fontWeight: 600,
+          }}>
+            Deploy Ava for your business<span style={{ color: 'var(--gold)' }}>.</span>
+          </h2>
+        </Reveal>
 
-        {/* Gold diamond */}
-        <div
-          style={{
-            fontSize: '16px',
-            color: 'var(--gold)',
-            marginTop: '28px',
-            letterSpacing: '0.3em',
-          }}
-          aria-hidden="true"
-        >
-          ◆
-        </div>
-
-        <a
-          href="https://audit.rheoai.co.in"
-          target="_blank"
-          rel="noreferrer"
-          className="ava-cta-btn"
-        >
-          Start with an Ops Audit →
-        </a>
-        <a
-          href="https://calendly.com/ahaan-rheoai-xnxc/30min"
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: 'block',
-            marginTop: '20px',
+        <Reveal delay={180}>
+          <p style={{
             fontFamily: 'var(--sans)',
-            fontSize: '12px',
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
+            fontSize: '18px',
+            lineHeight: 1.7,
             color: 'var(--muted-cream)',
-            textDecoration: 'none',
-            opacity: 0.65,
-            transition: 'opacity 0.3s ease',
-          }}
-          onMouseEnter={e => e.currentTarget.style.opacity = '1'}
-          onMouseLeave={e => e.currentTarget.style.opacity = '0.65'}
-        >
-          Or book a call directly →
-        </a>
-      </div>
+            fontWeight: 300,
+            maxWidth: '48ch',
+            margin: '32px auto 0',
+          }}>
+            Every Ava deployment starts with an Ops Audit — we map your operation, then scope the build.
+          </p>
+        </Reveal>
 
-      {/* Wave system, bottom 65% */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '65%',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
-        aria-hidden="true"
-      >
-        {/* Layer 1, deepest back */}
-        <svg
-          viewBox="0 0 1440 200"
-          width="100%"
-          height="200"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,120 C240,60 480,160 720,80 C960,0 1200,120 1440,60 L1440,200 L0,200 Z"
-            fill="#1A3566"
-            fillOpacity="0.4"
-          />
-        </svg>
-
-        {/* Layer 2 */}
-        <svg
-          viewBox="0 0 1440 200"
-          width="100%"
-          height="200"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,100 C200,40 440,140 720,70 C1000,0 1240,110 1440,50 L1440,200 L0,200 Z"
-            fill="#1A3566"
-            fillOpacity="0.6"
-          />
-        </svg>
-
-        {/* Layer 3 */}
-        <svg
-          viewBox="0 0 1440 200"
-          width="100%"
-          height="200"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,140 C280,80 520,160 760,100 C1000,40 1200,140 1440,80 L1440,200 L0,200 Z"
-            fill="#2E6B8E"
-            fillOpacity="0.5"
-          />
-        </svg>
-
-        {/* Layer 4, front with gold hairline */}
-        <svg
-          viewBox="0 0 1440 200"
-          width="100%"
-          height="200"
-          preserveAspectRatio="none"
-          style={{ position: 'absolute', bottom: 0, left: 0 }}
-        >
-          <path
-            d="M0,160 C200,100 440,180 720,120 C1000,60 1240,160 1440,100"
-            fill="none"
-            stroke="#C4A25A"
-            strokeWidth="0.7"
-          />
-          <path
-            d="M0,160 C200,100 440,180 720,120 C1000,60 1240,160 1440,100 L1440,200 L0,200 Z"
-            fill="#0D1F3C"
-            fillOpacity="0.9"
-          />
-        </svg>
+        <Reveal delay={320}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', marginTop: '48px' }}>
+            <a href="https://audit.rheoai.co.in" target="_blank" rel="noreferrer" className="ava-cta-btn">
+              Start with an Ops Audit →
+            </a>
+            <a
+              href="https://calendly.com/ahaan-rheoai-xnxc/30min"
+              target="_blank"
+              rel="noreferrer"
+              style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--muted-cream)', textDecoration: 'none', opacity: 0.65, transition: 'opacity 0.3s ease' }}
+              onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+              onMouseLeave={e => e.currentTarget.style.opacity = '0.65'}
+            >
+              Or book a call directly →
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

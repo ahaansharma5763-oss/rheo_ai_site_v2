@@ -1,154 +1,83 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
-interface Stat {
-  number: string;
-  label: string;
-}
+interface Stat { number: string; label: string; }
 
 const STATS: Stat[] = [
-  { number: '< 2s',  label: 'AVERAGE RESPONSE TIME' },
-  { number: '24/7',  label: 'OPERATIONAL UPTIME' },
-  { number: '0',     label: 'MANUAL FOLLOW-UPS REQUIRED' },
-  { number: '₹38K+', label: 'AVG. REVENUE RECOVERED / MONTH' },
-  { number: '94%',   label: 'REDUCTION IN MISSED BOOKINGS' },
-  { number: '3×',    label: 'MARKETING REACH VIA WHATSAPP' },
-  { number: '18 hrs', label: 'STAFF TIME SAVED PER WEEK' },
-  { number: '15 min', label: 'INQUIRY TO CONFIRMED BOOKING' },
-  { number: '100%',  label: 'CUSTOM-BUILT. NEVER TEMPLATED.' },
+  { number: '< 2s',   label: 'Average response time' },
+  { number: '24/7',   label: 'Operational uptime' },
+  { number: '0',      label: 'Manual follow-ups required' },
+  { number: '₹38K+',  label: 'Avg. revenue recovered / month' },
+  { number: '94%',    label: 'Reduction in missed bookings' },
+  { number: '3×',     label: 'Marketing reach via WhatsApp' },
+  { number: '18 hrs', label: 'Staff time saved per week' },
+  { number: '15 min', label: 'Inquiry to confirmed booking' },
+  { number: '100%',   label: 'Custom-built. Never templated.' },
 ];
-
-function StatItem({ stat, index }: { stat: Stat; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-              el.style.opacity = '1';
-              el.style.transform = 'translateY(0)';
-            }, index * 120);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [index]);
-
-  return (
-    <div
-      ref={ref}
-      style={{
-        textAlign: 'center',
-        padding: '40px 24px',
-        borderRight: (index % 3 !== 2) ? '1px solid var(--prussian)' : 'none',
-        borderBottom: (index < STATS.length - 3) ? '1px solid var(--prussian)' : 'none',
-      }}
-    >
-      <p
-        style={{
-          fontFamily: 'var(--serif)',
-          fontSize: '64px',
-          color: 'var(--gold)',
-          lineHeight: 1,
-          letterSpacing: '0.1em',
-          margin: 0,
-        }}
-      >
-        {stat.number}
-      </p>
-      <p
-        style={{
-          fontFamily: 'var(--sans)',
-          fontSize: '12px',
-          color: 'var(--ocean)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.2em',
-          marginTop: '12px',
-          marginBottom: 0,
-        }}
-      >
-        {stat.label}
-      </p>
-    </div>
-  );
-}
 
 export default function AvaNumbersSection() {
   return (
-    <section style={{ padding: '120px 0' }}>
-      <style>{`
-        @media (max-width: 767px) {
-          .ava-numbers-inner { padding: 0 24px !important; }
-          .ava-numbers-row   { flex-direction: column !important; }
-          .ava-numbers-row > div {
-            border-right: none !important;
-            border-bottom: 1px solid var(--prussian);
-            padding: 32px 0 !important;
-          }
-          .ava-numbers-row > div:last-child { border-bottom: none !important; }
-        }
-      `}</style>
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#4599B5" opacity={0.3} speed={0.24} />
 
-      <div
-        className="ava-numbers-inner"
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          padding: '0 64px',
-        }}
-      >
-        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-          <p style={{
-            fontFamily: 'var(--sans)', fontSize: '11px',
-            color: 'var(--gold)', textTransform: 'uppercase',
-            letterSpacing: '0.44em', margin: '0 0 16px 0',
-          }}>BY THE NUMBERS</p>
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <Reveal>
+          <span className="eyebrow" style={{ display: 'block', textAlign: 'center', marginBottom: '20px', color: 'var(--gold-end)' }}>
+            By the numbers
+          </span>
+        </Reveal>
+        <Reveal delay={120}>
           <h2 style={{
-            fontFamily: 'var(--serif)', fontSize: '44px',
-            color: 'var(--warm-foam)', letterSpacing: '0.12em',
-            margin: 0, lineHeight: 1.15,
-          }}>AVA delivers.</h2>
-        </div>
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(34px, 5vw, 56px)',
+            color: 'var(--fg)',
+            letterSpacing: '-0.02em',
+            textAlign: 'center',
+            margin: '0 0 clamp(48px, 7vh, 72px)',
+            lineHeight: 1.1,
+            fontWeight: 600,
+          }}>
+            Ava delivers<span style={{ color: 'var(--gold)' }}>.</span>
+          </h2>
+        </Reveal>
 
-        <div
-          className="ava-numbers-row"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            border: '1px solid var(--prussian)',
-          }}
-        >
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '1px',
+          background: 'rgba(46,107,142,0.18)',
+          border: '1px solid rgba(46,107,142,0.18)',
+        }}
+        className="ava-stats-grid">
           {STATS.map((stat, i) => (
-            <StatItem key={stat.label} stat={stat} index={i} />
+            <Reveal key={stat.label} delay={(i % 3) * 80}>
+              <div style={{ background: 'rgba(11,23,41,0.55)', textAlign: 'center', padding: 'clamp(32px, 4vw, 48px) 20px', height: '100%' }}>
+                <p className="gold-text" style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(40px, 4.4vw, 60px)', lineHeight: 1, letterSpacing: '-0.02em', margin: 0, fontWeight: 500 }}>
+                  {stat.number}
+                </p>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '11px', color: 'var(--muted-cream)', textTransform: 'uppercase', letterSpacing: '0.2em', marginTop: '16px', marginBottom: 0, lineHeight: 1.5 }}>
+                  {stat.label}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
-        <p style={{
-          fontFamily: 'var(--sans)',
-          fontSize: '11px',
-          color: 'var(--fg-dim)',
-          letterSpacing: '0.04em',
-          marginTop: '20px',
-          textAlign: 'center',
-          opacity: 0.55,
-        }}>
+
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '11px', color: 'var(--fg-dim)', letterSpacing: '0.04em', marginTop: '20px', textAlign: 'center', opacity: 0.55 }}>
           Benchmarks across active deployments. Individual results vary by business type and volume.
         </p>
       </div>
+
+      <style>{`
+        @media (max-width: 760px) {
+          .ava-stats-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 460px) {
+          .ava-stats-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }
