@@ -25,7 +25,7 @@ export function HeroDithering({
 
   return (
     <div
-      className="absolute inset-0 w-full h-full"
+      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       aria-hidden="true"
@@ -33,7 +33,8 @@ export function HeroDithering({
       <Suspense
         fallback={
           // CSS wave animation fallback, always visible, no WebGL needed
-          <div className="absolute inset-0" style={{
+          <div style={{
+            position: 'absolute', inset: 0,
             background: 'linear-gradient(160deg, #07101E 0%, #0D1F3C 40%, #1A3566 70%, #2E6B8E 100%)',
           }}>
             <style>{`
@@ -78,7 +79,7 @@ export function HeroDithering({
           shape={shape}
           type={type}
           speed={hovered ? speed * 2.5 : speed}
-          className="size-full"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
           minPixelRatio={1}
         />
       </Suspense>
