@@ -21,11 +21,11 @@ export default function Home() {
         <Hero />
         <Metrics />
         <Positioning />
-        <Methodology />
-        <CaseStudy />
         <Capabilities />
         <CustomerJourney />
         <ROIModels />
+        <Methodology />
+        <CaseStudy />
         <Philosophy />
         <ClosingCTA />
         <Footer />
