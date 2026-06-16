@@ -9,7 +9,8 @@
 export type IconName =
   | 'chat' | 'filter' | 'calendar-check' | 'card' | 'refresh' | 'insights'
   | 'person-add' | 'brain' | 'link' | 'check' | 'check-circle'
-  | 'tree' | 'grid' | 'arrow-right' | 'bolt';
+  | 'tree' | 'grid' | 'arrow-right' | 'bolt'
+  | 'eye' | 'clock' | 'users' | 'shield' | 'trending-up' | 'target' | 'sparkle' | 'heart';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   chat: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />,
@@ -27,6 +28,14 @@ const PATHS: Record<IconName, React.ReactNode> = {
   grid: <><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M3 15h18M9 3v18M15 3v18" /></>,
   'arrow-right': <path d="M5 12h14M13 6l6 6-6 6" />,
   bolt: <path d="M13 2 4 14h7l-1 8 9-12h-7z" />,
+  eye: <><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" /><circle cx="12" cy="12" r="3" /></>,
+  clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
+  users: <><circle cx="9" cy="7" r="4" /><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.5a4 4 0 0 1 0 7M21 21v-2a4 4 0 0 0-3-3.8" /></>,
+  shield: <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" />,
+  'trending-up': <><path d="M3 17l6-6 4 4 7-7" /><path d="M17 8h4v4" /></>,
+  target: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" /></>,
+  sparkle: <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" />,
+  heart: <path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" />,
 };
 
 export default function Icon({
