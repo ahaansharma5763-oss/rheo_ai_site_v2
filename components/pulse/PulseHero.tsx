@@ -184,17 +184,24 @@ export default function PulseHero() {
       <div className="pulse-inner">
         <div className="pulse-copy">
           <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '.44em', margin: '0 0 22px 0', opacity: 0.85 }}>
-            Introducing Pulse · A Rheo AI product
+            Customer Journey Orchestration · A Rheo AI Product
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px,5.4vw,72px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.04, margin: '0 0 26px 0', fontWeight: 600 }}>
             Your next 50 customers are{' '}
             <span className="gold-text" style={{ animation: 'pulseGlow 4s ease-in-out infinite' }}>already in your phone</span>.
           </h1>
-          <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px,1.4vw,18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '52ch', margin: '0 0 34px 0' }}>
-            Pulse is the intelligence layer that reads every lead, understands exactly what each person needs,
-            and reaches out at the moment they are ready to buy. Not broadcasts. Not “just checking in” templates.
+          <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px,1.4vw,18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '54ch', margin: '0 0 26px 0' }}>
+            Pulse is your Customer Journey Orchestration layer. It reads every lead, understands exactly what each
+            person needs, and reaches out at the moment they are ready to buy. It runs the full journey for you,
+            from the first hello to the day they refer their friends. Not broadcasts. Not generic check-in templates.
             Real conversations that bring people back and turn them into paying customers.
           </p>
+
+          <div className="pulse-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
+            {['Revive', 'Nurture', 'Convert', 'Win back', 'Retain'].map(s => (
+              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(69,153,181,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(69,153,181,.05)' }}>{s}</span>
+            ))}
+          </div>
 
           <div className="cta-row" style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '24px' }}>
             <a

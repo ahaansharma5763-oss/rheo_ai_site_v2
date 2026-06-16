@@ -2,6 +2,7 @@ import PulseHero from '@/components/pulse/PulseHero'
 import PulseProblem from '@/components/pulse/PulseProblem'
 import PulseWhatIs from '@/components/pulse/PulseWhatIs'
 import PulseBenefits from '@/components/pulse/PulseBenefits'
+import PulseOffer from '@/components/pulse/PulseOffer'
 import PulseHowItWorks from '@/components/pulse/PulseHowItWorks'
 import PulseUseCases from '@/components/pulse/PulseUseCases'
 import PulseCaseStudies from '@/components/pulse/PulseCaseStudies'
@@ -29,6 +30,7 @@ export default function PulsePage() {
         <PulseProblem />
         <PulseWhatIs />
         <PulseBenefits />
+        <PulseOffer />
         <PulseHowItWorks />
         <PulseUseCases />
         <PulseCaseStudies />
