@@ -38,7 +38,7 @@ export default function CTASection() {
     // Navigate
     // @ts-ignore
     if (window.Calendly) window.Calendly.initPopupWidget({ url: 'https://calendly.com/ahaan-rheoai/30min' })
-    else window.location.href = 'mailto:ahaan@rheoai.co.in'
+    else window.location.href = 'mailto:founder@rheoai.co.in'
   }
 
   return (

@@ -24,7 +24,7 @@ export default function Nav() {
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'AVA', href: '/ava' },
-    { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
+    { label: 'Contact', href: 'mailto:founder@rheoai.co.in' },
   ];
 
   const openCalendly = () => {

@@ -82,7 +82,7 @@ export default function Footer() {
             fontFamily: 'DM Sans, sans-serif',
           }}
         >
-          rheoai.co.in · ahaan@rheoai.co.in
+          rheoai.co.in · founder@rheoai.co.in
         </p>
       </div>
     </footer>
