@@ -297,14 +297,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             }}>
             Start with an Ops Audit
           </a>
-          <a href="mailto:ahaan@rheoai.co.in"
+          <a href="mailto:founder@rheoai.co.in"
             style={{
               fontFamily: 'var(--sans)',
               fontSize: '14px',
               color: 'var(--fg-mute)',
               padding: '16px 0',
             }}>
-            ahaan@rheoai.co.in →
+            founder@rheoai.co.in →
           </a>
         </div>
       </section>

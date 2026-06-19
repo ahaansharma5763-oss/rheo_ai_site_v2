@@ -74,7 +74,7 @@ export default function AboutCTA() {
               Take the self-serve audit →
             </a>
             <a
-              href="mailto:ahaan@rheoai.co.in"
+              href="mailto:founder@rheoai.co.in"
               style={{
                 fontFamily: 'var(--sans)',
                 fontSize: '14px',
@@ -84,7 +84,7 @@ export default function AboutCTA() {
               onMouseEnter={e => e.currentTarget.style.color = 'var(--fg)'}
               onMouseLeave={e => e.currentTarget.style.color = 'var(--fg-mute)'}
             >
-              ahaan@rheoai.co.in →
+              founder@rheoai.co.in →
             </a>
           </div>
         </Reveal>

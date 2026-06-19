@@ -6,7 +6,7 @@ const LINKS = [
   { label: 'Work',    href: '/#work' },
   { label: 'About',   href: '/about' },
   { label: 'Ava',     href: '/ava' },
-  { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
+  { label: 'Contact', href: 'mailto:founder@rheoai.co.in' },
 ];
 
 export default function Footer() {
