@@ -21,6 +21,9 @@ export async function POST(req: NextRequest) {
     const name = (data?.name ?? '').toString().trim()
     const business = (data?.business ?? '').toString().trim()
     const whatsapp = (data?.whatsapp ?? '').toString().trim()
+    const enquiries = (data?.enquiries ?? '').toString().trim()
+    const ticket = (data?.ticket ?? '').toString().trim()
+    const source = (data?.source ?? 'homepage_popup').toString().trim()
 
     if (!name || !whatsapp) {
       return NextResponse.json(
@@ -36,7 +39,9 @@ export async function POST(req: NextRequest) {
         name,
         business,
         whatsapp,
-        source: 'homepage_popup',
+        enquiries,
+        ticket,
+        source,
         ts: new Date().toISOString(),
       }),
     })
