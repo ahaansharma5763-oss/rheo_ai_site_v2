@@ -3,6 +3,7 @@ import './globals.css'
 import CustomCursor from '@/components/shared/CustomCursor'
 import NeuralAccent from '@/components/shared/NeuralAccent'
 import WhatsAppFloat from '@/components/shared/WhatsAppFloat'
+import PilotPopup from '@/components/shared/PilotPopup'
 
 export const metadata: Metadata = {
   title: 'Rheo AI · AI-native infrastructure for businesses that compound',
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NeuralAccent />
         <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
         <WhatsAppFloat />
+        <PilotPopup />
       </body>
     </html>
   )
