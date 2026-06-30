@@ -105,15 +105,16 @@ export default function Nav() {
               color: 'var(--muted-cream)',
               textDecoration: 'none',
             };
+            const isPilot = l.label === 'Pilot';
             return l.href.startsWith('http')
               ? <a key={l.label} href={l.href} target="_blank" rel="noreferrer" style={linkStyle}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}>
                   {l.label}
                 </a>
-              : <Link key={l.label} href={l.href} data-cursor="link" style={linkStyle}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}>
+              : <Link key={l.label} href={l.href} data-cursor="link" className={isPilot ? 'nav-pilot' : undefined} style={linkStyle}
+                  onMouseEnter={e => { if (!isPilot) (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)' }}
+                  onMouseLeave={e => { if (!isPilot) (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)' }}>
                   {l.label}
                 </Link>;
           })}
@@ -205,6 +206,7 @@ export default function Nav() {
                 {l.label}
               </a>
             : <Link key={l.label} href={l.href} onClick={() => setOpen(false)} data-cursor="link"
+                className={l.label === 'Pilot' ? 'nav-pilot-m' : undefined}
                 style={{ fontFamily: 'var(--serif)', fontSize: '32px', color: 'var(--fg)', textDecoration: 'none' }}>
                 {l.label}
               </Link>
@@ -227,6 +229,13 @@ export default function Nav() {
       </div>
 
       <style>{`
+        @keyframes navPilotGlow {
+          0%, 100% { text-shadow: 0 0 6px rgba(196,162,90,0.35); }
+          50%      { text-shadow: 0 0 18px rgba(240,208,128,0.85), 0 0 32px rgba(240,208,128,0.4); }
+        }
+        .nav-pilot { color: var(--gold-end) !important; animation: navPilotGlow 2.4s ease-in-out infinite; transition: color 0.3s ease; }
+        .nav-pilot:hover { color: #FCE6A8 !important; }
+        .nav-pilot-m { color: var(--gold-end) !important; animation: navPilotGlow 2.4s ease-in-out infinite; }
         @media (max-width: 900px) {
           .nav-desktop { display: none !important; }
           .nav-cta    { display: none !important; }
