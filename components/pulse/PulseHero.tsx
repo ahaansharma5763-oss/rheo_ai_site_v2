@@ -214,7 +214,7 @@ export default function PulseHero() {
             </a>
           </div>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', color: 'var(--fg-dim)', letterSpacing: '0.02em', margin: 0 }}>
-            Built by Rheo AI · The same team behind Ava · Backed by a 60-day money-back promise.
+            Built by Rheo AI · The same team behind the AI Sales Engineer · Backed by a 60-day money-back promise.
           </p>
 
           <style>{`

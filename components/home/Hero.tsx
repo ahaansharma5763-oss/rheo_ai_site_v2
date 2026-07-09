@@ -114,7 +114,7 @@ export default function Hero() {
               Start with an Ops Audit
             </a>
             <a
-              href="/ava"
+              href="/sales-engineer"
               style={{
                 border: '1px solid var(--ocean)',
                 color: 'var(--warm-foam)',
@@ -136,7 +136,7 @@ export default function Hero() {
                 e.currentTarget.style.color = 'var(--warm-foam)';
               }}
             >
-              Meet Ava
+              Meet the AI Sales Engineer
             </a>
           </div>
         </Reveal>

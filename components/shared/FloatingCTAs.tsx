@@ -161,7 +161,7 @@ export default function FloatingCTAs() {
           </div>
 
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20Rheo%20AI%2C%20I%27d%20like%20to%20know%20more%20about%20AVA.`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20Rheo%20AI%2C%20I%27d%20like%20to%20know%20more%20about%20the%20AI%20Sales%20Engineer.`}
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setHoverWa(true)}

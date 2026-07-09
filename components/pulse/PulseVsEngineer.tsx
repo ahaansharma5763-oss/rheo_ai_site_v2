@@ -6,13 +6,13 @@ import Icon, { IconName } from '@/components/ui/icon';
 
 interface Side { name: string; tag: string; icon: IconName; lead: string; points: string[]; }
 
-const AVA: Side = {
-  name: 'Ava', tag: 'The conversation', icon: 'chat',
-  lead: 'Ava answers the door.',
+const ENGINEER: Side = {
+  name: 'AI Sales Engineer', tag: 'The conversation', icon: 'chat',
+  lead: 'The Sales Engineer answers the door.',
   points: [
-    'Responds to every new lead in seconds, around the clock',
-    'Has a real conversation, qualifies, and books them in',
-    'Your fastest, most reliable front of house — never misses a message',
+    'Answers every technical enquiry in seconds, around the clock',
+    'Qualifies the requirement, recommends the right product, sends a cited quote',
+    'Your sharpest, most reliable front of house — it never misses an enquiry',
   ],
 };
 
@@ -44,7 +44,7 @@ function Column({ side, highlight }: { side: Side; highlight?: boolean }) {
           <Icon name={side.icon} size={25} color="var(--gold)" />
         </div>
         <div>
-          <h3 style={{ fontFamily: 'var(--serif)', fontSize: '26px', color: 'var(--gold)', fontWeight: 600, lineHeight: 1 }}>{side.name}</h3>
+          <h3 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(20px, 2.2vw, 26px)', color: 'var(--gold)', fontWeight: 600, lineHeight: 1.1 }}>{side.name}</h3>
           <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--crest)' }}>{side.tag}</span>
         </div>
       </div>
@@ -61,7 +61,7 @@ function Column({ side, highlight }: { side: Side; highlight?: boolean }) {
   );
 }
 
-export default function PulseVsAva() {
+export default function PulseVsEngineer() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
       <WaveField variant="corner-left" shape="swirl" colorFront="#C4A25A" opacity={0.26} speed={0.24} />
@@ -69,7 +69,7 @@ export default function PulseVsAva() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', textAlign: 'center', marginBottom: '20px', color: 'var(--gold-end)' }}>
-            Pulse and Ava
+            Pulse and the AI Sales Engineer
           </span>
         </Reveal>
         <Reveal delay={120}>
@@ -79,12 +79,12 @@ export default function PulseVsAva() {
         </Reveal>
         <Reveal delay={220}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300, textAlign: 'center', maxWidth: '60ch', margin: '0 auto clamp(48px, 7vh, 72px)' }}>
-            Ava is the conversation. Pulse is the journey. One catches every opportunity at the front. The other makes sure every opportunity is carried all the way through.
+            The AI Sales Engineer is the conversation. Pulse is the journey. One catches every opportunity at the front. The other makes sure every opportunity is carried all the way through.
           </p>
         </Reveal>
 
         <div className="pulse-vs-grid" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '20px', alignItems: 'stretch' }}>
-          <Reveal><Column side={AVA} /></Reveal>
+          <Reveal><Column side={ENGINEER} /></Reveal>
           <div className="pulse-vs-plus" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ width: '52px', height: '52px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(7,16,30,0.8)', border: '1px solid rgba(196,162,90,0.4)', fontFamily: 'var(--serif)', fontSize: '24px', color: 'var(--gold)' }}>+</div>
           </div>

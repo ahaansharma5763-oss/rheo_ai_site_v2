@@ -8,12 +8,13 @@ import Icon from '@/components/ui/icon';
 interface QA { q: string; a: string; }
 
 const FAQS: QA[] = [
-  { q: 'Do I need to change my tools or learn anything new?', a: 'No. Pulse works with what you already use, starting with WhatsApp. It is built for you, configured to your business, and handed over ready to run. There is nothing to learn and nothing to manage.' },
-  { q: 'Will it sound like a robot?', a: 'The opposite. Every message is written in your voice and references what each person actually said. The entire point of Pulse is that it does not sound automated. Customers feel remembered, not processed.' },
-  { q: 'How is this different from the WhatsApp tools I have seen?', a: 'Most of those send messages — they blast the same thing to a list on a schedule. Pulse reads each message, understands the person behind it, and responds differently based on what they actually need. One is a megaphone. The other is intelligence.' },
-  { q: 'What if I already run the AI Sales Engineer?', a: 'Then you are already ahead. The AI Sales Engineer and Pulse are designed to work as one system. The Sales Engineer handles the first conversation, Pulse handles the entire journey around it. Running both closes the loop completely.' },
-  { q: 'How quickly will I see results?', a: 'Many businesses see the first recovered customer within the first week or two, as Pulse works through the dormant pipeline. The full effect builds over the 60 days the guarantee is based on.' },
-  { q: 'How do I get started?', a: 'Book a Pipeline Review. We will look at what is sitting in your pipeline right now and show you exactly how much revenue Pulse can go and recover. No pressure, no obligation.' },
+  { q: 'Our catalogue and pricing are confidential. Where does our data go?', a: 'Your data stays yours. Deployments run in an isolated environment with access controls, your documents are never used to serve any other company, and we sign an NDA before we see a single spec sheet. Your pricing rules live in your deployment and nowhere else.' },
+  { q: 'What happens if it quotes the wrong spec?', a: 'This is the exact failure we engineered against. Numbers come from a structured spec database built from your documents, they are looked up, never generated. When the system is not certain, it refuses and escalates to your team instead of improvising. And before launch, we and your engineers attack it deliberately to prove that holds.' },
+  { q: 'Our buyers write in Hindi, Marathi, or a mix. Can it keep up?', a: 'Yes, natively. It reads and replies in the language each buyer uses, including the mixed Hindi-English most real enquiries arrive in. Try it on the live demo right now. Ask it something in Marathi.' },
+  { q: 'Where does it live? Do our customers need to install anything?', a: 'Nothing to install. It works on your website, on WhatsApp, on Telegram, wherever your buyers and dealers already are. They message the way they always have. The difference is that now someone excellent always answers.' },
+  { q: 'Will it replace our sales engineers?', a: 'No, and that is not the goal. It absorbs the repetitive 80% of technical questions so your engineers spend their week on site visits, negotiations, and the deals that genuinely need a human. When it escalates, it hands over the full conversation so your engineer starts warm, not cold.' },
+  { q: 'Does it work with our ERP and CRM?', a: 'It integrates with what you have. And if what you have today is Excel and WhatsApp, that works too. Every conversation, lead, and quote is logged somewhere your team can see, from day one.' },
+  { q: 'How do we start?', a: 'Book a build call. Thirty minutes, bring a catalogue. We will walk through your product line and show you exactly what your pilot would look like on your own machines. We take two new deployments a month, so the sooner the call, the sooner the slot.' },
 ];
 
 function Item({ qa, open, onToggle }: { qa: QA; open: boolean; onToggle: () => void }) {
@@ -40,14 +41,14 @@ function Item({ qa, open, onToggle }: { qa: QA; open: boolean; onToggle: () => v
           <Icon name="arrow-right" size={15} color="var(--gold)" />
         </span>
       </button>
-      <div style={{ maxHeight: open ? '320px' : '0', opacity: open ? 1 : 0, transition: 'max-height 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease', overflow: 'hidden' }}>
+      <div style={{ maxHeight: open ? '360px' : '0', opacity: open ? 1 : 0, transition: 'max-height 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease', overflow: 'hidden' }}>
         <p style={{ fontFamily: 'var(--sans)', fontSize: '14.5px', lineHeight: 1.7, color: 'var(--muted-cream)', fontWeight: 300, padding: '0 clamp(18px, 2.2vw, 24px) clamp(22px, 2.4vw, 26px)' }}>{qa.a}</p>
       </div>
     </div>
   );
 }
 
-export default function PulseFAQ() {
+export default function SEFAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -57,7 +58,7 @@ export default function PulseFAQ() {
       <div style={{ maxWidth: '820px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', textAlign: 'center', marginBottom: '20px', color: 'var(--gold-end)' }}>
-            Frequently asked
+            Asked by every MD we meet
           </span>
         </Reveal>
         <Reveal delay={120}>

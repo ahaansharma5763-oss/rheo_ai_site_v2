@@ -10,7 +10,8 @@ export type IconName =
   | 'chat' | 'filter' | 'calendar-check' | 'card' | 'refresh' | 'insights'
   | 'person-add' | 'brain' | 'link' | 'check' | 'check-circle'
   | 'tree' | 'grid' | 'arrow-right' | 'bolt'
-  | 'eye' | 'clock' | 'users' | 'shield' | 'trending-up' | 'target' | 'sparkle' | 'heart';
+  | 'eye' | 'clock' | 'users' | 'shield' | 'trending-up' | 'target' | 'sparkle' | 'heart'
+  | 'globe' | 'database' | 'doc' | 'alert';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   chat: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />,
@@ -36,6 +37,10 @@ const PATHS: Record<IconName, React.ReactNode> = {
   target: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" /></>,
   sparkle: <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" />,
   heart: <path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" />,
+  globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z" /></>,
+  database: <><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" /><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" /></>,
+  doc: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h5" /></>,
+  alert: <><path d="M10.3 3.8 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.8a2 2 0 0 0-3.4 0z" /><path d="M12 9v4M12 17h.01" /></>,
 };
 
 export default function Icon({
