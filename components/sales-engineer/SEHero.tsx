@@ -186,16 +186,24 @@ export default function SEHero() {
             ))}
           </div>
 
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 16px', borderRadius: '999px', background: 'rgba(196,162,90,0.09)', border: '1px solid rgba(196,162,90,0.45)', marginBottom: '18px' }}>
+            <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 10px var(--gold)', animation: 'seDot 1.6s ease-out infinite' }} />
+            <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.24em', textTransform: 'uppercase', fontWeight: 700, color: 'var(--gold-end)' }}>
+              The demo is already live on this page
+            </span>
+          </div>
+
           <div className="cta-row" style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '24px' }}>
-            <a href="https://calendly.com/ahaan-rheoai-xnxc/30min" target="_blank" rel="noreferrer" className="se-hero-btn">
-              Book a Build Call →
+            <a href="#live-demo" className="se-hero-btn">
+              Try the live demo ↓
             </a>
-            <a href="https://t.me/KestrelSalesEngineer_bot" target="_blank" rel="noreferrer" className="se-hero-ghost">
-              Try to break the live demo
+            <a href="https://calendly.com/ahaan-rheoai-xnxc/30min" target="_blank" rel="noreferrer" className="se-hero-ghost">
+              Book a Build Call
             </a>
           </div>
-          <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', color: 'var(--fg-dim)', letterSpacing: '0.02em', margin: 0 }}>
-            Live in under 3 weeks · Backed by a 60-day pay-for-itself guarantee · Two deployments a month.
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '12.5px', color: 'var(--fg-mute)', letterSpacing: '0.02em', margin: 0, maxWidth: '52ch' }}>
+            Go break it first. Then come back for the guarantee: live in under 3 weeks, and if it has not
+            paid for itself in 60 days, it is free.
           </p>
         </div>
 
@@ -229,6 +237,10 @@ export default function SEHero() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '11px', minHeight: '318px' }}>
               {SCRIPT.slice(0, visible).map((s, i) => s.msg && <Bubble key={i} msg={s.msg} />)}
             </div>
+
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg-dim)', textAlign: 'center', margin: '12px 0 0' }}>
+              Simulation · the real thing is <a href="#live-demo" style={{ color: 'var(--gold-end)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>live below</a>
+            </p>
 
             <div style={{ borderTop: '1px solid rgba(46,107,142,0.22)', marginTop: '16px', paddingTop: '14px', display: 'flex', justifyContent: 'space-between', gap: '4px' }}>
               {ACTIONS.map((a, i) => {

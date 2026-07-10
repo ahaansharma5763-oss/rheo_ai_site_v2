@@ -31,7 +31,7 @@ export default function SEHowItWorks() {
           </h2>
         </Reveal>
 
-        <div className="se-flow" style={{ display: 'flex', alignItems: 'stretch', gap: '0' }}>
+        <div className="se-flow" style={{ display: 'flex', alignItems: 'stretch', gap: '0', marginBottom: 'clamp(44px, 6vh, 64px)' }}>
           {STEPS.map((s, i) => (
             <Reveal key={s.num} delay={i * 90}>
               <div className="se-flow-item" style={{ display: 'flex', alignItems: 'stretch' }}>
@@ -54,6 +54,36 @@ export default function SEHowItWorks() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={140}>
+          <div style={{
+            borderRadius: '16px', border: '1px solid rgba(196,162,90,0.35)',
+            background: 'linear-gradient(135deg, rgba(196,162,90,0.08) 0%, rgba(11,23,41,0.65) 65%)',
+            padding: 'clamp(26px, 3.2vw, 40px)',
+          }}>
+            <span className="eyebrow" style={{ display: 'block', marginBottom: '18px', color: 'var(--gold-end)' }}>
+              Everything we need from you
+            </span>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+              {[
+                'Your catalogues, price lists, and spec sheets. Any format, any mess.',
+                'One 30-minute alignment call with whoever knows the products best.',
+                'A number or website to deploy on. Nothing to install, nothing to buy.',
+                'One person to receive escalations when a buyer needs a human.',
+              ].map((r, i) => (
+                <div key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                  <span style={{ flexShrink: 0, width: '26px', height: '26px', borderRadius: '7px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(196,162,90,0.12)', border: '1px solid rgba(196,162,90,0.4)' }}>
+                    <Icon name="check" size={14} color="var(--gold)" />
+                  </span>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '14.5px', lineHeight: 1.6, color: 'var(--fg)', fontWeight: 400 }}>{r}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(15px, 1.6vw, 19px)', color: 'var(--warm-foam)', fontWeight: 500, fontStyle: 'italic', margin: 0 }}>
+              That is the entire list. No IT project, no new software for your team, no six-month rollout.
+            </p>
+          </div>
+        </Reveal>
       </div>
 
       <style>{`
