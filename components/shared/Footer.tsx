@@ -5,7 +5,7 @@ import Link from 'next/link';
 const LINKS = [
   { label: 'Work',    href: '/#work' },
   { label: 'About',   href: '/about' },
-  { label: 'Metis', href: '/sales-engineer' },
+  { label: 'Athena', href: '/sales-engineer' },
   { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
 ];
 

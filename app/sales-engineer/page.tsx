@@ -15,8 +15,8 @@ import Footer from '@/components/shared/Footer'
 import PageGradient from '@/components/shared/PageGradient'
 
 export const metadata = {
-  title: 'Metis · The AI Sales Engineer for Industrial Companies | Rheo AI',
-  description: 'Metis is the AI Sales Engineer for manufacturers and distributors of technical products. It qualifies buyers, recommends the right machine from your real catalogue, and sends exact, cited quotes in minutes. In any language, on any channel, around the clock. Live in under 3 weeks with a 60-day pay-for-itself guarantee.',
+  title: 'Athena · The AI Sales Engineer for Industrial Companies | Rheo AI',
+  description: 'Athena is the AI Sales Engineer for manufacturers and distributors of technical products. It qualifies buyers, recommends the right machine from your real catalogue, and sends exact, cited quotes in minutes. In any language, on any channel, around the clock. Live in under 3 weeks with a 60-day pay-for-itself guarantee.',
 }
 
 export default function SalesEngineerPage() {

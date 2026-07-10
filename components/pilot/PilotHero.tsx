@@ -43,7 +43,7 @@ export default function PilotHero() {
           </div>
 
           <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', color: 'var(--fg-dim)', letterSpacing: '0.02em', margin: 0 }}>
-            Built by Rheo AI · The team behind Metis and Ascend Arena · No recovery, no fee.
+            Built by Rheo AI · The team behind Athena and Ascend Arena · No recovery, no fee.
           </p>
         </div>
 

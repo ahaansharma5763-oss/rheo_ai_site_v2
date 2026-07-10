@@ -33,10 +33,10 @@ export default function SEWhatIs() {
 
         <Reveal delay={240}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300, maxWidth: '64ch', marginBottom: 'clamp(56px, 8vh, 88px)' }}>
-            Metis takes its name from the Greek spirit of practical wisdom, the counselor the other gods went to
-            when the answer had to be right. That is the standard. This is not a chatbot that says &quot;our team
-            will get back to you.&quot; Metis carries the sale from first question to signed-off quote, and it does
-            four things, continuously, exactly the way your best people do:
+            Athena is named for the Greek goddess of wisdom and craft, the one heroes went to when the next move
+            had to be right, and the patron of engineers and makers. That is the standard. This is not a chatbot
+            that says &quot;our team will get back to you.&quot; Athena carries the sale from first question to
+            signed-off quote, and it does four things, continuously, exactly the way your best people do:
           </p>
         </Reveal>
 

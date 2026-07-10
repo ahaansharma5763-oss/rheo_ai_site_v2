@@ -7,8 +7,8 @@ import Icon, { IconName } from '@/components/ui/icon';
 interface Side { name: string; tag: string; icon: IconName; lead: string; points: string[]; }
 
 const ENGINEER: Side = {
-  name: 'Metis', tag: 'The AI Sales Engineer', icon: 'chat',
-  lead: 'Metis answers the door.',
+  name: 'Athena', tag: 'The AI Sales Engineer', icon: 'chat',
+  lead: 'Athena answers the door.',
   points: [
     'Answers every technical enquiry in seconds, around the clock',
     'Qualifies the requirement, recommends the right product, sends a cited quote',
@@ -69,7 +69,7 @@ export default function PulseVsEngineer() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', textAlign: 'center', marginBottom: '20px', color: 'var(--gold-end)' }}>
-            Pulse and Metis
+            Pulse and Athena
           </span>
         </Reveal>
         <Reveal delay={120}>
@@ -79,7 +79,7 @@ export default function PulseVsEngineer() {
         </Reveal>
         <Reveal delay={220}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300, textAlign: 'center', maxWidth: '60ch', margin: '0 auto clamp(48px, 7vh, 72px)' }}>
-            Metis is the conversation. Pulse is the journey. One catches every opportunity at the front. The other makes sure every opportunity is carried all the way through.
+            Athena is the conversation. Pulse is the journey. One catches every opportunity at the front. The other makes sure every opportunity is carried all the way through.
           </p>
         </Reveal>
 
