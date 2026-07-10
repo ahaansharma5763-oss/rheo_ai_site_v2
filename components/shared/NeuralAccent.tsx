@@ -33,7 +33,9 @@ export default function NeuralAccent() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // Cap at 1.25: the dots and hairlines are low-alpha and 1px anyway,
+      // and a full-viewport canvas at 2x DPR doubles paint cost for nothing.
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;

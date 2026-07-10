@@ -52,7 +52,9 @@ export default function WaveField({
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => setShow(entry.isIntersecting),
-      { rootMargin: '300px 0px' }
+      // Tight margin: fewer shaders alive at once. 300px kept 3-4 WebGL
+      // contexts animating simultaneously and made scrolling laggy.
+      { rootMargin: '80px 0px' }
     );
     io.observe(el);
     return () => io.disconnect();

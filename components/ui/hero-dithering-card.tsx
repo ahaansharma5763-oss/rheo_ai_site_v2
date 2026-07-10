@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
 const Dithering = lazy(() =>
   import('@paper-design/shaders-react').then((mod) => ({ default: mod.Dithering }))
@@ -21,13 +21,9 @@ export function HeroDithering({
   type       = '4x4',
   shape      = 'wave',
 }: HeroDitheringProps) {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <div
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden' }}
       aria-hidden="true"
     >
       <Suspense
@@ -73,15 +69,19 @@ export function HeroDithering({
           </div>
         }
       >
-        <Dithering
-          colorBack={colorBack}
-          colorFront={colorFront}
-          shape={shape}
-          type={type}
-          speed={hovered ? speed * 2.5 : speed}
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-          minPixelRatio={1}
-        />
+        {/* Rendered at half resolution and scaled up 2x: the dither pattern
+          * hides the lower res, and the GPU shades 4x fewer pixels. */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '50%', height: '50%', transform: 'scale(2)', transformOrigin: '0 0' }}>
+          <Dithering
+            colorBack={colorBack}
+            colorFront={colorFront}
+            shape={shape}
+            type={type}
+            speed={speed}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+            minPixelRatio={1}
+          />
+        </div>
       </Suspense>
     </div>
   );

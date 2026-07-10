@@ -120,9 +120,10 @@ export default function CustomCursor() {
       const target = e.target as Element | null;
       const hot = isInteractive(target);
       ring.style.setProperty('--ring-scale', hot ? '1.6' : '1');
-      ring.style.borderColor = hot ? 'rgba(240,208,128,0.95)' : 'rgba(196,162,90,0.75)';
-      dot.style.opacity = hot ? '0' : '1';
-      ring.style.background = hot ? 'rgba(196,162,90,0.12)' : 'transparent';
+      ring.style.borderColor = hot ? 'rgba(240,208,128,1)' : 'rgba(240,208,128,0.9)';
+      // Keep the dot visible on hover; brighten it instead of hiding it
+      dot.style.background = hot ? '#FFF3D6' : '#F0D080';
+      ring.style.background = hot ? 'rgba(196,162,90,0.18)' : 'transparent';
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
@@ -151,14 +152,15 @@ export default function CustomCursor() {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '34px',
-          height: '34px',
-          border: '1px solid rgba(196,162,90,0.75)',
+          width: '36px',
+          height: '36px',
+          border: '1.5px solid rgba(240,208,128,0.9)',
           borderRadius: '50%',
           pointerEvents: 'none',
           opacity: 0,
           zIndex: 9999,
           willChange: 'transform, opacity',
+          boxShadow: '0 0 12px rgba(196,162,90,0.35), inset 0 0 8px rgba(196,162,90,0.12)',
           transition: 'border-color 0.25s ease, background 0.25s ease, opacity 0.3s ease',
         }}
       />
@@ -170,15 +172,16 @@ export default function CustomCursor() {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '5px',
-          height: '5px',
+          width: '9px',
+          height: '9px',
           background: '#F0D080',
           borderRadius: '50%',
           pointerEvents: 'none',
           opacity: 0,
           zIndex: 10000,
           willChange: 'transform, opacity',
-          transition: 'opacity 0.2s ease',
+          boxShadow: '0 0 10px rgba(240,208,128,0.9), 0 0 22px rgba(196,162,90,0.5)',
+          transition: 'opacity 0.2s ease, background 0.2s ease',
         }}
       />
     </>

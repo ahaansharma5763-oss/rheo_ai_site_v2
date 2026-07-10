@@ -46,12 +46,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(ellipse 60% 50% at 12% 0%, rgba(196,162,90,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 95% 30%, rgba(46,107,142,0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 60% at 5% 95%, rgba(26,53,102,0.20) 0%, transparent 70%),
-    linear-gradient(180deg, #07101E 0%, #0A1828 50%, #07101E 100%);
-  background-attachment: fixed;
+  background: #07101E;
   color: var(--fg);
   font-family: var(--sans);
   font-weight: 300;
@@ -59,6 +54,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* The old body gradient used background-attachment: fixed, which forces a
+ * full repaint of the gradient stack on every scroll frame (major jank).
+ * A fixed pseudo-element paints once and stays on its own composited layer. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 12% 0%, rgba(196,162,90,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 95% 30%, rgba(46,107,142,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 5% 95%, rgba(26,53,102,0.20) 0%, transparent 70%),
+    linear-gradient(180deg, #07101E 0%, #0A1828 50%, #07101E 100%);
 }
 
 ::selection {

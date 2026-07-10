@@ -43,7 +43,6 @@ export default function SEDeepSea() {
         pointerEvents: 'none',
         opacity: 0,
         background: 'linear-gradient(180deg, #010409 0%, #000308 100%)',
-        transition: 'opacity 0.15s linear',
       }}
     />
   );
