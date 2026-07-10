@@ -127,7 +127,7 @@ function Bubble({ msg }: { msg: Msg }) {
         </span>
       )}
       <span style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--fg-dim)', alignSelf: buyer ? 'flex-end' : 'flex-start', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-        {buyer ? 'Buyer' : 'AI Sales Engineer'}
+        {buyer ? 'Buyer' : 'Metis'}
       </span>
     </div>
   );
@@ -162,7 +162,7 @@ export default function SEHero() {
         }
       `}</style>
 
-      <WaveField variant="full" shape="ripple" colorBack="#07101E" colorFront="#4599B5" opacity={0.5} speed={0.26} />
+      <WaveField variant="full" shape="wave" colorBack="#07101E" colorFront="#4599B5" opacity={0.38} speed={0.22} />
       <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(7,16,30,0.55) 0%, transparent 78%)' }} />
 
       <div className="se-inner">
@@ -171,13 +171,13 @@ export default function SEHero() {
             Industrial Revenue Infrastructure · A Rheo AI Product
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(38px,5.2vw,68px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.06, margin: '0 0 26px 0', fontWeight: 600 }}>
-            The <span className="gold-text" style={{ animation: 'seGlow 4s ease-in-out infinite' }}>AI Sales Engineer</span> for industrial companies.
+            Meet <span className="gold-text" style={{ animation: 'seGlow 4s ease-in-out infinite' }}>Metis</span>. The AI Sales Engineer for industrial companies.
           </h1>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px,1.4vw,18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '54ch', margin: '0 0 26px 0' }}>
-            Built for manufacturers and distributors of technical products. It qualifies the buyer, recommends the
-            right machine from your real catalogue, and sends an exact, cited quote in minutes. In your buyer&apos;s
-            language, on the channels they already use, at 2 pm and at 2 am. Your best engineer&apos;s knowledge,
-            answering every enquiry at once.
+            Built for manufacturers and distributors of technical products. Metis qualifies the buyer, recommends
+            the right machine from your real catalogue, and sends an exact, cited quote in minutes. In your
+            buyer&apos;s language, on the channels they already use, at 2 pm and at 2 am. Your best engineer&apos;s
+            knowledge, answering every enquiry at once.
           </p>
 
           <div className="se-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>

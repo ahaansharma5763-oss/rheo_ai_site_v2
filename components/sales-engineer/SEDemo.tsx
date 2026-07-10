@@ -36,7 +36,7 @@ export default function SEDemo() {
 
         <Reveal delay={240}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 17px)', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300, maxWidth: '58ch', margin: '0 auto clamp(36px, 5vh, 48px)' }}>
-            We keep a live AI Sales Engineer running on a fictional hydraulics catalogue, open to anyone.
+            We keep a live Metis deployment running on a fictional hydraulics catalogue, open to anyone.
             Treat it the way your most difficult customer treats your team. This is the standard your own
             deployment ships at:
           </p>

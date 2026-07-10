@@ -136,7 +136,7 @@ export default function Hero() {
                 e.currentTarget.style.color = 'var(--warm-foam)';
               }}
             >
-              Meet the AI Sales Engineer
+              Meet Metis
             </a>
           </div>
         </Reveal>

@@ -178,7 +178,7 @@ export default function PulseHero() {
         }
       `}</style>
 
-      <WaveField variant="full" shape="ripple" colorBack="#07101E" colorFront="#4599B5" opacity={0.55} speed={0.28} />
+      <WaveField variant="full" shape="wave" colorBack="#07101E" colorFront="#4599B5" opacity={0.38} speed={0.22} />
       <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(7,16,30,0.55) 0%, transparent 78%)' }} />
 
       <div className="pulse-inner">
@@ -214,7 +214,7 @@ export default function PulseHero() {
             </a>
           </div>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', color: 'var(--fg-dim)', letterSpacing: '0.02em', margin: 0 }}>
-            Built by Rheo AI · The same team behind the AI Sales Engineer · Backed by a 60-day money-back promise.
+            Built by Rheo AI · The same team behind Metis · Backed by a 60-day money-back promise.
           </p>
 
           <style>{`
