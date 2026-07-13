@@ -40,7 +40,7 @@ export default function Hero() {
         inset: 0,
         zIndex: 1,
         pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 80% 70% at 30% 50%, rgba(7,16,30,0.45) 0%, transparent 75%)',
+        background: 'radial-gradient(ellipse 80% 70% at 30% 50%, rgba(7,16,30,0.68) 0%, transparent 78%)',
       }} />
 
       <div style={{ maxWidth: 'var(--container-max)', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -59,7 +59,7 @@ export default function Hero() {
             fontWeight: 600,
             maxWidth: '18ch',
             marginBottom: '48px',
-            filter: 'drop-shadow(0 0 60px rgba(196,162,90,0.3))',
+            filter: 'drop-shadow(0 2px 24px rgba(240,208,128,0.18))',
           }}>
             AI-native infrastructure for{' '}
             <span className="under-gold">businesses that compound</span>.

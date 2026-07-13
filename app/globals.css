@@ -172,19 +172,13 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Animated gold shimmer for headline emphasis */
-@keyframes goldShimmer {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
+/* Static gold gradient for headline emphasis — bright stops for legibility, no motion */
 .gold-shimmer {
-  background: linear-gradient(100deg, #C4A25A 0%, #F0D080 22%, #FBEFCF 50%, #F0D080 78%, #C4A25A 100%);
-  background-size: 200% auto;
+  background: linear-gradient(180deg, #FBEFCF 0%, #F0D080 45%, #D9B96E 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: goldShimmer 7s linear infinite;
 }
 
 /* Gold hairline divider with a soft fade at both ends */
@@ -242,7 +236,7 @@ a:focus-visible, button:focus-visible {
 
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .gold-shimmer, .scroll-cue { animation: none; }
+  .scroll-cue { animation: none; }
   .reveal { transition: opacity 0.4s ease; transform: none; }
   html { scroll-behavior: auto; }
 }
