@@ -41,6 +41,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          id="vtag-ai-js"
+          async
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="POCQAT99HOcHG9cm"
+          data-version="062024"
+        />
+      </head>
       <body>
         <CustomCursor />
         <NeuralAccent />
