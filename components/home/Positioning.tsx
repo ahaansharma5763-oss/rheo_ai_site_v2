@@ -17,7 +17,7 @@ export default function Positioning() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '24px', color: 'var(--gold-end)' }}>
-            What Rheo Is
+            Who We Are · Who We Serve
           </span>
         </Reveal>
 
@@ -46,9 +46,10 @@ export default function Positioning() {
             maxWidth: '60ch',
             marginBottom: 'clamp(56px, 8vh, 88px)',
           }}>
-            You are not paying for a tool. You are paying for someone whose job is to make sure your
-            business does not slip through the cracks. Every engagement runs on a retainer because the
-            infrastructure needs someone permanently accountable for it. That is what a partner looks like.
+            We work with growing businesses drowning in their own operations. The ones where leads go
+            cold overnight, staff lose hours to repetitive work, and the owner is the only thing holding
+            it together. We build and run the intelligent systems that carry that load, so the business
+            keeps compounding whether you are in the room or not.
           </p>
         </Reveal>
 
@@ -61,7 +62,7 @@ export default function Positioning() {
         }}>
           {CONTRASTS.map((c, i) => (
             <Reveal key={c.not} delay={i * 90}>
-              <div style={{
+              <div className="card-lift" style={{
                 background: 'rgba(11,23,41,0.55)',
                 padding: 'clamp(28px, 4vw, 40px)',
                 height: '100%',

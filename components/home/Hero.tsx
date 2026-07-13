@@ -45,26 +45,24 @@ export default function Hero() {
 
       <div style={{ maxWidth: 'var(--container-max)', width: '100%', margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <Reveal delay={100}>
-          <span className="eyebrow" style={{ display: 'block', marginBottom: '36px' }}>
+          <span className="eyebrow eyebrow-tick" style={{ display: 'inline-flex', marginBottom: '36px' }}>
             EST. 2026 &nbsp;·&nbsp; THE CONNECTIVE TISSUE
           </span>
         </Reveal>
 
         <Reveal delay={250}>
-          <h1 style={{
+          <h1 className="gold-shimmer" style={{
             fontFamily: 'var(--serif)',
-            fontSize: 'clamp(44px, 8vw, 96px)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.018em',
-            color: 'var(--gold)',
+            fontSize: 'clamp(46px, 8.4vw, 104px)',
+            lineHeight: 1.03,
+            letterSpacing: '-0.022em',
             fontWeight: 600,
             maxWidth: '18ch',
             marginBottom: '48px',
-            textShadow: '0 0 60px rgba(196,162,90,0.35), 0 0 120px rgba(196,162,90,0.14)',
+            filter: 'drop-shadow(0 0 60px rgba(196,162,90,0.3))',
           }}>
             AI-native infrastructure for{' '}
-            <span className="under-gold">businesses that compound</span>
-            <span style={{ color: 'var(--gold-end)' }}>.</span>
+            <span className="under-gold">businesses that compound</span>.
           </h1>
         </Reveal>
 
@@ -79,7 +77,7 @@ export default function Hero() {
             marginBottom: '56px',
           }}>
             We design intelligent workflows that let your data, tools, and people talk to each other.
-            The connective tissue that turns a stack of disconnected tools into one operating fabric —
+            The connective tissue that turns a stack of disconnected tools into one operating fabric,
             so founders spend their time on strategy, not operations.
           </p>
         </Reveal>
@@ -140,6 +138,35 @@ export default function Hero() {
             </a>
           </div>
         </Reveal>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="scroll-cue" aria-hidden style={{
+        position: 'absolute',
+        bottom: '36px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 2,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '8px',
+      }}>
+        <span style={{
+          fontFamily: 'var(--sans)',
+          fontSize: '9px',
+          letterSpacing: '0.32em',
+          textTransform: 'uppercase',
+          color: 'var(--fg-dim)',
+          fontWeight: 500,
+        }}>
+          Scroll
+        </span>
+        <span style={{
+          width: '1px',
+          height: '40px',
+          background: 'linear-gradient(180deg, var(--gold), transparent)',
+        }} />
       </div>
 
     </section>

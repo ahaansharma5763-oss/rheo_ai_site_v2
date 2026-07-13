@@ -156,6 +156,98 @@ a {
 .hover-rule:hover::after { width: 100%; }
 
 /* ──────────────────────────────────────────────
+ * Premium polish layer (bold redesign)
+ * ────────────────────────────────────────────── */
+
+/* Fine film grain over the whole canvas for a printed, tactile feel.
+ * Sits behind content (z-index -1) so it can never intercept clicks. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Animated gold shimmer for headline emphasis */
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.gold-shimmer {
+  background: linear-gradient(100deg, #C4A25A 0%, #F0D080 22%, #FBEFCF 50%, #F0D080 78%, #C4A25A 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: goldShimmer 7s linear infinite;
+}
+
+/* Gold hairline divider with a soft fade at both ends */
+.divider-gold {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, rgba(196,162,90,0.5), transparent);
+}
+
+/* Large ghost numeral that sits behind section content */
+.ghost-num {
+  font-family: var(--mono);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(69,153,181,0.16);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Eyebrow with a leading gold tick */
+.eyebrow-tick { display: inline-flex; align-items: center; gap: 14px; }
+.eyebrow-tick::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* Soft lift + gold edge on interactive cards */
+.card-lift {
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  border-color: rgba(196,162,90,0.45) !important;
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(196,162,90,0.12);
+}
+
+/* Animated scroll cue */
+@keyframes scrollNudge {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+.scroll-cue { animation: scrollNudge 2.4s ease-in-out infinite; }
+
+/* Keyboard focus visibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold-end);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer, .scroll-cue { animation: none; }
+  .reveal { transition: opacity 0.4s ease; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ──────────────────────────────────────────────
  * Mobile optimisation
  * ────────────────────────────────────────────── */
 

@@ -170,6 +170,49 @@ export default function Methodology() {
             </Reveal>
           ))}
         </div>
+
+        {/* Principles + stack — folded in from the old Philosophy section */}
+        <Reveal>
+          <div style={{
+            marginTop: 'clamp(56px, 8vh, 88px)',
+            paddingTop: 'clamp(40px, 6vh, 64px)',
+            borderTop: '1px solid rgba(46,107,142,0.18)',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 'clamp(32px, 5vw, 64px)',
+            alignItems: 'baseline',
+          }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: '24px', color: 'var(--gold-end)' }}>
+                ρέω &nbsp;·&nbsp; To flow
+              </p>
+              <h3 style={{
+                fontFamily: 'var(--serif)',
+                fontSize: 'clamp(24px, 2.6vw, 34px)',
+                lineHeight: 1.25,
+                letterSpacing: '-0.015em',
+                color: 'var(--fg)',
+                fontWeight: 400,
+                maxWidth: '22ch',
+              }}>
+                <span style={{ color: 'var(--fg-mute)' }}>Process before tools.</span> Reliability over novelty.
+                <span style={{ color: 'var(--fg-mute)' }}> Outcomes over outputs.</span>
+              </h3>
+            </div>
+            <p style={{
+              fontFamily: 'var(--sans)',
+              fontSize: 'clamp(15px, 1.3vw, 17px)',
+              lineHeight: 1.75,
+              color: 'var(--fg-mute)',
+              fontWeight: 300,
+              maxWidth: '52ch',
+            }}>
+              Every Rheo system is built once and meant to run for years. n8n for orchestration,
+              Claude for the agent brain, integrated into the channels your customers and team already
+              use. Hosted on Indian servers. Owned by you on day one.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

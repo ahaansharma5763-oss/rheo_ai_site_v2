@@ -63,7 +63,7 @@ export default function ROIModels() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto' }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '24px', color: 'var(--crest)' }}>
-            Client Results
+            Proof
           </span>
         </Reveal>
 
@@ -78,7 +78,7 @@ export default function ROIModels() {
             maxWidth: '24ch',
             marginBottom: '24px',
           }}>
-            The same close rate, doubled — from leads they already had<span style={{ color: 'var(--gold)' }}>.</span>
+            Proof that the same business, run better, makes more money<span style={{ color: 'var(--gold)' }}>.</span>
           </h2>
         </Reveal>
 
@@ -104,7 +104,7 @@ export default function ROIModels() {
         }}>
           {STORIES.map((m, i) => (
             <Reveal key={m.sector} delay={i * 80}>
-              <article style={{
+              <article className="card-lift" style={{
                 background: 'rgba(15,30,54,0.45)',
                 border: '1px solid rgba(46,107,142,0.28)',
                 padding: 'clamp(28px, 3.2vw, 36px)',

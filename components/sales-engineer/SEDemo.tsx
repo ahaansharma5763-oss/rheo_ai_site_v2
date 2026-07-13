@@ -7,12 +7,11 @@ import Icon, { IconName } from '@/components/ui/icon';
 /* ────────────────────────────────────────────────
  * The live demo counter. Two variants of Athena:
  * one your customers talk to, one your sales
- * engineers use. Customer demo is live; drop the
- * copilot link into ENGINEER_DEMO when it ships.
+ * engineers use. Both demos are live on Telegram.
  * ──────────────────────────────────────────────── */
 
 const CUSTOMER_DEMO = 'https://t.me/KestrelSalesEngineer_bot';
-const ENGINEER_DEMO: string | null = null; // copilot demo link goes here when ready
+const ENGINEER_DEMO: string | null = 'https://t.me/KestrelCopilotbot';
 
 const ATTACKS: { icon: IconName; text: string }[] = [
   { icon: 'globe',  text: 'Ask it in Hindi, Marathi, or half-and-half' },
@@ -40,9 +39,9 @@ const VARIANTS: Variant[] = [
   {
     name: 'Athena for Sales Engineers',
     audience: 'The copilot your own team uses',
-    body: 'The internal Athena. Your engineers ask it anything about the catalogue mid-call and get the exact spec, the right model, and the price logic in seconds. The live demo is in final testing and lands on this page shortly.',
+    body: 'The internal Athena. Your engineers ask it anything about the catalogue mid-call and get the exact spec, the right model, and the price logic in seconds. It runs on the same catalogue as the customer demo, so you can compare both sides.',
     href: ENGINEER_DEMO,
-    cta: 'Demo landing here soon',
+    cta: 'Try the copilot on Telegram',
   },
 ];
 

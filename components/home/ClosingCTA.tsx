@@ -15,7 +15,7 @@ export default function ClosingCTA() {
       }}
     >
       {/* Wave motif — the single gold-tinted wave on the page (gold appears once) */}
-      <WaveField variant="full" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.32} speed={0.26} />
+      <WaveField variant="full" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.42} speed={0.26} />
       {/* Soft vignette so the centered headline holds against the wave */}
       <div aria-hidden style={{
         position: 'absolute',
@@ -35,6 +35,7 @@ export default function ClosingCTA() {
             color: 'var(--fg)',
             fontWeight: 600,
             marginBottom: '40px',
+            textShadow: '0 0 90px rgba(196,162,90,0.18)',
           }}>
             Every engagement begins the same way<span style={{ color: 'var(--gold)' }}>.</span>
           </h2>

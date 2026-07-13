@@ -120,12 +120,25 @@ export default function Capabilities() {
 
         {AREAS.map((area, i) => (
           <div key={area.num} style={{
+            position: 'relative',
+            overflow: 'hidden',
             paddingTop: 'clamp(56px, 8vh, 88px)',
             borderTop: '1px solid rgba(242,240,236,0.08)',
             marginBottom: 'clamp(48px, 7vh, 72px)',
           }}>
+            <span className="ghost-num" aria-hidden style={{
+              position: 'absolute',
+              top: 'clamp(8px, 2vh, 24px)',
+              right: '-8px',
+              fontSize: 'clamp(110px, 17vw, 240px)',
+              zIndex: 0,
+            }}>
+              {area.num}
+            </span>
             <Reveal delay={i * 60}>
               <div style={{
+                position: 'relative',
+                zIndex: 1,
                 display: 'grid',
                 gridTemplateColumns: 'minmax(0, 0.85fr) minmax(0, 1.6fr)',
                 gap: 'clamp(28px, 5vw, 72px)',
