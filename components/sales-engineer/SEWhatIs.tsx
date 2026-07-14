@@ -15,8 +15,8 @@ const PILLARS: Pillar[] = [
 
 export default function SEWhatIs() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-right" shape="swirl" colorFront="#4599B5" opacity={0.34} speed={0.26} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="swirl" colorFront="#3FAEDE" opacity={0.34} speed={0.26} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -45,9 +45,9 @@ export default function SEWhatIs() {
             <Reveal key={p.verb} delay={i * 80}>
               <article
                 className="hover-rule"
-                style={{ background: 'rgba(15,30,54,0.45)', border: '1px solid rgba(46,107,142,0.28)', padding: 'clamp(28px, 3.2vw, 36px)', height: '100%', transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), background 0.4s ease, border-color 0.4s ease' }}
+                style={{ background: 'rgba(15,30,54,0.45)', border: '1px solid rgba(46,116,172,0.28)', padding: 'clamp(28px, 3.2vw, 36px)', height: '100%', transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), background 0.4s ease, border-color 0.4s ease' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.background = 'rgba(15,30,54,0.7)'; e.currentTarget.style.borderColor = 'rgba(196,162,90,0.4)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'rgba(15,30,54,0.45)'; e.currentTarget.style.borderColor = 'rgba(46,107,142,0.28)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'rgba(15,30,54,0.45)'; e.currentTarget.style.borderColor = 'rgba(46,116,172,0.28)'; }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
                   <div style={{ width: '52px', height: '52px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(196,162,90,0.1)', border: '1px solid rgba(196,162,90,0.3)' }}>

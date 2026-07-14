@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer style={{
       background: 'var(--bg-low)',
-      borderTop: '1px solid rgba(46,107,142,0.12)',
+      borderTop: '1px solid rgba(46,116,172,0.12)',
       padding: '80px var(--rail-pad)',
     }}>
       <div style={{
@@ -63,14 +63,14 @@ export default function Footer() {
           ))}
         </nav>
 
-        <div style={{ width: '96px', height: '1px', background: 'rgba(46,107,142,0.25)' }} />
+        <div style={{ width: '96px', height: '1px', background: 'rgba(46,116,172,0.25)' }} />
 
         <div style={{
           fontFamily: 'var(--sans)',
           fontSize: '10px',
           letterSpacing: '0.4em',
           textTransform: 'uppercase',
-          color: 'rgba(189,181,165,0.5)',
+          color: 'rgba(198,188,163,0.5)',
           fontWeight: 500,
         }}>
           © 2026 Rheo AI &nbsp;·&nbsp; ρέω &nbsp;·&nbsp; 流れ

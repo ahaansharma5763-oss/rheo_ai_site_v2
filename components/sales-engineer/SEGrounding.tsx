@@ -69,7 +69,7 @@ export default function SEGrounding() {
   const { ref, stage } = useLookupLoop();
 
   return (
-    <section ref={ref} style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
+    <section ref={ref} style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
       <WaveField variant="corner-left" shape="wave" colorFront="#C4A25A" opacity={0.26} speed={0.22} />
 
       <style>{`
@@ -104,7 +104,7 @@ export default function SEGrounding() {
           {/* Animated lookup visual */}
           <Reveal>
             <div style={{
-              background: 'rgba(7,16,30,0.72)', border: '1px solid rgba(46,107,142,0.3)',
+              background: 'rgba(5,14,29,0.72)', border: '1px solid rgba(46,116,172,0.3)',
               borderRadius: '18px', padding: 'clamp(20px, 2.4vw, 28px)',
               boxShadow: '0 40px 100px rgba(0,0,0,0.5)',
             }}>
@@ -121,7 +121,7 @@ export default function SEGrounding() {
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', gap: '7px',
                     padding: '7px 14px', borderRadius: '999px',
-                    background: 'rgba(46,107,142,0.18)', border: '1px solid rgba(69,153,181,0.4)',
+                    background: 'rgba(46,116,172,0.18)', border: '1px solid rgba(63,174,222,0.4)',
                     fontFamily: 'var(--mono)', fontSize: '11.5px', color: 'var(--warm-foam)',
                     animation: 'seChipIn 0.4s cubic-bezier(0.16,1,0.3,1) both',
                   }}>
@@ -132,8 +132,8 @@ export default function SEGrounding() {
               </div>
 
               {/* Spec table */}
-              <div style={{ position: 'relative', border: '1px solid rgba(46,107,142,0.25)', borderRadius: '12px', overflow: 'hidden' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr 1.1fr', padding: '10px 14px', borderBottom: '1px solid rgba(46,107,142,0.25)', background: 'rgba(15,30,54,0.7)' }}>
+              <div style={{ position: 'relative', border: '1px solid rgba(46,116,172,0.25)', borderRadius: '12px', overflow: 'hidden' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr 1.1fr', padding: '10px 14px', borderBottom: '1px solid rgba(46,116,172,0.25)', background: 'rgba(15,30,54,0.7)' }}>
                   {['Model', 'Flow', 'Pressure', 'Supply'].map(h => (
                     <span key={h} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--fg-dim)', fontWeight: 600 }}>{h}</span>
                   ))}
@@ -144,7 +144,7 @@ export default function SEGrounding() {
                     <div key={r.model} style={{
                       display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr 1.1fr',
                       padding: '11px 14px',
-                      borderBottom: i < ROWS.length - 1 ? '1px solid rgba(46,107,142,0.15)' : 'none',
+                      borderBottom: i < ROWS.length - 1 ? '1px solid rgba(46,116,172,0.15)' : 'none',
                       background: matched ? 'rgba(196,162,90,0.12)' : 'transparent',
                       boxShadow: matched ? 'inset 3px 0 0 var(--gold)' : 'none',
                       transition: 'background 0.5s ease, box-shadow 0.5s ease',
@@ -160,8 +160,8 @@ export default function SEGrounding() {
                 {stage === 2 && (
                   <div aria-hidden style={{
                     position: 'absolute', left: 0, right: 0, top: '38px', height: '38px',
-                    background: 'linear-gradient(90deg, transparent, rgba(69,153,181,0.14), transparent)',
-                    borderTop: '1px solid rgba(69,153,181,0.3)', borderBottom: '1px solid rgba(69,153,181,0.3)',
+                    background: 'linear-gradient(90deg, transparent, rgba(63,174,222,0.14), transparent)',
+                    borderTop: '1px solid rgba(63,174,222,0.3)', borderBottom: '1px solid rgba(63,174,222,0.3)',
                     animation: 'seScan 1.1s linear both',
                   }} />
                 )}
@@ -192,9 +192,9 @@ export default function SEGrounding() {
               <Reveal key={p.title} delay={i * 100}>
                 <article
                   className="hover-rule"
-                  style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', background: 'rgba(11,23,41,0.55)', border: '1px solid rgba(46,107,142,0.26)', padding: 'clamp(20px, 2.2vw, 26px)', transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease' }}
+                  style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', background: 'rgba(11,23,41,0.55)', border: '1px solid rgba(46,116,172,0.26)', padding: 'clamp(20px, 2.2vw, 26px)', transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease' }}
                   onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(196,162,90,0.4)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(46,107,142,0.26)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(46,116,172,0.26)'; }}
                 >
                   <div style={{ width: '44px', height: '44px', borderRadius: '11px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(196,162,90,0.1)', border: '1px solid rgba(196,162,90,0.3)' }}>
                     <Icon name={p.icon} size={21} color="var(--gold)" />

@@ -57,8 +57,8 @@ export default function Positioning() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '1px',
-          background: 'rgba(46,107,142,0.18)',
-          border: '1px solid rgba(46,107,142,0.18)',
+          background: 'rgba(46,116,172,0.18)',
+          border: '1px solid rgba(46,116,172,0.18)',
         }}>
           {CONTRASTS.map((c, i) => (
             <Reveal key={c.not} delay={i * 90}>

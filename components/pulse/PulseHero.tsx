@@ -120,7 +120,7 @@ function LeadCard({ lead, phase }: { lead: Lead; phase: Phase }) {
         display: 'flex', alignItems: 'center', gap: '13px',
         padding: '13px 15px', borderRadius: '12px',
         background: live ? 'rgba(196,162,90,0.09)' : 'rgba(11,23,41,0.7)',
-        border: `1px solid ${live ? 'rgba(196,162,90,0.45)' : active ? 'rgba(69,153,181,0.3)' : 'rgba(46,107,142,0.18)'}`,
+        border: `1px solid ${live ? 'rgba(196,162,90,0.45)' : active ? 'rgba(63,174,222,0.3)' : 'rgba(46,116,172,0.18)'}`,
         boxShadow: live ? '0 0 26px rgba(196,162,90,0.18)' : 'none',
         opacity: active ? 1 : 0.55,
         transition: 'all 0.55s cubic-bezier(0.16,1,0.3,1)',
@@ -129,10 +129,10 @@ function LeadCard({ lead, phase }: { lead: Lead; phase: Phase }) {
       <div style={{
         width: '38px', height: '38px', borderRadius: '50%', flexShrink: 0,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: live ? 'linear-gradient(135deg,#F0D080,#C4A25A)' : 'linear-gradient(135deg,#2E6B8E,#1A3566)',
+        background: live ? 'linear-gradient(135deg,#FFDF8F,#C4A25A)' : 'linear-gradient(135deg,#2E74AC,#1E4080)',
         color: live ? 'var(--bg)' : 'var(--warm-foam)',
         fontFamily: 'var(--serif)', fontSize: '15px',
-        boxShadow: phase === 'reading' ? '0 0 0 0 rgba(69,153,181,0.5)' : 'none',
+        boxShadow: phase === 'reading' ? '0 0 0 0 rgba(63,174,222,0.5)' : 'none',
         animation: phase === 'reading' ? 'pulseRing 1.1s ease-out infinite' : 'none',
         transition: 'background 0.55s ease',
       }}>
@@ -162,7 +162,7 @@ export default function PulseHero() {
   return (
     <section ref={ref} style={{ position: 'relative', minHeight: '100svh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
       <style>{`
-        @keyframes pulseRing { 0%{box-shadow:0 0 0 0 rgba(69,153,181,0.45)} 100%{box-shadow:0 0 0 12px rgba(69,153,181,0)} }
+        @keyframes pulseRing { 0%{box-shadow:0 0 0 0 rgba(63,174,222,0.45)} 100%{box-shadow:0 0 0 12px rgba(63,174,222,0)} }
         @keyframes pulseGlow { 0%,100%{text-shadow:0 0 60px rgba(196,162,90,.22)} 50%{text-shadow:0 0 100px rgba(196,162,90,.4)} }
         @keyframes pulseRise { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
 
@@ -178,8 +178,8 @@ export default function PulseHero() {
         }
       `}</style>
 
-      <WaveField variant="full" shape="wave" colorBack="#07101E" colorFront="#4599B5" opacity={0.38} speed={0.22} />
-      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(7,16,30,0.55) 0%, transparent 78%)' }} />
+      <WaveField variant="full" shape="wave" colorBack="#050E1D" colorFront="#3FAEDE" opacity={0.38} speed={0.22} />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(5,14,29,0.55) 0%, transparent 78%)' }} />
 
       <div className="pulse-inner">
         <div className="pulse-copy">
@@ -199,7 +199,7 @@ export default function PulseHero() {
 
           <div className="pulse-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
             {['Revive', 'Nurture', 'Convert', 'Win back', 'Retain'].map(s => (
-              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(69,153,181,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(69,153,181,.05)' }}>{s}</span>
+              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(63,174,222,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(63,174,222,.05)' }}>{s}</span>
             ))}
           </div>
 
@@ -218,15 +218,15 @@ export default function PulseHero() {
           </p>
 
           <style>{`
-            .pulse-hero-btn { display:inline-block; padding:16px 38px; background:linear-gradient(135deg,#F0D080 0%,#C4A25A 60%,#BDB5A5 100%); color:var(--bg); font-family:var(--sans); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
-            .pulse-hero-btn:hover { box-shadow:0 0 50px rgba(240,208,128,0.35); transform:translateY(-2px); }
+            .pulse-hero-btn { display:inline-block; padding:16px 38px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
+            .pulse-hero-btn:hover { box-shadow:0 0 50px rgba(255,223,143,0.35); transform:translateY(-2px); }
           `}</style>
         </div>
 
         <div className="pulse-demo">
           <div style={{
-            background: 'rgba(7,16,30,0.72)',
-            border: '1px solid rgba(46,107,142,0.32)',
+            background: 'rgba(5,14,29,0.72)',
+            border: '1px solid rgba(46,116,172,0.32)',
             borderRadius: '20px',
             padding: '20px',
             backdropFilter: 'blur(8px)',

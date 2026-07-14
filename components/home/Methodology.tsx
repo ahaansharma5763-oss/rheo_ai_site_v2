@@ -91,7 +91,7 @@ export default function Methodology() {
                 className="hover-rule"
                 style={{
                   background: 'rgba(15,30,54,0.45)',
-                  border: '1px solid rgba(46,107,142,0.3)',
+                  border: '1px solid rgba(46,116,172,0.3)',
                   padding: '40px',
                   transition: 'background 0.5s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1)',
                   cursor: 'default',
@@ -176,7 +176,7 @@ export default function Methodology() {
           <div style={{
             marginTop: 'clamp(56px, 8vh, 88px)',
             paddingTop: 'clamp(40px, 6vh, 64px)',
-            borderTop: '1px solid rgba(46,107,142,0.18)',
+            borderTop: '1px solid rgba(46,116,172,0.18)',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: 'clamp(32px, 5vw, 64px)',

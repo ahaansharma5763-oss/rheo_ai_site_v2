@@ -23,9 +23,9 @@ export const metadata = {
 /* Page-scoped contrast boost: brighter copy tokens so the text pops,
  * and stays readable as the deep-sea overlay darkens the descent. */
 const CONTRAST = {
-  '--fg-mute': 'rgba(238,232,224,0.88)',
+  '--fg-mute': 'rgba(244,237,223,0.88)',
   '--muted-cream': '#DCD5C8',
-  '--fg-dim': 'rgba(238,232,224,0.6)',
+  '--fg-dim': 'rgba(244,237,223,0.6)',
 } as React.CSSProperties
 
 export default function SalesEngineerPage() {

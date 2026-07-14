@@ -40,11 +40,11 @@ export default function TheWave() {
       >
         {/* Multiple wave layers, layered like the Great Wave */}
         <path d="M0,300 Q150,180 280,260 Q360,320 480,240 Q600,160 720,260 Q780,300 800,280"
-          stroke="#1A3566" strokeWidth="1.4" fill="none" opacity="0.7" />
+          stroke="#1E4080" strokeWidth="1.4" fill="none" opacity="0.7" />
         <path d="M0,330 Q150,210 280,290 Q360,350 480,270 Q600,190 720,290 Q780,330 800,310"
-          stroke="#2E6B8E" strokeWidth="1" fill="none" opacity="0.8" />
+          stroke="#2E74AC" strokeWidth="1" fill="none" opacity="0.8" />
         <path d="M0,360 Q150,240 280,320 Q360,380 480,300 Q600,220 720,320 Q780,360 800,340"
-          stroke="#4599B5" strokeWidth="0.7" fill="none" opacity="0.6" />
+          stroke="#3FAEDE" strokeWidth="0.7" fill="none" opacity="0.6" />
         <path d="M0,390 Q150,270 280,350 Q360,410 480,330 Q600,250 720,350 Q780,390 800,370"
           stroke="#C4A25A" strokeWidth="0.6" fill="none" opacity="0.5" />
 
@@ -52,7 +52,7 @@ export default function TheWave() {
         <path d="M180,260 Q150,140 240,160 Q310,175 290,230 Q280,255 250,250"
           stroke="#C4A25A" strokeWidth="1" fill="none" opacity="0.7" />
         <path d="M210,210 Q210,180 240,190 Q260,200 250,225"
-          stroke="#7EC8E3" strokeWidth="0.5" fill="none" opacity="0.5" />
+          stroke="#8FDCF8" strokeWidth="0.5" fill="none" opacity="0.5" />
 
         {/* Foam dots */}
         <circle cx="230" cy="160" r="2.5" fill="#F2F0EC" opacity="0.5" />

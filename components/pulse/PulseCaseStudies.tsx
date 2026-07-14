@@ -92,14 +92,14 @@ function StudyCard({ s, i }: { s: Study; i: number }) {
       <article
         style={{
           background: 'rgba(11,23,41,0.6)',
-          border: '1px solid rgba(46,107,142,0.26)',
+          border: '1px solid rgba(46,116,172,0.26)',
           borderLeft: '3px solid var(--gold)',
           borderRadius: '4px',
           padding: 'clamp(28px, 3.6vw, 48px)',
           transition: 'border-color 0.4s ease, background 0.4s ease',
         }}
         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(11,23,41,0.8)'; e.currentTarget.style.borderColor = 'rgba(196,162,90,0.4)'; e.currentTarget.style.borderLeftColor = 'var(--gold-end)'; }}
-        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(11,23,41,0.6)'; e.currentTarget.style.borderColor = 'rgba(46,107,142,0.26)'; e.currentTarget.style.borderLeftColor = 'var(--gold)'; }}
+        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(11,23,41,0.6)'; e.currentTarget.style.borderColor = 'rgba(46,116,172,0.26)'; e.currentTarget.style.borderLeftColor = 'var(--gold)'; }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px', flexWrap: 'wrap' }}>
           <span style={{ fontFamily: 'var(--sans)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)', fontWeight: 600, border: '1px solid rgba(196,162,90,0.35)', borderRadius: '20px', padding: '5px 12px' }}>{s.tag}</span>
@@ -119,9 +119,9 @@ function StudyCard({ s, i }: { s: Study; i: number }) {
           </div>
         </div>
 
-        <div className="pulse-metrics" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1px', background: 'rgba(46,107,142,0.2)', border: '1px solid rgba(46,107,142,0.2)', marginBottom: '24px' }}>
+        <div className="pulse-metrics" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1px', background: 'rgba(46,116,172,0.2)', border: '1px solid rgba(46,116,172,0.2)', marginBottom: '24px' }}>
           {s.metrics.map(m => (
-            <div key={m.label} style={{ background: 'rgba(7,16,30,0.7)', padding: 'clamp(16px, 1.8vw, 22px) 14px', textAlign: 'center' }}>
+            <div key={m.label} style={{ background: 'rgba(5,14,29,0.7)', padding: 'clamp(16px, 1.8vw, 22px) 14px', textAlign: 'center' }}>
               <p className="gold-text" style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(20px, 2.2vw, 28px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.05, marginBottom: '8px' }}>{m.value}</p>
               <p style={{ fontFamily: 'var(--sans)', fontSize: '10.5px', color: 'var(--muted-cream)', lineHeight: 1.4, letterSpacing: '0.02em' }}>{m.label}</p>
             </div>
@@ -146,8 +146,8 @@ export default function PulseCaseStudies() {
   const { ref, seen } = useInView();
 
   return (
-    <section ref={ref} style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-right" shape="wave" colorFront="#4599B5" opacity={0.3} speed={0.24} />
+    <section ref={ref} style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#3FAEDE" opacity={0.3} speed={0.24} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -180,7 +180,7 @@ export default function PulseCaseStudies() {
               { value: '< 2 min',          label: 'Typical response, day or night' },
               { value: '100%',             label: 'Built around each business, never templated' },
             ].map(m => (
-              <div key={m.label} style={{ flex: '1 1 200px', background: 'rgba(7,16,30,0.7)', padding: 'clamp(24px, 3vw, 36px) 20px', textAlign: 'center' }}>
+              <div key={m.label} style={{ flex: '1 1 200px', background: 'rgba(5,14,29,0.7)', padding: 'clamp(24px, 3vw, 36px) 20px', textAlign: 'center' }}>
                 <p className="gold-text" style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(28px, 3.4vw, 44px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1, marginBottom: '12px', transition: 'opacity 0.6s ease' }}>{m.value}</p>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '11px', color: 'var(--muted-cream)', textTransform: 'uppercase', letterSpacing: '0.16em', lineHeight: 1.5 }}>{m.label}</p>
               </div>

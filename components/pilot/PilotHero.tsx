@@ -18,8 +18,8 @@ export default function PilotHero() {
         }
       `}</style>
 
-      <WaveField variant="full" shape="ripple" colorBack="#07101E" colorFront="#4599B5" opacity={0.5} speed={0.26} />
-      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 55% 50%, rgba(7,16,30,0.55) 0%, transparent 78%)' }} />
+      <WaveField variant="full" shape="ripple" colorBack="#050E1D" colorFront="#3FAEDE" opacity={0.5} speed={0.26} />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 55% 50%, rgba(5,14,29,0.55) 0%, transparent 78%)' }} />
 
       <div className="pilot-inner">
         <div className="pilot-copy">
@@ -38,7 +38,7 @@ export default function PilotHero() {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '28px' }}>
             {['14-day live build', 'Pay only if it works', 'Two slots a month'].map(s => (
-              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(69,153,181,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(69,153,181,.05)' }}>{s}</span>
+              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(63,174,222,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(63,174,222,.05)' }}>{s}</span>
             ))}
           </div>
 

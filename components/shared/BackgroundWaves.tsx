@@ -83,9 +83,9 @@ export default function BackgroundWaves() {
         position: 'absolute',
         inset: 0,
         background: `
-          radial-gradient(ellipse 50% 60% at 92% 30%, rgba(46,107,142,0.28) 0%, transparent 65%),
-          radial-gradient(ellipse 60% 50% at 5% 95%, rgba(26,53,102,0.36) 0%, transparent 70%),
-          linear-gradient(180deg, rgba(7,16,30,0.45) 0%, rgba(7,16,30,0.55) 100%)
+          radial-gradient(ellipse 50% 60% at 92% 30%, rgba(46,116,172,0.28) 0%, transparent 65%),
+          radial-gradient(ellipse 60% 50% at 5% 95%, rgba(30,64,128,0.36) 0%, transparent 70%),
+          linear-gradient(180deg, rgba(5,14,29,0.45) 0%, rgba(5,14,29,0.55) 100%)
         `,
       }} />
 
@@ -93,7 +93,7 @@ export default function BackgroundWaves() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse 90% 70% at 50% 25%, rgba(7,16,30,0.6) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 90% 70% at 50% 25%, rgba(5,14,29,0.6) 0%, transparent 70%)',
       }} />
 
     </div>

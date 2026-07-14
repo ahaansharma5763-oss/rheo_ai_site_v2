@@ -87,7 +87,7 @@ export default function HowWeGotHere() {
                   borderRadius: '50%',
                   background: 'var(--bg)',
                   border: '1.5px solid var(--gold)',
-                  boxShadow: '0 0 0 4px rgba(7,16,30,1), 0 0 12px rgba(196,162,90,0.4)',
+                  boxShadow: '0 0 0 4px rgba(5,14,29,1), 0 0 12px rgba(196,162,90,0.4)',
                   zIndex: 1,
                 }}
                 className="tl-dot" />

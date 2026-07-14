@@ -14,8 +14,8 @@ const POINTS: string[] = [
 
 export default function SEWhoFor() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-left" shape="simplex" colorFront="#2E6B8E" opacity={0.3} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="simplex" colorFront="#2E74AC" opacity={0.3} speed={0.24} />
 
       <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -33,7 +33,7 @@ export default function SEWhoFor() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {POINTS.map((p, i) => (
             <Reveal key={i} delay={i * 70}>
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '18px 0', borderBottom: '1px solid rgba(46,107,142,0.16)' }}>
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '18px 0', borderBottom: '1px solid rgba(46,116,172,0.16)' }}>
                 <span style={{ flexShrink: 0, width: '30px', height: '30px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(196,162,90,0.1)', border: '1px solid rgba(196,162,90,0.3)' }}>
                   <Icon name="check" size={16} color="var(--gold)" />
                 </span>

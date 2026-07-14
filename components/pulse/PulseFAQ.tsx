@@ -20,7 +20,7 @@ function Item({ qa, open, onToggle }: { qa: QA; open: boolean; onToggle: () => v
   return (
     <div
       style={{
-        border: `1px solid ${open ? 'rgba(196,162,90,0.4)' : 'rgba(46,107,142,0.24)'}`,
+        border: `1px solid ${open ? 'rgba(196,162,90,0.4)' : 'rgba(46,116,172,0.24)'}`,
         background: open ? 'rgba(196,162,90,0.05)' : 'rgba(11,23,41,0.5)',
         borderRadius: '12px',
         overflow: 'hidden',
@@ -51,8 +51,8 @@ export default function PulseFAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-right" shape="wave" colorFront="#4599B5" opacity={0.28} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#3FAEDE" opacity={0.28} speed={0.24} />
 
       <div style={{ maxWidth: '820px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>

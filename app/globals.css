@@ -1,37 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=zodiak@400,401&f[]=switzer@300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0&display=swap');
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Surface, tinted dark using Ink Night family */
-  --bg:        #07101E;
-  --bg-lift:   #0B1729;
-  --bg-card:   #0F1E36;
-  --bg-low:    #050C18;
+  /* Surfaces — brand v1.1: Deep Navy ground, Ink Night depths, navy tonal ladder */
+  --bg:        #0B2147;
+  --bg-lift:   #0E2850;
+  --bg-card:   #12305E;
+  --bg-low:    #050E1D;
 
   /* Type */
-  --fg:        #EEE8E0;          /* warm foam */
-  --fg-mute:   rgba(238,232,224,0.62);
-  --fg-dim:    rgba(238,232,224,0.42);
-  --fg-faint:  rgba(238,232,224,0.22);
+  --fg:        #F4EDDF;          /* warm foam */
+  --fg-mute:   rgba(244,237,223,0.62);
+  --fg-dim:    rgba(244,237,223,0.42);
+  --fg-faint:  rgba(244,237,223,0.22);
 
   /* Brand accents from the design system */
   --gold:      #C4A25A;          /* primary gold scalpel */
-  --gold-end:  #F0D080;          /* lighter highlight for gradient */
-  --muted-cream: #BDB5A5;        /* warm beige end of cream gradient */
-  --ocean:     #2E6B8E;
-  --crest:     #4599B5;
-  --foam:      #7EC8E3;
+  --gold-end:  #FFDF8F;          /* lighter highlight for gradient */
+  --muted-cream: #C6BCA3;        /* warm beige end of cream gradient */
+  --ocean:     #2E74AC;
+  --crest:     #3FAEDE;
+  --foam:      #8FDCF8;
 
   /* Legacy tokens so Ava still renders */
-  --ink:       #07101E;
-  --navy:      #0D1F3C;
-  --prussian:  #1A3566;
-  --warm-foam: #EEE8E0;
+  --ink:       #050E1D;
+  --navy:      #0B2147;
+  --prussian:  #1E4080;
+  --warm-foam: #F4EDDF;
 
-  /* Fonts */
-  --serif: 'Lora', Georgia, 'Times New Roman', serif;
-  --sans:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  /* Fonts — brand v1.1: Zodiak + Switzer (Fontshare / Indian Type Foundry) */
+  --serif: 'Zodiak', Georgia, 'Times New Roman', serif;
+  --sans:  'Switzer', system-ui, -apple-system, sans-serif;
   --mono:  'JetBrains Mono', 'SF Mono', Menlo, monospace;
 
   /* Rhythm */
@@ -46,10 +47,12 @@ html {
 }
 
 body {
-  background: #07101E;
+  background: var(--bg);
   color: var(--fg);
   font-family: var(--sans);
   font-weight: 300;
+  /* Zodiak ships 400 only by brand rule; never let the browser fake heavier weights */
+  font-synthesis: none;
   letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,9 +70,9 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(ellipse 60% 50% at 12% 0%, rgba(196,162,90,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 95% 30%, rgba(46,107,142,0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 60% at 5% 95%, rgba(26,53,102,0.20) 0%, transparent 70%),
-    linear-gradient(180deg, #07101E 0%, #0A1828 50%, #07101E 100%);
+    radial-gradient(ellipse 50% 60% at 95% 30%, rgba(46,116,172,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 5% 95%, rgba(30,64,128,0.20) 0%, transparent 70%),
+    linear-gradient(180deg, #0B2147 0%, #0E2850 50%, #0B2147 100%);
 }
 
 ::selection {
@@ -79,9 +82,9 @@ body::before {
 
 h1, h2, h3, h4 {
   font-family: var(--serif);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
 }
 
 a {
@@ -115,13 +118,13 @@ a {
 
 /* Gold gradient utilities */
 .gold-text {
-  background: linear-gradient(135deg, #F0D080 0%, #C4A25A 50%, #BDB5A5 100%);
+  background: linear-gradient(135deg, #FFDF8F 0%, #C4A25A 50%, #C6BCA3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .gold-bg {
-  background: linear-gradient(135deg, #F0D080 0%, #C4A25A 60%, #BDB5A5 100%);
+  background: linear-gradient(135deg, #FFDF8F 0%, #C4A25A 60%, #C6BCA3 100%);
 }
 
 /* Gold underline that grows on hover */
@@ -136,7 +139,7 @@ a {
   bottom: -6px;
   height: 3px;
   width: 100%;
-  background: linear-gradient(90deg, #F0D080, #C4A25A);
+  background: linear-gradient(90deg, #FFDF8F, #C4A25A);
   border-radius: 2px;
 }
 
@@ -150,7 +153,7 @@ a {
   position: absolute;
   left: 0; bottom: 0;
   height: 1px; width: 0;
-  background: linear-gradient(90deg, #F0D080, #C4A25A);
+  background: linear-gradient(90deg, #FFDF8F, #C4A25A);
   transition: width 0.7s cubic-bezier(0.16,1,0.3,1);
 }
 .hover-rule:hover::after { width: 100%; }
@@ -174,8 +177,8 @@ body::after {
 
 /* Solid bright gold for headline emphasis — no gradient clipping, always visible */
 .gold-shimmer {
-  color: #F0D080;
-  -webkit-text-fill-color: #F0D080;
+  color: #FFDF8F;
+  -webkit-text-fill-color: #FFDF8F;
   background: none;
 }
 
@@ -193,7 +196,7 @@ body::after {
   line-height: 0.8;
   letter-spacing: -0.04em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(69,153,181,0.16);
+  -webkit-text-stroke: 1px rgba(63,174,222,0.16);
   user-select: none;
   pointer-events: none;
 }

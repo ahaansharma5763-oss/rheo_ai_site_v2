@@ -92,7 +92,7 @@ export default function PilotPopup() {
     width: '100%',
     background: '#0a0d12',
     border: '1px solid rgba(196,162,90,0.18)',
-    color: '#EEE8E0',
+    color: '#F4EDDF',
     fontFamily: 'var(--sans)',
     fontSize: '15px',
     padding: '13px 14px',
@@ -156,7 +156,7 @@ export default function PilotPopup() {
               style={{
                 fontFamily: 'var(--serif)',
                 fontSize: '24px',
-                color: '#EEE8E0',
+                color: '#F4EDDF',
                 lineHeight: 1.25,
               }}
             >
@@ -193,7 +193,7 @@ export default function PilotPopup() {
                 fontFamily: 'var(--serif)',
                 fontSize: '25px',
                 lineHeight: 1.2,
-                color: '#EEE8E0',
+                color: '#F4EDDF',
                 margin: '14px 0 0',
                 fontWeight: 500,
               }}
@@ -246,7 +246,7 @@ export default function PilotPopup() {
                 disabled={submitting}
                 style={{
                   marginTop: '4px',
-                  background: 'linear-gradient(90deg, #F0D080, #C4A25A)',
+                  background: 'linear-gradient(90deg, #FFDF8F, #C4A25A)',
                   color: '#0b0e13',
                   border: 'none',
                   padding: '14px',

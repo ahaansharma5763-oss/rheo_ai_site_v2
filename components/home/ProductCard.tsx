@@ -5,9 +5,9 @@ import { Product } from '@/lib/catalogue';
 
 const ACCENT_HEX: Record<Product['accent'], string> = {
   gold:  '#C4A25A',
-  crest: '#4599B5',
-  ocean: '#2E6B8E',
-  foam:  '#7EC8E3',
+  crest: '#3FAEDE',
+  ocean: '#2E74AC',
+  foam:  '#8FDCF8',
 };
 
 export default function ProductCard({ p }: { p: Product }) {
@@ -53,7 +53,7 @@ export default function ProductCard({ p }: { p: Product }) {
         width: '100%',
         aspectRatio: '4 / 3',
         overflow: 'hidden',
-        background: '#07101E',
+        background: '#050E1D',
       }}>
         <div
           data-img
@@ -72,7 +72,7 @@ export default function ProductCard({ p }: { p: Product }) {
           top: '18px',
           right: '20px',
           padding: '5px 11px',
-          background: 'rgba(7,16,30,0.65)',
+          background: 'rgba(5,14,29,0.65)',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
           fontFamily: 'var(--mono)',

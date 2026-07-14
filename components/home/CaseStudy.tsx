@@ -49,7 +49,7 @@ export default function CaseStudy() {
               right: '-32px',
               bottom: '-32px',
               background: 'var(--bg-low)',
-              border: '1px solid rgba(46,107,142,0.25)',
+              border: '1px solid rgba(46,116,172,0.25)',
               padding: '28px 36px',
               minWidth: '200px',
             }}>

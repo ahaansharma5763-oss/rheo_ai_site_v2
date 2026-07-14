@@ -17,10 +17,10 @@ export default function CustomerJourney() {
     <section style={{
       padding: 'var(--section-gap) var(--rail-pad)',
       position: 'relative',
-      borderTop: '1px solid rgba(46,107,142,0.12)',
+      borderTop: '1px solid rgba(46,116,172,0.12)',
       overflow: 'hidden',
     }}>
-      <WaveField variant="corner-right" shape="simplex" colorFront="#2E6B8E" opacity={0.42} speed={0.28} />
+      <WaveField variant="corner-right" shape="simplex" colorFront="#2E74AC" opacity={0.42} speed={0.28} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '24px', color: 'var(--gold-end)' }}>
@@ -63,8 +63,8 @@ export default function CustomerJourney() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '1px',
-          background: 'rgba(46,107,142,0.16)',
-          border: '1px solid rgba(46,107,142,0.16)',
+          background: 'rgba(46,116,172,0.16)',
+          border: '1px solid rgba(46,116,172,0.16)',
         }}>
           {STAGES.map((s, i) => (
             <Reveal key={s.num} delay={i * 60}>

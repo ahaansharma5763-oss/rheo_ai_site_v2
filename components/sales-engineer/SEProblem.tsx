@@ -15,8 +15,8 @@ const LEAKS: Leak[] = [
 
 export default function SEProblem() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-right" shape="simplex" colorFront="#2E6B8E" opacity={0.3} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="simplex" colorFront="#2E74AC" opacity={0.3} speed={0.24} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -43,11 +43,11 @@ export default function SEProblem() {
             <Reveal key={i} delay={i * 80}>
               <article
                 className="hover-rule"
-                style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', background: 'rgba(15,30,54,0.4)', border: '1px solid rgba(46,107,142,0.24)', padding: 'clamp(22px, 2.6vw, 28px)', height: '100%', transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease' }}
+                style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', background: 'rgba(15,30,54,0.4)', border: '1px solid rgba(46,116,172,0.24)', padding: 'clamp(22px, 2.6vw, 28px)', height: '100%', transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(196,162,90,0.4)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(46,107,142,0.24)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(46,116,172,0.24)'; }}
               >
-                <div style={{ width: '42px', height: '42px', borderRadius: '10px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(46,107,142,0.12)', border: '1px solid rgba(46,107,142,0.3)' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '10px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(46,116,172,0.12)', border: '1px solid rgba(46,116,172,0.3)' }}>
                   <Icon name={leak.icon} size={20} color="var(--crest)" />
                 </div>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14.5px', lineHeight: 1.6, color: 'var(--muted-cream)', fontWeight: 300 }}>{leak.text}</p>

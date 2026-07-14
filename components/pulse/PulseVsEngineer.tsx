@@ -32,7 +32,7 @@ function Column({ side, highlight }: { side: Side; highlight?: boolean }) {
       className="hover-rule"
       style={{
         background: highlight ? 'rgba(196,162,90,0.06)' : 'rgba(15,30,54,0.45)',
-        border: `1px solid ${highlight ? 'rgba(196,162,90,0.35)' : 'rgba(46,107,142,0.28)'}`,
+        border: `1px solid ${highlight ? 'rgba(196,162,90,0.35)' : 'rgba(46,116,172,0.28)'}`,
         padding: 'clamp(30px, 3.6vw, 44px)', height: '100%',
         transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease',
       }}
@@ -63,7 +63,7 @@ function Column({ side, highlight }: { side: Side; highlight?: boolean }) {
 
 export default function PulseVsEngineer() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
       <WaveField variant="corner-left" shape="swirl" colorFront="#C4A25A" opacity={0.26} speed={0.24} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -86,7 +86,7 @@ export default function PulseVsEngineer() {
         <div className="pulse-vs-grid" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '20px', alignItems: 'stretch' }}>
           <Reveal><Column side={ENGINEER} /></Reveal>
           <div className="pulse-vs-plus" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: '52px', height: '52px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(7,16,30,0.8)', border: '1px solid rgba(196,162,90,0.4)', fontFamily: 'var(--serif)', fontSize: '24px', color: 'var(--gold)' }}>+</div>
+            <div style={{ width: '52px', height: '52px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(5,14,29,0.8)', border: '1px solid rgba(196,162,90,0.4)', fontFamily: 'var(--serif)', fontSize: '24px', color: 'var(--gold)' }}>+</div>
           </div>
           <Reveal delay={120}><Column side={PULSE} highlight /></Reveal>
         </div>

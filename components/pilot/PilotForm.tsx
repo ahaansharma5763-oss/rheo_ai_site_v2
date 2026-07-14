@@ -28,7 +28,7 @@ const TICKET_OPTIONS = [
 const fieldStyle: React.CSSProperties = {
   width: '100%',
   background: 'rgba(11,23,41,0.6)',
-  border: '1px solid rgba(46,107,142,0.3)',
+  border: '1px solid rgba(46,116,172,0.3)',
   color: 'var(--fg)',
   fontFamily: 'var(--sans)',
   fontSize: '14px',
@@ -80,7 +80,7 @@ export default function PilotForm({ idPrefix = 'pilot' }: { idPrefix?: string })
   return (
     <div
       style={{
-        background: 'rgba(7,16,30,0.72)',
+        background: 'rgba(5,14,29,0.72)',
         border: '1px solid rgba(196,162,90,0.28)',
         borderRadius: '20px',
         padding: 'clamp(24px, 3vw, 32px)',
@@ -124,11 +124,11 @@ export default function PilotForm({ idPrefix = 'pilot' }: { idPrefix?: string })
             <input name="whatsapp" placeholder="WhatsApp number" inputMode="tel" style={fieldStyle} required />
             <select name="enquiries" defaultValue="" style={{ ...fieldStyle, color: 'var(--muted-cream)' }}>
               <option value="" disabled>Enquiries per month</option>
-              {ENQUIRY_OPTIONS.map(o => <option key={o} value={o} style={{ background: '#07101E' }}>{o}</option>)}
+              {ENQUIRY_OPTIONS.map(o => <option key={o} value={o} style={{ background: '#050E1D' }}>{o}</option>)}
             </select>
             <select name="ticket" defaultValue="" style={{ ...fieldStyle, color: 'var(--muted-cream)' }}>
               <option value="" disabled>Average customer value</option>
-              {TICKET_OPTIONS.map(o => <option key={o} value={o} style={{ background: '#07101E' }}>{o}</option>)}
+              {TICKET_OPTIONS.map(o => <option key={o} value={o} style={{ background: '#050E1D' }}>{o}</option>)}
             </select>
 
             {error && <div style={{ color: '#E0785A', fontFamily: 'var(--sans)', fontSize: '13px' }}>{error}</div>}
@@ -138,7 +138,7 @@ export default function PilotForm({ idPrefix = 'pilot' }: { idPrefix?: string })
               disabled={submitting}
               style={{
                 marginTop: '4px',
-                background: 'linear-gradient(135deg,#F0D080 0%,#C4A25A 60%,#BDB5A5 100%)',
+                background: 'linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%)',
                 color: 'var(--bg)',
                 border: 'none',
                 borderRadius: '10px',
@@ -152,7 +152,7 @@ export default function PilotForm({ idPrefix = 'pilot' }: { idPrefix?: string })
                 opacity: submitting ? 0.7 : 1,
                 transition: 'box-shadow 0.4s ease, transform 0.2s ease',
               }}
-              onMouseEnter={e => { if (!submitting) { e.currentTarget.style.boxShadow = '0 0 40px rgba(240,208,128,0.3)'; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
+              onMouseEnter={e => { if (!submitting) { e.currentTarget.style.boxShadow = '0 0 40px rgba(255,223,143,0.3)'; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
               {submitting ? 'Claiming…' : 'Claim a build slot →'}

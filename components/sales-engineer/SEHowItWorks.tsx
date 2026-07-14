@@ -15,8 +15,8 @@ const STEPS: Step[] = [
 
 export default function SEHowItWorks() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-right" shape="ripple" colorFront="#4599B5" opacity={0.32} speed={0.26} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="ripple" colorFront="#3FAEDE" opacity={0.32} speed={0.26} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -35,7 +35,7 @@ export default function SEHowItWorks() {
           {STEPS.map((s, i) => (
             <Reveal key={s.num} delay={i * 90}>
               <div className="se-flow-item" style={{ display: 'flex', alignItems: 'stretch' }}>
-                <div style={{ flex: 1, background: 'rgba(11,23,41,0.6)', border: '1px solid rgba(46,107,142,0.28)', borderTop: '2px solid var(--gold)', padding: 'clamp(22px, 2.4vw, 30px) clamp(18px, 1.8vw, 22px)', display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+                <div style={{ flex: 1, background: 'rgba(11,23,41,0.6)', border: '1px solid rgba(46,116,172,0.28)', borderTop: '2px solid var(--gold)', padding: 'clamp(22px, 2.4vw, 30px) clamp(18px, 1.8vw, 22px)', display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(196,162,90,0.1)', border: '1px solid rgba(196,162,90,0.3)' }}>
                       <Icon name={s.icon} size={22} color="var(--gold)" />

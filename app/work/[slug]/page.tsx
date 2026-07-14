@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const ACCENT_HEX = {
   gold:  '#C4A25A',
-  crest: '#4599B5',
-  ocean: '#2E6B8E',
-  foam:  '#7EC8E3',
+  crest: '#3FAEDE',
+  ocean: '#2E74AC',
+  foam:  '#8FDCF8',
 } as const;
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {

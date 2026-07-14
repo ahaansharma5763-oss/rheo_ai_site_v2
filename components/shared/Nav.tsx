@@ -38,10 +38,10 @@ export default function Nav() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: scrolled ? 'rgba(7,16,30,0.75)' : 'transparent',
+          background: scrolled ? 'rgba(5,14,29,0.75)' : 'transparent',
           backdropFilter: scrolled ? 'saturate(180%) blur(20px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'saturate(180%) blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(69,153,181,0.12)' : '1px solid transparent',
+          borderBottom: scrolled ? '1px solid rgba(63,174,222,0.12)' : '1px solid transparent',
           boxShadow: scrolled ? '0 8px 32px rgba(5,12,24,0.4)' : 'none',
           transition: 'all 0.4s ease',
         }}
@@ -133,7 +133,7 @@ export default function Nav() {
             textTransform: 'uppercase',
             fontWeight: 600,
             color: 'var(--warm-foam)',
-            border: '1px solid rgba(46,107,142,0.6)',
+            border: '1px solid rgba(46,116,172,0.6)',
             padding: '10px 22px',
             borderRadius: '999px',
             transition: 'border-color 0.3s ease, color 0.3s ease, transform 0.2s ease',
@@ -143,7 +143,7 @@ export default function Nav() {
             e.currentTarget.style.color = 'var(--gold-end)';
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'rgba(46,107,142,0.6)';
+            e.currentTarget.style.borderColor = 'rgba(46,116,172,0.6)';
             e.currentTarget.style.color = 'var(--warm-foam)';
           }}
         >
@@ -187,7 +187,7 @@ export default function Nav() {
       <div style={{
         position: 'fixed',
         inset: 0,
-        background: 'rgba(7,16,30,0.97)',
+        background: 'rgba(5,14,29,0.97)',
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         zIndex: 99,
@@ -231,7 +231,7 @@ export default function Nav() {
       <style>{`
         @keyframes navPilotGlow {
           0%, 100% { text-shadow: 0 0 6px rgba(196,162,90,0.35); }
-          50%      { text-shadow: 0 0 18px rgba(240,208,128,0.85), 0 0 32px rgba(240,208,128,0.4); }
+          50%      { text-shadow: 0 0 18px rgba(255,223,143,0.85), 0 0 32px rgba(255,223,143,0.4); }
         }
         .nav-pilot { color: var(--gold-end) !important; animation: navPilotGlow 2.4s ease-in-out infinite; transition: color 0.3s ease; }
         .nav-pilot:hover { color: #FCE6A8 !important; }

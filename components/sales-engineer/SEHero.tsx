@@ -108,8 +108,8 @@ function Bubble({ msg }: { msg: Msg }) {
       <div style={{
         padding: '11px 14px',
         borderRadius: buyer ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
-        background: buyer ? 'rgba(46,107,142,0.32)' : 'rgba(15,30,54,0.92)',
-        border: `1px solid ${buyer ? 'rgba(69,153,181,0.4)' : 'rgba(196,162,90,0.28)'}`,
+        background: buyer ? 'rgba(46,116,172,0.32)' : 'rgba(15,30,54,0.92)',
+        border: `1px solid ${buyer ? 'rgba(63,174,222,0.4)' : 'rgba(196,162,90,0.28)'}`,
         fontFamily: 'var(--sans)', fontSize: '13px', lineHeight: 1.55,
         color: 'var(--warm-foam)', fontWeight: 300,
       }}>
@@ -149,8 +149,8 @@ export default function SEHero() {
         .se-copy   { flex:1 1 0; min-width:0; animation:seRise 0.9s cubic-bezier(0.16,1,0.3,1) both; }
         .se-demo   { flex:0 0 430px; animation:seRise 1s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
 
-        .se-hero-btn { display:inline-block; padding:16px 38px; background:linear-gradient(135deg,#F0D080 0%,#C4A25A 60%,#BDB5A5 100%); color:var(--bg); font-family:var(--sans); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
-        .se-hero-btn:hover { box-shadow:0 0 50px rgba(240,208,128,0.35); transform:translateY(-2px); }
+        .se-hero-btn { display:inline-block; padding:16px 38px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
+        .se-hero-btn:hover { box-shadow:0 0 50px rgba(255,223,143,0.35); transform:translateY(-2px); }
         .se-hero-ghost { display:inline-block; padding:16px 32px; border:1px solid rgba(196,162,90,0.5); color:var(--gold-end); font-family:var(--sans); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600; text-decoration:none; transition:border-color 0.3s ease, background 0.3s ease, transform 0.2s ease; }
         .se-hero-ghost:hover { border-color:var(--gold-end); background:rgba(196,162,90,0.08); transform:translateY(-2px); }
 
@@ -162,8 +162,8 @@ export default function SEHero() {
         }
       `}</style>
 
-      <WaveField variant="full" shape="wave" colorBack="#07101E" colorFront="#4599B5" opacity={0.38} speed={0.22} />
-      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(7,16,30,0.55) 0%, transparent 78%)' }} />
+      <WaveField variant="full" shape="wave" colorBack="#050E1D" colorFront="#3FAEDE" opacity={0.38} speed={0.22} />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(5,14,29,0.55) 0%, transparent 78%)' }} />
 
       <div className="se-inner">
         <div className="se-copy">
@@ -182,7 +182,7 @@ export default function SEHero() {
 
           <div className="se-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
             {['Qualifies', 'Recommends', 'Quotes', 'Escalates', 'Never guesses'].map(s => (
-              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(69,153,181,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(69,153,181,.05)' }}>{s}</span>
+              <span key={s} style={{ fontFamily: 'var(--sans)', fontSize: '9.5px', color: 'var(--crest)', letterSpacing: '.16em', textTransform: 'uppercase', border: '1px solid rgba(63,174,222,.24)', borderRadius: '20px', padding: '6px 14px', background: 'rgba(63,174,222,.05)' }}>{s}</span>
             ))}
           </div>
 
@@ -209,8 +209,8 @@ export default function SEHero() {
 
         <div className="se-demo">
           <div style={{
-            background: 'rgba(7,16,30,0.74)',
-            border: '1px solid rgba(46,107,142,0.32)',
+            background: 'rgba(5,14,29,0.74)',
+            border: '1px solid rgba(46,116,172,0.32)',
             borderRadius: '20px',
             padding: '20px',
             backdropFilter: 'blur(8px)',
@@ -226,7 +226,7 @@ export default function SEHero() {
               <span style={{
                 fontFamily: 'var(--mono)', fontSize: '10.5px',
                 color: done ? 'var(--gold-end)' : 'var(--fg-dim)',
-                border: `1px solid ${done ? 'rgba(196,162,90,0.45)' : 'rgba(46,107,142,0.3)'}`,
+                border: `1px solid ${done ? 'rgba(196,162,90,0.45)' : 'rgba(46,116,172,0.3)'}`,
                 borderRadius: '999px', padding: '3px 10px',
                 transition: 'all 0.5s ease',
               }}>
@@ -242,7 +242,7 @@ export default function SEHero() {
               Simulation · the real thing is <a href="#live-demo" style={{ color: 'var(--gold-end)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>live below</a>
             </p>
 
-            <div style={{ borderTop: '1px solid rgba(46,107,142,0.22)', marginTop: '16px', paddingTop: '14px', display: 'flex', justifyContent: 'space-between', gap: '4px' }}>
+            <div style={{ borderTop: '1px solid rgba(46,116,172,0.22)', marginTop: '16px', paddingTop: '14px', display: 'flex', justifyContent: 'space-between', gap: '4px' }}>
               {ACTIONS.map((a, i) => {
                 const lit = i <= actionIdx;
                 return (
@@ -251,7 +251,7 @@ export default function SEHero() {
                       width: '34px', height: '34px', borderRadius: '9px',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: lit ? 'rgba(196,162,90,0.14)' : 'rgba(15,30,54,0.6)',
-                      border: `1px solid ${lit ? 'rgba(196,162,90,0.5)' : 'rgba(46,107,142,0.25)'}`,
+                      border: `1px solid ${lit ? 'rgba(196,162,90,0.5)' : 'rgba(46,116,172,0.25)'}`,
                       boxShadow: lit ? '0 0 16px rgba(196,162,90,0.2)' : 'none',
                       transition: 'all 0.5s ease',
                     }}>

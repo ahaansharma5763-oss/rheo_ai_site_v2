@@ -15,8 +15,8 @@ const LEAKS: Leak[] = [
 
 export default function PilotProblem() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-left" shape="simplex" colorFront="#2E6B8E" opacity={0.28} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="simplex" colorFront="#2E74AC" opacity={0.28} speed={0.24} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -38,8 +38,8 @@ export default function PilotProblem() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: 'clamp(40px, 6vh, 56px)' }}>
           {LEAKS.map((l, i) => (
             <Reveal key={i} delay={i * 70}>
-              <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', background: 'rgba(11,23,41,0.5)', border: '1px solid rgba(46,107,142,0.22)', padding: 'clamp(20px, 2.4vw, 26px)', height: '100%', borderRadius: '2px' }}>
-                <span style={{ flexShrink: 0, width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(46,107,142,0.12)', border: '1px solid rgba(46,107,142,0.3)' }}>
+              <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', background: 'rgba(11,23,41,0.5)', border: '1px solid rgba(46,116,172,0.22)', padding: 'clamp(20px, 2.4vw, 26px)', height: '100%', borderRadius: '2px' }}>
+                <span style={{ flexShrink: 0, width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(46,116,172,0.12)', border: '1px solid rgba(46,116,172,0.3)' }}>
                   <Icon name={l.icon} size={19} color="var(--crest)" />
                 </span>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', lineHeight: 1.6, color: 'var(--muted-cream)', fontWeight: 300 }}>{l.text}</p>

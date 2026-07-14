@@ -120,9 +120,9 @@ export default function CustomCursor() {
       const target = e.target as Element | null;
       const hot = isInteractive(target);
       ring.style.setProperty('--ring-scale', hot ? '1.6' : '1');
-      ring.style.borderColor = hot ? 'rgba(240,208,128,1)' : 'rgba(240,208,128,0.9)';
+      ring.style.borderColor = hot ? 'rgba(255,223,143,1)' : 'rgba(255,223,143,0.9)';
       // Keep the dot visible on hover; brighten it instead of hiding it
-      dot.style.background = hot ? '#FFF3D6' : '#F0D080';
+      dot.style.background = hot ? '#FFF3D6' : '#FFDF8F';
       ring.style.background = hot ? 'rgba(196,162,90,0.18)' : 'transparent';
     };
 
@@ -154,7 +154,7 @@ export default function CustomCursor() {
           left: 0,
           width: '36px',
           height: '36px',
-          border: '1.5px solid rgba(240,208,128,0.9)',
+          border: '1.5px solid rgba(255,223,143,0.9)',
           borderRadius: '50%',
           pointerEvents: 'none',
           opacity: 0,
@@ -174,13 +174,13 @@ export default function CustomCursor() {
           left: 0,
           width: '9px',
           height: '9px',
-          background: '#F0D080',
+          background: '#FFDF8F',
           borderRadius: '50%',
           pointerEvents: 'none',
           opacity: 0,
           zIndex: 10000,
           willChange: 'transform, opacity',
-          boxShadow: '0 0 10px rgba(240,208,128,0.9), 0 0 22px rgba(196,162,90,0.5)',
+          boxShadow: '0 0 10px rgba(255,223,143,0.9), 0 0 22px rgba(196,162,90,0.5)',
           transition: 'opacity 0.2s ease, background 0.2s ease',
         }}
       />

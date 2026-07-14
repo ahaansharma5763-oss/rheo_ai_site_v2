@@ -39,8 +39,8 @@ interface WaveFieldProps {
 export default function WaveField({
   variant = 'full',
   shape = 'wave',
-  colorFront = '#4599B5',
-  colorBack = '#0D1F3C',
+  colorFront = '#3FAEDE',
+  colorBack = '#0B2147',
   opacity = 0.5,
   speed = 0.3,
 }: WaveFieldProps) {

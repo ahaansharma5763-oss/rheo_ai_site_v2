@@ -80,7 +80,7 @@ export default function Capabilities() {
       position: 'relative',
       overflow: 'hidden',
     }}>
-      <WaveField variant="corner-left" shape="ripple" colorFront="#4599B5" opacity={0.34} speed={0.26} />
+      <WaveField variant="corner-left" shape="ripple" colorFront="#3FAEDE" opacity={0.34} speed={0.26} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px', color: 'var(--gold-end)' }}>
@@ -218,7 +218,7 @@ export default function Capabilities() {
                         color: 'var(--muted-cream)',
                         fontWeight: 300,
                         padding: '8px 16px',
-                        border: '1px solid rgba(46,107,142,0.3)',
+                        border: '1px solid rgba(46,116,172,0.3)',
                         borderRadius: '999px',
                         background: 'rgba(11,23,41,0.4)',
                       }}>
@@ -287,7 +287,7 @@ export default function Capabilities() {
                 transition: 'box-shadow 0.4s ease, transform 0.2s ease',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.boxShadow = '0 0 40px rgba(240,208,128,0.3)';
+                e.currentTarget.style.boxShadow = '0 0 40px rgba(255,223,143,0.3)';
                 e.currentTarget.style.transform = 'translateY(-2px)';
               }}
               onMouseLeave={e => {

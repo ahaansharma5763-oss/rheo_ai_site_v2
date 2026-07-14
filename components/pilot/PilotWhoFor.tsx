@@ -15,8 +15,8 @@ const REQS: Req[] = [
 
 export default function PilotWhoFor() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-left" shape="simplex" colorFront="#2E6B8E" opacity={0.3} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="simplex" colorFront="#2E74AC" opacity={0.3} speed={0.24} />
 
       <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
@@ -52,7 +52,7 @@ export default function PilotWhoFor() {
         </div>
 
         <Reveal delay={120}>
-          <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: 'clamp(20px, 2.4vw, 26px)', background: 'rgba(11,23,41,0.5)', border: '1px solid rgba(46,107,142,0.22)', borderRadius: '14px' }}>
+          <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: 'clamp(20px, 2.4vw, 26px)', background: 'rgba(11,23,41,0.5)', border: '1px solid rgba(46,116,172,0.22)', borderRadius: '14px' }}>
             <Icon name="filter" size={22} color="var(--crest)" style={{ flexShrink: 0, marginTop: '2px' }} />
             <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(14px, 1.2vw, 16px)', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300 }}>
               It is <span style={{ color: 'var(--warm-foam)' }}>not</span> for you if you get a handful of enquiries a month,

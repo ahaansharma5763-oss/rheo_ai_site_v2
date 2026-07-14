@@ -13,8 +13,8 @@ export default function Metrics() {
   return (
     <section style={{
       padding: '72px var(--rail-pad)',
-      borderTop: '1px solid rgba(46,107,142,0.12)',
-      borderBottom: '1px solid rgba(46,107,142,0.12)',
+      borderTop: '1px solid rgba(46,116,172,0.12)',
+      borderBottom: '1px solid rgba(46,116,172,0.12)',
     }}>
       <div style={{
         maxWidth: 'var(--container-max)',
@@ -31,7 +31,7 @@ export default function Metrics() {
               flexDirection: 'column',
               alignItems: 'flex-start',
               paddingLeft: i === 0 ? 0 : 'clamp(12px, 2vw, 32px)',
-              borderLeft: i === 0 ? 'none' : '1px solid rgba(46,107,142,0.2)',
+              borderLeft: i === 0 ? 'none' : '1px solid rgba(46,116,172,0.2)',
             }}>
               <span className="gold-text" style={{
                 fontFamily: 'var(--mono)',

@@ -7,9 +7,9 @@ import PilotForm from '@/components/pilot/PilotForm';
 
 export default function PilotCTA() {
   return (
-    <section style={{ position: 'relative', padding: 'clamp(96px, 18vh, 180px) var(--rail-pad)', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="bottom" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.32} speed={0.24} />
-      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 55% at 50% 40%, rgba(7,16,30,0.5) 0%, transparent 75%)' }} />
+    <section style={{ position: 'relative', padding: 'clamp(96px, 18vh, 180px) var(--rail-pad)', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="bottom" shape="swirl" colorBack="#050E1D" colorFront="#C4A25A" opacity={0.32} speed={0.24} />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 55% at 50% 40%, rgba(5,14,29,0.5) 0%, transparent 75%)' }} />
 
       <div style={{ position: 'relative', zIndex: 2, maxWidth: '1040px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 'clamp(40px, 6vw, 72px)' }}>
         <div style={{ flex: '1 1 360px', minWidth: 0 }}>

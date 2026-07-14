@@ -72,7 +72,7 @@ export default function MagneticButton({
     transition: 'transform 0.35s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.3s ease, background 0.25s ease, color 0.25s ease',
     ...(variant === 'gold' ? {
       background: '#C4A25A',
-      color: '#07101E',
+      color: '#050E1D',
       border: 'none',
       boxShadow: hovered ? '0 12px 40px rgba(196,162,90,0.45)' : '0 4px 16px rgba(196,162,90,0.2)',
     } : variant === 'ghost' ? {
@@ -82,7 +82,7 @@ export default function MagneticButton({
       boxShadow: hovered ? '0 8px 32px rgba(196,162,90,0.2), inset 0 0 20px rgba(196,162,90,0.04)' : 'none',
     } : {
       background: hovered ? '#C4A25A' : 'transparent',
-      color: hovered ? '#07101E' : '#C4A25A',
+      color: hovered ? '#050E1D' : '#C4A25A',
       border: '1px solid rgba(196,162,90,0.6)',
     }),
     ...style

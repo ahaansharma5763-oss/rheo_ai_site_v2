@@ -106,7 +106,7 @@ export default function ROIModels() {
             <Reveal key={m.sector} delay={i * 80}>
               <article className="card-lift" style={{
                 background: 'rgba(15,30,54,0.45)',
-                border: '1px solid rgba(46,107,142,0.28)',
+                border: '1px solid rgba(46,116,172,0.28)',
                 padding: 'clamp(28px, 3.2vw, 36px)',
                 height: '100%',
                 display: 'flex',
@@ -140,7 +140,7 @@ export default function ROIModels() {
                   color: 'var(--fg-dim)',
                   marginBottom: '8px',
                 }}>
-                  <span style={{ color: 'rgba(238,232,224,0.4)' }}>Before · </span>{m.before}
+                  <span style={{ color: 'rgba(244,237,223,0.4)' }}>Before · </span>{m.before}
                 </div>
                 <div style={{
                   fontFamily: 'var(--mono)',
@@ -149,7 +149,7 @@ export default function ROIModels() {
                   color: 'var(--crest)',
                   marginBottom: '28px',
                 }}>
-                  <span style={{ color: 'rgba(238,232,224,0.4)' }}>After · </span>{m.after}
+                  <span style={{ color: 'rgba(244,237,223,0.4)' }}>After · </span>{m.after}
                 </div>
 
                 <div style={{
@@ -157,7 +157,7 @@ export default function ROIModels() {
                   gridTemplateColumns: 'repeat(3, 1fr)',
                   gap: '12px',
                   paddingTop: '24px',
-                  borderTop: '1px solid rgba(46,107,142,0.2)',
+                  borderTop: '1px solid rgba(46,116,172,0.2)',
                 }}>
                   {m.roi.map(r => (
                     <div key={r.label}>

@@ -18,7 +18,7 @@ const FAQS: QA[] = [
 
 function Item({ qa, open, onToggle }: { qa: QA; open: boolean; onToggle: () => void }) {
   return (
-    <div style={{ border: `1px solid ${open ? 'rgba(196,162,90,0.4)' : 'rgba(46,107,142,0.24)'}`, background: open ? 'rgba(196,162,90,0.05)' : 'rgba(11,23,41,0.5)', borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.4s ease, background 0.4s ease' }}>
+    <div style={{ border: `1px solid ${open ? 'rgba(196,162,90,0.4)' : 'rgba(46,116,172,0.24)'}`, background: open ? 'rgba(196,162,90,0.05)' : 'rgba(11,23,41,0.5)', borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.4s ease, background 0.4s ease' }}>
       <button onClick={onToggle} aria-expanded={open} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: 'clamp(18px, 2.2vw, 24px)', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
         <span style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(16px, 1.7vw, 19px)', color: open ? 'var(--warm-foam)' : 'var(--fg)', fontWeight: 500, lineHeight: 1.3 }}>{qa.q}</span>
         <span style={{ flexShrink: 0, width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(196,162,90,0.4)', transform: open ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.35s cubic-bezier(0.16,1,0.3,1)' }}>
@@ -35,8 +35,8 @@ function Item({ qa, open, onToggle }: { qa: QA; open: boolean; onToggle: () => v
 export default function PilotFAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-right" shape="wave" colorFront="#4599B5" opacity={0.28} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#3FAEDE" opacity={0.28} speed={0.24} />
 
       <div style={{ maxWidth: '820px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>

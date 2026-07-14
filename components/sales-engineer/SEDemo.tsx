@@ -52,7 +52,7 @@ function VariantCard({ v, delay }: { v: Variant; delay: number }) {
       <article style={{
         height: '100%', display: 'flex', flexDirection: 'column', textAlign: 'left',
         background: live ? 'rgba(196,162,90,0.07)' : 'rgba(11,23,41,0.55)',
-        border: `1px solid ${live ? 'rgba(196,162,90,0.45)' : 'rgba(46,107,142,0.28)'}`,
+        border: `1px solid ${live ? 'rgba(196,162,90,0.45)' : 'rgba(46,116,172,0.28)'}`,
         borderRadius: '16px', padding: 'clamp(26px, 3vw, 36px)',
         boxShadow: live ? '0 30px 80px rgba(0,0,0,0.45), 0 0 40px rgba(196,162,90,0.08)' : 'none',
       }}>
@@ -60,8 +60,8 @@ function VariantCard({ v, delay }: { v: Variant; delay: number }) {
           <span style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             padding: '5px 13px', borderRadius: '999px',
-            background: live ? 'rgba(196,162,90,0.12)' : 'rgba(46,107,142,0.14)',
-            border: `1px solid ${live ? 'rgba(196,162,90,0.5)' : 'rgba(69,153,181,0.35)'}`,
+            background: live ? 'rgba(196,162,90,0.12)' : 'rgba(46,116,172,0.14)',
+            border: `1px solid ${live ? 'rgba(196,162,90,0.5)' : 'rgba(63,174,222,0.35)'}`,
           }}>
             <span style={{
               width: '8px', height: '8px', borderRadius: '50%',
@@ -93,7 +93,7 @@ function VariantCard({ v, delay }: { v: Variant; delay: number }) {
         ) : (
           <span style={{
             alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: '10px',
-            padding: '16px 32px', border: '1px dashed rgba(69,153,181,0.45)', borderRadius: '2px',
+            padding: '16px 32px', border: '1px dashed rgba(63,174,222,0.45)', borderRadius: '2px',
             color: 'var(--crest)', fontFamily: 'var(--sans)', fontSize: '12px',
             letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600,
           }}>
@@ -108,13 +108,13 @@ function VariantCard({ v, delay }: { v: Variant; delay: number }) {
 
 export default function SEDemo() {
   return (
-    <section id="live-demo" style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)', scrollMarginTop: '80px' }}>
-      <WaveField variant="corner-right" shape="wave" colorFront="#4599B5" opacity={0.3} speed={0.24} />
+    <section id="live-demo" style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)', scrollMarginTop: '80px' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#3FAEDE" opacity={0.3} speed={0.24} />
 
       <style>{`
         @keyframes seDemoPulse { 0%{box-shadow:0 0 0 0 rgba(196,162,90,0.5)} 100%{box-shadow:0 0 0 10px rgba(196,162,90,0)} }
-        .se-demo-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 34px; background:linear-gradient(135deg,#F0D080 0%,#C4A25A 60%,#BDB5A5 100%); color:var(--bg); font-family:var(--sans); font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
-        .se-demo-btn:hover { box-shadow:0 0 46px rgba(240,208,128,0.35); transform:translateY(-2px); }
+        .se-demo-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 34px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
+        .se-demo-btn:hover { box-shadow:0 0 46px rgba(255,223,143,0.35); transform:translateY(-2px); }
         .se-demo-variants { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
         @media (max-width: 860px) { .se-demo-variants { grid-template-columns:1fr; } }
       `}</style>
@@ -154,7 +154,7 @@ export default function SEDemo() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
           {ATTACKS.map((a, i) => (
             <Reveal key={i} delay={i * 70}>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', background: 'rgba(11,23,41,0.55)', border: '1px solid rgba(46,107,142,0.26)', borderRadius: '12px', padding: '16px 18px', height: '100%' }}>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', background: 'rgba(11,23,41,0.55)', border: '1px solid rgba(46,116,172,0.26)', borderRadius: '12px', padding: '16px 18px', height: '100%' }}>
                 <div style={{ width: '36px', height: '36px', borderRadius: '9px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(196,162,90,0.1)', border: '1px solid rgba(196,162,90,0.3)' }}>
                   <Icon name={a.icon} size={17} color="var(--gold)" />
                 </div>

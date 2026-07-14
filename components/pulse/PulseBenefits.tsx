@@ -72,7 +72,7 @@ function PillarCard({ p, i }: { p: Pillar; i: number }) {
       <article
         ref={ref as React.RefObject<HTMLDivElement>}
         style={{
-          background: 'rgba(11,23,41,0.6)', border: '1px solid rgba(46,107,142,0.28)',
+          background: 'rgba(11,23,41,0.6)', border: '1px solid rgba(46,116,172,0.28)',
           borderTop: '2px solid var(--gold)', padding: 'clamp(30px, 3.4vw, 42px)',
           height: '100%', display: 'flex', flexDirection: 'column',
           transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease',
@@ -103,8 +103,8 @@ function PillarCard({ p, i }: { p: Pillar; i: number }) {
 
 export default function PulseBenefits() {
   return (
-    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,107,142,0.12)' }}>
-      <WaveField variant="corner-left" shape="wave" colorFront="#4599B5" opacity={0.3} speed={0.24} />
+    <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="wave" colorFront="#3FAEDE" opacity={0.3} speed={0.24} />
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>

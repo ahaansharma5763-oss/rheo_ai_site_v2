@@ -6,14 +6,14 @@ import WaveField from '@/components/ui/wave-field';
 export default function PulseCTA() {
   return (
     <section
-      style={{ position: 'relative', padding: 'clamp(120px, 22vh, 220px) var(--rail-pad)', overflow: 'hidden', textAlign: 'center', borderTop: '1px solid rgba(46,107,142,0.12)' }}
+      style={{ position: 'relative', padding: 'clamp(120px, 22vh, 220px) var(--rail-pad)', overflow: 'hidden', textAlign: 'center', borderTop: '1px solid rgba(46,116,172,0.12)' }}
     >
-      <WaveField variant="bottom" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.32} speed={0.24} />
-      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 55% at 50% 40%, rgba(7,16,30,0.5) 0%, transparent 75%)' }} />
+      <WaveField variant="bottom" shape="swirl" colorBack="#050E1D" colorFront="#C4A25A" opacity={0.32} speed={0.24} />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 55% at 50% 40%, rgba(5,14,29,0.5) 0%, transparent 75%)' }} />
 
       <style>{`
-        .pulse-cta-btn { display:inline-block; padding:18px 44px; background:linear-gradient(135deg,#F0D080 0%,#C4A25A 60%,#BDB5A5 100%); color:var(--bg); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
-        .pulse-cta-btn:hover { box-shadow:0 0 50px rgba(240,208,128,0.35); transform:translateY(-2px); }
+        .pulse-cta-btn { display:inline-block; padding:18px 44px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition:box-shadow 0.4s ease, transform 0.2s ease; }
+        .pulse-cta-btn:hover { box-shadow:0 0 50px rgba(255,223,143,0.35); transform:translateY(-2px); }
       `}</style>
 
       <div style={{ position: 'relative', zIndex: 2, maxWidth: '760px', margin: '0 auto' }}>

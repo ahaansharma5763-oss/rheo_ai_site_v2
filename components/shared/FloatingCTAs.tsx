@@ -112,12 +112,12 @@ export default function FloatingCTAs() {
           >
             {/* Calendar icon */}
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="17" rx="2" stroke={hoverCal ? '#07101E' : '#C4A25A'} strokeWidth="1.5"/>
-              <path d="M3 9h18" stroke={hoverCal ? '#07101E' : '#C4A25A'} strokeWidth="1.5"/>
-              <path d="M8 2v4M16 2v4" stroke={hoverCal ? '#07101E' : '#C4A25A'} strokeWidth="1.5" strokeLinecap="round"/>
-              <circle cx="8"  cy="14" r="1" fill={hoverCal ? '#07101E' : '#C4A25A'}/>
-              <circle cx="12" cy="14" r="1" fill={hoverCal ? '#07101E' : '#C4A25A'}/>
-              <circle cx="16" cy="14" r="1" fill={hoverCal ? '#07101E' : '#C4A25A'}/>
+              <rect x="3" y="4" width="18" height="17" rx="2" stroke={hoverCal ? '#050E1D' : '#C4A25A'} strokeWidth="1.5"/>
+              <path d="M3 9h18" stroke={hoverCal ? '#050E1D' : '#C4A25A'} strokeWidth="1.5"/>
+              <path d="M8 2v4M16 2v4" stroke={hoverCal ? '#050E1D' : '#C4A25A'} strokeWidth="1.5" strokeLinecap="round"/>
+              <circle cx="8"  cy="14" r="1" fill={hoverCal ? '#050E1D' : '#C4A25A'}/>
+              <circle cx="12" cy="14" r="1" fill={hoverCal ? '#050E1D' : '#C4A25A'}/>
+              <circle cx="16" cy="14" r="1" fill={hoverCal ? '#050E1D' : '#C4A25A'}/>
             </svg>
 
             {/* Pulse ring */}

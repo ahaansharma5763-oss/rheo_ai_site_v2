@@ -15,14 +15,14 @@ export default function ClosingCTA() {
       }}
     >
       {/* Wave motif — the single gold-tinted wave on the page (gold appears once) */}
-      <WaveField variant="full" shape="swirl" colorBack="#07101E" colorFront="#C4A25A" opacity={0.42} speed={0.26} />
+      <WaveField variant="full" shape="swirl" colorBack="#050E1D" colorFront="#C4A25A" opacity={0.42} speed={0.26} />
       {/* Soft vignette so the centered headline holds against the wave */}
       <div aria-hidden style={{
         position: 'absolute',
         inset: 0,
         zIndex: 0,
         pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(7,16,30,0.55) 0%, transparent 75%)',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(5,14,29,0.55) 0%, transparent 75%)',
       }} />
 
       <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -76,7 +76,7 @@ export default function ClosingCTA() {
                   transition: 'box-shadow 0.5s ease, transform 0.2s ease',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.boxShadow = '0 0 80px rgba(240,208,128,0.4)';
+                  e.currentTarget.style.boxShadow = '0 0 80px rgba(255,223,143,0.4)';
                   e.currentTarget.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={e => {
@@ -99,7 +99,7 @@ export default function ClosingCTA() {
                   textTransform: 'uppercase',
                   fontWeight: 700,
                   display: 'inline-block',
-                  border: '1px solid rgba(46,107,142,0.6)',
+                  border: '1px solid rgba(46,116,172,0.6)',
                   transition: 'border-color 0.3s ease, color 0.3s ease, transform 0.2s ease',
                 }}
                 onMouseEnter={e => {
@@ -108,7 +108,7 @@ export default function ClosingCTA() {
                   e.currentTarget.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(46,107,142,0.6)';
+                  e.currentTarget.style.borderColor = 'rgba(46,116,172,0.6)';
                   e.currentTarget.style.color = 'var(--warm-foam)';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
