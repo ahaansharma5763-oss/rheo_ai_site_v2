@@ -147,22 +147,26 @@ export default function RevivalHero() {
         }
       `}</style>
 
-      <WaveField variant="full" shape="wave" colorBack="#050E1D" colorFront="#3FAEDE" opacity={0.34} speed={0.2} />
-      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(ellipse 75% 70% at 60% 50%, rgba(5,14,29,0.5) 0%, transparent 78%)' }} />
+      {/* Backplate: nami-hero (aerial foam filigree, brass thread right) */}
+      <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <img src="/images/sea/nami-hero.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '75% center' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(5,14,29,0.92) 0%, rgba(5,14,29,0.7) 45%, rgba(5,14,29,0.3) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(5,14,29,0.5) 0%, transparent 30%, transparent 70%, #050E1D 100%)' }} />
+      </div>
+      <WaveField variant="full" shape="wave" colorBack="#050E1D" colorFront="#3FAEDE" opacity={0.16} speed={0.2} />
 
       <div className="rev-inner">
         <div className="rev-copy">
           <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '.44em', margin: '0 0 22px 0', opacity: 0.85 }}>
-            The Revival Sprint · Day One of Okeanos
+            Nami · The 21-Day Win-Back · Rheo AI
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(38px, 5.4vw, 70px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.06, margin: '0 0 26px 0', fontWeight: 500 }}>
             We turn your dead leads into booked revenue. In 21 days.
           </h1>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '54ch', margin: '0 0 34px 0' }}>
-            Every business is sitting on a list of people who enquired and went quiet, and customers who simply
-            never came back. The Revival Sprint is one focused campaign that goes through that list, starts real
-            conversations, and brings the right people back through your door. You get a report with one number
-            on it: the revenue it recovered.
+            Nami is a done-for-you win-back campaign. We take the list of people who enquired and went quiet,
+            and the customers who never came back, and we send one carefully built wave of real conversations
+            through it. Twenty-one days later you get a report with one number on it: the revenue that came back.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', alignItems: 'flex-start' }}>
@@ -173,8 +177,8 @@ export default function RevivalHero() {
               Or measure the leak first: run the 3-minute audit
             </a>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.02em', color: 'var(--fg-dim)', lineHeight: 1.65, maxWidth: '52ch', margin: 0 }}>
-              Built by Rheo AI, the team behind Athena and Okeanos. If the Sprint does not recover more than twice
-              what it costs, you only cover the small holding deposit.
+              Built by Rheo AI, the team behind Kai. If Nami does not recover more than twice what it costs,
+              you only cover the small holding deposit. We run two campaigns a month, never more.
             </p>
           </div>
         </div>
@@ -185,7 +189,7 @@ export default function RevivalHero() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
                 <span style={{ width: '8px', height: '8px', background: 'var(--gold)', animation: 'revPing 1.8s ease-out infinite' }} />
                 <span style={{ fontFamily: 'var(--sans)', fontSize: '10px', letterSpacing: '0.26em', textTransform: 'uppercase', color: 'var(--crest)', fontWeight: 500 }}>
-                  Sprint console · live
+                  Nami console · live
                 </span>
               </div>
               <span style={{ fontFamily: 'var(--mono)', fontSize: '11px', color: 'var(--fg-dim)' }}>DAY 08 / 21</span>

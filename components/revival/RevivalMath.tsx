@@ -130,6 +130,11 @@ export default function RevivalMath() {
                 That is what silence is costing you, and the conservative setting is the honest default.
               </p>
             </div>
+
+            {/* The print: current lines in indigo ink on cream */}
+            <div style={{ border: `1px solid ${LINE}`, overflow: 'hidden', minHeight: '320px', position: 'relative' }}>
+              <img src="/images/sea/nami-math-light.webp" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
           </div>
         </Reveal>
 

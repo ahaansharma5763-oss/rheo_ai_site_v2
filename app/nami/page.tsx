@@ -2,10 +2,12 @@ import RevivalHero from '@/components/revival/RevivalHero'
 import RevivalProblem from '@/components/revival/RevivalProblem'
 import RevivalWhatIs from '@/components/revival/RevivalWhatIs'
 import RevivalTimeline from '@/components/revival/RevivalTimeline'
+import NamiIncludes from '@/components/revival/NamiIncludes'
 import RevivalMeasure from '@/components/revival/RevivalMeasure'
 import RevivalMath from '@/components/revival/RevivalMath'
 import RevivalGuarantee from '@/components/revival/RevivalGuarantee'
-import RevivalAudit from '@/components/revival/RevivalAudit'
+import NamiSlots from '@/components/revival/NamiSlots'
+import NamiStory from '@/components/revival/NamiStory'
 import RevivalBridge from '@/components/revival/RevivalBridge'
 import RevivalFAQ from '@/components/revival/RevivalFAQ'
 import RevivalCTA from '@/components/revival/RevivalCTA'
@@ -14,12 +16,12 @@ import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
 
 export const metadata = {
-  title: 'The Revival Sprint, Rheo AI',
+  title: 'Nami, The 21-Day Win-Back by Rheo AI',
   description:
-    'One 21-day campaign that turns your dormant customer and enquiry list into booked revenue. Real conversations, not blasts. Ends with one number: what came back.',
+    'Nami is a done-for-you win-back campaign. One wave of real conversations through your dormant list, and 21 days later, a report with one number: the revenue that came back.',
 }
 
-export default function RevivalSprintPage() {
+export default function NamiPage() {
   return (
     <main style={{ position: 'relative' }}>
       <DeepOcean />
@@ -29,10 +31,12 @@ export default function RevivalSprintPage() {
         <RevivalProblem />
         <RevivalWhatIs />
         <RevivalTimeline />
+        <NamiIncludes />
         <RevivalMeasure />
         <RevivalMath />
         <RevivalGuarantee />
-        <RevivalAudit />
+        <NamiSlots />
+        <NamiStory />
         <RevivalBridge />
         <RevivalFAQ />
         <RevivalCTA />

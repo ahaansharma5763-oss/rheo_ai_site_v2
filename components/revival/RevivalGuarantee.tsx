@@ -35,12 +35,12 @@ export default function RevivalGuarantee() {
         <Reveal delay={220}>
           <div style={{ maxWidth: '70ch', marginBottom: 'clamp(56px, 8vh, 88px)' }}>
             <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 17.5px)', lineHeight: 1.8, color: 'var(--fg-mute)', fontWeight: 300, marginBottom: '18px' }}>
-              We will keep this simple. The Sprint has one job: recover more revenue than it costs. If, at the end
+              We will keep this simple. Nami has one job: recover more revenue than it costs. If, at the end
               of 21 days, the booked revenue it brought back is not more than double the fee, you pay only the
               small deposit that held your slot. Everything else, you keep.
             </p>
             <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 17.5px)', lineHeight: 1.8, color: 'var(--fg-mute)', fontWeight: 300 }}>
-              We can make this promise because we only run Sprints for businesses that pass our checks. If your
+              We can make this promise because we only run campaigns for businesses that pass our checks. If your
               list will not clear the bar, we will tell you on the call and not take the project.
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function RevivalGuarantee() {
           <Reveal delay={100}>
             <div style={{ border: '1px solid rgba(46,116,172,0.24)', background: 'rgba(11,23,41,0.5)', padding: 'clamp(26px, 3vw, 36px)', height: '100%' }}>
               <h3 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(18px, 1.9vw, 22px)', color: 'var(--warm-foam)', fontWeight: 500, marginBottom: '20px' }}>
-                The Sprint fits you if:
+                Nami fits you if:
               </h3>
               {FITS.map((t, i) => (
                 <p key={i} style={{ fontFamily: 'var(--sans)', fontSize: '14.5px', lineHeight: 1.7, color: 'var(--muted-cream)', fontWeight: 300, paddingLeft: '18px', borderLeft: '1px solid rgba(63,174,222,0.4)', marginBottom: i < FITS.length - 1 ? '16px' : 0 }}>

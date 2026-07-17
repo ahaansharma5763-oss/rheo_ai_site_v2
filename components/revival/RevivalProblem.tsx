@@ -51,18 +51,38 @@ export default function RevivalProblem() {
           ))}
         </div>
 
+        <Reveal delay={100}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', background: 'rgba(46,116,172,0.24)', border: '1px solid rgba(46,116,172,0.24)', marginBottom: '14px' }}>
+            {[
+              { n: '68 / 100', t: 'lost clients say they left because nobody followed up. Only 14 mention price.' },
+              { n: '4 to 10x', t: 'cheaper to win back a past customer than to acquire a new one.' },
+              { n: '3 to 8x', t: 'higher response from dormant lists than cold outreach. These people already know you.' },
+            ].map((s, i) => (
+              <div key={i} style={{ background: 'var(--bg-low)', padding: 'clamp(24px, 2.8vw, 32px)' }}>
+                <span style={{ fontFamily: 'var(--mono)', fontSize: 'clamp(24px, 2.6vw, 34px)', color: i === 0 ? 'var(--gold-end)' : 'var(--crest)', display: 'block', marginBottom: '10px', fontVariantNumeric: 'tabular-nums' }}>{s.n}</span>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '13.5px', lineHeight: 1.65, color: 'var(--fg-mute)', fontWeight: 300 }}>{s.t}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal delay={60}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-dim)', marginBottom: 'clamp(44px, 6vh, 64px)' }}>
+            What the industry data says
+          </p>
+        </Reveal>
+
         <Reveal delay={120}>
           <blockquote style={{ borderLeft: '3px solid var(--gold)', paddingLeft: '28px', maxWidth: '70ch' }}>
             <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(19px, 2vw, 26px)', lineHeight: 1.5, color: 'var(--warm-foam)', fontWeight: 500, fontStyle: 'italic' }}>
-              None of these people said no. They were simply never followed up with. Most churned clients leave
-              for exactly one reason: nobody reached out. Not price. Not quality. Silence.
+              None of these people said no. They were simply never followed up with. Not price. Not quality. Silence.
             </p>
           </blockquote>
         </Reveal>
 
         <Reveal delay={220}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300, maxWidth: '66ch', marginTop: '36px' }}>
-            That list in your phone is not a contact list. It is unclaimed revenue.
+            That list in your phone is not a contact list. It is unclaimed revenue, and every month it sits
+            untouched, more of it goes cold for good.
           </p>
         </Reveal>
       </div>

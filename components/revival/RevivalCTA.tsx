@@ -26,7 +26,7 @@ export default function RevivalCTA() {
         <Reveal delay={180}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '18px', lineHeight: 1.7, color: 'var(--muted-cream)', fontWeight: 300, maxWidth: '54ch', margin: '32px auto 0' }}>
             Every month this waits, more of your list goes cold for good. Book a List Review and we will tell you,
-            with your numbers, exactly what a Sprint would recover, and whether it is worth running at all.
+            with your numbers, exactly what a wave would recover, and whether it is worth sending at all. Two campaigns a month. When the slots are gone, the next wave waits.
           </p>
         </Reveal>
 
@@ -36,7 +36,7 @@ export default function RevivalCTA() {
               Book Your List Review →
             </a>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.06em', color: 'var(--fg-dim)', maxWidth: '48ch', lineHeight: 1.6 }}>
-              If the Sprint does not recover more than twice what it costs, you only cover the deposit.
+              If Nami does not recover more than twice what it costs, you only cover the deposit. Not sure the leak is real? The 3-minute audit will show you.
             </p>
           </div>
         </Reveal>

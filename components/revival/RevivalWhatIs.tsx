@@ -9,12 +9,12 @@ const STEPS = [
     body: 'Every contact is checked, de-duplicated, and grouped by what they bought, how much they spend, and how long they have been quiet. A patient overdue for a follow-up gets a very different message than an enquiry that never booked.',
   },
   {
-    title: 'We write the campaign in your voice.',
-    body: 'Three carefully spaced waves over three weeks. No desperate discounts. The message is a genuine reason to come back: something due, something new, something they asked about once and never got.',
+    title: 'We write the waves in your voice.',
+    body: 'Three messages, spaced across three weeks. No desperate discounts. Each wave carries a genuine reason to come back: something due, something new, something they once asked about and never got.',
   },
   {
     title: 'Every reply is answered in seconds.',
-    body: 'This is where broadcasts die and the Sprint wins. When someone replies at 11pm asking for the full package price, they get a real answer immediately, a booking offer, and your calendar. You get an alert the moment anyone is hot.',
+    body: 'This is where broadcasts die and Nami wins. When someone replies at 11pm asking for the full package price, they get a real answer immediately, a booking offer, and your calendar. You get an alert the moment anyone turns hot.',
   },
   {
     title: 'You get the number.',
@@ -30,19 +30,19 @@ export default function RevivalWhatIs() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>
-            What the Sprint is
+            What Nami is
           </span>
         </Reveal>
 
         <Reveal delay={140}>
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(30px, 4.4vw, 54px)', lineHeight: 1.14, letterSpacing: '-0.02em', color: 'var(--fg)', fontWeight: 500, maxWidth: '24ch', marginBottom: '18px' }}>
-            One campaign. Three weeks. Real conversations, not blasts.
+            One campaign. Three waves. Twenty-one days.
           </h2>
         </Reveal>
 
         <Reveal delay={220}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300, maxWidth: '64ch', marginBottom: 'clamp(48px, 7vh, 72px)' }}>
-            The Revival Sprint is a done-for-you reactivation campaign that runs for 21 days.
+            Real conversations, not blasts. Here is exactly how the wave moves.
           </p>
         </Reveal>
 
@@ -67,14 +67,13 @@ export default function RevivalWhatIs() {
         <Reveal delay={200}>
           <div style={{ marginTop: 'clamp(48px, 7vh, 72px)', border: '1px solid rgba(46,116,172,0.24)', background: 'rgba(15,30,54,0.4)', padding: 'clamp(26px, 3vw, 36px)', maxWidth: '820px' }}>
             <h3 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(19px, 2vw, 24px)', color: 'var(--gold-end)', fontWeight: 500, lineHeight: 1.3, marginBottom: '14px' }}>
-              Blasting your list burns it. The Sprint protects it.
+              Blasting your list burns it. Nami protects it.
             </h3>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '15px', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300 }}>
               You have received those messages. Dear customer, we miss you, twenty percent off. You deleted it,
-              and so does everyone else. The Sprint works because it does the opposite. Different segments get
-              different reasons to return. Replies get real conversations, not autoresponders. Anyone who is not
-              interested gets a graceful goodbye and is never messaged again. Your name stays premium, your list
-              stays healthy, and the people who come back do it because the message was actually relevant to them.
+              and so does everyone else. Nami does the opposite. Different segments get different reasons to
+              return. Replies get conversations, not autoresponders. Anyone not interested gets a graceful
+              goodbye and is never messaged again. Your name stays premium and your list stays healthy.
             </p>
           </div>
         </Reveal>
