@@ -12,6 +12,7 @@ import RevivalBridge from '@/components/revival/RevivalBridge'
 import RevivalFAQ from '@/components/revival/RevivalFAQ'
 import RevivalCTA from '@/components/revival/RevivalCTA'
 import DeepOcean from '@/components/revival/DeepOcean'
+import SEDeepSea from '@/components/sales-engineer/SEDeepSea'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
 
@@ -21,10 +22,19 @@ export const metadata = {
     'Nami is a done-for-you win-back campaign. One wave of real conversations through your dormant list, and 21 days later, a report with one number: the revenue that came back.',
 }
 
+/* Page-scoped contrast boost (Athena pattern): brighter copy tokens so
+ * text stays readable as the deep-sea overlay darkens the descent. */
+const CONTRAST = {
+  '--fg-mute': 'rgba(244,237,223,0.88)',
+  '--muted-cream': '#DCD5C8',
+  '--fg-dim': 'rgba(244,237,223,0.6)',
+} as React.CSSProperties
+
 export default function NamiPage() {
   return (
-    <main style={{ position: 'relative' }}>
+    <main style={{ position: 'relative', ...CONTRAST }}>
       <DeepOcean />
+      <SEDeepSea />
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Nav />
         <RevivalHero />

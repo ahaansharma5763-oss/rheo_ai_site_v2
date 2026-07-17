@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const WHO = [
   'You spend money or effort getting leads, and not enough of them become customers.',
@@ -39,6 +40,7 @@ export default function KaiWhoFAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#3FAEDE" opacity={0.24} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>Who Kai is for</span>

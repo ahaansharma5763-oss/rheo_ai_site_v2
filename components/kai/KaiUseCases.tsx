@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const CASES = [
   { t: 'Answers new enquiries in seconds.', b: 'The 11pm message gets an 11pm reply. Being first is most of the battle, and Kai is always first.' },
@@ -15,6 +16,7 @@ const CASES = [
 export default function KaiUseCases() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="wave" colorFront="#2E74AC" opacity={0.26} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>In plain terms</span>

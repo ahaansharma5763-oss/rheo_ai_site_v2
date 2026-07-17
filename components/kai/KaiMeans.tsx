@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const PILLARS = [
   {
@@ -20,6 +21,7 @@ const PILLARS = [
 export default function KaiMeans() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="wave" colorFront="#3FAEDE" opacity={0.26} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>What this means for you</span>

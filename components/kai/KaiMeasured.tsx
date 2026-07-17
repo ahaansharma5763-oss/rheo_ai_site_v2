@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 /* Count-up stat tickers (Magic UI number-ticker pattern, hand-rolled). */
 function Ticker({ target, suffix, prefix }: { target: number; suffix?: string; prefix?: string }) {
@@ -37,6 +38,7 @@ const CASES = [
 export default function KaiMeasured() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="simplex" colorFront="#3FAEDE" opacity={0.24} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>Measured, every month</span>

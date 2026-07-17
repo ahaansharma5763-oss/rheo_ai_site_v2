@@ -5,6 +5,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const STEPS = [
   { t: 'We map your funnel.', b: 'Every lead, every customer, every stage where money currently leaks. Most owners are shocked at what is sitting there.' },
@@ -37,6 +38,7 @@ export default function KaiHow() {
 
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="simplex" colorFront="#3FAEDE" opacity={0.22} speed={0.22} />
       <div style={{ maxWidth: '860px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>How it works</span>

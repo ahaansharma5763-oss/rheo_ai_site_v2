@@ -135,6 +135,7 @@ export default function RevivalHero() {
       <style>{`
         @keyframes revRise { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
         @keyframes revPing { 0%{box-shadow:0 0 0 0 rgba(196,162,90,0.4)} 100%{box-shadow:0 0 0 11px rgba(196,162,90,0)} }
+        @keyframes revGlow { 0%,100%{text-shadow:0 0 60px rgba(196,162,90,.22)} 50%{text-shadow:0 0 100px rgba(196,162,90,.4)} }
         .rev-inner { position:relative; z-index:2; display:flex; align-items:center; width:100%; max-width:1240px; margin:0 auto; padding:128px var(--rail-pad) 80px; gap:56px; }
         .rev-copy  { flex:1 1 0; min-width:0; animation:revRise 0.9s cubic-bezier(0.2,0.6,0.2,1) both; }
         .rev-demo  { flex:0 0 430px; animation:revRise 1s cubic-bezier(0.2,0.6,0.2,1) 0.15s both; }
@@ -161,7 +162,8 @@ export default function RevivalHero() {
             Nami · The 21-Day Win-Back · Rheo AI
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(38px, 5.4vw, 70px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.06, margin: '0 0 26px 0', fontWeight: 500 }}>
-            We turn your dead leads into booked revenue. In 21 days.
+            We turn your dead leads into{' '}
+            <span className="gold-text" style={{ animation: 'revGlow 4s ease-in-out infinite' }}>booked revenue</span>. In 21 days.
           </h1>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '54ch', margin: '0 0 34px 0' }}>
             Nami is a done-for-you win-back campaign. We take the list of people who enquired and went quiet,

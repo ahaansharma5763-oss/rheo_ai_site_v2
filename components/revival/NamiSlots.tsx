@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const CALENDLY_URL = 'https://calendly.com/ahaan-rheoai-xnxc/30min';
 
@@ -13,6 +14,7 @@ const NEEDS = [
 export default function NamiSlots() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-right" shape="simplex" colorFront="#3FAEDE" opacity={0.24} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <div style={{ border: '1px solid rgba(196,162,90,0.4)', background: 'rgba(196,162,90,0.05)', padding: 'clamp(28px, 3.4vw, 44px)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 'clamp(24px, 4vw, 48px)', marginBottom: 'clamp(56px, 9vh, 88px)' }}>

@@ -11,6 +11,7 @@ export default function KaiHero() {
         .kai-btn { display:inline-block; padding:17px 42px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition: box-shadow 0.4s ease, transform 0.2s ease; }
         .kai-btn:hover { box-shadow:0 0 50px rgba(255,223,143,0.35); transform: translateY(-2px); }
         @keyframes kaiRise { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes kaiGlow { 0%,100%{text-shadow:0 0 60px rgba(196,162,90,.22)} 50%{text-shadow:0 0 100px rgba(196,162,90,.4)} }
       `}</style>
 
       {/* Backplate: kai-hero (storm light, brass moonpath right) */}
@@ -30,7 +31,8 @@ export default function KaiHero() {
             Kai · Customer Orchestration · Rheo AI
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 5.6vw, 74px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.05, margin: '0 0 26px 0', fontWeight: 500 }}>
-            Your next 50 customers are already in your phone.
+            Your next 50 customers are{' '}
+            <span className="gold-text" style={{ animation: 'kaiGlow 4s ease-in-out infinite' }}>already in your phone</span>.
           </h1>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '54ch', margin: '0 0 18px 0' }}>
             Kai is the layer that runs your entire customer funnel, from the very first enquiry to the loyal

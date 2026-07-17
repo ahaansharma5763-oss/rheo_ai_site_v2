@@ -1,6 +1,7 @@
 'use client';
 
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 
 const ITEMS = [
@@ -17,6 +18,7 @@ const ITEMS = [
 export default function NamiIncludes() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="swirl" colorFront="#2E74AC" opacity={0.24} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>Everything Nami includes</span>

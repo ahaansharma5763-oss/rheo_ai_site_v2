@@ -1,12 +1,14 @@
 'use client';
 
 import Reveal from '@/components/home/Reveal';
+import WaveField from '@/components/ui/wave-field';
 
 const CALENDLY_URL = 'https://calendly.com/ahaan-rheoai-xnxc/30min';
 
 export default function KaiGuarantee() {
   return (
     <section style={{ padding: 'var(--section-gap) var(--rail-pad)', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(46,116,172,0.12)' }}>
+      <WaveField variant="corner-left" shape="swirl" colorFront="#2E74AC" opacity={0.26} speed={0.22} />
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px' }}>The guarantee</span>
