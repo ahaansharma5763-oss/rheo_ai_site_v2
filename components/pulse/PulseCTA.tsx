@@ -38,6 +38,9 @@ export default function PulseCTA() {
             <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.06em', color: 'var(--fg-dim)', maxWidth: '46ch', lineHeight: 1.6 }}>
               Backed by our 60-day money-back promise. If Pulse does not pay for itself, you pay nothing.
             </p>
+            <a href="/revival-sprint" style={{ fontFamily: 'var(--sans)', fontSize: '12.5px', letterSpacing: '0.08em', color: 'var(--crest)', textDecoration: 'none', borderBottom: '1px solid rgba(63,174,222,0.4)', paddingBottom: '3px' }}>
+              Not ready for the full system? Start with a Revival Sprint instead
+            </a>
           </div>
         </Reveal>
       </div>

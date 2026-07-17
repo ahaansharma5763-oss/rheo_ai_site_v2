@@ -4,6 +4,7 @@ import PulseWhatIs from '@/components/pulse/PulseWhatIs'
 import PulseBenefits from '@/components/pulse/PulseBenefits'
 import PulseOffer from '@/components/pulse/PulseOffer'
 import PulseHowItWorks from '@/components/pulse/PulseHowItWorks'
+import PulseSprintBridge from '@/components/pulse/PulseSprintBridge'
 import PulseUseCases from '@/components/pulse/PulseUseCases'
 import PulseCaseStudies from '@/components/pulse/PulseCaseStudies'
 import PulseVsEngineer from '@/components/pulse/PulseVsEngineer'
@@ -32,6 +33,7 @@ export default function PulsePage() {
         <PulseBenefits />
         <PulseOffer />
         <PulseHowItWorks />
+        <PulseSprintBridge />
         <PulseUseCases />
         <PulseCaseStudies />
         <PulseVsEngineer />
