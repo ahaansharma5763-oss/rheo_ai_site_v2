@@ -24,7 +24,7 @@ const STUDIES: Study[] = [
     who: 'Transformation coach',
     context: '1:1 high-ticket coaching · ₹45,000 average program',
     situation: 'Spending heavily on ads and getting a steady flow of enquiries, but closing only a handful. Most leads replied once, asked the price, and went quiet. Follow-up depended on the founder remembering to message back, which meant it rarely happened past the second touch. Months of warm enquiries were sitting unworked in WhatsApp.',
-    whatPulseDid: 'Pulse went back through eleven months of cold enquiries on day one and reopened conversations with a personal, specific reason to talk. From then on it read every new lead, answered pricing and timing objections in the founder’s own voice, and moved ready buyers straight to a booked call while flagging them in real time.',
+    whatPulseDid: 'Okeanos went back through eleven months of cold enquiries on day one and reopened conversations with a personal, specific reason to talk. From then on it read every new lead, answered pricing and timing objections in the founder’s own voice, and moved ready buyers straight to a booked call while flagging them in real time.',
     metrics: [
       { value: '8% → 19%', label: 'Enquiry to enrolled client' },
       { value: '2.4×',     label: 'Conversion on the same ad spend' },
@@ -33,7 +33,7 @@ const STUDIES: Study[] = [
       { value: '7 hrs',    label: 'Founder time saved per week' },
     ],
     roi: '9× return inside the 60-day guarantee window',
-    quote: 'The leads were always there. I just never followed up properly. Pulse closed people I had completely written off.',
+    quote: 'The leads were always there. I just never followed up properly. Okeanos closed people I had completely written off.',
     attribution: 'Founder, transformation coaching practice',
   },
   {
@@ -41,7 +41,7 @@ const STUDIES: Study[] = [
     who: 'Auto-detailing studio',
     context: 'PPF, ceramic and detailing · ₹30,000 to ₹1,20,000 jobs',
     situation: 'High-value bookings and strong word of mouth, but enquiries often went quiet after the first quote and past customers were never contacted again. A customer who asked about ceramic coating on a Saturday night would not hear back until Monday, by which point they had booked elsewhere. Repeat business was almost accidental.',
-    whatPulseDid: 'Pulse caught every abandoned enquiry within the hour, reopened it with the exact service they had asked about, and answered price and timing questions instantly at any time of day. It then ran a quiet win-back across the past-customer list, reminding owners when their coating or PPF was due for a refresh.',
+    whatPulseDid: 'Okeanos caught every abandoned enquiry within the hour, reopened it with the exact service they had asked about, and answered price and timing questions instantly at any time of day. It then ran a quiet win-back across the past-customer list, reminding owners when their coating or PPF was due for a refresh.',
     metrics: [
       { value: '34%',   label: 'Abandoned enquiries recovered' },
       { value: '2.4×',  label: 'Increase in repeat bookings' },
@@ -58,7 +58,7 @@ const STUDIES: Study[] = [
     who: 'Multi-location clinic',
     context: 'Three locations · high enquiry volume, small front desk',
     situation: 'A flood of enquiries across three locations and a small front-desk team with no time to chase anyone who did not book on the first message. Patients who asked about a procedure and then hesitated simply fell through the cracks, and there was no system to bring quiet patients back for follow-up care.',
-    whatPulseDid: 'Pulse nurtured every enquiry across all three locations, gently brought quiet patients back with a relevant reason to return, and answered routine questions instantly so the front desk only handled conversations that genuinely needed a human. Patients who needed a personal call were flagged and routed to the right location.',
+    whatPulseDid: 'Okeanos nurtured every enquiry across all three locations, gently brought quiet patients back with a relevant reason to return, and answered routine questions instantly so the front desk only handled conversations that genuinely needed a human. Patients who needed a personal call were flagged and routed to the right location.',
     metrics: [
       { value: '+28%',  label: 'Enquiries turned into appointments' },
       { value: '220+',  label: 'Dormant patients re-engaged' },
@@ -67,7 +67,7 @@ const STUDIES: Study[] = [
       { value: '12 hrs', label: 'Front-desk time saved per week' },
     ],
     roi: '14× return across the first quarter',
-    quote: 'My team stopped drowning in follow-up. Pulse handles the chasing and only sends us the people who actually need a call.',
+    quote: 'My team stopped drowning in follow-up. Okeanos handles the chasing and only sends us the people who actually need a call.',
     attribution: 'Operations lead, multi-location clinic',
   },
 ];
@@ -114,7 +114,7 @@ function StudyCard({ s, i }: { s: Study; i: number }) {
             <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300 }}>{s.situation}</p>
           </div>
           <div>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--crest)', fontWeight: 600, marginBottom: '10px' }}>What Pulse did</p>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--crest)', fontWeight: 600, marginBottom: '10px' }}>What Okeanos did</p>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '14px', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300 }}>{s.whatPulseDid}</p>
           </div>
         </div>
@@ -158,13 +158,13 @@ export default function PulseCaseStudies() {
 
         <Reveal delay={120}>
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 5.2vw, 60px)', color: 'var(--fg)', letterSpacing: '-0.02em', textAlign: 'center', margin: '0 0 18px', lineHeight: 1.08, fontWeight: 600 }}>
-            Look what Pulse does<span style={{ color: 'var(--gold)' }}>.</span>
+            Look what Okeanos does<span style={{ color: 'var(--gold)' }}>.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={220}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300, textAlign: 'center', maxWidth: '60ch', margin: '0 auto clamp(40px, 6vh, 64px)' }}>
-            Real businesses, real pipelines, real recovered revenue. Here is what happened when they put Pulse to work.
+            Real businesses, real pipelines, real recovered revenue. Here is what happened when they put Okeanos to work.
           </p>
         </Reveal>
 

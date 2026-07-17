@@ -17,7 +17,7 @@ export default function PulseSprintBridge() {
             </h3>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '15px', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300, maxWidth: '64ch', marginBottom: '24px' }}>
               One 21-day campaign on your dormant list, one report, one number. If the number convinces you, the
-              Sprint&apos;s setup cost is credited when you move to Pulse.
+              Sprint&apos;s setup cost is credited when you move to Okeanos.
             </p>
             <Link
               href="/revival-sprint"

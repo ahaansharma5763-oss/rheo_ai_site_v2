@@ -37,9 +37,9 @@ export default function RevivalAudit() {
                 href={AUDIT_URL}
                 target="_blank"
                 rel="noreferrer"
-                style={{ display: 'inline-block', padding: '17px 40px', border: '1px solid var(--gold)', background: 'transparent', color: 'var(--warm-foam)', fontFamily: 'var(--sans)', fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500, textDecoration: 'none', transition: 'background 0.3s cubic-bezier(0.2,0.6,0.2,1), transform 0.3s cubic-bezier(0.2,0.6,0.2,1)' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(196,162,90,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                style={{ display: 'inline-block', padding: '17px 40px', background: 'linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%)', color: 'var(--bg)', fontFamily: 'var(--sans)', fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, textDecoration: 'none', transition: 'box-shadow 0.4s ease, transform 0.2s ease' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 0 50px rgba(255,223,143,0.35)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}
               >
                 Run the 3-minute audit →
               </a>

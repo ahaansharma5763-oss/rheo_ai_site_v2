@@ -27,12 +27,12 @@ export default function PulseGuarantee() {
             <span className="eyebrow" style={{ display: 'block', marginBottom: '20px', color: 'var(--gold-end)' }}>The guarantee</span>
 
             <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(30px, 4.4vw, 52px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.1, fontWeight: 600, marginBottom: '24px', maxWidth: '18ch', marginInline: 'auto' }}>
-              If Pulse does not pay for itself in 60 days, you pay nothing<span style={{ color: 'var(--gold)' }}>.</span>
+              If Okeanos does not pay for itself in 60 days, you pay nothing<span style={{ color: 'var(--gold)' }}>.</span>
             </h2>
 
             <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.4vw, 18px)', lineHeight: 1.75, color: 'var(--muted-cream)', fontWeight: 300, maxWidth: '56ch', margin: '0 auto 22px' }}>
-              Pulse needs about 60 days to do its work properly — to revive a pipeline, nurture relationships back to life,
-              and learn your customers. So here is our promise. Give Pulse 60 days. If it has not brought back more than it
+              Okeanos needs about 60 days to do its work properly — to revive a pipeline, nurture relationships back to life,
+              and learn your customers. So here is our promise. Give Okeanos 60 days. If it has not brought back more than it
               cost you in that time, we refund every rupee you have paid. All of it.
             </p>
 

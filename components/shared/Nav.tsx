@@ -7,8 +7,8 @@ const LINKS = [
   { label: 'Work',  href: '/#work' },
   { label: 'About', href: '/about' },
   { label: 'Athena', href: '/sales-engineer' },
-  { label: 'Pulse', href: '/pulse' },
-  { label: 'Revival', href: '/revival-sprint' },
+  { label: 'Okeanos', href: '/okeanos' },
+  { label: 'Sprint', href: '/revival-sprint' },
   { label: 'Pilot', href: '/pilot' },
   { label: 'Audit', href: 'https://audit.rheoai.co.in' },
 ];

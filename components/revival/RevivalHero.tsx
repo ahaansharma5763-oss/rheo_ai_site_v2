@@ -138,8 +138,8 @@ export default function RevivalHero() {
         .rev-inner { position:relative; z-index:2; display:flex; align-items:center; width:100%; max-width:1240px; margin:0 auto; padding:128px var(--rail-pad) 80px; gap:56px; }
         .rev-copy  { flex:1 1 0; min-width:0; animation:revRise 0.9s cubic-bezier(0.2,0.6,0.2,1) both; }
         .rev-demo  { flex:0 0 430px; animation:revRise 1s cubic-bezier(0.2,0.6,0.2,1) 0.15s both; }
-        .rev-btn { display:inline-block; padding:17px 42px; border:1px solid var(--gold); background:transparent; color:var(--warm-foam); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; text-decoration:none; transition: background 0.3s cubic-bezier(0.2,0.6,0.2,1), transform 0.3s cubic-bezier(0.2,0.6,0.2,1); }
-        .rev-btn:hover { background: rgba(196,162,90,0.1); transform: translateY(-2px); }
+        .rev-btn { display:inline-block; padding:17px 42px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition: box-shadow 0.4s ease, transform 0.2s ease; }
+        .rev-btn:hover { box-shadow:0 0 50px rgba(255,223,143,0.35); transform: translateY(-2px); }
         .rev-audit-link { font-family:var(--sans); font-size:12.5px; letter-spacing:0.06em; color:var(--crest); text-decoration:none; border-bottom:1px solid rgba(63,174,222,0.4); padding-bottom:3px; }
         @media(max-width:960px) {
           .rev-inner { flex-direction:column !important; padding:120px 24px 64px !important; gap:44px !important; }
@@ -153,7 +153,7 @@ export default function RevivalHero() {
       <div className="rev-inner">
         <div className="rev-copy">
           <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '.44em', margin: '0 0 22px 0', opacity: 0.85 }}>
-            The Revival Sprint · A Rheo AI Campaign
+            The Revival Sprint · Day One of Okeanos
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(38px, 5.4vw, 70px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.06, margin: '0 0 26px 0', fontWeight: 500 }}>
             We turn your dead leads into booked revenue. In 21 days.
@@ -173,7 +173,7 @@ export default function RevivalHero() {
               Or measure the leak first: run the 3-minute audit
             </a>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.02em', color: 'var(--fg-dim)', lineHeight: 1.65, maxWidth: '52ch', margin: 0 }}>
-              Built by Rheo AI, the team behind Athena and Pulse. If the Sprint does not recover more than twice
+              Built by Rheo AI, the team behind Athena and Okeanos. If the Sprint does not recover more than twice
               what it costs, you only cover the small holding deposit.
             </p>
           </div>

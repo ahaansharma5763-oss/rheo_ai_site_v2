@@ -17,8 +17,8 @@ const ENGINEER: Side = {
 };
 
 const PULSE: Side = {
-  name: 'Pulse', tag: 'The journey', icon: 'heart',
-  lead: 'Pulse runs the whole house.',
+  name: 'Okeanos', tag: 'The journey', icon: 'heart',
+  lead: 'Okeanos runs the whole house.',
   points: [
     'Revives the leads that went cold long ago',
     'Nurtures the interested-but-not-ready, wins back past customers',
@@ -69,7 +69,7 @@ export default function PulseVsEngineer() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', textAlign: 'center', marginBottom: '20px', color: 'var(--gold-end)' }}>
-            Pulse and Athena
+            Okeanos and Athena
           </span>
         </Reveal>
         <Reveal delay={120}>
@@ -79,7 +79,7 @@ export default function PulseVsEngineer() {
         </Reveal>
         <Reveal delay={220}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.7, color: 'var(--fg-mute)', fontWeight: 300, textAlign: 'center', maxWidth: '60ch', margin: '0 auto clamp(48px, 7vh, 72px)' }}>
-            Athena is the conversation. Pulse is the journey. One catches every opportunity at the front. The other makes sure every opportunity is carried all the way through.
+            Athena is the conversation. Okeanos is the journey. One catches every opportunity at the front. The other makes sure every opportunity is carried all the way through.
           </p>
         </Reveal>
 

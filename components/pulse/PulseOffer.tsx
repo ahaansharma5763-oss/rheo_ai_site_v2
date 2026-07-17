@@ -10,9 +10,9 @@ const OFFER: OfferItem[] = [
   { icon: 'refresh',      title: 'We revive your entire pipeline for you', body: 'Every cold lead from the last several months gets a fresh, personal reason to come back. Done for you, starting day one.' },
   { icon: 'eye',          title: 'Every new lead read and followed up',     body: 'Read, understood, and answered at the perfect moment, in your voice, with zero manual work from you or your team.' },
   { icon: 'bolt',         title: 'Hot-lead alerts and at-risk flags',       body: 'A ping the second someone is ready to buy, and a heads-up before a good customer quietly drifts away.' },
-  { icon: 'users',        title: 'Past customers won back on autopilot',    body: 'Pulse stays in touch with people who already bought and brings them back, so repeat revenue stops being accidental.' },
+  { icon: 'users',        title: 'Past customers won back on autopilot',    body: 'Okeanos stays in touch with people who already bought and brings them back, so repeat revenue stops being accidental.' },
   { icon: 'sparkle',      title: 'Built around your business, live in days', body: 'Configured to your offers and your voice, handed over ready to run. Nothing to learn, nothing to log into every morning.' },
-  { icon: 'shield',       title: 'Backed by a 60-day money-back promise',   body: 'If Pulse does not bring back more than it costs you in 60 days, you pay nothing. All of it refunded.' },
+  { icon: 'shield',       title: 'Backed by a 60-day money-back promise',   body: 'If Okeanos does not bring back more than it costs you in 60 days, you pay nothing. All of it refunded.' },
 ];
 
 export default function PulseOffer() {
@@ -23,7 +23,7 @@ export default function PulseOffer() {
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <Reveal>
           <span className="eyebrow" style={{ display: 'block', marginBottom: '20px', color: 'var(--gold-end)' }}>
-            The Pulse offer
+            The Okeanos offer
           </span>
         </Reveal>
 
@@ -65,7 +65,7 @@ export default function PulseOffer() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', padding: 'clamp(22px, 2.6vw, 30px) clamp(24px, 3vw, 36px)', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(196,162,90,0.1) 0%, rgba(11,23,41,0.6) 70%)', border: '1px solid rgba(196,162,90,0.35)' }}>
             <Icon name="target" size={26} color="var(--gold)" />
             <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(17px, 1.9vw, 23px)', lineHeight: 1.45, color: 'var(--warm-foam)', fontWeight: 500, fontStyle: 'italic', flex: 1, minWidth: '260px' }}>
-              One recovered customer usually covers the entire system. Pulse goes back and brings back many.
+              One recovered customer usually covers the entire system. Okeanos goes back and brings back many.
             </p>
           </div>
         </Reveal>

@@ -17,8 +17,8 @@ import Footer from '@/components/shared/Footer'
 import PageGradient from '@/components/shared/PageGradient'
 
 export const metadata = {
-  title: 'Pulse, Rheo AI Customer Journey Intelligence',
-  description: 'Pulse is the intelligence layer that reads every lead, understands what each person needs, and reaches out at the moment they are ready to buy — reviving dead pipelines and winning back customers automatically.',
+  title: 'Okeanos, Rheo AI Customer Journey Intelligence',
+  description: 'Okeanos is the intelligence layer that reads every lead, understands what each person needs, and reaches out at the moment they are ready to buy — reviving dead pipelines and winning back customers automatically.',
 }
 
 export default function PulsePage() {

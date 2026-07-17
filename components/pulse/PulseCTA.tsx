@@ -19,14 +19,14 @@ export default function PulseCTA() {
       <div style={{ position: 'relative', zIndex: 2, maxWidth: '760px', margin: '0 auto' }}>
         <Reveal>
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(38px, 6vw, 68px)', color: 'var(--fg)', letterSpacing: '-0.025em', lineHeight: 1.08, margin: 0, fontWeight: 600 }}>
-            The revenue is already yours. Let Pulse go and get it<span style={{ color: 'var(--gold)' }}>.</span>
+            The revenue is already yours. Let Okeanos go and get it<span style={{ color: 'var(--gold)' }}>.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={180}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '18px', lineHeight: 1.7, color: 'var(--muted-cream)', fontWeight: 300, maxWidth: '52ch', margin: '32px auto 0' }}>
             Every day you wait, another batch of leads goes quiet for good. Book a Pipeline Review and we will show you,
-            with your own numbers, exactly what Pulse can bring back.
+            with your own numbers, exactly what Okeanos can bring back.
           </p>
         </Reveal>
 
@@ -36,7 +36,7 @@ export default function PulseCTA() {
               Book Your Pipeline Review →
             </a>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.06em', color: 'var(--fg-dim)', maxWidth: '46ch', lineHeight: 1.6 }}>
-              Backed by our 60-day money-back promise. If Pulse does not pay for itself, you pay nothing.
+              Backed by our 60-day money-back promise. If Okeanos does not pay for itself, you pay nothing.
             </p>
             <a href="/revival-sprint" style={{ fontFamily: 'var(--sans)', fontSize: '12.5px', letterSpacing: '0.08em', color: 'var(--crest)', textDecoration: 'none', borderBottom: '1px solid rgba(63,174,222,0.4)', paddingBottom: '3px' }}>
               Not ready for the full system? Start with a Revival Sprint instead

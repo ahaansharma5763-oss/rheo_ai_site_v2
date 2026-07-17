@@ -12,8 +12,8 @@ export default function RevivalCTA() {
       <div aria-hidden style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 70% 55% at 50% 40%, rgba(5,14,29,0.5) 0%, transparent 75%)' }} />
 
       <style>{`
-        .rev-cta-btn { display:inline-block; padding:18px 44px; border:1px solid var(--gold); background:transparent; color:var(--warm-foam); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:500; text-decoration:none; transition: background 0.3s cubic-bezier(0.2,0.6,0.2,1), transform 0.3s cubic-bezier(0.2,0.6,0.2,1); }
-        .rev-cta-btn:hover { background: rgba(196,162,90,0.1); transform: translateY(-2px); }
+        .rev-cta-btn { display:inline-block; padding:18px 44px; background:linear-gradient(135deg,#FFDF8F 0%,#C4A25A 60%,#C6BCA3 100%); color:var(--bg); font-family:var(--sans); font-size:13px; letter-spacing:0.2em; text-transform:uppercase; font-weight:700; text-decoration:none; transition: box-shadow 0.4s ease, transform 0.2s ease; }
+        .rev-cta-btn:hover { box-shadow:0 0 50px rgba(255,223,143,0.35); transform: translateY(-2px); }
       `}</style>
 
       <div style={{ position: 'relative', zIndex: 2, maxWidth: '760px', margin: '0 auto' }}>

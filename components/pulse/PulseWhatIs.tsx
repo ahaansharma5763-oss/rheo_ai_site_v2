@@ -7,10 +7,10 @@ import Icon, { IconName } from '@/components/ui/icon';
 interface Pillar { num: string; icon: IconName; verb: string; description: string; }
 
 const PILLARS: Pillar[] = [
-  { num: '01', icon: 'eye',         verb: 'It reads',    description: 'Every message, every signal, every moment of interest or hesitation. Pulse always knows where each person is in their journey.' },
-  { num: '02', icon: 'brain',       verb: 'It decides',  description: 'Based on what each person actually needs, Pulse chooses the right next move — a fast path to yes, reassurance, or a reason to come back.' },
-  { num: '03', icon: 'bolt',        verb: 'It acts',     description: 'Pulse reaches out with a message written specifically for that person and that moment. It feels personal because it is personal.' },
-  { num: '04', icon: 'refresh',     verb: 'It learns',   description: 'Every response makes the next move smarter. Over time Pulse understands your customers better than any spreadsheet ever could.' },
+  { num: '01', icon: 'eye',         verb: 'It reads',    description: 'Every message, every signal, every moment of interest or hesitation. Okeanos always knows where each person is in their journey.' },
+  { num: '02', icon: 'brain',       verb: 'It decides',  description: 'Based on what each person actually needs, Okeanos chooses the right next move — a fast path to yes, reassurance, or a reason to come back.' },
+  { num: '03', icon: 'bolt',        verb: 'It acts',     description: 'Okeanos reaches out with a message written specifically for that person and that moment. It feels personal because it is personal.' },
+  { num: '04', icon: 'refresh',     verb: 'It learns',   description: 'Every response makes the next move smarter. Over time Okeanos understands your customers better than any spreadsheet ever could.' },
 ];
 
 export default function PulseWhatIs() {
@@ -33,7 +33,7 @@ export default function PulseWhatIs() {
 
         <Reveal delay={240}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.75, color: 'var(--fg-mute)', fontWeight: 300, maxWidth: '64ch', marginBottom: 'clamp(56px, 8vh, 88px)' }}>
-            Pulse does the opposite of broadcasting. It treats every lead as one person — because that is what they are.
+            Okeanos does the opposite of broadcasting. It treats every lead as one person — because that is what they are.
             It sits quietly inside your business and manages the full life of every relationship, from the first hello to
             the moment they refer their friends. Four things, continuously, without you lifting a finger:
           </p>

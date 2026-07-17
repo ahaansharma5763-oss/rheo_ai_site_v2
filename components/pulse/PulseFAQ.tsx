@@ -8,13 +8,13 @@ import Icon from '@/components/ui/icon';
 interface QA { q: string; a: string; }
 
 const FAQS: QA[] = [
-  { q: 'Do I need to change my tools or learn anything new?', a: 'No. Pulse works with what you already use, starting with WhatsApp. It is built for you, configured to your business, and handed over ready to run. There is nothing to learn and nothing to manage.' },
-  { q: 'Will it sound like a robot?', a: 'The opposite. Every message is written in your voice and references what each person actually said. The entire point of Pulse is that it does not sound automated. Customers feel remembered, not processed.' },
-  { q: 'How is this different from the WhatsApp tools I have seen?', a: 'Most of those send messages — they blast the same thing to a list on a schedule. Pulse reads each message, understands the person behind it, and responds differently based on what they actually need. One is a megaphone. The other is intelligence.' },
-  { q: 'What if I already run Athena?', a: 'Then you are already ahead. Athena, our AI Sales Engineer, and Pulse are designed to work as one system. Athena handles the first conversation, Pulse handles the entire journey around it. Running both closes the loop completely.' },
-  { q: 'Can I test this before committing to the full system?', a: 'Yes. The Revival Sprint is exactly that: a single 21-day reactivation campaign on your dormant list, with its own guarantee. Most Pulse clients start there, see what came back, and upgrade.' },
-  { q: 'How quickly will I see results?', a: 'Many businesses see the first recovered customer within the first week or two, as Pulse works through the dormant pipeline. The full effect builds over the 60 days the guarantee is based on.' },
-  { q: 'How do I get started?', a: 'Book a Pipeline Review. We will look at what is sitting in your pipeline right now and show you exactly how much revenue Pulse can go and recover. No pressure, no obligation.' },
+  { q: 'Do I need to change my tools or learn anything new?', a: 'No. Okeanos works with what you already use, starting with WhatsApp. It is built for you, configured to your business, and handed over ready to run. There is nothing to learn and nothing to manage.' },
+  { q: 'Will it sound like a robot?', a: 'The opposite. Every message is written in your voice and references what each person actually said. The entire point of Okeanos is that it does not sound automated. Customers feel remembered, not processed.' },
+  { q: 'How is this different from the WhatsApp tools I have seen?', a: 'Most of those send messages — they blast the same thing to a list on a schedule. Okeanos reads each message, understands the person behind it, and responds differently based on what they actually need. One is a megaphone. The other is intelligence.' },
+  { q: 'What if I already run Athena?', a: 'Then you are already ahead. Athena, our AI Sales Engineer, and Okeanos are designed to work as one system. Athena handles the first conversation, Okeanos handles the entire journey around it. Running both closes the loop completely.' },
+  { q: 'Can I test this before committing to the full system?', a: 'Yes. The Revival Sprint is exactly that: a single 21-day reactivation campaign on your dormant list, with its own guarantee. Most Okeanos clients start there, see what came back, and upgrade.' },
+  { q: 'How quickly will I see results?', a: 'Many businesses see the first recovered customer within the first week or two, as Okeanos works through the dormant pipeline. The full effect builds over the 60 days the guarantee is based on.' },
+  { q: 'How do I get started?', a: 'Book a Pipeline Review. We will look at what is sitting in your pipeline right now and show you exactly how much revenue Okeanos can go and recover. No pressure, no obligation.' },
 ];
 
 function Item({ qa, open, onToggle }: { qa: QA; open: boolean; onToggle: () => void }) {

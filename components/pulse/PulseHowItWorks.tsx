@@ -8,9 +8,9 @@ interface Step { num: string; icon: IconName; title: string; sub: string; }
 
 const STEPS: Step[] = [
   { num: '01', icon: 'grid',        title: 'We map your pipeline',        sub: 'Every lead and customer you have — in WhatsApp, your CRM, your notes. Most owners are shocked at how much is sitting there.' },
-  { num: '02', icon: 'brain',       title: 'We build your intelligence',  sub: 'Pulse is configured around your business, offers, and voice, and the exact way your customers move from interested to sold. Done for you.' },
-  { num: '03', icon: 'bolt',        title: 'Pulse goes to work',          sub: 'On day one it starts reviving your dormant pipeline. From then on, every new lead is read, understood, and nurtured at the perfect moment.' },
-  { num: '04', icon: 'trending-up', title: 'You watch the pipeline move', sub: 'Booked calls. Recovered customers. Returning clients. You see exactly what Pulse is doing and exactly what it is bringing back.' },
+  { num: '02', icon: 'brain',       title: 'We build your intelligence',  sub: 'Okeanos is configured around your business, offers, and voice, and the exact way your customers move from interested to sold. Done for you.' },
+  { num: '03', icon: 'bolt',        title: 'Okeanos goes to work',          sub: 'On day one it starts reviving your dormant pipeline. From then on, every new lead is read, understood, and nurtured at the perfect moment.' },
+  { num: '04', icon: 'trending-up', title: 'You watch the pipeline move', sub: 'Booked calls. Recovered customers. Returning clients. You see exactly what Okeanos is doing and exactly what it is bringing back.' },
 ];
 
 export default function PulseHowItWorks() {

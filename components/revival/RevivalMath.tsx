@@ -42,8 +42,8 @@ export default function RevivalMath() {
         .rev-range::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:18px; height:18px; background:#0B2147; border:1px solid #B8933F; cursor:pointer; }
         .rev-range::-moz-range-thumb { width:18px; height:18px; background:#0B2147; border:1px solid #B8933F; cursor:pointer; border-radius:0; }
         .rev-rate-btn { font-family:var(--sans); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; padding:10px 18px; cursor:pointer; background:transparent; transition: all 0.25s cubic-bezier(0.2,0.6,0.2,1); }
-        .rev-light-btn { display:inline-block; padding:16px 38px; border:1px solid #B8933F; background:transparent; color:#0B2147; font-family:var(--sans); font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; text-decoration:none; transition: background 0.3s cubic-bezier(0.2,0.6,0.2,1), transform 0.3s cubic-bezier(0.2,0.6,0.2,1); }
-        .rev-light-btn:hover { background: rgba(184,147,63,0.12); transform: translateY(-2px); }
+        .rev-light-btn { display:inline-block; padding:16px 38px; background:#0B2147; border:1px solid #B8933F; color:#FFDF8F; font-family:var(--sans); font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; text-decoration:none; transition: box-shadow 0.4s ease, transform 0.2s ease; }
+        .rev-light-btn:hover { box-shadow:0 0 40px rgba(184,147,63,0.4); transform: translateY(-2px); }
       `}</style>
 
       <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 1 }}>

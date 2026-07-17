@@ -26,7 +26,7 @@ export default function PulseWhoFor() {
 
         <Reveal delay={140}>
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(30px, 4.4vw, 50px)', lineHeight: 1.14, letterSpacing: '-0.02em', color: 'var(--fg)', fontWeight: 500, maxWidth: '22ch', marginBottom: 'clamp(40px, 6vh, 60px)' }}>
-            Pulse is built for you if<span style={{ color: 'var(--gold)' }}>:</span>
+            Okeanos is built for you if<span style={{ color: 'var(--gold)' }}>:</span>
           </h2>
         </Reveal>
 
@@ -45,7 +45,7 @@ export default function PulseWhoFor() {
 
         <Reveal delay={120}>
           <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(18px, 2vw, 24px)', lineHeight: 1.5, color: 'var(--warm-foam)', fontWeight: 500, fontStyle: 'italic', marginTop: 'clamp(40px, 6vh, 56px)', maxWidth: '60ch' }}>
-            If a single recovered customer would more than cover what an intelligent follow-up system costs, the math is already decided. Pulse simply makes it happen, on repeat.
+            If a single recovered customer would more than cover what an intelligent follow-up system costs, the math is already decided. Okeanos simply makes it happen, on repeat.
           </p>
         </Reveal>
       </div>

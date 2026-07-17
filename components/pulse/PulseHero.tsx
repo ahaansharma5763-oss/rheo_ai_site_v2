@@ -6,7 +6,7 @@ import Icon, { IconName } from '@/components/ui/icon';
 
 /* ────────────────────────────────────────────────
  * Live "pipeline revival" demo. A column of dormant
- * leads. Pulse reads each one, reaches out, and the
+ * leads. Okeanos reads each one, reaches out, and the
  * lead comes back to life — booked, recovered, or
  * re-engaged. A revenue counter ticks up alongside.
  * ──────────────────────────────────────────────── */
@@ -16,7 +16,7 @@ type Phase = 'dormant' | 'reading' | 'reaching' | 'live';
 interface Lead {
   name: string;
   context: string;     // why they went cold
-  outcome: string;     // what Pulse turned it into
+  outcome: string;     // what Okeanos turned it into
   value: number;       // revenue recovered
 }
 
@@ -184,17 +184,22 @@ export default function PulseHero() {
       <div className="pulse-inner">
         <div className="pulse-copy">
           <p style={{ fontFamily: 'var(--sans)', fontSize: '10px', color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '.44em', margin: '0 0 22px 0', opacity: 0.85 }}>
-            Customer Journey Orchestration · A Rheo AI Product
+            Okeanos · Customer Journey Orchestration · Rheo AI
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px,5.4vw,72px)', color: 'var(--fg)', letterSpacing: '-0.022em', lineHeight: 1.04, margin: '0 0 26px 0', fontWeight: 600 }}>
             Your next 50 customers are{' '}
             <span className="gold-text" style={{ animation: 'pulseGlow 4s ease-in-out infinite' }}>already in your phone</span>.
           </h1>
           <p style={{ fontFamily: 'var(--sans)', fontSize: 'clamp(15px,1.4vw,18px)', color: 'var(--fg-mute)', fontWeight: 300, lineHeight: 1.7, maxWidth: '54ch', margin: '0 0 26px 0' }}>
-            Pulse is your Customer Journey Orchestration layer. It reads every lead, understands exactly what each
+            Okeanos is your Customer Journey Orchestration layer. It reads every lead, understands exactly what each
             person needs, and reaches out at the moment they are ready to buy. It runs the full journey for you,
             from the first hello to the day they refer their friends. Not broadcasts. Not generic check-in templates.
             Real conversations that bring people back and turn them into paying customers.
+          </p>
+
+          <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '14.5px', color: 'var(--muted-cream)', lineHeight: 1.65, maxWidth: '52ch', margin: '0 0 26px 0' }}>
+            Rheo is Greek for flow. Okeanos is the river that circles the world without beginning or end.
+            That is what this system is: a current your customers never drift out of.
           </p>
 
           <div className="pulse-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
@@ -236,7 +241,7 @@ export default function PulseHero() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
                 <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 10px var(--gold)', animation: 'pulseRing 1.6s ease-out infinite' }} />
                 <span style={{ fontFamily: 'var(--sans)', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--crest)', fontWeight: 500 }}>
-                  Pulse · reviving your pipeline
+                  Okeanos · reviving your pipeline
                 </span>
               </div>
               <span style={{ fontFamily: 'var(--mono)', fontSize: '11px', color: 'var(--fg-dim)' }}>{liveCount}/{LEADS.length}</span>
