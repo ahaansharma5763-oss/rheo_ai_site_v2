@@ -42,7 +42,7 @@ export default function AboutHero() {
           fontWeight: 400,
           maxWidth: '20ch',
         }}>
-          We design the <span style={{ color: 'var(--fg-mute)' }}>connective tissue</span> between every system in your business<span style={{ color: 'var(--gold)' }}>.</span>
+          We own the gap where <span style={{ color: 'var(--fg-mute)' }}>customers get lost</span><span style={{ color: 'var(--gold)' }}>.</span>
         </h1>
       </Reveal>
 
@@ -55,10 +55,11 @@ export default function AboutHero() {
           fontWeight: 300,
           maxWidth: '60ch',
         }}>
-          Rheo AI is an AI-native infrastructure studio. We build intelligent workflows and agentic
-          systems that let a business&apos;s data, tools, and people talk to each other across customers,
-          operations, partners, and supply. Not an agency. Not a SaaS subscription. The team that
-          builds the layer your stack is missing.
+          There is a stretch in every business between someone saying they are interested and that
+          person paying you. Nobody owns it, so people fall through it. We own it. Rheo AI builds the
+          system that runs it: every enquiry answered in under a minute, followed up until it is
+          settled, booked into the calendar, and remembered permanently. Not an agency. Not a SaaS
+          subscription.
         </p>
       </Reveal>
       </div>

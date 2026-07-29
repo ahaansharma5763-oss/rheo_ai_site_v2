@@ -54,10 +54,9 @@ export default function WhatWeBuildToward() {
             maxWidth: '62ch',
             marginBottom: '32px',
           }}>
-            We do not believe these businesses need another dashboard to ignore. They need
-            infrastructure. A nervous system. Agentic workflows that let customers, operations,
-            partners, suppliers, and manufacturers all share a single stream of intent. Custom-built.
-            Owned by the business. Designed to compound.
+            We do not believe these businesses need another dashboard to ignore. They need the work
+            itself handled. Systems that answer, follow up, book, remember and report on their own.
+            Custom-built. Owned by the business. More valuable every month instead of less.
           </p>
         </Reveal>
 
@@ -71,8 +70,8 @@ export default function WhatWeBuildToward() {
             maxWidth: '62ch',
             marginBottom: '32px',
           }}>
-            That is what we are building, one business at a time. A quiet operating fabric for
-            companies that intend to compound for decades. We are at the start of that work. There is
+            That is what we are building, one business at a time. Quiet systems that run for years,
+            for owners who intend to be here for decades. We are at the start of that work. There is
             a long way to go.
           </p>
         </Reveal>

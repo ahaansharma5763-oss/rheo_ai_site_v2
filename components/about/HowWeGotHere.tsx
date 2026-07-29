@@ -7,7 +7,7 @@ const TIMELINE = [
     year: 'Early 2026',
     title: 'The first attempt.',
     body:
-      'Rheo started with a single product: an automated deadline tracker for accounting firms. Built on Make, OpenAI, and Google Sheets. The product worked. The market was too narrow. We learned that selling one feature is not the same as selling infrastructure.',
+      'Rheo started with a single product: an automated deadline tracker for accounting firms. Built on Make, OpenAI, and Google Sheets. The product worked. The market was too narrow. We learned that selling one feature is not the same as solving the whole problem.',
   },
   {
     year: 'Spring 2026',
@@ -19,13 +19,13 @@ const TIMELINE = [
     year: 'Summer 2026',
     title: 'The first deployment.',
     body:
-      'Ascend Arena, a premium football turf, went live on a Rheo-built operating fabric. Two hundred bookings later, no double-bookings, no missed enquiries, no manual coordination. One business now runs without a human in the booking loop. We knew the model was right.',
+      'Ascend Arena, a premium football turf, went live on a Rheo-built booking system. Two hundred bookings later, no double-bookings, no missed enquiries, no manual coordination. One business now runs without a human in the booking loop. We knew the model was right.',
   },
   {
     year: 'Today',
-    title: 'AI-native infrastructure.',
+    title: 'The follow-up problem.',
     body:
-      'A capability map across four intelligent layers: customer, operations, network, and decision. Implementations shipping across detailing, hospitality, and law. The thesis is no longer "automate this one thing." It is "build the connective tissue that lets a business compound." Every engagement custom-scoped, retainer-backed, owned by the client.',
+      'Deployments running across clinics, detailing, fitness, catering and consulting. The thesis is no longer "automate this one thing." It is "own the gap where customers get lost." Every engagement custom-scoped, retainer-backed, owned by the client.',
   },
 ];
 

@@ -3,76 +3,106 @@
 import Link from 'next/link';
 
 const LINKS = [
-  { label: 'Work',    href: '/#work' },
-  { label: 'About',   href: '/about' },
-  { label: 'Athena', href: '/sales-engineer' },
+  { label: 'What we build', href: '/what-we-build' },
+  { label: 'Results', href: '/work' },
+  { label: 'About', href: '/about' },
+  { label: 'Get your leak number', href: 'https://audit.rheoai.co.in' },
+  { label: 'Book a call', href: 'https://calendly.com/ahaan-rheoai-xnxc/30min' },
   { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
 ];
 
 export default function Footer() {
   return (
-    <footer style={{
-      background: 'var(--bg-low)',
-      borderTop: '1px solid rgba(46,116,172,0.12)',
-      padding: '80px var(--rail-pad)',
-    }}>
-      <div style={{
-        maxWidth: 'var(--container-max)',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '48px',
-        textAlign: 'center',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{
-            fontFamily: 'var(--mono)',
-            color: 'var(--crest)',
-            letterSpacing: '0.4em',
-            fontSize: '18px',
-            fontWeight: 500,
-          }}>
+    <footer
+      style={{
+        background: 'var(--bg-low)',
+        /* The footer's one gold: a single hairline rule at the top */
+        borderTop: '1px solid rgba(196,162,90,0.35)',
+        padding: '80px var(--rail-pad)',
+        position: 'relative',
+        zIndex: 1,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 'var(--container-max)',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '40px',
+          textAlign: 'center',
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+          <span
+            style={{
+              fontFamily: 'var(--serif)',
+              color: 'var(--fg)',
+              letterSpacing: '0.3em',
+              fontSize: '17px',
+              fontWeight: 400,
+            }}
+          >
             RHEO AI
+          </span>
+          <span style={{ fontFamily: 'var(--sans)', fontSize: '13px', letterSpacing: '0.04em', color: 'var(--text-2)' }}>
+            Answers in seconds. Forgets nothing.
           </span>
         </div>
 
-        <nav style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: 'clamp(20px, 4vw, 56px)',
-        }}>
-          {LINKS.map(l => (
-            <Link
-              key={l.label}
-              href={l.href}
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.28em',
-                textTransform: 'uppercase',
-                color: 'var(--muted-cream)',
-                fontWeight: 500,
-              }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--gold-end)'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted-cream)'}
-            >
-              {l.label}
-            </Link>
-          ))}
+        <nav style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(18px, 3.5vw, 48px)' }}>
+          {LINKS.map(l =>
+            l.href.startsWith('/') ? (
+              <Link
+                key={l.label}
+                href={l.href}
+                style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '11px',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: 'var(--text-2)',
+                  fontWeight: 500,
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = 'var(--fg)')}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'var(--text-2)')}
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '11px',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: 'var(--text-2)',
+                  fontWeight: 500,
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = 'var(--fg)')}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'var(--text-2)')}
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </nav>
 
-        <div style={{ width: '96px', height: '1px', background: 'rgba(46,116,172,0.25)' }} />
+        <div style={{ width: '96px', height: '1px', background: 'var(--line-soft)' }} />
 
-        <div style={{
-          fontFamily: 'var(--sans)',
-          fontSize: '10px',
-          letterSpacing: '0.4em',
-          textTransform: 'uppercase',
-          color: 'rgba(198,188,163,0.5)',
-          fontWeight: 500,
-        }}>
+        <div
+          style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '10px',
+            letterSpacing: '0.4em',
+            textTransform: 'uppercase',
+            color: 'var(--text-3)',
+            fontWeight: 500,
+          }}
+        >
           © 2026 Rheo AI &nbsp;·&nbsp; ρέω &nbsp;·&nbsp; 流れ
         </div>
       </div>
