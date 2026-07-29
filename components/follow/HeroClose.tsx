@@ -133,9 +133,9 @@ export function FYHero() {
       {/* Mobile fold fix: headline + button in the first viewport, subhead after */}
       <style>{`
         @media (max-width: 600px) {
-          .fy-hero-col > * { order: 2; }
-          .fy-hero-col > *:first-child { order: 0; }
-          .fy-hero-col > *:last-child { order: 1; margin-bottom: 36px; }
+          .fy-hero-col > * { order: 2 !important; }
+          .fy-hero-col > *:first-child { order: 0 !important; }
+          .fy-hero-col > *:last-child { order: 1 !important; margin-bottom: 36px; }
         }
       `}</style>
 
