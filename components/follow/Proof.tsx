@@ -53,7 +53,7 @@ export function FYProof() {
             style={{
               fontFamily: 'var(--serif)',
               fontWeight: 400,
-              fontSize: 'clamp(1.9rem, 3.6vw, 2.6rem)',
+              fontSize: 'var(--fs-h2)',
               color: 'var(--fg)',
               marginBottom: 'clamp(40px, 6vh, 56px)',
             }}
@@ -85,10 +85,10 @@ export function FYProof() {
                 <div style={{ fontFamily: 'var(--serif)', fontWeight: 400, fontSize: 'clamp(1.7rem, 2.6vw, 2.2rem)', lineHeight: 1.1, color: 'var(--fg)', marginBottom: '18px' }}>
                   {c.stat}
                 </div>
-                <p style={{ fontFamily: 'var(--sans)', fontSize: '14.5px', lineHeight: 1.7, color: 'var(--text-2)', marginBottom: '22px', flex: 1 }}>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '14.5px', lineHeight: 'var(--lh-body)', color: 'var(--text-2)', marginBottom: '22px', flex: 1 }}>
                   {c.line}
                 </p>
-                <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 400, fontSize: '15px', lineHeight: 1.6, color: 'var(--fg)', marginBottom: '10px' }}>
+                <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 400, fontSize: 'var(--fs-body-sm)', lineHeight: 1.6, color: 'var(--fg)', marginBottom: '10px' }}>
                   {c.quote}
                 </p>
                 <p style={{ fontFamily: 'var(--mono)', fontSize: '0.62rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-3)' }}>
@@ -156,7 +156,7 @@ export function FYFaq() {
                     padding: '20px 0',
                   }}
                 >
-                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'clamp(15px, 1.4vw, 17px)', color: 'var(--fg)', lineHeight: 1.5 }}>
+                  <span style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'var(--fs-body)', color: 'var(--fg)', lineHeight: 1.5 }}>
                     {f.q}
                   </span>
                   <span
@@ -180,7 +180,7 @@ export function FYFaq() {
                     aria-labelledby={`faq-q-${i}`}
                     style={{
                       fontFamily: 'var(--sans)',
-                      fontSize: '15px',
+                      fontSize: 'var(--fs-body-sm)',
                       lineHeight: 1.75,
                       color: 'var(--text-2)',
                       padding: '0 0 22px',

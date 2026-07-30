@@ -180,27 +180,21 @@ function Frame() {
 }
 
 const LIST_A = [
-  'Where it came from. WhatsApp, Instagram, website, referral.',
-  'The full conversation. Exactly what the customer asked, and exactly what was said back. Nothing hidden.',
-  'What stage they are at. New, answered, qualified, quoted, booked, completed, or lost.',
-  'Whether they are hot, warm or cold.',
-  'What they asked about and what they were quoted.',
-  'Which follow-up they are on, and when the next one goes out.',
-  'Whose turn it is. Yours, or theirs.',
+  'The full conversation. What they asked, what was said back. Nothing hidden.',
+  'What stage they are at, and whether they are hot, warm or cold.',
+  'Which follow-up they are on, and whose turn it is. Yours, or theirs.',
 ];
 
 const LIST_B = [
-  'How many enquiries you got this week, and how many turned into bookings.',
-  'Your average order value, which most owners are surprised by.',
-  'Which service brings in the most money, and which one only looks like it does.',
-  'Which channel brings you customers who actually spend, and which one brings you time-wasters.',
+  'Enquiries this week, and how many became bookings.',
+  'Your average order value, and which service actually earns.',
   'Who is sitting there unattended right now, waiting on you.',
 ];
 
 const BODY: React.CSSProperties = {
   fontFamily: 'var(--sans)',
-  fontSize: 'clamp(15px, 1.3vw, 17px)',
-  lineHeight: 1.75,
+  fontSize: 'var(--fs-body)',
+  lineHeight: 'var(--lh-body)',
   color: 'var(--text-2)',
 };
 
@@ -216,7 +210,7 @@ export function FYDashboard() {
             style={{
               fontFamily: 'var(--serif)',
               fontWeight: 400,
-              fontSize: 'clamp(1.9rem, 3.6vw, 2.6rem)',
+              fontSize: 'var(--fs-h2)',
               lineHeight: 1.15,
               color: 'var(--fg)',
               marginBottom: '18px',
@@ -244,7 +238,7 @@ export function FYDashboard() {
                 For every enquiry that has ever come in, you can see:
               </p>
               {LIST_A.map((li, i) => (
-                <p key={i} style={{ ...BODY, fontSize: '15px', padding: '12px 0', borderBottom: i < LIST_A.length - 1 ? '1px solid var(--line-soft)' : 'none' }}>
+                <p key={i} style={{ ...BODY, fontSize: 'var(--fs-body-sm)', padding: '12px 0', borderBottom: i < LIST_A.length - 1 ? '1px solid var(--line-soft)' : 'none' }}>
                   {li}
                 </p>
               ))}
@@ -254,7 +248,7 @@ export function FYDashboard() {
             <div>
               <p style={{ ...BODY, fontWeight: 500, color: 'var(--fg)', marginBottom: '8px' }}>And across all of them:</p>
               {LIST_B.map((li, i) => (
-                <p key={i} style={{ ...BODY, fontSize: '15px', padding: '12px 0', borderBottom: i < LIST_B.length - 1 ? '1px solid var(--line-soft)' : 'none' }}>
+                <p key={i} style={{ ...BODY, fontSize: 'var(--fs-body-sm)', padding: '12px 0', borderBottom: i < LIST_B.length - 1 ? '1px solid var(--line-soft)' : 'none' }}>
                   {li}
                 </p>
               ))}
@@ -267,7 +261,7 @@ export function FYDashboard() {
             You can also run the system from that same screen. Pause a follow-up. Take over a conversation
             yourself. Change what gets said.
           </p>
-          <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'clamp(16px, 1.5vw, 19px)', color: 'var(--fg)', marginTop: '16px' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'var(--fs-lead)', color: 'var(--fg)', marginTop: '16px' }}>
             Nobody updates it. It fills itself.
           </p>
         </Reveal>
@@ -327,10 +321,8 @@ function MemoryCard() {
 }
 
 const BEFORE = [
-  'Contact every customer whose service is due this month, automatically, without checking a list.',
-  'Go back to everyone who was quoted in the last six months and never went ahead.',
-  'See that customers from one source spend twice as much as customers from another, and put your money where it works.',
-  'Find out that the service you assumed was your best earner has the lowest average order value on the list.',
+  'Contact every customer whose service is due this month, without checking a list.',
+  'Go back to everyone quoted in the last six months who never went ahead.',
 ];
 
 export function FYMemory() {
@@ -342,7 +334,7 @@ export function FYMemory() {
             style={{
               fontFamily: 'var(--serif)',
               fontWeight: 400,
-              fontSize: 'clamp(1.9rem, 3.6vw, 2.6rem)',
+              fontSize: 'var(--fs-h2)',
               lineHeight: 1.15,
               color: 'var(--fg)',
               marginBottom: '28px',
@@ -355,17 +347,15 @@ export function FYMemory() {
         <div className="fy-mem-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 'clamp(32px, 5vw, 56px)', alignItems: 'start' }}>
           <Reveal delay={120}>
             <div>
-              <p style={{ ...BODY, marginBottom: '18px' }}>
-                Right now, your customer history lives in four phones and one person’s head. When that
-                person leaves, it leaves with them. This is not a criticism of how you run things. It is how
-                nearly every business of your size operates.
+              <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'var(--fs-lead)', lineHeight: 1.45, color: 'var(--fg)', marginBottom: '18px' }}>
+                Right now your customer history lives in four phones and one person’s head.
               </p>
               <p style={{ ...BODY, marginBottom: '18px' }}>
-                Once this system is running, every customer you have ever spoken to has one permanent file.
-                Who they are. What they asked about. What you quoted them. What they actually bought, and
-                when. What they said no to. When they are due to come back.
+                When that person leaves, it leaves with them. Once this is running, every customer you have
+                ever spoken to has one permanent file. What they asked, what you quoted, what they bought,
+                what they said no to, when they are due back.
               </p>
-              <p style={{ ...BODY }}>Nobody has to build this. It builds itself out of conversations that were happening anyway.</p>
+              <p style={{ ...BODY }}>Nobody builds it. It builds itself out of conversations that were happening anyway.</p>
             </div>
           </Reveal>
           <Reveal delay={240}>
@@ -381,13 +371,13 @@ export function FYMemory() {
         <div className="fy-before-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 clamp(28px, 5vw, 56px)' }}>
           {BEFORE.map((b, i) => (
             <Reveal key={i} delay={i * 100}>
-              <p style={{ ...BODY, fontSize: '15px', padding: '18px 0', borderTop: '1px solid var(--line-soft)' }}>{b}</p>
+              <p style={{ ...BODY, fontSize: 'var(--fs-body-sm)', padding: '18px 0', borderTop: '1px solid var(--line-soft)' }}>{b}</p>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={200}>
-          <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'clamp(16px, 1.5vw, 19px)', color: 'var(--fg)', marginTop: '36px' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'var(--fs-lead)', color: 'var(--fg)', marginTop: '36px' }}>
             Your customers stop being names in a phone. They become something your business owns.
           </p>
         </Reveal>

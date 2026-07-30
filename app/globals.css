@@ -52,6 +52,16 @@
   --rail-pad: clamp(24px, 5vw, 80px);
   --section-gap: clamp(80px, 14vh, 160px);
   --container-max: 1160px;
+
+  /* Type scale (2026-07-29 v2: one full step up, mobile-first legibility).
+   * Change sizes HERE, never per component. */
+  --fs-body:    clamp(16.5px, 1.15vw, 18.5px);
+  --fs-body-sm: clamp(15.5px, 1vw, 16.5px);
+  --fs-lead:    clamp(19px, 1.9vw, 24px);   /* bold lead-in on every block */
+  --fs-h2:      clamp(2.05rem, 3.9vw, 2.95rem);
+  --fs-h3:      clamp(1.2rem, 2.1vw, 1.45rem);
+  --fs-mono:    0.74rem;
+  --lh-body:    1.8;
 }
 
 html {
@@ -369,12 +379,13 @@ html, body { max-width: 100vw; overflow-x: hidden; }
 /* Phone-sized viewports: tighten vertical rhythm + typography */
 @media (max-width: 600px) {
   :root {
-    /* Smaller side rails so content gets more breathing room */
-    --rail-pad: 18px;
+    /* Slightly tighter rails, but type does NOT shrink on mobile — this
+     * audience reads on mid-range phones and 15px was too small. */
+    --rail-pad: 20px;
     /* Half the desktop section gap so the page is not 30 screens tall */
     --section-gap: clamp(56px, 9vh, 96px);
   }
-  body { font-size: 15px; }
+  body { font-size: 16px; }
   /* Prevent any oversized headline from causing horizontal scroll */
   h1, h2, h3 { word-break: break-word; overflow-wrap: anywhere; }
   /* The neural canvas is fixed at 100vh viewport units; on mobile use svh */

@@ -39,7 +39,7 @@ export function FYFramework() {
             style={{
               fontFamily: 'var(--serif)',
               fontWeight: 400,
-              fontSize: 'clamp(1.9rem, 3.6vw, 2.6rem)',
+              fontSize: 'var(--fs-h2)',
               color: '#0B2147',
               marginBottom: 'clamp(44px, 6vh, 64px)',
             }}
@@ -70,7 +70,7 @@ export function FYFramework() {
 
         <Reveal delay={200}>
           <div style={{ marginTop: 'clamp(44px, 6vh, 64px)', borderTop: '1px solid rgba(11,33,71,0.24)', paddingTop: '36px' }}>
-            <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'clamp(17px, 1.7vw, 20px)', color: '#7A6128', marginBottom: '12px' }}>
+            <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'var(--fs-lead)', color: '#7A6128', marginBottom: '12px' }}>
               You start with Convert.
             </p>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '15.5px', lineHeight: 1.75, color: '#47597a', maxWidth: '58ch' }}>

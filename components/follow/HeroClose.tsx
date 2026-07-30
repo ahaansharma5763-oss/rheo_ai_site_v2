@@ -110,10 +110,10 @@ export function FYHero() {
             className="fy-hero-sub"
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: 'clamp(16px, 1.4vw, 18px)',
-              lineHeight: 1.75,
+              fontSize: 'clamp(17px, 1.5vw, 20px)',
+              lineHeight: 1.7,
               color: 'var(--text-2)',
-              maxWidth: '56ch',
+              maxWidth: '52ch',
               marginBottom: '44px',
             }}
           >
@@ -190,7 +190,7 @@ export function FYClose() {
           <p
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: 'clamp(15px, 1.3vw, 17px)',
+              fontSize: 'var(--fs-body)',
               lineHeight: 1.8,
               color: 'var(--text-2)',
               maxWidth: '54ch',

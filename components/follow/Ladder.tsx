@@ -75,7 +75,7 @@ export function FollowUpLadder() {
             style={{
               fontFamily: 'var(--serif)',
               fontWeight: 400,
-              fontSize: 'clamp(1.9rem, 3.6vw, 2.6rem)',
+              fontSize: 'var(--fs-h2)',
               lineHeight: 1.15,
               color: 'var(--fg)',
               marginBottom: '16px',
@@ -86,7 +86,7 @@ export function FollowUpLadder() {
           <p
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: 'clamp(15px, 1.3vw, 17px)',
+              fontSize: 'var(--fs-body)',
               lineHeight: 1.75,
               color: 'var(--text-2)',
               marginBottom: 'clamp(44px, 6vh, 60px)',
@@ -127,10 +127,10 @@ export function FollowUpLadder() {
                 >
                   {t.marker}
                 </span>
-                <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'clamp(15px, 1.4vw, 17px)', color: 'var(--fg)', marginBottom: '6px' }}>
+                <p style={{ fontFamily: 'var(--sans)', fontWeight: 500, fontSize: 'var(--fs-body)', color: 'var(--fg)', marginBottom: '6px' }}>
                   {t.title}
                 </p>
-                <p style={{ fontFamily: 'var(--sans)', fontSize: '15px', lineHeight: 1.7, color: 'var(--text-2)' }}>{t.body}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: 'var(--fs-body-sm)', lineHeight: 'var(--lh-body)', color: 'var(--text-2)' }}>{t.body}</p>
               </div>
             </Reveal>
           ))}
@@ -175,7 +175,7 @@ export function FollowUpLadder() {
             >
               The moment they reply at any point, all of it stops.
             </p>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '15px', lineHeight: 1.7, color: 'var(--text-2)' }}>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: 'var(--fs-body-sm)', lineHeight: 'var(--lh-body)', color: 'var(--text-2)' }}>
               Nobody ever gets chased after they have already answered.
             </p>
           </div>

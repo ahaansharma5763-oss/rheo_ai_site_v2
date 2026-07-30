@@ -79,7 +79,7 @@ export function LedgerCompare() {
             style={{
               fontFamily: 'var(--serif)',
               fontWeight: 400,
-              fontSize: 'clamp(1.9rem, 3.6vw, 2.6rem)',
+              fontSize: 'var(--fs-h2)',
               color: 'var(--fg)',
               marginBottom: '20px',
             }}
@@ -114,7 +114,7 @@ export function LedgerCompare() {
           }}
         >
           <div>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '15px', color: 'var(--text-2)', marginBottom: '18px' }}>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: 'var(--fs-body-sm)', color: 'var(--text-2)', marginBottom: '18px' }}>
               Convert 15 of them
             </p>
             <SquareGrid converted={15} on={on} />
@@ -137,7 +137,7 @@ export function LedgerCompare() {
           <div className="fy-ledger-rule" style={{ background: 'var(--line)', width: '1px', height: '100%', minHeight: '120px' }} />
 
           <div>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '15px', color: 'var(--text-2)', marginBottom: '18px' }}>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: 'var(--fs-body-sm)', color: 'var(--text-2)', marginBottom: '18px' }}>
               Convert 25 of them, from the same 80 enquiries, the same ads, the same money you already spent
             </p>
             <SquareGrid converted={25} on={on} />
@@ -168,7 +168,7 @@ export function LedgerCompare() {
             ref={diff.ref}
             style={{ display: 'flex', alignItems: 'baseline', gap: '14px', flexWrap: 'wrap', marginBottom: '18px' }}
           >
-            <span style={{ fontFamily: 'var(--sans)', fontSize: '15px', color: 'var(--text-2)' }}>That is</span>
+            <span style={{ fontFamily: 'var(--sans)', fontSize: 'var(--fs-body-sm)', color: 'var(--text-2)' }}>That is</span>
             <span
               style={{
                 fontFamily: 'var(--serif)',
@@ -181,7 +181,7 @@ export function LedgerCompare() {
             >
               ₹{diff.text}
             </span>
-            <span style={{ fontFamily: 'var(--sans)', fontSize: '15px', color: 'var(--text-2)' }}>more a month.</span>
+            <span style={{ fontFamily: 'var(--sans)', fontSize: 'var(--fs-body-sm)', color: 'var(--text-2)' }}>more a month.</span>
           </div>
           <p
             style={{
@@ -199,7 +199,7 @@ export function LedgerCompare() {
             style={{
               fontFamily: 'var(--sans)',
               fontWeight: 500,
-              fontSize: 'clamp(16px, 1.5vw, 19px)',
+              fontSize: 'var(--fs-lead)',
               color: 'var(--fg)',
               maxWidth: '46ch',
             }}
