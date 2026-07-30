@@ -13,7 +13,10 @@ export function BrandButton({
 }: {
   href: string;
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  /* 'panel' = Prussian border on a lifted navy surface. Used where the
+   * section's one gold is spent elsewhere but the button must still read
+   * as the primary target. Depth by tonal stacking, per v1.1 rule 3. */
+  variant?: 'primary' | 'secondary' | 'panel';
   newTab?: boolean;
 }) {
   const primary = variant === 'primary';
@@ -25,6 +28,7 @@ export function BrandButton({
         display: 'inline-block',
         padding: '16px 32px',
         border: primary ? '1px solid rgba(196,162,90,0.65)' : '1px solid var(--line)',
+        background: variant === 'panel' ? 'var(--panel)' : 'transparent',
         color: 'var(--fg)',
         fontFamily: 'var(--sans)',
         fontSize: '12px',
@@ -37,10 +41,11 @@ export function BrandButton({
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = primary ? 'var(--gold-hi)' : 'var(--crest)';
         if (primary) e.currentTarget.style.background = 'rgba(196,162,90,0.07)';
+        if (variant === 'panel') e.currentTarget.style.background = 'var(--bg-card)';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = primary ? 'rgba(196,162,90,0.65)' : 'var(--line)';
-        e.currentTarget.style.background = 'transparent';
+        e.currentTarget.style.background = variant === 'panel' ? 'var(--panel)' : 'transparent';
       }}
     >
       {children}
@@ -101,7 +106,11 @@ export function FYHero() {
           >
             You don’t have a lead problem.
             <br />
-            You have a follow-up problem.
+            {/* The hero's one gold element (brand rule 1). Solid colour, never
+              * a gradient background-clip and never a glow: clipping on an
+              * inline child renders transparent, and v1.1 rule 3 forbids
+              * shadows. The CTA below therefore carries a Prussian border. */}
+            <span style={{ color: 'var(--gold-hi)' }}>You have a follow-up problem.</span>
           </h1>
         </Reveal>
 
@@ -125,7 +134,10 @@ export function FYHero() {
 
         <Reveal delay={550}>
           <div className="cta-row fy-hero-cta" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <BrandButton href="https://audit.rheoai.co.in">Show me what I’m losing</BrandButton>
+            {/* Prussian on navy, not gold: the headline holds this section's gold */}
+            <BrandButton href="https://audit.rheoai.co.in" variant="panel">
+              Show me what I’m losing
+            </BrandButton>
           </div>
         </Reveal>
       </div>

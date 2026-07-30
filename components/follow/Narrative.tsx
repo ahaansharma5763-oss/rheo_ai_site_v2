@@ -358,26 +358,51 @@ export function FounderBlock() {
     <section style={{ padding: '0 var(--rail-pad) var(--section-gap)' }}>
       <div style={WRAP}>
         <Reveal>
-          <div style={{ borderTop: '1px solid var(--line-soft)', paddingTop: '44px' }}>
-            <p
-              style={{
-                fontFamily: 'var(--serif)',
-                fontWeight: 400,
-                fontSize: 'clamp(1.35rem, 2.3vw, 1.7rem)',
-                lineHeight: 1.4,
-                color: 'var(--fg)',
-                marginBottom: '18px',
+          <div
+            className="fy-founder"
+            style={{ borderTop: '1px solid var(--line-soft)', paddingTop: '44px', display: 'flex', gap: '28px', alignItems: 'flex-start' }}
+          >
+            {/* Drop a square headshot at public/founder.jpg and it appears
+              * here. Until then the img removes itself and the block renders
+              * exactly as before. No placeholder, no stock photo. */}
+            <img
+              src="/founder.jpg"
+              alt="Ahaan Sharma"
+              width={96}
+              height={96}
+              loading="lazy"
+              style={{ display: 'block', width: '96px', height: '96px', objectFit: 'cover', flexShrink: 0, filter: 'grayscale(1) contrast(1.05)' }}
+              onError={e => {
+                (e.currentTarget as HTMLImageElement).style.display = 'none';
               }}
-            >
-              We run on the same system we sell. Message us at 11pm tonight and see how fast the reply comes
-              back.
-            </p>
-            <p style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-3)' }}>
-              Ahaan Sharma, Founder · Rheo AI, Pune
-            </p>
+            />
+            <div>
+              <p
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontWeight: 400,
+                  fontSize: 'clamp(1.35rem, 2.3vw, 1.7rem)',
+                  lineHeight: 1.4,
+                  color: 'var(--fg)',
+                  marginBottom: '18px',
+                }}
+              >
+                We run on the same system we sell. Message us at 11pm tonight and see how fast the reply
+                comes back.
+              </p>
+              <p style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-3)' }}>
+                Ahaan Sharma, Founder · Rheo AI, Pune
+              </p>
+            </div>
           </div>
         </Reveal>
       </div>
+
+      <style>{`
+        @media (max-width: 560px) {
+          .fy-founder { flex-direction: column; gap: 20px; }
+        }
+      `}</style>
     </section>
   );
 }
