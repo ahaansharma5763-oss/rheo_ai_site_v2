@@ -332,9 +332,9 @@ export function FYWho() {
         </Reveal>
         <Reveal delay={140}>
           <p style={{ ...BODY, marginBottom: '32px' }}>
-            Clinics and dental practices. Aesthetics and skin. Salons and spas. Car detailing and service.
-            Fitness studios. Caterers. Preschools. Anyone whose enquiries arrive faster than a human can
-            answer them.
+            Clinics and dental practices. Aesthetics and skin. Car detailing and service. Coaching
+            institutes and academies. Preschools and schools. Fitness studios. Caterers. Home and property
+            services. Anyone whose enquiries arrive faster than a human can answer them.
           </p>
         </Reveal>
         <Reveal delay={220}>
@@ -387,8 +387,8 @@ export function FounderBlock() {
                   marginBottom: '18px',
                 }}
               >
-                We run on the same system we sell. Message us at 11pm tonight and see how fast the reply
-                comes back.
+                Every business loses customers in the stretch between someone saying they are interested
+                and that person paying. Nobody&rsquo;s job covers it. That gap is the only thing we work on.
               </p>
               <p style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-3)' }}>
                 Ahaan Sharma, Founder · Rheo AI, Pune
