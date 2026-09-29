@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const LINKS = [
   { label: 'What we build', href: '/what-we-build' },
+  { label: 'Outbound', href: '/outbound' },
   { label: 'Results', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Get your leak number', href: 'https://audit.rheoai.co.in' },
@@ -11,13 +12,14 @@ const LINKS = [
   { label: 'Contact', href: 'mailto:ahaan@rheoai.co.in' },
 ];
 
-export default function Footer() {
+/* goldRule: the footer's one gold, a hairline at the top. /outbound turns it
+ * off because its closing wave already carries the page's last gold crest. */
+export default function Footer({ goldRule = true }: { goldRule?: boolean } = {}) {
   return (
     <footer
       style={{
         background: 'var(--bg-low)',
-        /* The footer's one gold: a single hairline rule at the top */
-        borderTop: '1px solid rgba(196,162,90,0.35)',
+        borderTop: goldRule ? '1px solid rgba(196,162,90,0.35)' : '1px solid transparent',
         padding: '80px var(--rail-pad)',
         position: 'relative',
         zIndex: 1,

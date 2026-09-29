@@ -43,6 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="preload" href="/fonts/Zodiak-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Switzer-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script
           id="vtag-ai-js"
           async

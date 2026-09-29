@@ -19,6 +19,7 @@ import { FYDashboard, FYMemory } from '@/components/follow/Dashboard'
 import { FYFramework } from '@/components/follow/Framework'
 import { FYProof, FYFaq } from '@/components/follow/Proof'
 import { FAQS } from '@/components/follow/faqData'
+import OutboundBridge from '@/components/outbound/Bridge'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -52,6 +53,8 @@ export default function Home() {
         <Nav />
         {/* §1 the diagnosis */}
         <FYHero />
+        {/* bridge to /outbound: for businesses that need enquiries in the first place */}
+        <OutboundBridge />
         {/* §2 the problem */}
         <FYProblem />
         {/* §3 the emotional turn */}

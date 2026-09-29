@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
       { source: "/pilot", destination: "/", permanent: true },
       { source: "/okeanos", destination: "/", permanent: true },
       { source: "/revival-sprint", destination: "/", permanent: true },
+      // 2026-09-29: the Managed Outbound page lives at the short address
+      { source: "/managed-outbound", destination: "/outbound", permanent: true },
     ];
   },
 };

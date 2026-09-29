@@ -1,21 +1,38 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
 import PageGradient from '@/components/shared/PageGradient'
 import Reveal from '@/components/home/Reveal'
 import { BrandButton } from '@/components/follow/HeroClose'
+import { outbound } from '@/components/outbound/content'
 
 export const metadata: Metadata = {
   title: 'What we build · Rheo AI',
   description:
-    'The full extent of what we build, under three verbs: Convert, Remember, Understand. Plain descriptions, no packages.',
+    'The full extent of what we build, under four verbs: Reach, Convert, Remember, Understand. Plain descriptions, no packages.',
 }
 
-/* Capability list from the Convert · Remember · Understand framework,
+/* Capability list from the Reach · Convert · Remember · Understand framework,
  * written as plain-language jobs. This is a capability list, not a menu:
  * no pricing, no packages, no product names, no "choose your plan". */
 
-const GROUPS = [
+type Group = { verb: string; intro: string; items: string[]; link?: { href: string; label: string } }
+
+const GROUPS: Group[] = [
+  {
+    // 2026-09-29: the Managed Outbound Channel, for businesses that need
+    // enquiries in the first place. Wording from the cleared /outbound copy.
+    verb: 'Reach',
+    intro: 'Start conversations with the companies that have not heard of you yet.',
+    items: [
+      'Finds the right companies, writes to them, follows up, answers the replies and books the meetings into your calendar.',
+      'Checks every company, and every address, before anyone is contacted.',
+      'Sends from separate inboxes on web addresses like yours, so your main email stays safe.',
+      'Sized to how many conversations your team can take, from 18,000 up to 80,000+ emails a month, depending on what you need.',
+    ],
+    link: { href: '/outbound', label: outbound.bridge.link },
+  },
   {
     verb: 'Convert',
     intro: 'Turn people who already raised their hand into paying customers.',
@@ -80,7 +97,7 @@ export default function WhatWeBuildPage() {
                   color: 'var(--fg)',
                 }}
               >
-                Convert. Remember. Understand.
+                Reach. Convert. Remember. Understand.
               </h1>
             </Reveal>
           </div>
@@ -115,6 +132,15 @@ export default function WhatWeBuildPage() {
                   </Reveal>
                 ))}
               </div>
+              {g.link && (
+                <Reveal>
+                  <p style={{ paddingTop: '18px' }}>
+                    <Link href={g.link.href} className="fy-link" style={{ fontFamily: 'var(--sans)', fontSize: '15px' }}>
+                      {g.link.label}
+                    </Link>
+                  </p>
+                </Reveal>
+              )}
             </div>
           </section>
         ))}

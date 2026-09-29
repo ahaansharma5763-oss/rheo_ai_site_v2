@@ -10,7 +10,7 @@ const OFFER: OfferItem[] = [
   { icon: 'target',      title: 'Built on your real catalogue, first',      body: 'We start with a pilot on one product line, built from your actual documents. You judge it on your machines and your numbers, not on a slide deck.' },
   { icon: 'shield',      title: 'You try to break it before it goes live',  body: 'Sit your toughest engineer in front of it. Invent models, push discounts, corner it on specs. If it cannot hold up, you walk away and owe us nothing meaningful.' },
   { icon: 'clock',       title: 'Live in under 3 weeks',                    body: 'One handover of documents and one alignment call is all we ask from your side. We build, test, and deploy. Your team keeps selling the entire time.' },
-  { icon: 'trending-up', title: 'It pays for itself, or it is free',        body: 'Sixty days, usage-tracked. Quotes sent, leads captured, response times, hours returned. If the value is not visibly there, we remove it ourselves and refund everything.' },
+  { icon: 'trending-up', title: 'Measured for sixty days',                  body: 'Sixty days, usage-tracked. Quotes sent, leads captured, response times, hours returned. You see exactly what it is doing for you.' },
   { icon: 'users',       title: 'Your dealers get it too',                  body: 'The same engine answers your dealers and distributors, so every branch quotes correctly and instantly. Your channel gets sharper without a single training seminar.' },
   { icon: 'sparkle',     title: 'Handed over ready to run',                 body: 'Nothing to learn, no software for your team to babysit. It works where your buyers already are, and the important moments come to you.' },
 ];

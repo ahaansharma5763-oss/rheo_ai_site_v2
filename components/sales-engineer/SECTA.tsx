@@ -45,7 +45,7 @@ export default function SECTA() {
 
         <Reveal delay={420}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '12px', letterSpacing: '0.06em', color: 'var(--fg-dim)', maxWidth: '50ch', lineHeight: 1.6, margin: '24px auto 0' }}>
-            Live in under 3 weeks · 60-day pay-for-itself guarantee · Two deployments a month.
+            Live in under 3 weeks · Sixty days of tracked usage · Two deployments a month.
           </p>
         </Reveal>
       </div>

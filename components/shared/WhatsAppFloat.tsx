@@ -1,5 +1,7 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+
 /**
  * Floating WhatsApp contact button.
  *
@@ -15,7 +17,13 @@ const WHATSAPP_NUMBER = '919503995633';
 const PREFILL =
   'Hi Rheo AI, I would like to start with an Ops Audit.';
 
+/* Routes where the float never appears. /outbound tells buyers we refuse WhatsApp
+ * blasts, so a WhatsApp bubble over it contradicts the page (brand gate, 29 Sept 2026). */
+const SUPPRESSED = ['/outbound'];
+
 export default function WhatsAppFloat() {
+  const pathname = usePathname();
+  if (SUPPRESSED.some(p => pathname === p || pathname?.startsWith(`${p}/`))) return null;
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILL)}`;
 
   return (

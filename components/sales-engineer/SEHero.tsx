@@ -202,8 +202,7 @@ export default function SEHero() {
             </a>
           </div>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '12.5px', color: 'var(--fg-mute)', letterSpacing: '0.02em', margin: 0, maxWidth: '52ch' }}>
-            Go break it first. Then come back for the guarantee: live in under 3 weeks, and if it has not
-            paid for itself in 60 days, it is free.
+            Go break it first. Then book a call. It can be live in under 3 weeks.
           </p>
         </div>
 

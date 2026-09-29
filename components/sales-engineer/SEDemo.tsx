@@ -166,7 +166,7 @@ export default function SEDemo() {
 
         <Reveal delay={160}>
           <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(16px, 1.7vw, 20px)', lineHeight: 1.6, color: 'var(--warm-foam)', fontWeight: 500, fontStyle: 'italic', textAlign: 'center', maxWidth: '52ch', margin: 'clamp(36px, 5vh, 48px) auto 0' }}>
-            Broke it? Tell us how, we will fix it. Could not? Keep scrolling. The guarantee is next.
+            Broke it? Tell us how, we will fix it. Could not? Keep scrolling.
           </p>
         </Reveal>
       </div>

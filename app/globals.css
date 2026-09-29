@@ -1,4 +1,12 @@
-@import url('https://api.fontshare.com/v2/css?f[]=zodiak@400,401&f[]=switzer@300,400,500,600,700&display=swap');
+/* Brand faces, self-hosted from Fontshare (ITF Free Font License). The old @import of the
+   Fontshare stylesheet was dropped by the CSS bundler, so the live site fell back to Georgia and Arial. */
+@font-face { font-family: 'Zodiak'; src: url('/fonts/Zodiak-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Zodiak'; src: url('/fonts/Zodiak-400-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-300.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 

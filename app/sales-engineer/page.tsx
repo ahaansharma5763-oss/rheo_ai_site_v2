@@ -1,6 +1,5 @@
 import SEHero from '@/components/sales-engineer/SEHero'
 import SEDemo from '@/components/sales-engineer/SEDemo'
-import SEGuarantee from '@/components/sales-engineer/SEGuarantee'
 import SEProblem from '@/components/sales-engineer/SEProblem'
 import SEROI from '@/components/sales-engineer/SEROI'
 import SEHowItWorks from '@/components/sales-engineer/SEHowItWorks'
@@ -17,7 +16,7 @@ import PageGradient from '@/components/shared/PageGradient'
 
 export const metadata = {
   title: 'Athena · The AI Sales Engineer for Industrial Companies | Rheo AI',
-  description: 'Athena is the AI Sales Engineer for manufacturers and distributors of technical products. It qualifies buyers, recommends the right machine from your real catalogue, and sends exact, cited quotes in minutes. Try the live demo, then read the 60-day pay-for-itself guarantee.',
+  description: 'Athena is the AI Sales Engineer for manufacturers and distributors of technical products. It qualifies buyers, recommends the right machine from your real catalogue, and sends exact, cited quotes in minutes. Try the live demo.',
 }
 
 /* Page-scoped contrast boost: brighter copy tokens so the text pops,
@@ -37,7 +36,6 @@ export default function SalesEngineerPage() {
         <Nav />
         <SEHero />
         <SEDemo />
-        <SEGuarantee />
         <SEProblem />
         <SEROI />
         <SEHowItWorks />

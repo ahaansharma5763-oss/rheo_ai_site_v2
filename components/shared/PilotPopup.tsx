@@ -14,13 +14,20 @@
  */
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 const STORAGE_KEY = 'rheo_leak_popup_v1'
 const SHOW_AFTER_MS = 13000
 const SCROLL_DEPTH = 0.27
 const SUPPRESS_DAYS = 7
 
+/* Routes where the popup never appears. /outbound: it would interrupt the
+ * film and it sells something else (plan, 29 Sept 2026). */
+const SUPPRESSED = ['/outbound']
+
 export default function PilotPopup() {
+  const pathname = usePathname()
+  const suppressed = SUPPRESSED.some(p => pathname === p || pathname?.startsWith(`${p}/`))
   const [open, setOpen] = useState(false)
   const [done, setDone] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -28,6 +35,7 @@ export default function PilotPopup() {
   const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (suppressed) return
     try {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (raw) {
@@ -61,7 +69,7 @@ export default function PilotPopup() {
 
     const t = setTimeout(show, SHOW_AFTER_MS)
     return () => clearTimeout(t)
-  }, [])
+  }, [suppressed])
 
   useEffect(() => {
     if (!open) return
@@ -146,7 +154,7 @@ export default function PilotPopup() {
     }
   }
 
-  if (!open) return null
+  if (!open || suppressed) return null
 
   const input: React.CSSProperties = {
     width: '100%',

@@ -6,6 +6,7 @@ import Link from 'next/link';
 /* 2026-07-29 rebuild: four items maximum. No product names in the header. */
 const LINKS = [
   { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Outbound', href: '/outbound' },
   { label: 'Results', href: '/work' },
   { label: 'About', href: '/about' },
 ];
@@ -19,7 +20,13 @@ export default function Nav() {
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', h, { passive: true });
-    return () => window.removeEventListener('scroll', h);
+    // A page can open already scrolled (an #anchor, a restored position):
+    // read it once after mount so the bar is never transparent over content.
+    const raf = requestAnimationFrame(h);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', h);
+    };
   }, []);
 
   useEffect(() => {
