@@ -1,18 +1,45 @@
 'use client';
 
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useSyncExternalStore, type ReactNode } from 'react';
 
 const Dithering = lazy(() =>
-  import('@paper-design/shaders-react').then((mod) => ({ default: mod.Dithering }))
+  import('./dithering-shader').then((mod) => ({ default: mod.Dithering }))
 );
+
+type Shape = 'warp' | 'ripple' | 'wave' | 'simplex' | 'dots' | 'swirl' | 'sphere';
 
 interface HeroDitheringProps {
   colorFront?: string;
   colorBack?: string;
   speed?: number;
   type?: '2x2' | '4x4' | 'random' | '8x8';
-  shape?: 'warp' | 'ripple' | 'wave' | 'simplex' | 'dots' | 'swirl' | 'sphere';
+  shape?: Shape;
+  /* Optional shader framing. Left undefined, the shader's own defaults apply
+   * (scale 0.6, rotation 0, size 2, no offset), which is how every existing
+   * surface renders. */
+  scale?: number;
+  rotation?: number;
+  size?: number;
+  offsetX?: number;
+  offsetY?: number;
+  /* Start frame in ms. Also the still that reduced-motion visitors see. */
+  frame?: number;
+  /* What shows while the shader chunk loads. Undefined keeps the CSS wave;
+   * null shows nothing (the section's own ground). */
+  fallback?: ReactNode;
 }
+
+/* Visitors who ask the OS for reduced motion get one still frame (speed 0
+ * stops the shader's rAF loop entirely, so a still costs nothing per frame).
+ * The server snapshot is "motion allowed", which matches what rendered before. */
+const REDUCE = '(prefers-reduced-motion: reduce)';
+function subscribeReduce(onChange: () => void) {
+  const mq = window.matchMedia(REDUCE);
+  mq.addEventListener('change', onChange);
+  return () => mq.removeEventListener('change', onChange);
+}
+const reduceNow = () => window.matchMedia(REDUCE).matches;
+const reduceOnServer = () => false;
 
 export function HeroDithering({
   colorFront = '#8FDCF8',  // --foam: brightest Hokusai ocean blue in the brand
@@ -20,22 +47,32 @@ export function HeroDithering({
   speed      = 0.4,
   type       = '4x4',
   shape      = 'wave',
+  scale,
+  rotation,
+  size,
+  offsetX,
+  offsetY,
+  frame,
+  fallback,
 }: HeroDitheringProps) {
+  const reduce = useSyncExternalStore(subscribeReduce, reduceNow, reduceOnServer);
+
   return (
     <div
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden' }}
       aria-hidden="true"
     >
       <Suspense
-        fallback={
+        fallback={fallback !== undefined ? fallback : (
           // CSS wave animation fallback, always visible, no WebGL needed
-          <div style={{
+          <div className="rheo-dither-fallback" style={{
             position: 'absolute', inset: 0,
             background: 'linear-gradient(160deg, #050E1D 0%, #0B2147 40%, #1E4080 70%, #2E74AC 100%)',
           }}>
             <style>{`
               @keyframes cssWave1 { 0%,100%{transform:translateX(0) scaleY(1)} 50%{transform:translateX(-5%) scaleY(1.05)} }
               @keyframes cssWave2 { 0%,100%{transform:translateX(0) scaleY(1)} 50%{transform:translateX(5%) scaleY(0.95)} }
+              @media (prefers-reduced-motion: reduce) { .rheo-dither-fallback svg { animation: none !important; } }
             `}</style>
             {/* Wave layer 1 */}
             <svg style={{position:'absolute',bottom:0,left:0,width:'100%',height:'45%',animation:'cssWave1 8s ease-in-out infinite'}}
@@ -67,7 +104,7 @@ export function HeroDithering({
                 fill="none" stroke="#8FDCF8" strokeWidth="1.2" opacity="0.6"/>
             </svg>
           </div>
-        }
+        )}
       >
         {/* Rendered at half resolution and scaled up 2x: the dither pattern
           * hides the lower res, and the GPU shades 4x fewer pixels. */}
@@ -77,7 +114,13 @@ export function HeroDithering({
             colorFront={colorFront}
             shape={shape}
             type={type}
-            speed={speed}
+            speed={reduce ? 0 : speed}
+            scale={scale}
+            rotation={rotation}
+            size={size}
+            offsetX={offsetX}
+            offsetY={offsetY}
+            frame={frame}
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
             minPixelRatio={1}
           />

@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import type { Metadata } from 'next'
 import './outbound.css'
+import './backdrop.css'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
 import { outbound } from '@/components/outbound/content'
@@ -23,6 +24,7 @@ import {
   Book,
 } from '@/components/outbound/Sections'
 import { clockToIso, clockToSeconds, normaliseTranscript } from '@/components/outbound/types'
+import { MUX_PLAYBACK_ID } from '@/components/outbound/media';
 
 const BASE = 'https://rheoai.co.in'
 
@@ -59,7 +61,7 @@ function readTranscript() {
 function jsonLd() {
   const chapters = outbound.film.chapters
   const total = clockToSeconds(outbound.hero.filmLength)
-  const mux = process.env.NEXT_PUBLIC_MUX_PLAYBACK_ID
+  const mux = MUX_PLAYBACK_ID
   return {
     '@context': 'https://schema.org',
     '@graph': [

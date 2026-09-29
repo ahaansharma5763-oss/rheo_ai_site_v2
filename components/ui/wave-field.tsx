@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { HeroDithering } from './hero-dithering-card';
 
 type Variant = 'full' | 'bottom' | 'top' | 'corner-right' | 'corner-left';
@@ -12,6 +12,12 @@ type Variant = 'full' | 'bottom' | 'top' | 'corner-right' | 'corner-left';
  * Performance: the WebGL shader is only mounted while the field is near the
  * viewport (IntersectionObserver). Scrolled away, it unmounts and frees the GPU,
  * so many waves can live across the page without running simultaneously.
+ *
+ * Reduced motion: HeroDithering holds one still frame (speed 0) for visitors
+ * who ask their OS for less motion.
+ *
+ * Every prop below `speed` is optional and defaults to the shader's own
+ * framing, so existing call sites render exactly as they always have.
  */
 
 const MASKS: Record<Variant, string> = {
@@ -34,6 +40,18 @@ interface WaveFieldProps {
   colorBack?: string;
   opacity?: number;
   speed?: number;
+  type?: '2x2' | '4x4' | 'random' | '8x8';
+  scale?: number;
+  rotation?: number;
+  size?: number;
+  offsetX?: number;
+  offsetY?: number;
+  /* Start frame in ms; also the reduced-motion still */
+  frame?: number;
+  /* A CSS mask-image that replaces the variant's mask */
+  mask?: string;
+  /* What shows while the shader chunk loads (see HeroDithering) */
+  fallback?: ReactNode;
 }
 
 export default function WaveField({
@@ -43,6 +61,15 @@ export default function WaveField({
   colorBack = '#0B2147',
   opacity = 0.5,
   speed = 0.3,
+  type = '4x4',
+  scale,
+  rotation,
+  size,
+  offsetX,
+  offsetY,
+  frame,
+  mask: maskOverride,
+  fallback,
 }: WaveFieldProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
@@ -60,7 +87,7 @@ export default function WaveField({
     return () => io.disconnect();
   }, []);
 
-  const mask = MASKS[variant];
+  const mask = maskOverride ?? MASKS[variant];
 
   return (
     <div
@@ -87,8 +114,15 @@ export default function WaveField({
             colorBack={colorBack}
             colorFront={colorFront}
             shape={shape}
-            type="4x4"
+            type={type}
             speed={speed}
+            scale={scale}
+            rotation={rotation}
+            size={size}
+            offsetX={offsetX}
+            offsetY={offsetY}
+            frame={frame}
+            fallback={fallback}
           />
         )}
       </div>

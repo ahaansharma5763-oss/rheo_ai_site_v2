@@ -112,6 +112,13 @@ export async function POST(req: NextRequest) {
       console.error(`[api/outbound] webhook answered ${res.status}`)
       return NextResponse.json({ ok: false, message: 'Not forwarded.' }, { status: 502 })
     }
+    // n8n answers 200 with an empty body when a step fails before its Respond node,
+    // so only an explicit {"ok":true} (sent after the sheet row is written) counts.
+    const reply = await res.json().catch(() => null) as { ok?: unknown } | null
+    if (!reply || reply.ok !== true) {
+      console.error('[api/outbound] webhook did not confirm the enquiry was saved')
+      return NextResponse.json({ ok: false, message: 'Not forwarded.' }, { status: 502 })
+    }
     return NextResponse.json({ ok: true })
   } catch (err) {
     const reason = err instanceof Error && err.name === 'AbortError' ? 'timed out' : 'failed'

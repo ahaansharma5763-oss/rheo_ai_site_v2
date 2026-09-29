@@ -9,6 +9,7 @@ import HeroLoop from './HeroLoop';
 import Steps from './Steps';
 import SendsChart from './SendsChart';
 import BookForm from './BookForm';
+import Backdrop from './Backdrop';
 import { MEDIA, pad2, secondsToClock, type Chapter, type OutboundContent, type TranscriptLine } from './types';
 import { UI } from './ui';
 
@@ -51,6 +52,7 @@ function FilmCard({
 export function Hero({ c }: { c: O['hero'] }) {
   return (
     <section id="hero" className="ob-hero" aria-labelledby="hero-h">
+      <Backdrop place="hero" />
       <div className="ob-wrap ob-hero-grid">
         <div>
           {/* The headline is the LCP: rendered as text, never hidden for a reveal */}
@@ -86,6 +88,7 @@ export function FilmBand({
 }) {
   return (
     <section id="film" className="ob-sec ob-sec--navy ob-rule-top" aria-label={hero.ctaFilm}>
+      <Backdrop place="film" />
       <div className="ob-wrap ob-film-grid">
         <FilmButton source="film_band" className="ob-poster" ariaLabel={`${hero.ctaFilm}, ${hero.filmLength}`}>
           <img src={MEDIA.filmPoster} alt="" width={1080} height={1920} loading="lazy" decoding="async" />
@@ -342,6 +345,7 @@ export function Proof({ p, chapters }: { p: O['proof']; chapters: Chapter[] }) {
 
   return (
     <section id="proof" className="ob-sec ob-sec--ink" aria-labelledby="proof-h">
+      <Backdrop place="proof" />
       <div className="ob-wrap">
         <div className="ob-head">
           <p className="eyebrow eyebrow--quiet" data-reveal>
@@ -566,6 +570,7 @@ export function Faq({ items }: { items: O['faq'] }) {
 export function Book({ b }: { b: O['book'] }) {
   return (
     <section id="book" className="ob-sec ob-sec--ink ob-book ob-rule-top" aria-labelledby="book-h">
+      <Backdrop place="book" />
       <div className="ob-wrap">
         <BookForm book={b} />
       </div>

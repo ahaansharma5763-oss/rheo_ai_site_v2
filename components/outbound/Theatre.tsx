@@ -20,13 +20,14 @@ import { FILM_EVENT, openFilm, type FilmRequest } from './FilmButton';
 import { track } from './track';
 import { MEDIA, clockToSeconds, normaliseTranscript, secondsToClock, type Chapter, type TranscriptLine } from './types';
 import { UI } from './ui';
+import { MUX_PLAYBACK_ID } from './media';
 
 const MuxPlayer = dynamic(() => import('@mux/mux-player-react'), {
   ssr: false,
   loading: () => <div className="ob-th-loading" aria-hidden />,
 });
 
-const PLAYBACK_ID = process.env.NEXT_PUBLIC_MUX_PLAYBACK_ID || '';
+const PLAYBACK_ID = MUX_PLAYBACK_ID;
 
 type Media = HTMLVideoElement | MuxPlayerElement;
 type Line = TranscriptLine;

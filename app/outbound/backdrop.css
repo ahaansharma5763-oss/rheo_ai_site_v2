@@ -1,0 +1,59 @@
+/* ════════════════════════════════════════════════════════════════════
+ * /outbound backdrops: the homepage's dithering wave, deeper and slower.
+ * The shader layer sits at z 0; the section's content is lifted to z 1.
+ * Masks live here (not inline) so each placement can change with width.
+ * ════════════════════════════════════════════════════════════════════ */
+
+.ob-bd {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ob-bd ~ * { position: relative; z-index: 1; }
+
+/* The shader arrives on the swell rather than popping in */
+.ob-bd canvas { animation: ob-bd-in 1.4s var(--ease) both; }
+@keyframes ob-bd-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Hero: the sea holds the portrait frame; the text column stays on ink ── */
+.ob-bd--hero {
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 34%, rgba(0,0,0,0.5) 58%, transparent 82%);
+  mask-image: linear-gradient(to top, #000 0%, #000 34%, rgba(0,0,0,0.5) 58%, transparent 82%);
+}
+@media (min-width: 960px) {
+  .ob-bd--hero {
+    -webkit-mask-image: radial-gradient(ellipse 58% 88% at 80% 70%, #000 0%, #000 28%, rgba(0,0,0,0.45) 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse 58% 88% at 80% 70%, #000 0%, #000 28%, rgba(0,0,0,0.45) 60%, transparent 100%);
+  }
+}
+/* ── Film band: the current carries over the rule, then settles ── */
+.ob-bd--film {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, rgba(0,0,0,0.5) 48px, transparent 112px);
+  mask-image: linear-gradient(to bottom, #000 0, rgba(0,0,0,0.5) 48px, transparent 112px);
+}
+/* ── Our own numbers: one quiet corner beside the heading ── */
+.ob-bd--proof {
+  bottom: auto;
+  height: min(100%, 760px);
+  -webkit-mask-image: radial-gradient(ellipse 62% 78% at 100% 0%, #000 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 62% 78% at 100% 0%, #000 0%, rgba(0,0,0,0.5) 45%, transparent 100%);
+}
+
+/* ── Book the call: the sea behind the closing wave ── */
+.ob-bd--book {
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 18%, rgba(0,0,0,0.4) 38%, transparent 62%);
+  mask-image: linear-gradient(to top, #000 0%, #000 18%, rgba(0,0,0,0.4) 38%, transparent 62%);
+}
+
+/* Phones: the hero and the close only. Two fields, never four. The hero's
+ * field fills more of a narrow screen, so it runs a shade quieter there. */
+@media (max-width: 599px) {
+  .ob-bd--film, .ob-bd--proof { display: none; }
+  .ob-bd--hero { opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ob-bd canvas { animation: none; }
+}
