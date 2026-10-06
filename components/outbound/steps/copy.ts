@@ -247,7 +247,7 @@ export const COPY = {
   s5: {
     name: 'Address checks',
     desc:
-      'A flow of one illustrative list of 1,000 addresses through four checks. The mail server exists: 940 pass. A bulk check: 900. A direct check with their server: 880. A check on addresses that accept anything: 842 verified, with 38 risky set aside as their own group. A final check that the person still works there leaves 830 ready. Below it, a bounce gate: a slider sets the list’s estimated bounce rate from 0 to 5 percent against a limit line at 2 in 100. Under the line the list is loaded; over it, the list is held and not sent. Beside the gate, our own sending: 13 bounces in 2,996 emails, 0.43 percent, and nobody unsubscribed.',
+      'A flow of one illustrative list of 1,000 addresses through four checks. The mail server exists: 940 pass. A bulk check: 900. A direct check with their server: 880. A check on addresses that accept anything: 842 verified, with 38 risky set aside as their own group. A final check that the person still works there leaves 830 ready. Below it, a bounce gate: a slider sets the list’s estimated bounce rate from 0 to 5 percent against a limit line at 2 in 100. Under the line the list is loaded; over it, the list is held and not sent. Beside the gate, our own sending: 13 bounces in 2,996 emails, 0.43 percent, and 1 person asked us to stop.',
     flowTitle: 'One list, four checks',
     start: 'Addresses found',
     stages: [
