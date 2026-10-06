@@ -199,7 +199,7 @@ export const outbound: Outbound = {
       touchLabel: "Each contact checked, down to whether they still work there",
       srDescription:
         "Still from the film. Five contacts pass through three checks: the address is real, it belongs to the company, and the person still works there. Four pass all three. One fails the last check, marked Left in June, and moves into a Removed tray. Illustrative.",
-      proof: "Our own sending: 13 bounces in 2,996 emails (0.43%), and 1 person asked us to stop.",
+      proof: "Our own sending: 13 bounces in 2,996 emails (0.43%), and 6 people asked us to stop.",
     },
     {
       id: "step-6",
@@ -261,8 +261,8 @@ export const outbound: Outbound = {
     heading: "We do our own outreach too. This is what it has done since August.",
     funnel: [
       { value: "1,210", label: "people contacted", rate: "2,996 emails" },
-      { value: "17", label: "wrote back, auto-replies not counted", rate: "1.4% of them" },
-      { value: "9", label: "qualified conversations held", rate: "53% of those" },
+      { value: "24", label: "wrote back, auto-replies not counted", rate: "2.0% of them" },
+      { value: "9", label: "qualified conversations held", rate: "38% of those" },
       { value: "7", label: "demos booked", rate: "78% of those" },
     ],
     sumline: "One in 134 people we emailed ended up in a qualified conversation.",
