@@ -30,7 +30,7 @@ const EMPTY: Data = {
 };
 
 const LIMITS = { website: 200, sells: 400, buyers: 400, name: 100, role: 100, email: 254, phone: 30 } as const;
-const EMAIL = /^[^\s@]{1,64}@[^\s@]+\.[^\s@]{2,}$/;
+const EMAIL = /^[^\s@<>,;"()]{1,64}@[^\s@<>,;"()]+\.[^\s@<>,;"()]{2,}$/;
 const SITE = /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i;
 const PHONE = /^\+?[0-9 ()-]{7,24}$/;
 
