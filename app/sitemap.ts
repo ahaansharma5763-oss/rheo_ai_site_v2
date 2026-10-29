@@ -7,6 +7,7 @@ const BASE = 'https://rheoai.co.in'
 const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
   { path: '/', priority: 1, changeFrequency: 'weekly' },
   { path: '/outbound', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/forecast', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/what-we-build', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/work', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },

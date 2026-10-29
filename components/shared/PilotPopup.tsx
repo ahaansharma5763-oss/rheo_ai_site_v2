@@ -23,7 +23,7 @@ const SUPPRESS_DAYS = 7
 
 /* Routes where the popup never appears. /outbound: it would interrupt the
  * film and it sells something else (plan, 29 Sept 2026). */
-const SUPPRESSED = ['/outbound']
+const SUPPRESSED = ['/outbound', '/forecast']
 
 export default function PilotPopup() {
   const pathname = usePathname()

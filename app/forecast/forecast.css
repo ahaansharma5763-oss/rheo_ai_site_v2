@@ -1,0 +1,121 @@
+/* /forecast: Rheo v1.1. Navy ground, hairlines, 0 radius, one gold per section (the eyebrow;
+ * in the form card the primary button's hairline). Scoped pf-* classes; tokens from globals.css. */
+
+.pf-page { background: var(--bg); color: var(--fg); font-family: var(--sans); }
+.pf-wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: max(var(--rail-pad), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--rail-pad), env(safe-area-inset-right, 0px));
+}
+
+/* hero: copy left, the form right; stacks under 960px */
+.pf-hero { padding-block: clamp(120px, 16vh, 168px) clamp(64px, 9vh, 112px); background: var(--bg-low); border-bottom: 1px solid var(--line); }
+.pf-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); align-items: start; }
+@media (min-width: 960px) { .pf-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); } }
+.pf-hero-copy .eyebrow { margin: 0 0 22px; }
+.pf-h1 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 5vw, 3.6rem);
+  line-height: 1.06; letter-spacing: -0.012em; margin: 0 0 22px; text-wrap: balance; color: var(--fg);
+}
+.pf-lede { font-size: var(--fs-body); line-height: 1.7; color: var(--fg); max-width: 34em; margin: 0 0 28px; }
+.pf-points { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; max-width: 34em; }
+.pf-points li {
+  position: relative; padding: 12px 0 12px 22px; border-top: 1px solid var(--line-soft);
+  font-size: var(--fs-body-sm); color: var(--text-2, var(--fg-mute)); line-height: 1.55;
+}
+.pf-points li:last-child { border-bottom: 1px solid var(--line-soft); }
+.pf-points li::before { content: ''; position: absolute; left: 0; top: 23px; width: 10px; height: 1px; background: var(--crest); }
+
+/* sections */
+.pf-section { padding-block: clamp(72px, 11vh, 120px); border-bottom: 1px solid var(--line); }
+.pf-section .eyebrow { margin: 0 0 18px; }
+.pf-last { border-bottom: 0; }
+/* the one Warm Foam beat on the page (hard rule 5); globals.css [data-theme="light"] swaps the tokens */
+.pf-foam { background: var(--bg); color: var(--fg); }
+.pf-h2 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.18; margin: 0 0 40px; max-width: 26em; text-wrap: balance;
+}
+.pf-h3 { font-family: var(--sans); font-weight: 500; font-size: 1.08rem; line-height: 1.35; margin: 0 0 10px; color: var(--fg); }
+.pf-body { font-size: var(--fs-body-sm); line-height: 1.7; margin: 0; color: var(--fg); }
+.pf-mute { color: var(--text-2, var(--fg-mute)); }
+.pf-mono { font-family: var(--mono); font-size: var(--fs-mono); font-variant-numeric: tabular-nums; color: var(--text-3, var(--fg-dim)); letter-spacing: 0.04em; }
+.pf-link { color: var(--crest); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; display: inline-block; padding-block: 12px; }
+
+.pf-three { display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--line); }
+@media (min-width: 860px) { .pf-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pf-item { padding: 28px 28px 30px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+@media (min-width: 860px) {
+  .pf-three { border-bottom: 1px solid var(--line); }
+  .pf-item { border-bottom: 0; padding: 30px 32px 32px; border-left: 1px solid var(--line); }
+  .pf-item:first-child { border-left: 0; padding-left: 0; }
+}
+.pf-whole { margin-top: 28px; max-width: 46em; color: var(--text-2, var(--fg-mute)); }
+
+.pf-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; border-top: 1px solid var(--line); }
+@media (min-width: 600px) { .pf-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pf-steps li { padding: 26px 26px 28px 0; border-bottom: 1px solid var(--line-soft); min-width: 0; }
+.pf-steps .pf-mono { display: block; margin-bottom: 14px; }
+@media (min-width: 1024px) { .pf-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } .pf-steps li { border-bottom: 0; } }
+
+.pf-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 36px 64px; }
+.pf-q { padding-top: 22px; border-top: 1px solid var(--line-soft); }
+.pf-back { margin-top: 48px; font-size: var(--fs-body-sm); }
+
+/* the form card */
+.pf-card { border: 1px solid var(--line); background: var(--panel); padding: clamp(22px, 3vw, 36px); min-width: 0; }
+.pf-form { display: grid; gap: 20px; }
+.pf-progress { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pf-progress span { height: 1px; background: var(--line); transition: background 0.26s var(--ease); }
+.pf-progress span.is-on { background: var(--crest); }
+.pf-stephead { margin: 0; font-size: 0.95rem; font-weight: 500; color: var(--fg); outline: none; display: flex; gap: 12px; align-items: baseline; }
+
+.pf-field { display: grid; gap: 8px; min-width: 0; }
+.pf-field label, .pf-set legend { font-size: 0.92rem; color: var(--text-2, var(--fg-mute)); letter-spacing: 0.01em; padding: 0; }
+.pf-set { border: 0; margin: 0; padding: 0; }
+.pf-set legend { margin-bottom: 10px; }
+.pf-hint { color: var(--text-3, var(--fg-dim)); font-size: 0.8rem; margin-left: 6px; }
+.pf-field input, .pf-field textarea {
+  width: 100%; min-height: 48px; padding: 12px 14px; background: var(--bg-low);
+  border: 1px solid var(--line); border-radius: 0; color: var(--fg); font-family: var(--sans);
+  font-size: 16px; line-height: 1.5; transition: border-color 0.16s var(--ease); -webkit-appearance: none; appearance: none;
+}
+.pf-field textarea { resize: vertical; min-height: 76px; }
+.pf-field input::placeholder, .pf-field textarea::placeholder { color: var(--text-3, var(--fg-dim)); }
+.pf-field input:hover, .pf-field textarea:hover { border-color: var(--ocean); }
+.pf-field input:focus, .pf-field textarea:focus { border-color: var(--crest); outline: none; }
+.pf-field input:focus-visible, .pf-field textarea:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.pf-field [aria-invalid='true'], .pf-set[aria-invalid='true'] .pf-chip { border-color: var(--crit); }
+
+.pf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-chip {
+  font: inherit; font-size: 0.95rem; line-height: 1.3; padding: 10px 15px; min-height: 44px;
+  background: transparent; color: var(--text-2, var(--fg-mute)); border: 1px solid var(--line); border-radius: 0; cursor: pointer;
+  transition: border-color 0.16s var(--ease), color 0.16s var(--ease), background 0.16s var(--ease);
+}
+.pf-chip:hover { border-color: var(--ocean); color: var(--fg); }
+.pf-chip[aria-pressed='true'], .pf-chip[aria-checked='true'] { border-color: var(--crest); color: var(--fg); background: rgba(143, 220, 248, 0.16); }
+.pf-chip:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+
+.pf-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.pf-actions { display: flex; gap: 10px; margin-top: 4px; }
+.pf-btn {
+  font: inherit; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.01em; min-height: 50px; padding: 0 22px;
+  background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 0; cursor: pointer;
+  transition: border-color 0.16s var(--ease);
+}
+.pf-btn:hover { border-color: var(--crest); }
+.pf-btn--primary { flex: 1; border-color: rgba(196, 162, 90, 0.7); }
+.pf-btn--primary:hover { border-color: var(--gold-hi); }
+.pf-btn[disabled] { opacity: 0.6; cursor: default; }
+.pf-btn:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.pf-privacy { margin: 0; color: var(--text-3, var(--fg-dim)); font-size: 0.86rem; line-height: 1.55; }
+.pf-missing { margin: 0; color: var(--crit); font-size: 0.86rem; }
+.pf-error { border-left: 1px solid var(--crit); padding: 10px 0 10px 14px; color: var(--fg); font-size: var(--fs-body-sm); line-height: 1.6; outline: none; }
+.pf-done { outline: none; display: grid; gap: 14px; }
+.pf-done .eyebrow { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-progress span, .pf-chip, .pf-btn, .pf-field input, .pf-field textarea { transition: none; }
+}

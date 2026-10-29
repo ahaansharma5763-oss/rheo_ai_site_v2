@@ -19,7 +19,7 @@ const PREFILL =
 
 /* Routes where the float never appears. /outbound tells buyers we refuse WhatsApp
  * blasts, so a WhatsApp bubble over it contradicts the page (brand gate, 29 Sept 2026). */
-const SUPPRESSED = ['/outbound'];
+const SUPPRESSED = ['/outbound', '/forecast'];
 
 export default function WhatsAppFloat() {
   const pathname = usePathname();
