@@ -3,6 +3,9 @@ import './forecast.css'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
 import ForecastForm from '@/components/forecast/ForecastForm'
+import EntryShowcase from '@/components/forecast/EntryShowcase'
+import HowSteps from '@/components/forecast/HowSteps'
+import StickyCTA from '@/components/forecast/StickyCTA'
 import { forecast as C } from '@/components/forecast/content'
 
 const BASE = 'https://rheoai.co.in'
@@ -28,7 +31,7 @@ export default function ForecastPage() {
       <Nav />
 
       <section className="pf-hero" aria-labelledby="pf-h1">
-        <div className="pf-wrap pf-hero-grid">
+        <div className="pf-wrap pf-hero-grid pf-load">
           <div className="pf-hero-copy">
             <p className="eyebrow">{C.hero.eyebrow}</p>
             <h1 id="pf-h1" className="pf-h1">{C.hero.heading}</h1>
@@ -49,14 +52,7 @@ export default function ForecastPage() {
         <div className="pf-wrap">
           <p className="eyebrow">{C.inside.eyebrow}</p>
           <h2 id="pf-inside" className="pf-h2">{C.inside.heading}</h2>
-          <div className="pf-three">
-            {C.inside.items.map(it => (
-              <div key={it.title} className="pf-item">
-                <h3 className="pf-h3">{it.title}</h3>
-                <p className="pf-body pf-mute">{it.body}</p>
-              </div>
-            ))}
-          </div>
+          <EntryShowcase />
           <p className="pf-body pf-whole">{C.inside.whole}</p>
         </div>
       </section>
@@ -64,15 +60,7 @@ export default function ForecastPage() {
       <section className="pf-section" aria-labelledby="pf-how">
         <div className="pf-wrap">
           <p id="pf-how" className="eyebrow">{C.how.eyebrow}</p>
-          <ol className="pf-steps">
-            {C.how.steps.map((s, i) => (
-              <li key={s.title}>
-                <span className="pf-mono">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="pf-h3">{s.title}</h3>
-                <p className="pf-body pf-mute">{s.body}</p>
-              </li>
-            ))}
-          </ol>
+          <HowSteps />
         </div>
       </section>
 
@@ -110,6 +98,7 @@ export default function ForecastPage() {
       </section>
 
       <Footer goldRule={false} />
+      <StickyCTA />
     </main>
   )
 }

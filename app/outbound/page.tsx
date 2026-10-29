@@ -5,6 +5,7 @@ import './outbound.css'
 import './backdrop.css'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
+import ForecastCTA from '@/components/forecast/ForecastCTA'
 import { outbound } from '@/components/outbound/content'
 import Theatre from '@/components/outbound/Theatre'
 import Motion from '@/components/outbound/Motion'
@@ -112,6 +113,7 @@ export default function OutboundPage() {
       <Hero c={o.hero} />
       {/* 2 */}
       <FilmBand hero={o.hero} film={o.film} transcript={readTranscript()} />
+      <ForecastCTA from="outbound-top" />
       {/* 3 */}
       <Problem p={o.problem} chapters={chapters} />
       {/* 4, the one orchestrated moment */}
@@ -133,6 +135,7 @@ export default function OutboundPage() {
       {/* 12 */}
       <Faq items={o.faq} />
       {/* 13 */}
+      <ForecastCTA from="outbound-book" />
       <Book b={o.book} />
       <Footer goldRule={false} />
 

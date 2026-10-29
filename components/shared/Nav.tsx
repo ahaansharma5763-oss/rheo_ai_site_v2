@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 /* 2026-07-29 rebuild: four items maximum. No product names in the header. */
 const LINKS = [
@@ -11,11 +12,15 @@ const LINKS = [
   { label: 'About', href: '/about' },
 ];
 
-const AUDIT = 'https://audit.rheoai.co.in';
+/* The one CTA: the free Pipeline Forecast (b-009, Ahaan 29 Oct). The leak-number audit stays in the footer. */
+const CTA_HREF = '/forecast?utm_source=site&utm_medium=nav';
+const CTA_LABEL = 'Free pipeline forecast';
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const onForecast = usePathname() === '/forecast';
+  const ctaHref = onForecast ? '#get' : CTA_HREF;
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 24);
@@ -119,7 +124,7 @@ export default function Nav() {
 
         {/* The one CTA */}
         <a
-          href={AUDIT}
+          href={ctaHref}
           className="nav-cta"
           style={{
             fontFamily: 'var(--sans)',
@@ -141,7 +146,7 @@ export default function Nav() {
             e.currentTarget.style.background = 'transparent';
           }}
         >
-          Show me what I&rsquo;m losing
+          {CTA_LABEL}
         </a>
 
         {/* Hamburger */}
@@ -206,7 +211,7 @@ export default function Nav() {
           </Link>
         ))}
         <a
-          href={AUDIT}
+          href={ctaHref}
           onClick={() => setOpen(false)}
           style={{
             marginTop: '12px',
@@ -221,12 +226,13 @@ export default function Nav() {
             textDecoration: 'none',
           }}
         >
-          Show me what I&rsquo;m losing
+          {CTA_LABEL}
         </a>
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
+        /* 1080, not 900: the forecast CTA label is longer and met the centre links between 901 and 1024px (brand gate, 29 Oct) */
+        @media (max-width: 1079px) {
           .nav-desktop { display: none !important; }
           .nav-cta { display: none !important; }
           .nav-hamburger { display: flex !important; }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Nav from '@/components/shared/Nav';
 import Footer from '@/components/shared/Footer';
+import ForecastCTA from '@/components/forecast/ForecastCTA';
 import PageGradient from '@/components/shared/PageGradient';
 import AboutHero from '@/components/about/AboutHero';
 import TheName from '@/components/about/TheName';
@@ -34,6 +35,7 @@ export default function AboutPage() {
         <HowWeGotHere />
         <WhatWeBuildToward />
         <AboutCTA />
+        <ForecastCTA />
         <Footer />
       </div>
     </main>

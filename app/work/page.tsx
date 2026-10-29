@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/shared/Nav'
 import Footer from '@/components/shared/Footer'
+import ForecastCTA from '@/components/forecast/ForecastCTA'
 import PageGradient from '@/components/shared/PageGradient'
 import Reveal from '@/components/home/Reveal'
 import { BrandButton } from '@/components/follow/HeroClose'
@@ -189,6 +190,7 @@ export default function WorkPage() {
           </Reveal>
         </section>
 
+        <ForecastCTA />
         <Footer />
       </div>
     </main>

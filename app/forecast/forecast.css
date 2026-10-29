@@ -119,3 +119,87 @@
 @media (prefers-reduced-motion: reduce) {
   .pf-progress span, .pf-chip, .pf-btn, .pf-field input, .pf-field textarea { transition: none; }
 }
+
+/* ───── lively layer (b-009, round 2): one orchestrated moment per view, rises of 14px, the swell only ───── */
+/* Content is never held invisible: the hero moves without fading (a background tab may never run the animation),
+   and swapped content fades from 0.4, so a frozen first frame still reads. */
+@keyframes pf-up { from { opacity: 0.4; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes pf-lift { from { transform: translateY(14px); } to { transform: none; } }
+.pf-rise { animation: pf-up 0.42s var(--ease) both; }
+.pf-load .pf-hero-copy > * { animation: pf-lift 0.7s var(--ease) both; }
+.pf-load .pf-hero-copy > *:nth-child(2) { animation-delay: 0.12s; }
+.pf-load .pf-hero-copy > *:nth-child(3) { animation-delay: 0.24s; }
+.pf-load .pf-hero-copy > *:nth-child(4) { animation-delay: 0.36s; }
+.pf-load .pf-hero-form { animation: pf-lift 0.7s var(--ease) 0.3s both; }
+
+/* the entry, taken apart */
+.pf-show { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; margin-top: 8px; }
+@media (min-width: 960px) { .pf-show { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(40px, 6vw, 88px); } }
+.pf-parts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.pf-part {
+  font: inherit; text-align: left; background: transparent; border: 0; border-bottom: 1px solid var(--line-soft);
+  padding: 18px 0 18px 18px; cursor: pointer; display: grid; gap: 6px; position: relative; color: var(--fg); min-height: 44px;
+}
+.pf-part::before { content: ''; position: absolute; left: 0; top: 18px; bottom: 18px; width: 1px; background: var(--line); transition: background 0.26s var(--ease); }
+.pf-part[aria-selected='true']::before { background: var(--crest); }
+.pf-part-l { font-weight: 500; font-size: 1rem; }
+.pf-part-b { font-size: var(--fs-body-sm); color: var(--text-2, var(--fg-mute)); line-height: 1.55; }
+.pf-part[aria-selected='false'] .pf-part-l { color: var(--text-2, var(--fg-mute)); }
+.pf-part:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.pf-show-note { margin: 18px 0 0; font-size: 0.82rem; color: var(--text-3, var(--fg-dim)); line-height: 1.55; }
+.pf-entry-wrap { min-width: 0; }
+.pf-entry { border: 1px solid var(--line); background: var(--panel); padding: clamp(20px, 2.6vw, 30px); display: grid; gap: 0; min-height: 360px; }
+.pf-entry-head { display: grid; gap: 4px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.pf-entry-co { margin: 8px 0 0; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.25; color: var(--fg); }
+.pf-entry-size { margin: 0; font-size: 0.88rem; color: var(--text-3, var(--fg-dim)); }
+.pf-row { padding: 16px 0 16px 16px; border-bottom: 1px solid var(--line-soft); position: relative; }
+.pf-row:last-child { border-bottom: 0; }
+.pf-row::before { content: ''; position: absolute; left: 0; top: 16px; bottom: 16px; width: 1px; background: transparent; transition: background 0.26s var(--ease); }
+.pf-row .pf-row-t { color: var(--text-2, var(--fg-mute)); transition: color 0.26s var(--ease); }
+.pf-row.is-on .pf-row-t { color: var(--fg); }
+.pf-row.is-on::before { background: var(--crest); }
+.pf-row-l { display: block; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-3, var(--fg-dim)); margin-bottom: 8px; }
+.pf-row-meta { margin: 0 0 6px; font-size: 0.82rem; color: var(--text-2, var(--fg-mute)); }
+.pf-date { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--fg); border: 1px solid var(--line); padding: 2px 6px; margin-right: 6px; }
+.pf-row-t { margin: 0; font-size: var(--fs-body-sm); line-height: 1.6; }
+.pf-entry-ctl { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 12px; }
+.pf-dots { display: flex; gap: 6px; }
+.pf-dots span { width: 18px; height: 1px; background: var(--line); transition: background 0.26s var(--ease); }
+.pf-dots span.is-on { background: var(--crest); }
+.pf-ctl-btns { display: flex; gap: 6px; }
+.pf-ctl { font: inherit; min-width: 44px; min-height: 44px; padding: 0 12px; background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 0; cursor: pointer; display: inline-grid; place-items: center; transition: border-color 0.16s var(--ease); }
+.pf-ctl:hover { border-color: var(--crest); }
+.pf-ctl:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.pf-ctl--text { font-size: 0.82rem; letter-spacing: 0.04em; }
+
+/* how it works: the hairline draws, the steps rise in order */
+.pf-steps-wrap { position: relative; }
+.pf-steps-line { position: absolute; left: 0; top: -1px; height: 1px; width: 100%; background: var(--crest); transform-origin: left; transform: scaleX(1); z-index: 1; }
+.pf-steps-wrap .pf-steps li { transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.pf-steps--armed .pf-steps-line { transform: scaleX(0); }
+.pf-steps--on .pf-steps-line { transform: scaleX(1); transition: transform 0.9s var(--ease); }
+.pf-steps--armed .pf-steps li { opacity: 0.4; transform: translateY(14px); }
+
+/* form reactions */
+.pf-stepbody { display: grid; gap: 20px; }
+.pf-note { margin: 0; border-left: 1px solid var(--crest); padding: 8px 0 8px 14px; font-size: 0.88rem; line-height: 1.55; color: var(--text-2, var(--fg-mute)); }
+.pf-summary { border: 1px solid var(--line-soft); padding: 14px 16px; background: var(--bg-low); }
+.pf-summary-l { display: block; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-3, var(--fg-dim)); margin-bottom: 10px; }
+.pf-summary dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 14px; font-size: 0.88rem; line-height: 1.5; }
+.pf-summary dt { color: var(--text-3, var(--fg-dim)); }
+.pf-summary dd { margin: 0; color: var(--fg); overflow-wrap: anywhere; }
+
+/* phones: the bar that brings the form back */
+.pf-sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: none;
+  padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: var(--bg-low); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform 0.26s var(--ease);
+}
+.pf-sticky .pf-btn { width: 100%; }
+@media (max-width: 1079px) { .pf-sticky { display: block; } }
+.pf-sticky.is-on { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-rise, .pf-load .pf-hero-copy > *, .pf-load .pf-hero-form { animation: none; }
+  .pf-steps-line, .pf-steps-wrap .pf-steps li, .pf-row .pf-row-t, .pf-row::before, .pf-part::before, .pf-dots span, .pf-sticky, .pf-ctl { transition: none; }
+}

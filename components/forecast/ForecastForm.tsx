@@ -5,7 +5,7 @@
  * failure says so and gives the fallback address. It never claims success it did not get. */
 
 import { useEffect, useRef, useState } from 'react';
-import { forecast, MARKETS, DEALS, SOURCES, OWNERS } from './content';
+import { forecast, MARKETS, DEALS, SOURCES, OWNERS, FORM_LIVE } from './content';
 
 const F = forecast.form;
 type Status = 'idle' | 'sending' | 'error' | 'done';
@@ -217,6 +217,7 @@ export default function ForecastForm() {
         <span className="pf-mono">{step + 1} / 3</span> {F.steps[step]}
       </p>
 
+      <div key={step} className="pf-stepbody pf-rise">
       {step === 0 && (
         <>
           {text('website', { type: 'text', inputMode: 'url', autoComplete: 'url', spellCheck: false, placeholder: F.fields.websitePh })}
@@ -228,18 +229,29 @@ export default function ForecastForm() {
         <>
           {chips('markets', F.fields.markets, MARKETS)}
           {radios('deal', F.fields.deal, DEALS)}
+          {(d.deal === DEALS[0] || d.deal === DEALS[1]) && <p className="pf-note pf-rise">{FORM_LIVE.smallDeal}</p>}
+          {d.markets.length === 1 && d.markets[0] === 'India' && <p className="pf-note pf-rise">{FORM_LIVE.indiaOnly}</p>}
           {chips('sources', F.fields.sources, SOURCES)}
           {radios('owner', F.fields.owner, OWNERS)}
         </>
       )}
       {step === 2 && (
         <>
+          <div className="pf-summary">
+            <span className="pf-summary-l">{FORM_LIVE.summaryTitle}</span>
+            <dl>
+              <dt>{FORM_LIVE.summaryRows.sells}</dt><dd>{d.sells}</dd>
+              <dt>{FORM_LIVE.summaryRows.buyers}</dt><dd>{d.buyers}</dd>
+              <dt>{FORM_LIVE.summaryRows.markets}</dt><dd>{d.markets.join(', ')}</dd>
+            </dl>
+          </div>
           {text('name', { type: 'text', autoComplete: 'name' })}
           {text('role', { type: 'text', autoComplete: 'organization-title' })}
           {text('email', { type: 'email', inputMode: 'email', autoComplete: 'email', spellCheck: false })}
           {text('phone', { type: 'tel', inputMode: 'tel', autoComplete: 'tel', placeholder: F.fields.phonePh })}
         </>
       )}
+      </div>
 
       {/* Honeypot: invisible to people, irresistible to bots */}
       <div className="pf-hp" aria-hidden>

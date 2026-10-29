@@ -3,6 +3,7 @@
 import Link from 'next/link';
 
 const LINKS = [
+  { label: 'Free Pipeline Forecast', href: '/forecast' },
   { label: 'What we build', href: '/what-we-build' },
   { label: 'Outbound', href: '/outbound' },
   { label: 'Results', href: '/work' },

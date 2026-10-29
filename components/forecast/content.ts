@@ -40,7 +40,7 @@ export const forecast = {
       },
       {
         title: 'How to reach them',
-        body: 'The routes the company publishes itself: its email address and phone number, and the public LinkedIn profile of the person, where there is one. We do not guess addresses.',
+        body: 'Public routes only: the email address and phone number the company publishes, and the person’s public LinkedIn profile where there is one. We do not guess addresses.',
       },
     ],
     whole:
@@ -123,4 +123,72 @@ export const forecast = {
     thanksBody: 'We will reply within 2 working hours (Monday to Friday, 8:00 to 18:00 UAE time). Anything sent outside those hours is answered by 10:00 UAE time on the next working day.',
     thanksNext: 'Your forecast follows within two working days, and we will set a time to walk you through it.',
   },
+} as const
+
+/* The band that sends visitors to /forecast from every other page. One gold per band: the button hairline. */
+export const FORECAST_CTA = {
+  eyebrow: 'Pipeline Forecast · Free',
+  button: 'Get your free forecast',
+  sub: 'Free. Researched in two working days. Yours to keep.',
+  headings: {
+    'home-mid': 'If you sell to other businesses, see ten with a dated, public reason to need what you sell: a job ad, a hire or an announcement.',
+    'home-close': 'Start with the ten companies we would write to first.',
+    'outbound-top': 'See who we would write to for you, before you book a call.',
+    'outbound-book': 'See what we find in your market before you book. Get your Pipeline Forecast.',
+    default: 'See the first ten companies we would write to for you.',
+  } as Record<string, string>,
+} as const
+
+/* /forecast: the anatomy of one entry. Three entries from a forecast built in October 2026, names removed. */
+export const SHOWCASE = {
+  eyebrow: 'One entry, taken apart',
+  heading: 'What a forecast entry looks like.',
+  note: 'Three entries from a forecast we built in October 2026, with names removed.',
+  parts: [
+    { key: 'why', label: 'Why now', body: 'The public signal, its date and where it was published.' },
+    { key: 'who', label: 'Who signs', body: 'The person we judge would sign, and why it is them.' },
+    { key: 'route', label: 'How to reach them', body: 'Public routes only. Nothing guessed.' },
+  ],
+  entries: [
+    {
+      company: 'Printing and packaging house, UAE',
+      size: 'About 200 staff',
+      date: '22 Oct 2026',
+      source: 'Job ad, NaukriGulf',
+      why: 'Hiring an Odoo developer to migrate their system between versions and connect it to outside applications.',
+      who: 'Our judgement: the general manager of its parent group. The group site says the role oversees day-to-day operations across the group’s companies.',
+      route: 'The group’s published email and main line, and the general manager’s public profile.',
+    },
+    {
+      company: 'Quick-service restaurant operator, UAE',
+      size: '501 to 1,000 staff',
+      date: '5 Oct 2026',
+      source: 'Job ad, NaukriGulf',
+      why: 'Hiring an IT coordinator to support ERP users in inventory, purchasing and recipes across the restaurants.',
+      who: 'Our judgement: the chairman. The company’s own team page lists the chairman as its leader, and a change of system across every outlet is an owner-level decision.',
+      route: 'The company’s published email and phone number.',
+    },
+    {
+      company: 'Family entertainment and early learning group, UAE',
+      size: '201 to 500 staff',
+      date: '20 Oct 2026',
+      source: 'Job ad, LinkedIn',
+      why: 'Hiring a senior accountant for revenue, VAT and corporate tax across the group, with ERP and POS experience.',
+      who: 'Our judgement: the founder and CEO. The company site names the role as head of the group, and the ad covers VAT and tax across the whole group.',
+      route: 'The group’s published email and the founder’s public profile.',
+    },
+  ],
+  prev: 'Previous entry',
+  next: 'Next entry',
+  pause: 'Pause',
+  play: 'Play',
+} as const
+
+/* Reactions inside the form */
+export const FORM_LIVE = {
+  smallDeal: 'The forecast is built for first-year deals of AED 50,000 or more. You can still send it, and we will tell you plainly whether it fits.',
+  indiaOnly: 'We research the UAE and the wider GCC first. You can still send it, and we will tell you plainly whether we can cover India.',
+  summaryTitle: 'Your forecast will look for',
+  summaryRows: { sells: 'What you sell', buyers: 'Who buys it', markets: 'Where' },
+  stickyCta: 'Request my forecast',
 } as const

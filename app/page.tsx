@@ -20,6 +20,7 @@ import { FYFramework } from '@/components/follow/Framework'
 import { FYProof, FYFaq } from '@/components/follow/Proof'
 import { FAQS } from '@/components/follow/faqData'
 import OutboundBridge from '@/components/outbound/Bridge'
+import ForecastCTA from '@/components/forecast/ForecastCTA'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -62,6 +63,8 @@ export default function Home() {
         {/* §4 the money + frozen proof strip */}
         <LedgerCompare />
         <StatStrip />
+        {/* Pipeline Forecast band (b-009) */}
+        <ForecastCTA from="home-mid" />
         {/* §5 why speed decides it */}
         <FYSpeed />
         {/* §6 what it is */}
@@ -89,6 +92,7 @@ export default function Home() {
         <FounderBlock />
         {/* §16 close */}
         <FYClose />
+        <ForecastCTA from="home-close" />
         <Footer />
       </div>
     </main>
