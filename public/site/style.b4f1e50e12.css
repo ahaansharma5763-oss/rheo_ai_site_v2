@@ -531,3 +531,4 @@ summary::after{color:var(--blue)}
 .lanes span:first-child.on{color:var(--ink)}
 .scan span{top:80%}
 @media (max-width:899px){.callcover~.cta .lnk{background:rgba(5,14,29,.85);padding-inline:6px}}
+.lanes span{transition:color .3s var(--ease),background-color .3s var(--ease),box-shadow .3s var(--ease)}
