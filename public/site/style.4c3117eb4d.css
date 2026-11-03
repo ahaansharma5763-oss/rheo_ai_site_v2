@@ -532,3 +532,18 @@ summary::after{color:var(--blue)}
 .scan span{top:80%}
 @media (max-width:899px){.callcover~.cta .lnk{background:rgba(5,14,29,.85);padding-inline:6px}}
 .lanes span{transition:color .3s var(--ease),background-color .3s var(--ease),box-shadow .3s var(--ease)}
+
+/* the reading page: no ocean, one column of plain text */
+.plain #nav{background:var(--ink);box-shadow:inset 0 -1px 0 var(--line)}
+.doc{position:relative;z-index:5;padding:clamp(120px,19vh,176px) var(--edge) clamp(72px,12vh,120px)}
+.doc-head{display:grid;gap:clamp(14px,2.5vh,22px);max-width:46rem;justify-items:start;margin-bottom:clamp(48px,8vh,80px)}
+.doc-head h1{font-size:clamp(2.4rem,min(4.4vw,9vh),4rem)}
+.doc-sec{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,40rem);gap:12px clamp(24px,5vw,80px);padding-block:clamp(28px,5vh,44px);box-shadow:inset 0 1px 0 var(--line)}
+.doc-sec h2{font:500 1.25rem/1.2 var(--sans);letter-spacing:-.02em;color:var(--fg)}
+.doc-body{display:grid;gap:14px;color:var(--fg2)}
+.doc-body ul{display:grid;gap:8px}
+.doc-body li{position:relative;padding-left:20px}
+.doc-body li::before{content:"";position:absolute;left:0;top:.75em;width:9px;height:1px;background:var(--mist)}
+.doc-body .lnk{font-size:inherit}
+#form .small .lnk{font-size:inherit}
+@media (max-width:899px){.doc-sec{grid-template-columns:minmax(0,1fr)}}

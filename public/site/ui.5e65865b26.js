@@ -8,10 +8,10 @@ const W = window.RheoWorld, PAGE = window.PAGE || { stages: [], scenes: [] }, ro
 const STILL = matchMedia('(prefers-reduced-motion: reduce)').matches, TOUCH = matchMedia('(pointer: coarse)').matches;
 const SMALLV = () => innerWidth < 900;
 (function () { const b = $('#mbtn'), m = $('#mlist'); if (!b) return; b.addEventListener('click', () => { const open = m.hidden; m.hidden = !open; b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = open ? 'Close' : 'Menu'; root.classList.toggle('locked', open); }); addEventListener('keydown', e => { if (e.key === 'Escape' && !m.hidden) b.click(); }); })();
+let lenis = null; /* before the early return: boundForm reads it */
 if (!W) { boundForm(); return; }
 
 /* ---------- smooth scroll ---------- */
-let lenis = null;
 if (window.Lenis && !STILL && !TOUCH) lenis = new Lenis({ lerp: .085, wheelMultiplier: .92 });
 const goTo = (t, off) => { if (lenis) lenis.scrollTo(t, { offset: off || 0, duration: 1.7, easing: x => 1 - Math.pow(1 - x, 3.4) }); else if (typeof t === 'number') scrollTo({ top: t, behavior: STILL ? 'auto' : 'smooth' }); else t.scrollIntoView({ behavior: STILL ? 'auto' : 'smooth' }); };
 

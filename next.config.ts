@@ -9,6 +9,7 @@ const PAGES: Record<string, string> = {
   "/free-list": "list",
   "/about": "about",
   "/call": "call",
+  "/privacy": "privacy",
 };
 
 const nextConfig: NextConfig = {
